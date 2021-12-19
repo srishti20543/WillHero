@@ -1,10 +1,6 @@
 package gui.willhero;
 
 import javafx.animation.*;
-import java.io.File;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,8 +14,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,14 +22,7 @@ import java.util.ResourceBundle;
 
 public class PlayGame implements Initializable {
     @FXML
-    private AnchorPane gamePane;
-
-    @FXML
-    private AnchorPane uiPane;
-
-    @FXML
-    private AnchorPane pausePane, settingsPane;
-
+    private AnchorPane gamePane, uiPane, pausePane, settingsPane;
 
     @FXML
     private Button moveForward;
@@ -113,15 +100,8 @@ public class PlayGame implements Initializable {
 
     @FXML
     private Button restart;
-
-    private File directory;
-    private File[] files;
-    private ArrayList<File> songs;
-    private Media media;
-    private MediaPlayer mediaPlayer;
-    private int songNumber;
     private int position;
-    private boolean isPauseDisabled = false, running, isSettingDisabled = false;;
+    private boolean isPauseDisabled = false,isSettingDisabled = false;;
     private final TranslateTransition jump = new TranslateTransition();
 
     @Override
@@ -136,16 +116,6 @@ public class PlayGame implements Initializable {
         jump.setNode(helmet);
         jump.play();
 
-        songs = new ArrayList<>();
-        directory = new File("Music");
-        files = directory.listFiles();
-        if(files != null){
-            for(File file : files)
-                songs.add(file);
-        }
-
-        media = new Media(songs.get(songNumber).toURI().toString());
-        mediaPlayer = new MediaPlayer(media);
 
 
         floating(island1);
@@ -167,12 +137,6 @@ public class PlayGame implements Initializable {
         fanRotate();
         togglePause();
 
-        volume.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
-                mediaPlayer.setVolume(volume.getValue() * 0.01);
-            }
-        });
     }
 
     public void setMoveForward(){
@@ -281,7 +245,7 @@ public class PlayGame implements Initializable {
     }
 
     public void setSettingsButton() throws IOException {
-        if(isPauseDisabled){
+        if(isSettingDisabled){
             settingsPane.setDisable(false);
             settingsPane.setOpacity(1);
             isSettingDisabled = false;
@@ -295,34 +259,5 @@ public class PlayGame implements Initializable {
 
     public void setExit(){
         System.exit(0);
-    }
-
-    public void playMedia(){
-        mediaPlayer.play();
-    }
-
-    public void pauseMedia(){
-        mediaPlayer.pause();
-    }
-
-    public void nextMedia(){
-        if(songNumber < songs.size() - 1){
-            songNumber++;
-            mediaPlayer.stop();
-            media = new Media(songs.get(songNumber).toURI().toString());
-            mediaPlayer = new MediaPlayer(media);
-        }
-        else{
-            songNumber =  0;
-            mediaPlayer.stop();
-            media = new Media(songs.get(songNumber).toURI().toString());
-            mediaPlayer = new MediaPlayer(media);
-        }
-
-        playMedia();
-    }
-
-    public void prevMedia(){
-
     }
 }

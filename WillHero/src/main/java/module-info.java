@@ -1,7 +1,6 @@
 module gui.willhero {
     requires javafx.controls;
     requires javafx.fxml;
-    requires javafx.media;
     requires java.desktop;
 
 
