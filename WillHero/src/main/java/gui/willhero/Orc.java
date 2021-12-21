@@ -1,5 +1,7 @@
 package gui.willhero;
 
+import javafx.scene.image.ImageView;
+
 abstract class Orc extends GameObject{
 
     private int damage;
@@ -19,5 +21,6 @@ abstract class Orc extends GameObject{
     abstract public void setHealth();
     abstract public void setDead();
     abstract public void getDead();
+    public abstract void addOrc(ImageView orc);
 }
 

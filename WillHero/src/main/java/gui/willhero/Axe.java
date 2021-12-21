@@ -1,16 +1,27 @@
 package gui.willhero;
 
+import javafx.scene.Node;
+import javafx.scene.image.ImageView;
+
+import java.util.ArrayList;
+
 public class Axe extends Weapons{
 
+    private ArrayList<Node> OrcAxe = new ArrayList<>();
     private int level;
 
     Axe(){
-        super("Knives", 10, 1, true);
+        super("Axe", 10);
         level = 1;
     }
 
     @Override
-    public void setLevel() {
-        level++;
+    public void addWep(ImageView axe){
+        OrcAxe.add(axe);
+    }
+
+    @Override
+    public int onCollision(ImageView helmet) {
+        return 0;
     }
 }
