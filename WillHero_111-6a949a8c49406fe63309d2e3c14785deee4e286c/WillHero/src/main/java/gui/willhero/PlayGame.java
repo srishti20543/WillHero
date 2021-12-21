@@ -30,10 +30,8 @@ import java.util.ResourceBundle;
 
 public class PlayGame implements Initializable {
     @FXML
-    private AnchorPane gamePane, settingPane;
+    private AnchorPane gamePane, settingPane, uiPane;
 
-    @FXML
-    private AnchorPane uiPane;
 
     @FXML
     private AnchorPane pausePane;
@@ -52,7 +50,10 @@ public class PlayGame implements Initializable {
     private Button pause;
 
     @FXML
-    private Rectangle rec1, rec3, rec2;
+    private Rectangle rec1, rec2, rec3, rec4, rec5, rec6, rec7, rec8, rec9, rec10, rec11, rec12, rec13, rec14, rec15,
+            rec16, rec17, rec18;
+
+//rec19, rec20, rec21, rec22, rec23, rec24, rec25, rec26, rec27, rec28, rec29, rec30, rec31, rec32, rec33, rec34, rec35, rec36, rec37, rec38, rec39, rec40, rec41, rec42, rec43, rec44, rec45, rec46, rec47, rec48, rec49, rec50;
 
     @FXML
     private ImageView island1;
@@ -143,6 +144,25 @@ public class PlayGame implements Initializable {
         platforms.add(rec1);
         platforms.add(rec2);
         platforms.add(rec3);
+        platforms.add(rec4);
+        platforms.add(rec5);
+        platforms.add(rec6);
+        platforms.add(rec7);
+        platforms.add(rec8);
+        platforms.add(rec9);
+        platforms.add(rec10);
+        platforms.add(rec11);
+        platforms.add(rec12);
+        platforms.add(rec13);
+        platforms.add(rec14);
+        platforms.add(rec15);
+        platforms.add(rec16);
+        platforms.add(rec17);
+        platforms.add(rec18);
+
+        for(Node platform: platforms){
+            platform.setOpacity(0.0);
+        }
 
         OrcattackHelmet();
         OrcJump(orc1);

@@ -230,7 +230,7 @@
             <Image url="@Images/FloatingIsland1.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="121.0" fitWidth="105.0" layoutX="1538.0" layoutY="143.0">
+      <ImageView fitHeight="131.0" fitWidth="113.0" layoutX="1530.0" layoutY="134.0">
          <image>
             <Image url="@Images/trial.png" />
          </image>
@@ -381,5 +381,20 @@
             </ImageView>
          </children>
       </AnchorPane>
+      <Rectangle fx:id="rec4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="850.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+      <Rectangle fx:id="rec5" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1036.0" layoutY="305.0" stroke="BLACK" strokeType="INSIDE" width="270.0" />
+      <Rectangle fx:id="rec6" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="1364.0" layoutY="281.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
+      <Rectangle fx:id="rec7" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1508.0" layoutY="292.0" stroke="BLACK" strokeType="INSIDE" width="301.0" />
+      <Rectangle fx:id="rec8" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1871.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="113.0" />
+      <Rectangle fx:id="rec9" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2043.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Rectangle fx:id="rec10" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2309.0" layoutY="279.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
+      <Rectangle fx:id="rec11" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2475.0" layoutY="297.0" stroke="BLACK" strokeType="INSIDE" width="220.0" />
+      <Rectangle fx:id="rec12" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2749.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
+      <Rectangle fx:id="rec13" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2994.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="363.0" />
+      <Rectangle fx:id="rec14" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3446.0" layoutY="283.0" stroke="BLACK" strokeType="INSIDE" width="289.0" />
+      <Rectangle fx:id="rec15" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3828.0" layoutY="266.0" stroke="BLACK" strokeType="INSIDE" width="318.0" />
+      <Rectangle fx:id="rec17" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4382.0" layoutY="276.0" stroke="BLACK" strokeType="INSIDE" width="318.0" />
+      <Rectangle fx:id="rec16" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4211.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="rec18" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4757.0" layoutY="249.0" stroke="BLACK" strokeType="INSIDE" width="211.0" />
    </children>
 </AnchorPane>
