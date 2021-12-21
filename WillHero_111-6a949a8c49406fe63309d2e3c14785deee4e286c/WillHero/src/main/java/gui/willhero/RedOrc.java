@@ -29,4 +29,9 @@ public class RedOrc extends Orc{
     public int onCollision(ImageView helmet) {
         return -1;
     }
+
+    @Override
+    public void addOrc(ImageView orc){
+
+    }
 }

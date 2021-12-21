@@ -1,5 +1,7 @@
 package gui.willhero;
 
+import javafx.scene.image.ImageView;
+
 public class Knives extends Weapons{
 
     Knives(){
@@ -8,6 +10,11 @@ public class Knives extends Weapons{
 
     @Override
     public void setLevel() {
+
+    }
+
+    @Override
+    public void addWep(ImageView knife) {
 
     }
 }

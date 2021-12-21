@@ -56,6 +56,16 @@ public class PlayGame implements Initializable {
     private ImageView cloud1, cloud2, cloud3, cloud4, cloud5, cloud6, cloud7, cloud8, cloud9, cloud10;
 
     @FXML
+    private ImageView coin1, coin2, coin3, coin4, coin5, coin6, coin7, coin8, coin9, coin10;
+
+    @FXML
+    private ImageView ro1, ro2, ro3, ro4, ro5, ro6, ro7, ro8, ro9, ro10;
+    @FXML
+    private ImageView go1, go2, go3, go4, go5, go6, go7,go8, go9, go10;
+    @FXML
+    private ImageView axe1, axe2, axe3, axe4, axe5, axe6, axe7, axe8, axe9, axe10;
+
+    @FXML
     private ImageView WeaponChestClosed;
     @FXML
     private ImageView WeaponChestOpen;
@@ -81,34 +91,39 @@ public class PlayGame implements Initializable {
 
     @FXML
     private Label coinCount;
+    private int coinCnt;
 
     @FXML
     private Point2D playerVelocity = new Point2D(0, 0);
 
-
-//    private final ArrayList<Node> platforms = new ArrayList<>();
     private int position;
     private boolean isPauseDisabled, isSettingDisabled;
-    private final TranslateTransition jump = new TranslateTransition();
+//    private final TranslateTransition jump = new TranslateTransition();
 
     private FloatingIsland floatingIsland = new FloatingIsland();
     private Windmill windmill = new Windmill();
     private Clouds cloud = new Clouds();
+    private Coin coin = new Coin();
+    private Weapons axe = new Axe();
+    private Orc gOrc = new MediumHatAxe();
+    private Orc rOrc = new ShieldedOrc();
+
 
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
         position = 0;
+        coinCnt = 0;
         isSettingDisabled = true;
         isPauseDisabled =  true;
 
         addPlatform();
         addWindmill();
         addCloud();
-
-        OrcattackHelmet();
-        OrcJump(orc1);
+        addCoins();
+//        addGreenOrc();
+//        addRedOrc();
 
         AnimationTimer timer = new AnimationTimer() {
             @Override
@@ -151,6 +166,71 @@ public class PlayGame implements Initializable {
         cloud.addClouds(cloud10);
     }
 
+    private void addCoins(){
+        coin.addCoins(coin1);
+        coin.addCoins(coin2);
+        coin.addCoins(coin3);
+        coin.addCoins(coin4);
+        coin.addCoins(coin5);
+        coin.addCoins(coin6);
+        coin.addCoins(coin7);
+        coin.addCoins(coin8);
+        coin.addCoins(coin9);
+        coin.addCoins(coin10);
+    }
+
+    /*private void addRedOrc(){
+        rOrc.addOrc(ro1);
+        rOrc.addOrc(ro2);
+        rOrc.addOrc(ro3);
+        rOrc.addOrc(ro4);
+        rOrc.addOrc(ro5);
+        rOrc.addOrc(ro6);
+        rOrc.addOrc(ro7);
+        rOrc.addOrc(ro8);
+        rOrc.addOrc(ro9);
+        rOrc.addOrc(ro10);
+    }
+
+    private void addGreenOrc() {
+        gOrc.addOrc(go1);
+        gOrc.addOrc(go2);
+        gOrc.addOrc(go3);
+        gOrc.addOrc(go4);
+        gOrc.addOrc(go5);
+        gOrc.addOrc(go6);
+        gOrc.addOrc(go7);
+        gOrc.addOrc(go8);
+        gOrc.addOrc(go9);
+        gOrc.addOrc(go10);
+    }
+
+    private void addAxe(){
+
+        axe.addWep(axe1);
+        axe.addWep(axe2);
+        axe.addWep(axe3);
+        axe.addWep(axe4);
+        axe.addWep(axe5);
+        axe.addWep(axe6);
+        axe.addWep(axe7);
+        axe.addWep(axe8);
+        axe.addWep(axe9);
+        axe.addWep(axe10);
+
+    }
+     */
+
+
+    public void update(){
+
+        if (playerVelocity.getY() < 10) {
+            playerVelocity = playerVelocity.add(0, 1);
+        }
+
+        movePlayerY((int)playerVelocity.getY());
+    }
+
     public void setMoveForward(){
         position++;
         gamePane.setTranslateX(gamePane.getTranslateX() - 75);
@@ -160,55 +240,49 @@ public class PlayGame implements Initializable {
         movePlayerX(75);
     }
 
-    public void togglePause(){
-        if(isPauseDisabled){
-            pausePane.setDisable(false);
-            pausePane.setOpacity(1);
-            isPauseDisabled = false;
-        }
-        else {
-            pausePane.setDisable(true);
-            pausePane.setOpacity(0);
-            isPauseDisabled = true;
-        }
-    }
 
-    public void toggleSetting(){
-        if(isPauseDisabled){
-            if(isSettingDisabled){
-                settingPane.setDisable(false);
-                settingPane.setOpacity(1);
-                isSettingDisabled = false;
+    private void movePlayerX(int value) {
+        boolean movingRight = value > 0;
+
+        for (int i = 0; i < Math.abs(value); i++) {
+            if(checkCollisionIsland() == 1){
+                helmet.setTranslateX(helmet.getTranslateX() - 10);
             }
-            else {
-                settingPane.setDisable(true);
-                settingPane.setOpacity(0);
-                isSettingDisabled = true;
+            else if(checkCollisionCoin() == 1){
+                //increaseCoinCount
+                coinCnt++;
+                coinCount.setText(String.valueOf(coinCnt));
+            }
+
+            helmet.setTranslateX(helmet.getTranslateX() + (movingRight ? 1 : -1));
+        }
+    }
+
+    public void movePlayerY(int value){
+
+        for (int i = 0; i < Math.abs(value); i++) {
+            if(checkCollisionIsland() == 1){
+                TranslateTransition an = new TranslateTransition();
+                an.setNode(helmet);
+                an.setDuration(Duration.seconds(1));
+                an.setByY(-75);
+                an.play();
+            }
+            else if(checkCollisionCoin() == 1){
+                //increaseCoinCount
+                coinCnt++;
+                coinCount.setText(String.valueOf(coinCnt));
             }
         }
-
+        helmet.setTranslateY(helmet.getTranslateY() + 1.75);
     }
 
-
-
-
-    public void OrcattackHelmet(){
-        RotateTransition attack = new RotateTransition();
-        attack.setAutoReverse(true);
-        attack.setToAngle(-90);
-        attack.setCycleCount(Animation.INDEFINITE);
-        attack.setNode(orcAxe);
-        attack.play();
+    private int checkCollisionIsland(){
+        return floatingIsland.onCollision(helmet);
     }
 
-    public void OrcJump(ImageView orc){
-        TranslateTransition jmp = new TranslateTransition();
-        jmp.setDuration(Duration.seconds(1.5));
-        jmp.setToY(orc.getY() - 20);
-        jmp.setAutoReverse(true);
-        jmp.setCycleCount(Animation.INDEFINITE);
-        jmp.setNode(orc);
-        jmp.play();
+    private int checkCollisionCoin(){
+        return coin.onCollision(helmet);
     }
 
 
@@ -242,59 +316,32 @@ public class PlayGame implements Initializable {
         //functionality
     }
 
-    public void update(){
-
-        if (playerVelocity.getY() < 10) {
-            playerVelocity = playerVelocity.add(0, 1);
-        }
-
-        movePlayerY((int)playerVelocity.getY());
-    }
-
-    private void movePlayerX(int value) {
-        boolean movingRight = value > 0;
-
-        for (int i = 0; i < Math.abs(value); i++) {
-            if(checkCollisionIsland() == 1){
-                helmet.setTranslateX(helmet.getTranslateX() - 10);
-            }
-            helmet.setTranslateX(helmet.getTranslateX() + (movingRight ? 1 : -1));
-        }
-    }
-
-    private int checkCollisionIsland(){
-        return floatingIsland.onCollision(helmet);
-    }
-
-    public void movePlayerY(int value){
-
-        for (int i = 0; i < Math.abs(value); i++) {
-            if(checkCollisionIsland() == 1){
-                TranslateTransition an = new TranslateTransition();
-                an.setNode(helmet);
-                an.setDuration(Duration.seconds(1));
-                an.setByY(-75);
-                an.play();
+    public void toggleSetting() {
+        if (isPauseDisabled) {
+            if (isSettingDisabled) {
+                settingPane.setDisable(false);
+                settingPane.setOpacity(1);
+                isSettingDisabled = false;
+            } else {
+                settingPane.setDisable(true);
+                settingPane.setOpacity(0);
+                isSettingDisabled = true;
             }
         }
-        helmet.setTranslateY(helmet.getTranslateY() + 1.75);
+
     }
 
-    public void throwKnife(){
-        TranslateTransition translate = new TranslateTransition();
-        translate.setNode(knife);
-        translate.setDuration(Duration.millis(1000));
-        translate.setByX(500);
-        translate.play();
-    }
-
-    public void rotateSword(){
-        RotateTransition rotate = new RotateTransition();
-        rotate.setNode(sword);
-        rotate.setDuration(Duration.millis(500));
-        rotate.setInterpolator(Interpolator.LINEAR);
-        rotate.setByAngle(90);
-        rotate.play();
+    public void togglePause(){
+        if(isPauseDisabled){
+            pausePane.setDisable(false);
+            pausePane.setOpacity(1);
+            isPauseDisabled = false;
+        }
+        else {
+            pausePane.setDisable(true);
+            pausePane.setOpacity(0);
+            isPauseDisabled = true;
+        }
     }
 
 }

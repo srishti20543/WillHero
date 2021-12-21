@@ -26,6 +26,11 @@ public class GreenOrc extends Orc{
     }
 
     @Override
+    public void addOrc(ImageView orc) {
+
+    }
+
+    @Override
     public int onCollision(ImageView helmet) {
         return -1;
     }

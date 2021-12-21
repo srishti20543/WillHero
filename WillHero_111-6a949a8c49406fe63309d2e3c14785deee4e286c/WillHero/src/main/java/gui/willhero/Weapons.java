@@ -1,5 +1,7 @@
 package gui.willhero;
 
+import javafx.scene.image.ImageView;
+
 abstract class Weapons {
     private String name;
     private int level;
@@ -14,4 +16,5 @@ abstract class Weapons {
     }
 
     abstract public void setLevel();
+    public abstract void addWep(ImageView axe);
 }

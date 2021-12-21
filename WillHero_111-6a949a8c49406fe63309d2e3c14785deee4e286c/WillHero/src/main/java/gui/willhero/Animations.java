@@ -69,4 +69,39 @@ public class Animations {
         floating.play();
     }
 
+    public void throwKnife(ImageView knife){
+        TranslateTransition translate = new TranslateTransition();
+        translate.setNode(knife);
+        translate.setDuration(Duration.millis(1000));
+        translate.setByX(500);
+        translate.play();
+    }
+
+    public void rotateWeapon(ImageView weapon, double angle){
+        RotateTransition rotate = new RotateTransition();
+        rotate.setNode(weapon);
+        rotate.setDuration(Duration.millis(500));
+        rotate.setInterpolator(Interpolator.LINEAR);
+        rotate.setByAngle(angle);
+        rotate.play();
+    }
+
+    public void OrcJump(ImageView orc){
+        TranslateTransition jmp = new TranslateTransition();
+        jmp.setDuration(Duration.seconds(1.5));
+        jmp.setToY(orc.getY() - 20);
+        jmp.setAutoReverse(true);
+        jmp.setCycleCount(Animation.INDEFINITE);
+        jmp.setNode(orc);
+        jmp.play();
+    }
+
+    public void toggleOpacity(ImageView img){
+        if(img.getOpacity() == 0.0){
+            img.setOpacity(1.0);
+        }
+        else{
+            img.setOpacity(0.0);
+        }
+    }
 }

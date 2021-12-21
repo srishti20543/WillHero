@@ -10,59 +10,6 @@
 
 <AnchorPane fx:id="gamePane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.willhero.PlayGame">
    <children>
-      <AnchorPane fx:id="uiPane" layoutY="3.0" prefHeight="414.0" prefWidth="700.0">
-         <children>
-            <Label fx:id="location" layoutX="298.0" layoutY="10.0" prefHeight="74.0" prefWidth="87.0" text="0" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="50.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="36.0" fitWidth="121.0" layoutX="22.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/WeaponSlot.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="11.0" fitWidth="22.0" layoutX="29.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/ThrowingKnives.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="26.0" fitWidth="9.0" layoutX="78.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/Swords.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="652.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/Coin.jpg" />
-               </image>
-            </ImageView>
-            <Label fx:id="coinCount" layoutX="618.0" layoutY="10.0" prefHeight="35.0" prefWidth="33.0" text="0" textFill="WHITE">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <Button fx:id="pause" layoutX="2.0" mnemonicParsing="false" onAction="#togglePause" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: transparent;">
-               <graphic>
-                  <ImageView fitHeight="54.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Images/pause-icon.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Button fx:id="moveForward" layoutX="22.0" layoutY="81.0" mnemonicParsing="false" onAction="#setMoveForward" opacity="0.0" prefHeight="323.0" prefWidth="679.0" text="moveForward" />
-            <ImageView fx:id="knife" layoutX="371.0" layoutY="27.0">
-               <image>
-                  <Image url="@Images/ThrowingKnives.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="sword" fitHeight="200.0" fitWidth="51.0" layoutX="488.0" layoutY="-19.0">
-               <image>
-                  <Image url="@Images/Swords.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
       <ImageView fx:id="bg" fitHeight="422.0" fitWidth="712.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/GameBackground.jpg" />
@@ -113,32 +60,32 @@
             <Image url="@Images/FloatingIsland5.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="432.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="coin5" fitHeight="19.0" fitWidth="21.0" layoutX="432.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="460.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="coin6" fitHeight="19.0" fitWidth="21.0" layoutX="460.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="404.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="coin4" fitHeight="19.0" fitWidth="21.0" layoutX="404.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="404.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="coin1" fitHeight="19.0" fitWidth="21.0" layoutX="404.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="432.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="coin2" fitHeight="19.0" fitWidth="21.0" layoutX="432.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="460.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="coin3" fitHeight="19.0" fitWidth="21.0" layoutX="460.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Coin.jpg" />
          </image>
@@ -481,5 +428,78 @@
             <Image url="@Images/Axe.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="coin8" fitHeight="19.0" fitWidth="21.0" layoutX="976.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin7" fitHeight="19.0" fitWidth="21.0" layoutX="946.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin10" fitHeight="19.0" fitWidth="21.0" layoutX="994.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin9" fitHeight="19.0" fitWidth="21.0" layoutX="954.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="uiPane" layoutY="3.0" prefHeight="414.0" prefWidth="700.0">
+         <children>
+            <Label fx:id="location" layoutX="298.0" layoutY="10.0" prefHeight="74.0" prefWidth="87.0" text="0" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="50.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="36.0" fitWidth="121.0" layoutX="22.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/WeaponSlot.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="11.0" fitWidth="22.0" layoutX="29.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/ThrowingKnives.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="9.0" layoutX="78.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Swords.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="652.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Coin.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="coinCount" layoutX="603.0" layoutY="10.0" prefHeight="36.0" prefWidth="49.0" text="0" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Button fx:id="pause" layoutX="2.0" mnemonicParsing="false" onAction="#togglePause" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="54.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/pause-icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="moveForward" layoutX="22.0" layoutY="81.0" mnemonicParsing="false" onAction="#setMoveForward" opacity="0.0" prefHeight="323.0" prefWidth="679.0" text="moveForward" />
+            <ImageView fx:id="knife" layoutX="371.0" layoutY="27.0">
+               <image>
+                  <Image url="@Images/ThrowingKnives.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="sword" fitHeight="200.0" fitWidth="51.0" layoutX="488.0" layoutY="-19.0">
+               <image>
+                  <Image url="@Images/Swords.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
