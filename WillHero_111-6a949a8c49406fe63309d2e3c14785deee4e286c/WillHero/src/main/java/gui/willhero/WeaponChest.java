@@ -17,9 +17,7 @@ public class WeaponChest extends Chest{
         for(int i = 0; i< weaponChestClosed.size(); i++){
             if (helmet.getBoundsInParent().intersects(weaponChestClosed.get(i).getBoundsInParent())) {
                 animations.toggleOpacity((ImageView) weaponChestOpen.get(i));
-
                 animations.toggleOpacity((ImageView) weaponChestClosed.get(i));
-                System.out.println(weaponChestClosed.get(i).getOpacity() + " " + weaponChestOpen.get(i).getOpacity());
                 weaponChestClosed.remove(weaponChestClosed.get(i));
                 return 1;
             }

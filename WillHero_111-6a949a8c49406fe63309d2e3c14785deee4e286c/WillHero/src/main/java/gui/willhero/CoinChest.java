@@ -15,7 +15,15 @@ public class CoinChest extends Chest{
 
     @Override
     public int onCollision(ImageView helmet) {
-        generateCoinCount();
+        for(int i = 0; i< coinChestClosed.size(); i++){
+            if (helmet.getBoundsInParent().intersects(coinChestClosed.get(i).getBoundsInParent())) {
+                animations.toggleOpacity((ImageView) coinChestOpen.get(i));
+                animations.toggleOpacity((ImageView) coinChestClosed.get(i));
+                coinChestClosed.remove(coinChestClosed.get(i));
+                generateCoinCount();
+                return coinCount;
+            }
+        }
         return -1;
     }
 

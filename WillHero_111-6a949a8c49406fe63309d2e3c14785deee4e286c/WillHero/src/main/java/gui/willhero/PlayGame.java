@@ -103,6 +103,7 @@ public class PlayGame implements Initializable {
     private final Orc gOrc = new MediumHatAxe();
     private final Orc rOrc = new ShieldedOrc();
     private final Chest weaponChest = new WeaponChest();
+    private final Chest coinChest = new CoinChest();
 
 
 
@@ -132,9 +133,6 @@ public class PlayGame implements Initializable {
         timer.start();
     }
 
-    private void addWeaponChest() {
-        weaponChest.addChest(wcc1, wco1);
-    }
 
     private void addPlatform(){
         floatingIsland.addPlatform(island1, rec1);
@@ -222,6 +220,10 @@ public class PlayGame implements Initializable {
 
     }
 
+    private void addWeaponChest() {
+        weaponChest.addChest(wcc1, wco1);
+    }
+
     public void update(){
 
         if (playerVelocity.getY() < 10) {
@@ -242,7 +244,8 @@ public class PlayGame implements Initializable {
 
 
     private void movePlayerX(int value) {
-        boolean movingRight = value > 0;
+
+        int var;
 
         for (int i = 0; i < Math.abs(value); i++) {
             if(checkCollisionIsland() == 1){
@@ -253,12 +256,21 @@ public class PlayGame implements Initializable {
                 coinCnt++;
                 coinCount.setText(String.valueOf(coinCnt));
             }
+            else if (checkCollisionWeaponChest() == 1){
+                //do something
+            }
+            else if ((var = checkCollisionCoinChest())!= -1){
+                coinCnt += var;
+                coinCount.setText(String.valueOf(coinCnt));
+            }
 
-            helmet.setTranslateX(helmet.getTranslateX() + (movingRight ? 1 : -1));
+            helmet.setTranslateX(helmet.getTranslateX() + 1);
         }
     }
 
     public void movePlayerY(int value){
+
+        int var;
 
         for (int i = 0; i < Math.abs(value); i++) {
             if(checkCollisionIsland() == 1){
@@ -273,6 +285,13 @@ public class PlayGame implements Initializable {
                 coinCnt++;
                 coinCount.setText(String.valueOf(coinCnt));
             }
+            else if (checkCollisionWeaponChest() == 1){
+                //do something
+            }
+            else if ((var = checkCollisionCoinChest())!= -1){
+                coinCnt += var;
+                coinCount.setText(String.valueOf(coinCnt));
+            }
         }
         helmet.setTranslateY(helmet.getTranslateY() + 1.75);
     }
@@ -283,6 +302,14 @@ public class PlayGame implements Initializable {
 
     private int checkCollisionCoin(){
         return coin.onCollision(helmet);
+    }
+
+    private int checkCollisionWeaponChest(){
+        return weaponChest.onCollision(helmet);
+    }
+
+    private int checkCollisionCoinChest(){
+        return coinChest.onCollision(helmet);
     }
 
 
