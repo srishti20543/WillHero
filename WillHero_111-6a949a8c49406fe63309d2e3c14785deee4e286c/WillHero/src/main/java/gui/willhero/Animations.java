@@ -68,4 +68,5 @@ public class Animations {
         floating.setNode(cloud);
         floating.play();
     }
+
 }

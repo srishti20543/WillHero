@@ -50,17 +50,10 @@ public class PlayGame implements Initializable {
     private ImageView island1, island2, island3, island4, island5, island6, island7, island8, island9, island10, island11, island12, island13, island14, island15, island16, island17, island18, island19, island20;
 
     @FXML
-    private ImageView sword;
+    private ImageView sword, knife;
 
     @FXML
-    private ImageView knife;
-
-    @FXML
-    private ImageView cloud1;
-    @FXML
-    private ImageView cloud2;
-    @FXML
-    private ImageView cloud3;
+    private ImageView cloud1, cloud2, cloud3, cloud4, cloud5, cloud6, cloud7, cloud8, cloud9, cloud10;
 
     @FXML
     private ImageView WeaponChestClosed;
@@ -100,6 +93,7 @@ public class PlayGame implements Initializable {
 
     private FloatingIsland floatingIsland = new FloatingIsland();
     private Windmill windmill = new Windmill();
+    private Clouds cloud = new Clouds();
 
 
     @Override
@@ -111,10 +105,7 @@ public class PlayGame implements Initializable {
 
         addPlatform();
         addWindmill();
-
-        moveLeft(cloud1);
-        moveLeft(cloud2);
-        moveLeft(cloud3);
+        addCloud();
 
         OrcattackHelmet();
         OrcJump(orc1);
@@ -145,6 +136,19 @@ public class PlayGame implements Initializable {
         windmill.addWindmills(wm1);
         windmill.addWindmills(wm2);
         windmill.addWindmills(wm3);
+    }
+
+    private void addCloud(){
+        cloud.addClouds(cloud1);
+        cloud.addClouds(cloud2);
+        cloud.addClouds(cloud3);
+        cloud.addClouds(cloud4);
+        cloud.addClouds(cloud5);
+        cloud.addClouds(cloud6);
+        cloud.addClouds(cloud7);
+        cloud.addClouds(cloud8);
+        cloud.addClouds(cloud9);
+        cloud.addClouds(cloud10);
     }
 
     public void setMoveForward(){
@@ -186,14 +190,7 @@ public class PlayGame implements Initializable {
     }
 
 
-    public void moveLeft(ImageView cloud){
-        TranslateTransition floating = new TranslateTransition();
-        floating.setDuration(Duration.seconds(150));
-        floating.setToX(cloud.getX() - 1000);
-        floating.setCycleCount(Animation.INDEFINITE);
-        floating.setNode(cloud);
-        floating.play();
-    }
+
 
     public void OrcattackHelmet(){
         RotateTransition attack = new RotateTransition();
