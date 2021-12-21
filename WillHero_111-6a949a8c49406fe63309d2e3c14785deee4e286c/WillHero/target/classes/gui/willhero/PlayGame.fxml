@@ -2,10 +2,10 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Slider?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="gamePane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.willhero.PlayGame">
@@ -260,17 +260,75 @@
             <Image url="@Images/FloatingIsland5.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="218.0" fitWidth="147.0" layoutX="2725.0" layoutY="166.0">
+      <ImageView fitHeight="218.0" fitWidth="147.0" layoutX="2749.0" layoutY="178.0">
          <image>
             <Image url="@Images/WindmillBase.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="165.0" fitWidth="131.0" layoutX="2749.0" layoutY="116.0">
+      <ImageView fitHeight="165.0" fitWidth="131.0" layoutX="2765.0" layoutY="126.0">
          <image>
             <Image url="@Images/trial.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="uiPane" layoutY="1.0" prefHeight="414.0" prefWidth="700.0">
+      <ImageView fitHeight="154.0" fitWidth="190.0" layoutX="3174.0" layoutY="237.0">
+         <image>
+            <Image url="@Images/FloatingIsland3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="200.0" layoutX="3541.0" layoutY="280.0">
+         <image>
+            <Image url="@Images/FloatingIsland2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="190.0" layoutX="2994.0" layoutY="239.0">
+         <image>
+            <Image url="@Images/FloatingIsland3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="191.0" fitWidth="116.0" layoutX="3438.0" layoutY="176.0">
+         <image>
+            <Image url="@Images/FloatingIsland5.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="200.0" fitWidth="174.0" layoutX="4541.0" layoutY="204.0">
+         <image>
+            <Image url="@Images/FloatingIsland4.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="90.0" fitWidth="200.0" layoutX="4377.0" layoutY="272.0">
+         <image>
+            <Image url="@Images/FloatingIsland2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="131.0" fitWidth="211.0" layoutX="4757.0" layoutY="207.0">
+         <image>
+            <Image url="@Images/FloatingIsland3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="121.0" fitWidth="200.0" layoutX="3964.0" layoutY="220.0">
+         <image>
+            <Image url="@Images/FloatingIsland1-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="176.0" fitWidth="125.0" layoutX="4211.0" layoutY="199.0">
+         <image>
+            <Image url="@Images/FloatingIsland1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="249.0" fitWidth="154.0" layoutX="3824.0" layoutY="126.0">
+         <image>
+            <Image url="@Images/WindmillBase.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="helmet" fitHeight="83.0" fitWidth="51.0" layoutX="139.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/PenguinHelmet-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="rec1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" layoutX="124.0" layoutY="302.0" stroke="BLACK" strokeType="INSIDE" width="163.0" />
+      <Rectangle fx:id="rec2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="360.0" layoutY="297.0" stroke="BLACK" strokeType="INSIDE" width="78.0" />
+      <Rectangle fx:id="rec3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="543.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="241.0" />
+      <AnchorPane fx:id="uiPane" layoutX="17.0" layoutY="3.0" prefHeight="414.0" prefWidth="700.0">
          <children>
             <Label fx:id="location" layoutX="298.0" layoutY="10.0" prefHeight="74.0" prefWidth="87.0" text="0" textAlignment="CENTER" textFill="WHITE">
                <font>
@@ -302,11 +360,6 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <ImageView fx:id="helmet" fitHeight="26.0" fitWidth="51.0" layoutX="194.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/PenguinHelmet-removebg-preview.png" />
-               </image>
-            </ImageView>
             <Button fx:id="pause" layoutX="2.0" mnemonicParsing="false" onAction="#togglePause" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="54.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
@@ -315,36 +368,17 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-         </children>
-      </AnchorPane>
-      <Button fx:id="moveForward" layoutX="10.0" layoutY="79.0" mnemonicParsing="false" onAction="#setMoveForward" opacity="0.0" prefHeight="323.0" prefWidth="679.0" text="moveForward" />
-      <AnchorPane fx:id="pausePane" disable="true" layoutX="-2.0" opacity="0.0" prefHeight="414.0" prefWidth="700.0">
-         <children>
-            <ImageView fitHeight="422.0" fitWidth="712.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="moveForward" layoutX="10.0" layoutY="76.0" mnemonicParsing="false" onAction="#setMoveForward" opacity="0.43" prefHeight="323.0" prefWidth="679.0" text="moveForward" />
+            <ImageView fx:id="knife" layoutX="371.0" layoutY="27.0">
                <image>
-                  <Image url="@../../../../../../../../WillHero_111/WillHero/src/main/resources/gui/willhero/Images/PAUSE_Menu.jpg" />
+                  <Image url="@Images/ThrowingKnives.png" />
                </image>
             </ImageView>
-            <Button fx:id="settingsButton" layoutX="7.0" layoutY="5.0" mnemonicParsing="false" onAction="#toggleSetting" opacity="0.0" prefHeight="52.0" prefWidth="52.0" text="settings" />
-            <Button fx:id="resume" layoutX="663.0" layoutY="11.0" mnemonicParsing="false" onAction="#togglePause" opacity="0.0" prefHeight="44.0" prefWidth="42.0" text="resume" />
-            <Button fx:id="restart" layoutX="107.0" layoutY="128.0" mnemonicParsing="false" onAction="#setRestart" opacity="0.0" prefHeight="94.0" prefWidth="90.0" text="Restart" />
-            <Button layoutX="312.0" layoutY="139.0" mnemonicParsing="false" opacity="0.0" prefHeight="86.0" prefWidth="90.0" text="SaveGame" />
-            <Button fx:id="LoadSavedSavedGamesButton" layoutX="515.0" layoutY="132.0" mnemonicParsing="false" onAction="#setLoadSavedSavedGamesButton" opacity="0.0" prefHeight="94.0" prefWidth="90.0" text="LoadGame" />
-            <Button fx:id="returnToMainMenu" layoutX="210.0" layoutY="241.0" mnemonicParsing="false" onAction="#setReturnToMainMenu" opacity="0.0" prefHeight="94.0" prefWidth="90.0" text="ReturnMenu" />
-            <Button fx:id="exit" layoutX="424.0" layoutY="245.0" mnemonicParsing="false" onAction="#setExit" opacity="0.0" prefHeight="86.0" prefWidth="82.0" text="Exit" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="settingPane" opacity="0.0" prefHeight="414.0" prefWidth="721.0">
-         <children>
-            <ImageView fitHeight="407.0" fitWidth="722.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="sword" fitHeight="200.0" fitWidth="51.0" layoutX="488.0" layoutY="-19.0">
                <image>
-                  <Image url="@Images/Settings.png" />
+                  <Image url="@Images/Swords.png" />
                </image>
             </ImageView>
-            <Slider layoutX="404.0" layoutY="238.0" value="50.0" />
-            <Button fx:id="backToPause" layoutX="669.0" layoutY="14.0" mnemonicParsing="false" onAction="#toggleSetting" opacity="0.0" prefHeight="38.0" prefWidth="45.0" text="Cross" />
-            <Button layoutX="404.0" layoutY="158.0" mnemonicParsing="false" opacity="0.0" prefHeight="45.0" prefWidth="52.0" text="pause" />
-            <Button layoutX="504.0" layoutY="168.0" mnemonicParsing="false" opacity="0.0" prefHeight="38.0" prefWidth="52.0" text="play" />
          </children>
       </AnchorPane>
    </children>

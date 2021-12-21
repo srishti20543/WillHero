@@ -5,7 +5,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Point2D;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,12 +16,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
 import java.io.SequenceInputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -47,7 +52,16 @@ public class PlayGame implements Initializable {
     private Button pause;
 
     @FXML
+    private Rectangle rec1, rec3, rec2;
+
+    @FXML
     private ImageView island1;
+
+    @FXML
+    private ImageView sword;
+
+    @FXML
+    private ImageView knife;
     @FXML
     private ImageView island2;
     @FXML
@@ -90,10 +104,15 @@ public class PlayGame implements Initializable {
     @FXML
     private Label coinCount;
 
+    @FXML
+    private Point2D playerVelocity = new Point2D(0, 0);
 
+
+    private final ArrayList<Node> platforms = new ArrayList<>();
     private int position;
     private boolean isPauseDisabled, isSettingDisabled;
     private final TranslateTransition jump = new TranslateTransition();
+
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -101,12 +120,12 @@ public class PlayGame implements Initializable {
         position = 0;
         isSettingDisabled = true;
         isPauseDisabled =  true;
-        jump.setDuration(Duration.seconds(1));
-        jump.setToY(helmet.getY() - 50);
-        jump.setAutoReverse(true);
-        jump.setCycleCount(Animation.INDEFINITE);
-        jump.setNode(helmet);
-        jump.play();
+//        jump.setDuration(Duration.seconds(1));
+//        jump.setToY(helmet.getY() - 50);
+//        jump.setAutoReverse(true);
+//        jump.setCycleCount(Animation.INDEFINITE);
+//        jump.setNode(helmet);
+//        jump.play();
 
         floating(island1);
         floating(island2);
@@ -121,23 +140,33 @@ public class PlayGame implements Initializable {
         moveLeft(cloud3);
         floating(WeaponChestClosed);
         floating(WeaponChestOpen);
+        platforms.add(rec1);
+        platforms.add(rec2);
+        platforms.add(rec3);
 
         OrcattackHelmet();
         OrcJump(orc1);
         fanRotate();
+
+        AnimationTimer timer = new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                update();
+            }
+        };
+        timer.start();
     }
 
     public void setMoveForward(){
-        jump.pause();
-        gamePane.setTranslateX(gamePane.getTranslateX() - 50);
-        moveForward.setTranslateX(moveForward.getTranslateX() + 50);
-        bg.setTranslateX(bg.getTranslateX() + 50);
+//        jump.pause();
+        gamePane.setTranslateX(gamePane.getTranslateX() - 75);
+        bg.setTranslateX(bg.getTranslateX() + 75);
         position++;
         location.setText(String.valueOf(position));
-        uiPane.setTranslateX(uiPane.getTranslateX() + 50);
-        pausePane.setTranslateX(pausePane.getTranslateX() + 50);
-        settingPane.setTranslateX(settingPane.getTranslateX() + 50);
-        jump.play();
+//        helmet.setTranslateX(helmet.getTranslateX()+50);
+        uiPane.setTranslateX(uiPane.getTranslateX() + 75);
+        movePlayerX(75);
+//        jump.play();
     }
 
     public void togglePause(){
@@ -223,6 +252,7 @@ public class PlayGame implements Initializable {
         rt.setDuration(Duration.seconds(5));
         rt.setToAngle(360);
         rt.setCycleCount(Animation.INDEFINITE);
+        rt.setInterpolator(Interpolator.LINEAR);
         rt.setNode(WindmillFans);
         rt.play();
     }
@@ -254,6 +284,66 @@ public class PlayGame implements Initializable {
 
     public void setSaveGame(){
         //functionality
+    }
+
+    public void update(){
+
+        if (playerVelocity.getY() < 10) {
+            playerVelocity = playerVelocity.add(0, 1);
+        }
+
+        movePlayerY((int)playerVelocity.getY());
+    }
+
+    private void movePlayerX(int value) {
+        boolean movingRight = value > 0;
+
+        for (int i = 0; i < Math.abs(value); i++) {
+            for (Node platform : platforms) {
+                if (helmet.getBoundsInParent().intersects(platform.getBoundsInParent())) {
+                    System.out.println(helmet.getTranslateX() + " " + rec1.getTranslateX());
+                    System.out.println(helmet.getTranslateY() + " " + rec1.getTranslateY());
+//                    helmet.setTranslateX(helmet.getTranslateX() - 10);
+                    return;
+                }
+            }
+            helmet.setTranslateX(helmet.getTranslateX() + (movingRight ? 1 : -1));
+        }
+    }
+
+    public void movePlayerY(int value){
+        boolean movingDown = value > 0;
+
+        for (int i = 0; i < Math.abs(value); i++) {
+            for (Node platform : platforms) {
+                if (helmet.getBoundsInParent().intersects(platform.getBoundsInParent())) {
+                    TranslateTransition an = new TranslateTransition();
+                    an.setNode(helmet);
+                    an.setDuration(Duration.seconds(1));
+                    an.setByY(-75);
+                    an.play();
+                    return;
+                }
+            }
+        }
+            helmet.setTranslateY(helmet.getTranslateY() + 1.75);
+    }
+
+    public void throwKnife(){
+        TranslateTransition translate = new TranslateTransition();
+        translate.setNode(knife);
+        translate.setDuration(Duration.millis(1000));
+        translate.setByX(500);
+        translate.play();
+    }
+
+    public void rotateSword(){
+        RotateTransition rotate = new RotateTransition();
+        rotate.setNode(sword);
+        rotate.setDuration(Duration.millis(500));
+        rotate.setInterpolator(Interpolator.LINEAR);
+        rotate.setByAngle(90);
+        rotate.play();
     }
 
 }
