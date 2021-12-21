@@ -4,6 +4,7 @@ import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class WeaponChest extends Chest{
 
@@ -19,25 +20,25 @@ public class WeaponChest extends Chest{
                 animations.toggleOpacity((ImageView) weaponChestOpen.get(i));
                 animations.toggleOpacity((ImageView) weaponChestClosed.get(i));
                 weaponChestClosed.remove(weaponChestClosed.get(i));
-                return 1;
+                return generateWeapon();
             }
         }
         return -1;
     }
 
-    public void generateWeapon(){
-        int random = (int) (Math.random() * (2) + 1);
-        if(random == 1){
-            weapon = new Knives();
-        }
-        else if(random == 2){
-            weapon = new Sword();
-        }
+    public int generateWeapon(){
+        return new Random().nextInt(2) ;
+        // 0 - knife
+        // 1 - sword
     }
 
     @Override
     public void addChest(ImageView closed, ImageView open) {
         weaponChestClosed.add(closed);
         weaponChestOpen.add(open);
+    }
+
+    public Weapons getWeapon(){
+        return weapon;
     }
 }

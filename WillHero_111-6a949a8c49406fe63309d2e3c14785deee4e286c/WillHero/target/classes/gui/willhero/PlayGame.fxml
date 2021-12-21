@@ -670,12 +670,12 @@
                   <Image url="@Images/WeaponSlot.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="11.0" fitWidth="22.0" layoutX="29.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="knifeUI" fitHeight="11.0" fitWidth="22.0" layoutX="29.0" layoutY="386.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/ThrowingKnives.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="26.0" fitWidth="9.0" layoutX="78.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="swordUI" fitHeight="26.0" fitWidth="9.0" layoutX="78.0" layoutY="376.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/Swords.png" />
                </image>
@@ -699,16 +699,9 @@
                   </ImageView>
                </graphic></Button>
             <Button fx:id="moveForward" layoutX="14.0" layoutY="81.0" mnemonicParsing="false" onAction="#setMoveForward" opacity="0.0" prefHeight="318.0" prefWidth="679.0" text="moveForward" />
-            <ImageView fx:id="knife" layoutX="371.0" layoutY="27.0">
-               <image>
-                  <Image url="@Images/ThrowingKnives.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="sword" fitHeight="200.0" fitWidth="51.0" layoutX="488.0" layoutY="-19.0">
-               <image>
-                  <Image url="@Images/Swords.png" />
-               </image>
-            </ImageView>
+            <Rectangle fx:id="deadByGravity" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="0.1" layoutX="2.0" layoutY="407.0" stroke="BLACK" strokeType="INSIDE" width="690.0" />
+            <Label fx:id="knifeLevel" layoutX="15.0" layoutY="383.0" prefHeight="26.0" prefWidth="33.0" />
+            <Label fx:id="swordLevel" layoutX="56.0" layoutY="383.0" prefHeight="26.0" prefWidth="33.0" />
          </children>
       </AnchorPane>
    </children>

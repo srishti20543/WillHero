@@ -29,6 +29,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class PlayGame implements Initializable {
+
     @FXML
     private AnchorPane gamePane, settingPane, uiPane, pausePane;
 
@@ -43,6 +44,9 @@ public class PlayGame implements Initializable {
     private Rectangle rec1, rec2, rec3, rec4, rec5, rec6, rec7, rec8, rec9, rec10, rec11, rec12, rec13, rec14, rec15,
             rec16, rec17, rec18;
 
+    @FXML
+    private Rectangle deadByGravity;
+
 
 //rec19, rec20, rec21, rec22, rec23, rec24, rec25, rec26, rec27, rec28, rec29, rec30, rec31, rec32, rec33, rec34, rec35, rec36, rec37, rec38, rec39, rec40, rec41, rec42, rec43, rec44, rec45, rec46, rec47, rec48, rec49, rec50;
 
@@ -50,7 +54,7 @@ public class PlayGame implements Initializable {
     private ImageView island1, island2, island3, island4, island5, island6, island7, island8, island9, island10, island11, island12, island13, island14, island15, island16, island17, island18, island19, island20;
 
     @FXML
-    private ImageView sword, knife;
+    private ImageView swordUI, knifeUI;
 
     @FXML
     private ImageView cloud1, cloud2, cloud3, cloud4, cloud5, cloud6, cloud7, cloud8, cloud9, cloud10;
@@ -85,13 +89,14 @@ public class PlayGame implements Initializable {
     private ImageView wm1, wm2, wm3;
 
     @FXML
-    private Label coinCount, location;
-    private int coinCnt;
+    private Label coinCount, location, knifeLevel, swordLevel;
+
 
     @FXML
     private Point2D playerVelocity = new Point2D(0, 0);
 
     private int position;
+    private int coinCnt;
     private boolean isPauseDisabled, isSettingDisabled;
 //    private final TranslateTransition jump = new TranslateTransition();
 
@@ -104,6 +109,12 @@ public class PlayGame implements Initializable {
     private final Orc rOrc = new ShieldedOrc();
     private final Chest weaponChest = new WeaponChest();
     private final Chest coinChest = new CoinChest();
+
+
+    private ArrayList<User> savedGames = new ArrayList<>();
+    private User curPlayer = new User();
+    private int highscore = 0;
+
 
 
 
@@ -123,6 +134,8 @@ public class PlayGame implements Initializable {
         addRedOrc();
         addAxe();
         addWeaponChest();
+
+        curPlayer.setWeaponImage(knifeUI, swordUI);
 
         AnimationTimer timer = new AnimationTimer() {
             @Override
@@ -240,8 +253,8 @@ public class PlayGame implements Initializable {
         location.setText(String.valueOf(position));
         uiPane.setTranslateX(uiPane.getTranslateX() + 75);
         movePlayerX(75);
+        curPlayer.setCurrentScore(position);
     }
-
 
     private void movePlayerX(int value) {
 
@@ -252,16 +265,24 @@ public class PlayGame implements Initializable {
                 helmet.setTranslateX(helmet.getTranslateX() - 10);
             }
             else if(checkCollisionCoin() == 1){
-                //increaseCoinCount
                 coinCnt++;
                 coinCount.setText(String.valueOf(coinCnt));
+                curPlayer.setCoinsCollected(1);
             }
-            else if (checkCollisionWeaponChest() == 1){
-                //do something
+            else if ((var = checkCollisionWeaponChest()) == 1){
+                int lvl = curPlayer.updateWeapon(var);
+                if(var == 0){
+                    knifeLevel.setText(String.valueOf(lvl));
+                }
+                else{
+                    swordLevel.setText(String.valueOf(lvl));
+                }
+
             }
             else if ((var = checkCollisionCoinChest())!= -1){
                 coinCnt += var;
                 coinCount.setText(String.valueOf(coinCnt));
+                curPlayer.setCoinsCollected(var);
             }
 
             helmet.setTranslateX(helmet.getTranslateX() + 1);
@@ -280,17 +301,21 @@ public class PlayGame implements Initializable {
                 an.setByY(-75);
                 an.play();
             }
+            else if(checkCollisionWithBorder() == 1){
+                curPlayer.setHealth(0);
+            }
             else if(checkCollisionCoin() == 1){
-                //increaseCoinCount
                 coinCnt++;
                 coinCount.setText(String.valueOf(coinCnt));
+                curPlayer.setCoinsCollected(1);
             }
-            else if (checkCollisionWeaponChest() == 1){
-                //do something
+            else if ((var = checkCollisionWeaponChest()) != -1){
+                curPlayer.updateWeapon(var);
             }
             else if ((var = checkCollisionCoinChest())!= -1){
                 coinCnt += var;
                 coinCount.setText(String.valueOf(coinCnt));
+                curPlayer.setCoinsCollected(var);
             }
         }
         helmet.setTranslateY(helmet.getTranslateY() + 1.75);
@@ -312,7 +337,12 @@ public class PlayGame implements Initializable {
         return coinChest.onCollision(helmet);
     }
 
-
+    private int checkCollisionWithBorder(){
+        if (helmet.getBoundsInParent().intersects(deadByGravity.getBoundsInParent())) {
+            return 1;
+        }
+        return -1;
+    }
 
     public void setReturnToMainMenu() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StartMenu.fxml")));

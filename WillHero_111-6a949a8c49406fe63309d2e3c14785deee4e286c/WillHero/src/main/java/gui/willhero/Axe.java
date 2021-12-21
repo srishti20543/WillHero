@@ -11,17 +11,17 @@ public class Axe extends Weapons{
     private int level;
 
     Axe(){
-        super("Axe", 10, 1, true);
+        super("Axe", 10);
         level = 1;
-    }
-
-    @Override
-    public void setLevel() {
-        level++;
     }
 
     @Override
     public void addWep(ImageView axe){
         OrcAxe.add(axe);
+    }
+
+    @Override
+    public int onCollision(ImageView helmet) {
+        return 0;
     }
 }
