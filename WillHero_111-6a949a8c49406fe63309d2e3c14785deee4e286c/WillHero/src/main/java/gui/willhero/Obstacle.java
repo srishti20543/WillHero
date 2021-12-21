@@ -1,9 +1,11 @@
 package gui.willhero;
 
+import javafx.scene.image.ImageView;
+
 public class Obstacle extends GameObject{
 
     @Override
-    public void onCollision(User user) {
-
+    public int onCollision(ImageView helmet) {
+        return -1;
     }
 }

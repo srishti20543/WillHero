@@ -1,5 +1,7 @@
 package gui.willhero;
 
+import javafx.scene.image.ImageView;
+
 import java.util.Random;
 
 public class CoinChest extends Chest{
@@ -8,8 +10,8 @@ public class CoinChest extends Chest{
     private Coin coins;
 
     @Override
-    public void onCollision(User user) {
-
+    public int onCollision(ImageView helmet) {
+        return -1;
     }
 
     public void generateCoinCount(){

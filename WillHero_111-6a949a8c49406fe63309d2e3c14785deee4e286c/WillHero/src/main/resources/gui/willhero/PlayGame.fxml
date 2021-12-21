@@ -115,27 +115,27 @@
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="WindmillFans" fitHeight="192.0" fitWidth="154.0" layoutX="543.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wm1" fitHeight="192.0" fitWidth="154.0" layoutX="543.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/trial.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="663.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="island7" fitHeight="150.0" fitWidth="200.0" layoutX="663.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/FloatingIsland4.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="142.0" fitWidth="121.0" layoutX="843.0" layoutY="246.0">
+      <ImageView fx:id="island8" fitHeight="142.0" fitWidth="121.0" layoutX="843.0" layoutY="246.0">
          <image>
             <Image url="@Images/FloatingIsland1-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="121.0" fitWidth="200.0" layoutX="1025.0" layoutY="260.0">
+      <ImageView fx:id="island9" fitHeight="121.0" fitWidth="200.0" layoutX="1025.0" layoutY="260.0">
          <image>
             <Image url="@Images/FloatingIsland1-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="121.0" fitWidth="176.0" layoutX="1643.0" layoutY="253.0">
+      <ImageView fx:id="island10" fitHeight="121.0" fitWidth="176.0" layoutX="1643.0" layoutY="253.0">
          <image>
             <Image url="@Images/FloatingIsland3.png" />
          </image>
@@ -230,7 +230,7 @@
             <Image url="@Images/FloatingIsland1.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="131.0" fitWidth="113.0" layoutX="1530.0" layoutY="134.0">
+      <ImageView fx:id="wm2" fitHeight="192.0" fitWidth="154.0" layoutX="1513.0" layoutY="90.0">
          <image>
             <Image url="@Images/trial.png" />
          </image>
@@ -265,7 +265,7 @@
             <Image url="@Images/WindmillBase.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="165.0" fitWidth="131.0" layoutX="2765.0" layoutY="126.0">
+      <ImageView fx:id="wm3" fitHeight="192.0" fitWidth="154.0" layoutX="2756.0" layoutY="90.0">
          <image>
             <Image url="@Images/trial.png" />
          </image>
@@ -320,15 +320,30 @@
             <Image url="@Images/WindmillBase.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="helmet" fitHeight="83.0" fitWidth="51.0" layoutX="139.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="helmet" fitHeight="36.0" fitWidth="49.0" layoutX="215.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/PenguinHelmet-removebg-preview.png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="rec1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" layoutX="124.0" layoutY="302.0" stroke="BLACK" strokeType="INSIDE" width="163.0" />
+      <Rectangle fx:id="rec1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="109.0" layoutY="302.0" stroke="BLACK" strokeType="INSIDE" width="189.0" />
       <Rectangle fx:id="rec2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="360.0" layoutY="297.0" stroke="BLACK" strokeType="INSIDE" width="78.0" />
       <Rectangle fx:id="rec3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="543.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="241.0" />
-      <AnchorPane fx:id="uiPane" layoutX="17.0" layoutY="3.0" prefHeight="414.0" prefWidth="700.0">
+      <Rectangle fx:id="rec4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="850.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+      <Rectangle fx:id="rec5" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1036.0" layoutY="305.0" stroke="BLACK" strokeType="INSIDE" width="270.0" />
+      <Rectangle fx:id="rec6" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="1364.0" layoutY="281.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
+      <Rectangle fx:id="rec7" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1508.0" layoutY="292.0" stroke="BLACK" strokeType="INSIDE" width="301.0" />
+      <Rectangle fx:id="rec8" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1871.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="113.0" />
+      <Rectangle fx:id="rec9" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2043.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Rectangle fx:id="rec10" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2309.0" layoutY="279.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
+      <Rectangle fx:id="rec11" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2475.0" layoutY="297.0" stroke="BLACK" strokeType="INSIDE" width="220.0" />
+      <Rectangle fx:id="rec12" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2749.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
+      <Rectangle fx:id="rec13" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2994.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="363.0" />
+      <Rectangle fx:id="rec14" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3446.0" layoutY="283.0" stroke="BLACK" strokeType="INSIDE" width="289.0" />
+      <Rectangle fx:id="rec15" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3828.0" layoutY="266.0" stroke="BLACK" strokeType="INSIDE" width="318.0" />
+      <Rectangle fx:id="rec17" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4382.0" layoutY="276.0" stroke="BLACK" strokeType="INSIDE" width="318.0" />
+      <Rectangle fx:id="rec16" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4211.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="rec18" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4757.0" layoutY="249.0" stroke="BLACK" strokeType="INSIDE" width="211.0" />
+      <AnchorPane fx:id="uiPane" layoutY="3.0" prefHeight="414.0" prefWidth="700.0">
          <children>
             <Label fx:id="location" layoutX="298.0" layoutY="10.0" prefHeight="74.0" prefWidth="87.0" text="0" textAlignment="CENTER" textFill="WHITE">
                <font>
@@ -368,7 +383,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="moveForward" layoutX="10.0" layoutY="76.0" mnemonicParsing="false" onAction="#setMoveForward" opacity="0.43" prefHeight="323.0" prefWidth="679.0" text="moveForward" />
+            <Button fx:id="moveForward" layoutX="22.0" layoutY="81.0" mnemonicParsing="false" onAction="#setMoveForward" opacity="0.0" prefHeight="323.0" prefWidth="679.0" text="moveForward" />
             <ImageView fx:id="knife" layoutX="371.0" layoutY="27.0">
                <image>
                   <Image url="@Images/ThrowingKnives.png" />
@@ -381,20 +396,5 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <Rectangle fx:id="rec4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="850.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
-      <Rectangle fx:id="rec5" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1036.0" layoutY="305.0" stroke="BLACK" strokeType="INSIDE" width="270.0" />
-      <Rectangle fx:id="rec6" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="1364.0" layoutY="281.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
-      <Rectangle fx:id="rec7" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1508.0" layoutY="292.0" stroke="BLACK" strokeType="INSIDE" width="301.0" />
-      <Rectangle fx:id="rec8" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1871.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="113.0" />
-      <Rectangle fx:id="rec9" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2043.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-      <Rectangle fx:id="rec10" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2309.0" layoutY="279.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
-      <Rectangle fx:id="rec11" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2475.0" layoutY="297.0" stroke="BLACK" strokeType="INSIDE" width="220.0" />
-      <Rectangle fx:id="rec12" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2749.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
-      <Rectangle fx:id="rec13" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2994.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="363.0" />
-      <Rectangle fx:id="rec14" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3446.0" layoutY="283.0" stroke="BLACK" strokeType="INSIDE" width="289.0" />
-      <Rectangle fx:id="rec15" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3828.0" layoutY="266.0" stroke="BLACK" strokeType="INSIDE" width="318.0" />
-      <Rectangle fx:id="rec17" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4382.0" layoutY="276.0" stroke="BLACK" strokeType="INSIDE" width="318.0" />
-      <Rectangle fx:id="rec16" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4211.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="rec18" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4757.0" layoutY="249.0" stroke="BLACK" strokeType="INSIDE" width="211.0" />
    </children>
 </AnchorPane>

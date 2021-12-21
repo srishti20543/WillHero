@@ -1,5 +1,7 @@
 package gui.willhero;
 
+import javafx.scene.image.ImageView;
+
 public class GreenOrc extends Orc{
 
     private String color = "green";
@@ -24,7 +26,7 @@ public class GreenOrc extends Orc{
     }
 
     @Override
-    public void onCollision(User user) {
-
+    public int onCollision(ImageView helmet) {
+        return -1;
     }
 }

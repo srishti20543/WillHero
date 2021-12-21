@@ -1,6 +1,8 @@
 package gui.willhero;
 
+import javafx.scene.image.ImageView;
+
 public interface Collidable {
 
-    void onCollision(User user);
+    public int  onCollision(ImageView helmet);
 }

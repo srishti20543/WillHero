@@ -43,26 +43,17 @@ public class PlayGame implements Initializable {
     private Rectangle rec1, rec2, rec3, rec4, rec5, rec6, rec7, rec8, rec9, rec10, rec11, rec12, rec13, rec14, rec15,
             rec16, rec17, rec18;
 
+
 //rec19, rec20, rec21, rec22, rec23, rec24, rec25, rec26, rec27, rec28, rec29, rec30, rec31, rec32, rec33, rec34, rec35, rec36, rec37, rec38, rec39, rec40, rec41, rec42, rec43, rec44, rec45, rec46, rec47, rec48, rec49, rec50;
 
     @FXML
-    private ImageView island1;
+    private ImageView island1, island2, island3, island4, island5, island6, island7, island8, island9, island10, island11, island12, island13, island14, island15, island16, island17, island18, island19, island20;
 
     @FXML
     private ImageView sword;
 
     @FXML
     private ImageView knife;
-    @FXML
-    private ImageView island2;
-    @FXML
-    private ImageView island3;
-    @FXML
-    private ImageView island4;
-    @FXML
-    private ImageView island5;
-    @FXML
-    private ImageView island6;
 
     @FXML
     private ImageView cloud1;
@@ -93,16 +84,22 @@ public class PlayGame implements Initializable {
     private ImageView bg;
 
     @FXML
+    private ImageView wm1, wm2, wm3;
+
+    @FXML
     private Label coinCount;
 
     @FXML
     private Point2D playerVelocity = new Point2D(0, 0);
 
 
-    private final ArrayList<Node> platforms = new ArrayList<>();
+//    private final ArrayList<Node> platforms = new ArrayList<>();
     private int position;
     private boolean isPauseDisabled, isSettingDisabled;
     private final TranslateTransition jump = new TranslateTransition();
+
+    private FloatingIsland floatingIsland = new FloatingIsland();
+    private Windmill windmill = new Windmill();
 
 
     @Override
@@ -112,45 +109,15 @@ public class PlayGame implements Initializable {
         isSettingDisabled = true;
         isPauseDisabled =  true;
 
-        floating(island1);
-        floating(island2);
-        floatingUp(island3);
-        floatingUp(orc2);
-        floatingUp(orcAxe);
-        floating(island5);
-        floating(orc1);
-        floatingUp(island6);
+        addPlatform();
+        addWindmill();
+
         moveLeft(cloud1);
         moveLeft(cloud2);
         moveLeft(cloud3);
-        floating(WeaponChestClosed);
-        floating(WeaponChestOpen);
-        platforms.add(rec1);
-        platforms.add(rec2);
-        platforms.add(rec3);
-        platforms.add(rec4);
-        platforms.add(rec5);
-        platforms.add(rec6);
-        platforms.add(rec7);
-        platforms.add(rec8);
-        platforms.add(rec9);
-        platforms.add(rec10);
-        platforms.add(rec11);
-        platforms.add(rec12);
-        platforms.add(rec13);
-        platforms.add(rec14);
-        platforms.add(rec15);
-        platforms.add(rec16);
-        platforms.add(rec17);
-        platforms.add(rec18);
-
-        for(Node platform: platforms){
-            platform.setOpacity(0.0);
-        }
 
         OrcattackHelmet();
         OrcJump(orc1);
-        fanRotate();
 
         AnimationTimer timer = new AnimationTimer() {
             @Override
@@ -161,15 +128,32 @@ public class PlayGame implements Initializable {
         timer.start();
     }
 
+    private void addPlatform(){
+        floatingIsland.addPlatform(island1, rec1);
+        floatingIsland.addPlatform(island2, rec2);
+        floatingIsland.addPlatform(island3, rec3);
+        floatingIsland.addPlatform(island4, rec4);
+        floatingIsland.addPlatform(island5, rec5);
+        floatingIsland.addPlatform(island6, rec6);
+        floatingIsland.addPlatform(island7, rec7);
+        floatingIsland.addPlatform(island8, rec8);
+        floatingIsland.addPlatform(island9, rec9);
+        floatingIsland.addPlatform(island10, rec10);
+    }
+
+    private void addWindmill(){
+        windmill.addWindmills(wm1);
+        windmill.addWindmills(wm2);
+        windmill.addWindmills(wm3);
+    }
+
     public void setMoveForward(){
-//        jump.pause();
+        position++;
         gamePane.setTranslateX(gamePane.getTranslateX() - 75);
         bg.setTranslateX(bg.getTranslateX() + 75);
-        position++;
         location.setText(String.valueOf(position));
         uiPane.setTranslateX(uiPane.getTranslateX() + 75);
         movePlayerX(75);
-//        jump.play();
     }
 
     public void togglePause(){
@@ -201,25 +185,6 @@ public class PlayGame implements Initializable {
 
     }
 
-    public void floating(ImageView island){
-        TranslateTransition floating = new TranslateTransition();
-        floating.setDuration(Duration.seconds(10));
-        floating.setToY(island.getY() + 10);
-        floating.setAutoReverse(true);
-        floating.setCycleCount(Animation.INDEFINITE);
-        floating.setNode(island);
-        floating.play();
-    }
-
-    public void floatingUp(ImageView island){
-        TranslateTransition floating = new TranslateTransition();
-        floating.setDuration(Duration.seconds(10));
-        floating.setToY(island.getY() - 10);
-        floating.setAutoReverse(true);
-        floating.setCycleCount(Animation.INDEFINITE);
-        floating.setNode(island);
-        floating.play();
-    }
 
     public void moveLeft(ImageView cloud){
         TranslateTransition floating = new TranslateTransition();
@@ -249,16 +214,7 @@ public class PlayGame implements Initializable {
         jmp.play();
     }
 
-    public void fanRotate(){
 
-        RotateTransition rt = new RotateTransition();
-        rt.setDuration(Duration.seconds(5));
-        rt.setToAngle(360);
-        rt.setCycleCount(Animation.INDEFINITE);
-        rt.setInterpolator(Interpolator.LINEAR);
-        rt.setNode(WindmillFans);
-        rt.play();
-    }
 
     public void setReturnToMainMenu() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StartMenu.fxml")));
@@ -302,34 +258,29 @@ public class PlayGame implements Initializable {
         boolean movingRight = value > 0;
 
         for (int i = 0; i < Math.abs(value); i++) {
-            for (Node platform : platforms) {
-                if (helmet.getBoundsInParent().intersects(platform.getBoundsInParent())) {
-                    System.out.println(helmet.getTranslateX() + " " + rec1.getTranslateX());
-                    System.out.println(helmet.getTranslateY() + " " + rec1.getTranslateY());
-//                    helmet.setTranslateX(helmet.getTranslateX() - 10);
-                    return;
-                }
+            if(checkCollisionIsland() == 1){
+                helmet.setTranslateX(helmet.getTranslateX() - 10);
             }
             helmet.setTranslateX(helmet.getTranslateX() + (movingRight ? 1 : -1));
         }
     }
 
+    private int checkCollisionIsland(){
+        return floatingIsland.onCollision(helmet);
+    }
+
     public void movePlayerY(int value){
-        boolean movingDown = value > 0;
 
         for (int i = 0; i < Math.abs(value); i++) {
-            for (Node platform : platforms) {
-                if (helmet.getBoundsInParent().intersects(platform.getBoundsInParent())) {
-                    TranslateTransition an = new TranslateTransition();
-                    an.setNode(helmet);
-                    an.setDuration(Duration.seconds(1));
-                    an.setByY(-75);
-                    an.play();
-                    return;
-                }
+            if(checkCollisionIsland() == 1){
+                TranslateTransition an = new TranslateTransition();
+                an.setNode(helmet);
+                an.setDuration(Duration.seconds(1));
+                an.setByY(-75);
+                an.play();
             }
         }
-            helmet.setTranslateY(helmet.getTranslateY() + 1.75);
+        helmet.setTranslateY(helmet.getTranslateY() + 1.75);
     }
 
     public void throwKnife(){
