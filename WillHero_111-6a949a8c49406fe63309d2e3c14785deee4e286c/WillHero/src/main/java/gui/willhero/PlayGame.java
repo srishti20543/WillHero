@@ -60,28 +60,23 @@ public class PlayGame implements Initializable {
 
     @FXML
     private ImageView ro1, ro2, ro3, ro4, ro5, ro6, ro7, ro8, ro9, ro10;
-    @FXML
-    private ImageView go1, go2, go3, go4, go5, go6, go7,go8, go9, go10;
-    @FXML
-    private ImageView axe1, axe2, axe3, axe4, axe5, axe6, axe7, axe8, axe9, axe10;
 
     @FXML
-    private ImageView WeaponChestClosed;
+    private ImageView go1, go2, go3, go4, go5;
+//    go6, go7,go8, go9, go10;
+
     @FXML
-    private ImageView WeaponChestOpen;
+    private ImageView axe1, axe2, axe3, axe4, axe5;
+//    axe6, axe7, axe8, axe9, axe10;
+
+    @FXML
+    private ImageView wcc1;
+    @FXML
+    private ImageView wco1;
+
 
     @FXML
     private ImageView WindmillFans;
-
-    @FXML
-    private Label location;
-
-    @FXML
-    private ImageView orc1;
-    @FXML
-    private ImageView orc2;
-    @FXML
-    private ImageView orcAxe;
 
     @FXML
     private ImageView bg;
@@ -90,7 +85,7 @@ public class PlayGame implements Initializable {
     private ImageView wm1, wm2, wm3;
 
     @FXML
-    private Label coinCount;
+    private Label coinCount, location;
     private int coinCnt;
 
     @FXML
@@ -100,13 +95,14 @@ public class PlayGame implements Initializable {
     private boolean isPauseDisabled, isSettingDisabled;
 //    private final TranslateTransition jump = new TranslateTransition();
 
-    private FloatingIsland floatingIsland = new FloatingIsland();
-    private Windmill windmill = new Windmill();
-    private Clouds cloud = new Clouds();
-    private Coin coin = new Coin();
-    private Weapons axe = new Axe();
-    private Orc gOrc = new MediumHatAxe();
-    private Orc rOrc = new ShieldedOrc();
+    private final FloatingIsland floatingIsland = new FloatingIsland();
+    private final Windmill windmill = new Windmill();
+    private final Clouds cloud = new Clouds();
+    private final Coin coin = new Coin();
+    private final Weapons axe = new Axe();
+    private final Orc gOrc = new MediumHatAxe();
+    private final Orc rOrc = new ShieldedOrc();
+    private final Chest weaponChest = new WeaponChest();
 
 
 
@@ -122,8 +118,10 @@ public class PlayGame implements Initializable {
         addWindmill();
         addCloud();
         addCoins();
-//        addGreenOrc();
-//        addRedOrc();
+        addGreenOrc();
+        addRedOrc();
+        addAxe();
+        addWeaponChest();
 
         AnimationTimer timer = new AnimationTimer() {
             @Override
@@ -132,6 +130,10 @@ public class PlayGame implements Initializable {
             }
         };
         timer.start();
+    }
+
+    private void addWeaponChest() {
+        weaponChest.addChest(wcc1, wco1);
     }
 
     private void addPlatform(){
@@ -179,7 +181,7 @@ public class PlayGame implements Initializable {
         coin.addCoins(coin10);
     }
 
-    /*private void addRedOrc(){
+    private void addRedOrc(){
         rOrc.addOrc(ro1);
         rOrc.addOrc(ro2);
         rOrc.addOrc(ro3);
@@ -198,11 +200,11 @@ public class PlayGame implements Initializable {
         gOrc.addOrc(go3);
         gOrc.addOrc(go4);
         gOrc.addOrc(go5);
-        gOrc.addOrc(go6);
-        gOrc.addOrc(go7);
-        gOrc.addOrc(go8);
-        gOrc.addOrc(go9);
-        gOrc.addOrc(go10);
+//        gOrc.addOrc(go6);
+//        gOrc.addOrc(go7);
+//        gOrc.addOrc(go8);
+//        gOrc.addOrc(go9);
+//        gOrc.addOrc(go10);
     }
 
     private void addAxe(){
@@ -212,15 +214,13 @@ public class PlayGame implements Initializable {
         axe.addWep(axe3);
         axe.addWep(axe4);
         axe.addWep(axe5);
-        axe.addWep(axe6);
-        axe.addWep(axe7);
-        axe.addWep(axe8);
-        axe.addWep(axe9);
-        axe.addWep(axe10);
+//        axe.addWep(axe6);
+//        axe.addWep(axe7);
+//        axe.addWep(axe8);
+//        axe.addWep(axe9);
+//        axe.addWep(axe10);
 
     }
-     */
-
 
     public void update(){
 

@@ -10,14 +10,62 @@
 
 <AnchorPane fx:id="gamePane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.willhero.PlayGame">
    <children>
+      <AnchorPane fx:id="uiPane" layoutY="3.0" prefHeight="415.0" prefWidth="700.0">
+         <children>
+            <Label fx:id="location" layoutX="298.0" layoutY="10.0" prefHeight="74.0" prefWidth="87.0" text="0" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="50.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="36.0" fitWidth="121.0" layoutX="22.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/WeaponSlot.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="11.0" fitWidth="22.0" layoutX="29.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/ThrowingKnives.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="9.0" layoutX="78.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Swords.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="652.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Coin.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="coinCount" layoutX="603.0" layoutY="10.0" prefHeight="36.0" prefWidth="49.0" text="0" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Button fx:id="pause" layoutX="2.0" mnemonicParsing="false" onAction="#togglePause" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="54.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/pause-icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="moveForward" layoutX="14.0" layoutY="81.0" mnemonicParsing="false" onAction="#setMoveForward" opacity="0.0" prefHeight="318.0" prefWidth="679.0" text="moveForward" />
+            <ImageView fx:id="knife" layoutX="371.0" layoutY="27.0">
+               <image>
+                  <Image url="@Images/ThrowingKnives.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="sword" fitHeight="200.0" fitWidth="51.0" layoutX="488.0" layoutY="-19.0">
+               <image>
+                  <Image url="@Images/Swords.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
       <ImageView fx:id="bg" fitHeight="422.0" fitWidth="712.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/GameBackground.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="cloud2" fitHeight="72.0" fitWidth="121.0" layoutX="215.0" layoutY="70.0">
-         <image>
-            <Image url="@Images/Cloud3.png" />
          </image>
       </ImageView>
       <ImageView fx:id="cloud3" fitHeight="54.0" fitWidth="139.0" layoutX="550.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
@@ -43,6 +91,16 @@
       <ImageView fx:id="island1" fitHeight="90.0" fitWidth="82.0" layoutX="124.0" layoutY="41.0">
          <image>
             <Image url="@Images/FloatingIsland3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cloud2" fitHeight="72.0" fitWidth="121.0" layoutX="215.0" layoutY="70.0">
+         <image>
+            <Image url="@Images/Cloud3.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="island7" fitHeight="150.0" fitWidth="200.0" layoutX="664.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/FloatingIsland4.png" />
          </image>
       </ImageView>
       <ImageView fx:id="island6" fitHeight="229.0" fitWidth="141.0" layoutX="540.0" layoutY="172.0">
@@ -90,17 +148,17 @@
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="WeaponChestClosed" fitHeight="35.0" fitWidth="54.0" layoutX="435.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wcc1" fitHeight="35.0" fitWidth="54.0" layoutX="711.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestClosed.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="WeaponChestOpen" fitHeight="35.0" fitWidth="54.0" layoutX="433.0" layoutY="95.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wco1" fitHeight="35.0" fitWidth="54.0" layoutX="711.0" layoutY="266.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestOpen.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="orc1" fitHeight="36.0" fitWidth="41.0" layoutX="367.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ro1" fitHeight="36.0" fitWidth="41.0" layoutX="367.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
@@ -108,11 +166,6 @@
       <ImageView fx:id="wm1" fitHeight="192.0" fitWidth="154.0" layoutX="543.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/trial.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="island7" fitHeight="150.0" fitWidth="200.0" layoutX="663.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/FloatingIsland4.png" />
          </image>
       </ImageView>
       <ImageView fx:id="island8" fitHeight="142.0" fitWidth="121.0" layoutX="842.0" layoutY="249.0">
@@ -140,7 +193,7 @@
             <Image url="@Images/Cloud3.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="154.0" fitWidth="220.0" layoutX="2036.0" layoutY="240.0">
+      <ImageView fitHeight="154.0" fitWidth="220.0" layoutX="2033.0" layoutY="240.0">
          <image>
             <Image url="@Images/FloatingIsland3.png" />
          </image>
@@ -333,97 +386,97 @@
       <Rectangle fx:id="rec17" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4382.0" layoutY="276.0" stroke="BLACK" strokeType="INSIDE" width="318.0" />
       <Rectangle fx:id="rec16" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4211.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
       <Rectangle fx:id="rec18" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4757.0" layoutY="249.0" stroke="BLACK" strokeType="INSIDE" width="211.0" />
-      <ImageView fx:id="orc11" fitHeight="36.0" fitWidth="41.0" layoutX="4523.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ro10" fitHeight="36.0" fitWidth="41.0" layoutX="4523.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="orc111" fitHeight="36.0" fitWidth="41.0" layoutX="4064.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ro9" fitHeight="36.0" fitWidth="41.0" layoutX="4064.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="orc1111" fitHeight="36.0" fitWidth="41.0" layoutX="3978.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ro8" fitHeight="36.0" fitWidth="41.0" layoutX="3978.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="orc11111" fitHeight="36.0" fitWidth="41.0" layoutX="3587.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ro7" fitHeight="36.0" fitWidth="41.0" layoutX="3587.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="orc111111" fitHeight="36.0" fitWidth="41.0" layoutX="2515.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ro5" fitHeight="36.0" fitWidth="41.0" layoutX="2515.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="orc1111111" fitHeight="36.0" fitWidth="41.0" layoutX="1748.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ro4" fitHeight="36.0" fitWidth="41.0" layoutX="1748.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="orc112" fitHeight="36.0" fitWidth="41.0" layoutX="2608.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ro6" fitHeight="36.0" fitWidth="41.0" layoutX="2608.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="orc1121" fitHeight="36.0" fitWidth="41.0" layoutX="1696.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ro3" fitHeight="36.0" fitWidth="41.0" layoutX="1696.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="orc11211" fitHeight="36.0" fitWidth="41.0" layoutX="1089.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ro2" fitHeight="36.0" fitWidth="41.0" layoutX="1089.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="orc211111111" fitHeight="35.0" fitWidth="33.0" layoutX="4444.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="go5" fitHeight="35.0" fitWidth="33.0" layoutX="4444.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/HelmetGreenOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="orcAxe11111111" fitHeight="35.0" fitWidth="33.0" layoutX="4461.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="axe5" fitHeight="35.0" fitWidth="33.0" layoutX="4461.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Axe.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="orc2111111111" fitHeight="35.0" fitWidth="33.0" layoutX="3242.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="go4" fitHeight="35.0" fitWidth="33.0" layoutX="3242.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/HelmetGreenOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="orcAxe111111111" fitHeight="35.0" fitWidth="33.0" layoutX="3248.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="axe4" fitHeight="35.0" fitWidth="33.0" layoutX="3248.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Axe.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="orc21111111111" fitHeight="35.0" fitWidth="33.0" layoutX="3116.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="go3" fitHeight="35.0" fitWidth="33.0" layoutX="3116.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/HelmetGreenOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="orcAxe1111111111" fitHeight="35.0" fitWidth="33.0" layoutX="3138.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="axe3" fitHeight="35.0" fitWidth="33.0" layoutX="3138.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Axe.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="orc211111111111" fitHeight="35.0" fitWidth="33.0" layoutX="2124.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="go2" fitHeight="35.0" fitWidth="33.0" layoutX="2124.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/HelmetGreenOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="orcAxe11111111111" fitHeight="35.0" fitWidth="33.0" layoutX="2141.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="axe2" fitHeight="35.0" fitWidth="33.0" layoutX="2141.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Axe.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="orc2111111111111" fitHeight="35.0" fitWidth="33.0" layoutX="861.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="go1" fitHeight="35.0" fitWidth="33.0" layoutX="861.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/HelmetGreenOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="orcAxe111111111111" fitHeight="35.0" fitWidth="33.0" layoutX="878.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="axe1" fitHeight="35.0" fitWidth="33.0" layoutX="878.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Axe.png" />
          </image>
@@ -438,7 +491,7 @@
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="coin10" fitHeight="19.0" fitWidth="21.0" layoutX="994.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="coin10" fitHeight="19.0" fitWidth="21.0" layoutX="985.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Coin.jpg" />
          </image>
@@ -448,58 +501,215 @@
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="uiPane" layoutY="3.0" prefHeight="414.0" prefWidth="700.0">
-         <children>
-            <Label fx:id="location" layoutX="298.0" layoutY="10.0" prefHeight="74.0" prefWidth="87.0" text="0" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="50.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="36.0" fitWidth="121.0" layoutX="22.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/WeaponSlot.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="11.0" fitWidth="22.0" layoutX="29.0" layoutY="386.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/ThrowingKnives.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="26.0" fitWidth="9.0" layoutX="78.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/Swords.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="652.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/Coin.jpg" />
-               </image>
-            </ImageView>
-            <Label fx:id="coinCount" layoutX="603.0" layoutY="10.0" prefHeight="36.0" prefWidth="49.0" text="0" textFill="WHITE">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <Button fx:id="pause" layoutX="2.0" mnemonicParsing="false" onAction="#togglePause" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: transparent;">
-               <graphic>
-                  <ImageView fitHeight="54.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Images/pause-icon.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Button fx:id="moveForward" layoutX="22.0" layoutY="81.0" mnemonicParsing="false" onAction="#setMoveForward" opacity="0.0" prefHeight="323.0" prefWidth="679.0" text="moveForward" />
-            <ImageView fx:id="knife" layoutX="371.0" layoutY="27.0">
-               <image>
-                  <Image url="@Images/ThrowingKnives.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="sword" fitHeight="200.0" fitWidth="51.0" layoutX="488.0" layoutY="-19.0">
-               <image>
-                  <Image url="@Images/Swords.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
+      <ImageView fx:id="coin51" fitHeight="19.0" fitWidth="21.0" layoutX="1059.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin61" fitHeight="19.0" fitWidth="21.0" layoutX="1087.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin41" fitHeight="19.0" fitWidth="21.0" layoutX="1031.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin11" fitHeight="19.0" fitWidth="21.0" layoutX="1031.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin21" fitHeight="19.0" fitWidth="21.0" layoutX="1059.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin31" fitHeight="19.0" fitWidth="21.0" layoutX="1087.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin511" fitHeight="19.0" fitWidth="21.0" layoutX="3324.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin611" fitHeight="19.0" fitWidth="21.0" layoutX="3352.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin411" fitHeight="19.0" fitWidth="21.0" layoutX="3296.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin111" fitHeight="19.0" fitWidth="21.0" layoutX="3296.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin211" fitHeight="19.0" fitWidth="21.0" layoutX="3324.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin311" fitHeight="19.0" fitWidth="21.0" layoutX="3352.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin5111" fitHeight="19.0" fitWidth="21.0" layoutX="2197.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin6111" fitHeight="19.0" fitWidth="21.0" layoutX="2225.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin4111" fitHeight="19.0" fitWidth="21.0" layoutX="2169.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin1111" fitHeight="19.0" fitWidth="21.0" layoutX="2169.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin2111" fitHeight="19.0" fitWidth="21.0" layoutX="2197.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin3111" fitHeight="19.0" fitWidth="21.0" layoutX="2225.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin5112" fitHeight="19.0" fitWidth="21.0" layoutX="3680.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin6112" fitHeight="19.0" fitWidth="21.0" layoutX="3708.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin4112" fitHeight="19.0" fitWidth="21.0" layoutX="3652.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin1112" fitHeight="19.0" fitWidth="21.0" layoutX="3652.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin2112" fitHeight="19.0" fitWidth="21.0" layoutX="3680.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin3112" fitHeight="19.0" fitWidth="21.0" layoutX="3708.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin51121" fitHeight="19.0" fitWidth="21.0" layoutX="3769.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin61121" fitHeight="19.0" fitWidth="21.0" layoutX="3797.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin41121" fitHeight="19.0" fitWidth="21.0" layoutX="3741.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin11121" fitHeight="19.0" fitWidth="21.0" layoutX="3741.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin21121" fitHeight="19.0" fitWidth="21.0" layoutX="3769.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin31121" fitHeight="19.0" fitWidth="21.0" layoutX="3797.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin511211" fitHeight="19.0" fitWidth="21.0" layoutX="4656.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin611211" fitHeight="19.0" fitWidth="21.0" layoutX="4684.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin411211" fitHeight="19.0" fitWidth="21.0" layoutX="4628.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin111211" fitHeight="19.0" fitWidth="21.0" layoutX="4628.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin211211" fitHeight="19.0" fitWidth="21.0" layoutX="4656.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin311211" fitHeight="19.0" fitWidth="21.0" layoutX="4684.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin5112111" fitHeight="19.0" fitWidth="21.0" layoutX="4748.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin6112111" fitHeight="19.0" fitWidth="21.0" layoutX="4776.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin4112111" fitHeight="19.0" fitWidth="21.0" layoutX="4720.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin1112111" fitHeight="19.0" fitWidth="21.0" layoutX="4720.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin2112111" fitHeight="19.0" fitWidth="21.0" layoutX="4748.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin3112111" fitHeight="19.0" fitWidth="21.0" layoutX="4776.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
