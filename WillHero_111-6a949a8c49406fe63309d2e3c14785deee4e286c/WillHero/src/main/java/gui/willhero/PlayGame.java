@@ -30,24 +30,14 @@ import java.util.ResourceBundle;
 
 public class PlayGame implements Initializable {
     @FXML
-    private AnchorPane gamePane, settingPane, uiPane;
-
-
-    @FXML
-    private AnchorPane pausePane;
-
+    private AnchorPane gamePane, settingPane, uiPane, pausePane;
 
     @FXML
-    private Button moveForward, backToPause, restart, returnToMainMenu, loadSavedGames ;
+    private Button moveForward, backToPause, restart, returnToMainMenu, loadSavedGames, resume, pause ;
 
     @FXML
     private ImageView helmet;
 
-    @FXML
-    private Button resume;
-
-    @FXML
-    private Button pause;
 
     @FXML
     private Rectangle rec1, rec2, rec3, rec4, rec5, rec6, rec7, rec8, rec9, rec10, rec11, rec12, rec13, rec14, rec15,
@@ -121,12 +111,6 @@ public class PlayGame implements Initializable {
         position = 0;
         isSettingDisabled = true;
         isPauseDisabled =  true;
-//        jump.setDuration(Duration.seconds(1));
-//        jump.setToY(helmet.getY() - 50);
-//        jump.setAutoReverse(true);
-//        jump.setCycleCount(Animation.INDEFINITE);
-//        jump.setNode(helmet);
-//        jump.play();
 
         floating(island1);
         floating(island2);
@@ -183,7 +167,6 @@ public class PlayGame implements Initializable {
         bg.setTranslateX(bg.getTranslateX() + 75);
         position++;
         location.setText(String.valueOf(position));
-//        helmet.setTranslateX(helmet.getTranslateX()+50);
         uiPane.setTranslateX(uiPane.getTranslateX() + 75);
         movePlayerX(75);
 //        jump.play();
