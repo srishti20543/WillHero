@@ -19,6 +19,7 @@ abstract class Weapons extends GameObject{
     }
 
     public abstract void addWep(ImageView wep);
+    public abstract void use();
 
     public void update(){
         if(!unlocked){

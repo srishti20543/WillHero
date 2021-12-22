@@ -70,11 +70,14 @@ public class Animations {
     }
 
     public void throwKnife(ImageView knife){
+
+        double pos = knife.getX();
         TranslateTransition translate = new TranslateTransition();
         translate.setNode(knife);
-        translate.setDuration(Duration.millis(1000));
-        translate.setByX(500);
+        translate.setDuration(Duration.millis(750));
+        translate.setByX(pos + 300);
         translate.play();
+        knife.setX(pos);
     }
 
     public void rotateWeapon(ImageView weapon, double angle){
@@ -82,6 +85,7 @@ public class Animations {
         rotate.setNode(weapon);
         rotate.setDuration(Duration.millis(500));
         rotate.setInterpolator(Interpolator.LINEAR);
+        rotate.setAutoReverse(true);
         rotate.setByAngle(angle);
         rotate.play();
     }

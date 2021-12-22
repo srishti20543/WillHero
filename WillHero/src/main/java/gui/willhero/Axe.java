@@ -21,6 +21,11 @@ public class Axe extends Weapons{
     }
 
     @Override
+    public void use() {
+
+    }
+
+    @Override
     public int onCollision(ImageView helmet) {
         return 0;
     }

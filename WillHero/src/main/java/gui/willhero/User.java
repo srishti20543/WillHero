@@ -18,9 +18,11 @@ public class User implements Serializable{
     private boolean isResurrected;
     private ArrayList<Weapons> weaponsUnlocked;
     private Helmet helmetChosen;
+    private Weapons curWepaon;
+    private ImageView playerHelmet;
 
 
-    User()
+    User(ImageView player)
     {
         this.ID++;
         this.health = 100;
@@ -30,6 +32,7 @@ public class User implements Serializable{
         this.isWinner = false;
         this.isResurrected = false;
         this.helmetChosen = new Penguin();
+        this.playerHelmet = player;
         this. weaponsUnlocked = new ArrayList<>();
         weaponsUnlocked.add(new Knives());
         weaponsUnlocked.add(new Sword());
@@ -48,6 +51,7 @@ public class User implements Serializable{
     public void setDead(){
         if(health <= 0) {
             this.isDead = true;
+            System.out.println("ded");
             if(isResurrected == false){
                 //show resurrection menu
                 isResurrected = true;
@@ -74,8 +78,22 @@ public class User implements Serializable{
         return weaponsUnlocked.get(val).getLevel();
     }
 
-    public void setWeaponImage(ImageView knifeUI, ImageView swordUI){
-        weaponsUnlocked.get(0).addWep(knifeUI);
-        weaponsUnlocked.get(1).addWep(swordUI);
+    public void setWeaponImage(ImageView knife, ImageView sword){
+        weaponsUnlocked.get(0).addWep(knife);
+        weaponsUnlocked.get(1).addWep(sword);
+    }
+
+    public void setCurWeapon(int ind){
+        curWepaon = weaponsUnlocked.get(ind);
+    }
+
+    public void useCurWeapon(){
+        if(curWepaon == null){
+            return;
+        }
+        curWepaon.use();
+        if(curWepaon instanceof Knives){
+            ((Knives) curWepaon).getImg().setX(playerHelmet.getX());
+        }
     }
 }

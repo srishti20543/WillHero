@@ -12,9 +12,9 @@ public class Sword extends Weapons{
 
     public void update(){
         super.update();
-        if ( getLevel() == 1){
-            animations.toggleOpacity(img);
-        }
+//        if ( getLevel() == 1){
+//            animations.toggleOpacity(imgUI);
+//        }
     }
 
     @Override
@@ -22,9 +22,19 @@ public class Sword extends Weapons{
         img = swd;
     }
 
+
     @Override
     public int onCollision(ImageView helmet) {
         return 0;
+    }
+
+    @Override
+    public void use(){
+        animations.rotateWeapon(img, 360);
+    }
+
+    public void activate(){
+        animations.toggleOpacity(img);
     }
 }
 

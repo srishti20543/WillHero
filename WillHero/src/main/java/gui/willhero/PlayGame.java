@@ -1,28 +1,21 @@
 package gui.willhero;
 
 import javafx.animation.*;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Point2D;
-import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.ImagePattern;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
-import java.io.SequenceInputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -35,6 +28,9 @@ public class PlayGame implements Initializable {
 
     @FXML
     private Button moveForward, backToPause, restart, returnToMainMenu, loadSavedGames, resume, pause ;
+
+    @FXML
+    private Button selectKnife, selectSword;
 
     @FXML
     private ImageView helmet;
@@ -54,7 +50,7 @@ public class PlayGame implements Initializable {
     private ImageView island1, island2, island3, island4, island5, island6, island7, island8, island9, island10, island11, island12, island13, island14, island15, island16, island17, island18, island19, island20;
 
     @FXML
-    private ImageView swordUI, knifeUI;
+    private ImageView swordUI, knifeUI, playerSword, playerKnife;
 
     @FXML
     private ImageView cloud1, cloud2, cloud3, cloud4, cloud5, cloud6, cloud7, cloud8, cloud9, cloud10;
@@ -74,9 +70,7 @@ public class PlayGame implements Initializable {
 //    axe6, axe7, axe8, axe9, axe10;
 
     @FXML
-    private ImageView wcc1;
-    @FXML
-    private ImageView wco1;
+    private ImageView wcc1, wco1, wcc2, wco2, wcc3, wco3;
 
 
     @FXML
@@ -109,10 +103,12 @@ public class PlayGame implements Initializable {
     private final Orc rOrc = new ShieldedOrc();
     private final Chest weaponChest = new WeaponChest();
     private final Chest coinChest = new CoinChest();
+    private final Knives knife = new Knives();
+    private final Sword sword = new Sword();
 
 
     private ArrayList<User> savedGames = new ArrayList<>();
-    private User curPlayer = new User();
+    private User curPlayer = new User(helmet);
     private int highscore = 0;
 
 
@@ -135,7 +131,9 @@ public class PlayGame implements Initializable {
         addAxe();
         addWeaponChest();
 
-        curPlayer.setWeaponImage(knifeUI, swordUI);
+        curPlayer.setWeaponImage(playerKnife, playerSword);
+        knife.addWep(knifeUI);
+        sword.addWep(swordUI);
 
         AnimationTimer timer = new AnimationTimer() {
             @Override
@@ -235,6 +233,8 @@ public class PlayGame implements Initializable {
 
     private void addWeaponChest() {
         weaponChest.addChest(wcc1, wco1);
+        weaponChest.addChest(wcc2, wco2);
+        weaponChest.addChest(wcc3, wco3);
     }
 
     public void update(){
@@ -254,6 +254,7 @@ public class PlayGame implements Initializable {
         uiPane.setTranslateX(uiPane.getTranslateX() + 75);
         movePlayerX(75);
         curPlayer.setCurrentScore(position);
+        curPlayer.useCurWeapon();
     }
 
     private void movePlayerX(int value) {
@@ -264,6 +265,9 @@ public class PlayGame implements Initializable {
             if(checkCollisionIsland() == 1){
                 helmet.setTranslateX(helmet.getTranslateX() - 10);
             }
+            else if(checkCollisionWithBorder() == 1){
+                curPlayer.setHealth(0);
+            }
             else if(checkCollisionCoin() == 1){
                 coinCnt++;
                 coinCount.setText(String.valueOf(coinCnt));
@@ -273,9 +277,19 @@ public class PlayGame implements Initializable {
                 int lvl = curPlayer.updateWeapon(var);
                 if(var == 0){
                     knifeLevel.setText(String.valueOf(lvl));
+                    if (lvl == 1){
+                        knife.activate();
+                        selectKnife.setDisable(false);
+                    }
+                    choseKnife();
                 }
                 else{
                     swordLevel.setText(String.valueOf(lvl));
+                    if (lvl == 1){
+                        sword.activate();
+                        selectSword.setDisable(false);
+                    }
+                    choseSword();
                 }
 
             }
@@ -310,7 +324,23 @@ public class PlayGame implements Initializable {
                 curPlayer.setCoinsCollected(1);
             }
             else if ((var = checkCollisionWeaponChest()) != -1){
-                curPlayer.updateWeapon(var);
+                int lvl = curPlayer.updateWeapon(var);
+                if(var == 0){
+                    knifeLevel.setText(String.valueOf(lvl));
+                    if (lvl == 1){
+                        knife.activate();
+                        selectKnife.setDisable(false);
+                    }
+                    choseKnife();
+                }
+                else{
+                    swordLevel.setText(String.valueOf(lvl));
+                    if (lvl == 1){
+                        sword.activate();
+                        selectSword.setDisable(false);
+                    }
+                    choseSword();
+                }
             }
             else if ((var = checkCollisionCoinChest())!= -1){
                 coinCnt += var;
@@ -342,6 +372,18 @@ public class PlayGame implements Initializable {
             return 1;
         }
         return -1;
+    }
+
+
+
+
+
+    public void choseKnife(){
+        curPlayer.setCurWeapon(0);
+    }
+
+    public void choseSword(){
+        curPlayer.setCurWeapon(1);
     }
 
     public void setReturnToMainMenu() throws IOException {
