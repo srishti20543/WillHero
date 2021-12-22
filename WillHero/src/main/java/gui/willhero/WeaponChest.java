@@ -28,8 +28,6 @@ public class WeaponChest extends Chest{
 
     public int generateWeapon(){
         return new Random().nextInt(2) ;
-        // 0 - knife
-        // 1 - sword
     }
 
     @Override

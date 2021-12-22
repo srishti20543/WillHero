@@ -12,9 +12,6 @@ public class Knives extends Weapons{
 
     public void update(){
         super.update();
-//        if ( getLevel() == 1){
-//            animations.toggleOpacity(img);
-//        }
     }
 
     @Override
@@ -33,7 +30,8 @@ public class Knives extends Weapons{
         animations.throwKnife(img);
     }
 
-    public void activate(){
+    @Override
+    public void toggle(){
         animations.toggleOpacity(img);
     }
 

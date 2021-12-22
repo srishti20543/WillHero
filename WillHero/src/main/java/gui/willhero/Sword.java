@@ -12,9 +12,6 @@ public class Sword extends Weapons{
 
     public void update(){
         super.update();
-//        if ( getLevel() == 1){
-//            animations.toggleOpacity(imgUI);
-//        }
     }
 
     @Override
@@ -33,8 +30,10 @@ public class Sword extends Weapons{
         animations.rotateWeapon(img, 360);
     }
 
-    public void activate(){
+    @Override
+    public void toggle(){
         animations.toggleOpacity(img);
     }
+
 }
 

@@ -658,7 +658,7 @@
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="wco2" fitHeight="35.0" fitWidth="54.0" layoutX="1131.0" layoutY="272.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wco2" disable="true" fitHeight="35.0" fitWidth="54.0" layoutX="1131.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestOpen.png" />
          </image>
@@ -668,7 +668,7 @@
             <Image url="@Images/WeaponChestClosed.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wco3" fitHeight="35.0" fitWidth="54.0" layoutX="1378.0" layoutY="245.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wco3" disable="true" fitHeight="35.0" fitWidth="54.0" layoutX="1378.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestOpen.png" />
          </image>
@@ -724,12 +724,12 @@
             <Label fx:id="swordLevel" layoutX="65.0" layoutY="383.0" prefHeight="26.0" prefWidth="33.0" />
             <Button fx:id="selectKnife" disable="true" layoutX="23.0" layoutY="371.0" mnemonicParsing="false" onAction="#choseKnife" opacity="0.0" prefHeight="35.0" prefWidth="34.0" text="K" />
             <Button fx:id="selectSword" disable="true" layoutX="64.0" layoutY="370.0" mnemonicParsing="false" onAction="#choseSword" opacity="0.0" prefHeight="35.0" prefWidth="34.0" text="S" />
-            <ImageView fx:id="playerSword" fitHeight="61.0" fitWidth="18.0" layoutX="220.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="playerSword" disable="true" fitHeight="61.0" fitWidth="18.0" layoutX="220.0" layoutY="147.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/Swords.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="playerKnife" fitHeight="20.0" fitWidth="45.0" layoutX="254.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="playerKnife" disable="true" fitHeight="20.0" fitWidth="45.0" layoutX="254.0" layoutY="189.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/ThrowingKnives.png" />
                </image>

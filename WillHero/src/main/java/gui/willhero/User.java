@@ -81,19 +81,22 @@ public class User implements Serializable{
     public void setWeaponImage(ImageView knife, ImageView sword){
         weaponsUnlocked.get(0).addWep(knife);
         weaponsUnlocked.get(1).addWep(sword);
+
     }
 
     public void setCurWeapon(int ind){
+        if(curWepaon != null){
+            curWepaon.toggle();
+        }
         curWepaon = weaponsUnlocked.get(ind);
+        curWepaon.toggle();
     }
 
-    public void useCurWeapon(){
+    public void useCurWeapon(double pos){
         if(curWepaon == null){
             return;
         }
         curWepaon.use();
-        if(curWepaon instanceof Knives){
-            ((Knives) curWepaon).getImg().setX(playerHelmet.getX());
-        }
+
     }
 }

@@ -139,6 +139,7 @@ public class PlayGame implements Initializable {
             @Override
             public void handle(long l) {
                 update();
+                movePlayerWeapons();
             }
         };
         timer.start();
@@ -246,6 +247,13 @@ public class PlayGame implements Initializable {
         movePlayerY((int)playerVelocity.getY());
     }
 
+    public void movePlayerWeapons(){
+        playerSword.setTranslateX(helmet.getX());
+
+        playerSword.setTranslateY(helmet.getTranslateY());
+        playerKnife.setTranslateY(helmet.getTranslateY());
+    }
+
     public void setMoveForward(){
         position++;
         gamePane.setTranslateX(gamePane.getTranslateX() - 75);
@@ -254,7 +262,7 @@ public class PlayGame implements Initializable {
         uiPane.setTranslateX(uiPane.getTranslateX() + 75);
         movePlayerX(75);
         curPlayer.setCurrentScore(position);
-        curPlayer.useCurWeapon();
+        curPlayer.useCurWeapon(helmet.getX());
     }
 
     private void movePlayerX(int value) {
@@ -278,7 +286,7 @@ public class PlayGame implements Initializable {
                 if(var == 0){
                     knifeLevel.setText(String.valueOf(lvl));
                     if (lvl == 1){
-                        knife.activate();
+                        knife.toggle();
                         selectKnife.setDisable(false);
                     }
                     choseKnife();
@@ -286,7 +294,7 @@ public class PlayGame implements Initializable {
                 else{
                     swordLevel.setText(String.valueOf(lvl));
                     if (lvl == 1){
-                        sword.activate();
+                        sword.toggle();
                         selectSword.setDisable(false);
                     }
                     choseSword();
@@ -328,7 +336,7 @@ public class PlayGame implements Initializable {
                 if(var == 0){
                     knifeLevel.setText(String.valueOf(lvl));
                     if (lvl == 1){
-                        knife.activate();
+                        knife.toggle();
                         selectKnife.setDisable(false);
                     }
                     choseKnife();
@@ -336,7 +344,7 @@ public class PlayGame implements Initializable {
                 else{
                     swordLevel.setText(String.valueOf(lvl));
                     if (lvl == 1){
-                        sword.activate();
+                        sword.toggle();
                         selectSword.setDisable(false);
                     }
                     choseSword();

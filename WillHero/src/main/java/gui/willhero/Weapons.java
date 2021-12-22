@@ -20,6 +20,7 @@ abstract class Weapons extends GameObject{
 
     public abstract void addWep(ImageView wep);
     public abstract void use();
+    public abstract void toggle();
 
     public void update(){
         if(!unlocked){
@@ -29,7 +30,6 @@ abstract class Weapons extends GameObject{
         if(level > 1){
             damage += 5;
         }
-        System.out.println("level of " + this.name + " : " + this.level);
     }
 
     public int getLevel(){

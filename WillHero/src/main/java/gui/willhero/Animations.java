@@ -10,6 +10,8 @@ import javafx.util.Duration;
 
 public class Animations {
 
+    private boolean isRotating = false;
+
     public void floatingDown(ImageView island){
         TranslateTransition floating = new TranslateTransition();
         floating.setDuration(Duration.seconds(10));
@@ -70,24 +72,30 @@ public class Animations {
     }
 
     public void throwKnife(ImageView knife){
-
         double pos = knife.getX();
         TranslateTransition translate = new TranslateTransition();
         translate.setNode(knife);
         translate.setDuration(Duration.millis(750));
-        translate.setByX(pos + 300);
+        translate.setByX(pos + 400);
+        translate.setOnFinished(actionEvent -> knife.setTranslateX(pos));
         translate.play();
-        knife.setX(pos);
     }
 
+
     public void rotateWeapon(ImageView weapon, double angle){
-        RotateTransition rotate = new RotateTransition();
-        rotate.setNode(weapon);
-        rotate.setDuration(Duration.millis(500));
-        rotate.setInterpolator(Interpolator.LINEAR);
-        rotate.setAutoReverse(true);
-        rotate.setByAngle(angle);
-        rotate.play();
+
+        if(!isRotating){
+            isRotating = true;
+            RotateTransition rotate = new RotateTransition();
+            rotate.setNode(weapon);
+            rotate.setDuration(Duration.millis(500));
+            rotate.setInterpolator(Interpolator.LINEAR);
+            rotate.setAutoReverse(true);
+            rotate.setByAngle(angle);
+            rotate.setOnFinished(actionEvent -> isRotating = false);
+            rotate.play();
+        }
+
     }
 
     public void OrcJump(ImageView orc){
@@ -102,9 +110,11 @@ public class Animations {
 
     public void toggleOpacity(ImageView img){
         if(img.getOpacity() == 0.0){
+            img.setDisable(false);
             img.setOpacity(1.0);
         }
         else{
+            img.setDisable(true);
             img.setOpacity(0.0);
         }
     }
