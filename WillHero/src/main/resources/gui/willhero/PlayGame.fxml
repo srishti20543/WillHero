@@ -25,17 +25,17 @@
             <Image url="@Images/Cloud1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="island2" fitHeight="106.0" fitWidth="71.0" layoutX="424.0" layoutY="78.0">
+      <ImageView fitHeight="106.0" fitWidth="71.0" layoutX="424.0" layoutY="78.0">
          <image>
             <Image url="@Images/FloatingIsland1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="island4" fitHeight="72.0" fitWidth="82.0" layoutX="359.0" layoutY="293.0">
+      <ImageView fx:id="island2" fitHeight="72.0" fitWidth="82.0" layoutX="359.0" layoutY="293.0">
          <image>
             <Image url="@Images/FloatingIsland2.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="island1" fitHeight="90.0" fitWidth="82.0" layoutX="124.0" layoutY="41.0">
+      <ImageView fitHeight="90.0" fitWidth="82.0" layoutX="124.0" layoutY="41.0">
          <image>
             <Image url="@Images/FloatingIsland3.png" />
          </image>
@@ -45,22 +45,27 @@
             <Image url="@Images/Cloud3.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="island7" fitHeight="150.0" fitWidth="200.0" layoutX="664.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/FloatingIsland4.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="island6" fitHeight="229.0" fitWidth="141.0" layoutX="540.0" layoutY="172.0">
+      <ImageView fx:id="island9" fitHeight="229.0" fitWidth="141.0" layoutX="1508.0" layoutY="161.0">
          <image>
             <Image url="@Images/WindmillBase.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="island5" fitHeight="150.0" fitWidth="200.0" layoutX="106.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="island4" fitHeight="150.0" fitWidth="200.0" layoutX="664.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/FloatingIsland4.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="island3" fitHeight="229.0" fitWidth="141.0" layoutX="540.0" layoutY="172.0">
+         <image>
+            <Image url="@Images/WindmillBase.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="island1" fitHeight="150.0" fitWidth="200.0" layoutX="106.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/FloatingIsland1-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="island3" fitHeight="150.0" fitWidth="200.0" layoutX="16.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="16.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/FloatingIsland5.png" />
          </image>
@@ -115,12 +120,12 @@
             <Image url="@Images/trial.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="island8" fitHeight="142.0" fitWidth="121.0" layoutX="842.0" layoutY="249.0">
+      <ImageView fx:id="island5" fitHeight="142.0" fitWidth="121.0" layoutX="842.0" layoutY="249.0">
          <image>
             <Image url="@Images/FloatingIsland1-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="island9" fitHeight="121.0" fitWidth="200.0" layoutX="1025.0" layoutY="260.0">
+      <ImageView fx:id="island6" fitHeight="121.0" fitWidth="200.0" layoutX="1025.0" layoutY="260.0">
          <image>
             <Image url="@Images/FloatingIsland1-removebg-preview.png" />
          </image>
@@ -130,37 +135,32 @@
             <Image url="@Images/FloatingIsland3.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="218.0" fitWidth="147.0" layoutX="1508.0" layoutY="171.0">
-         <image>
-            <Image url="@Images/WindmillBase.png" />
-         </image>
-      </ImageView>
       <ImageView fx:id="cloud9" fitHeight="74.0" fitWidth="176.0" layoutX="2188.0" layoutY="166.0">
          <image>
             <Image url="@Images/Cloud3.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="154.0" fitWidth="220.0" layoutX="2033.0" layoutY="240.0">
+      <ImageView fx:id="island12" fitHeight="154.0" fitWidth="220.0" layoutX="2033.0" layoutY="240.0">
          <image>
             <Image url="@Images/FloatingIsland3.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="165.0" fitWidth="113.0" layoutX="1871.0" layoutY="204.0">
+      <ImageView fx:id="island11" fitHeight="165.0" fitWidth="113.0" layoutX="1871.0" layoutY="204.0">
          <image>
             <Image url="@Images/FloatingIsland1.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="189.0" layoutX="1192.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="island7" fitHeight="150.0" fitWidth="189.0" layoutX="1192.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/FloatingIsland4.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="142.0" fitWidth="241.0" layoutX="2465.0" layoutY="246.0">
+      <ImageView fx:id="island14" fitHeight="142.0" fitWidth="241.0" layoutX="2465.0" layoutY="246.0">
          <image>
             <Image url="@Images/FloatingIsland1-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="83.0" fitWidth="82.0" layoutX="1364.0" layoutY="276.0">
+      <ImageView fx:id="island8" fitHeight="83.0" fitWidth="82.0" layoutX="1364.0" layoutY="276.0">
          <image>
             <Image url="@Images/FloatingIsland2.png" />
          </image>
@@ -220,7 +220,7 @@
             <Image url="@Images/FloatingIsland1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wm2" fitHeight="192.0" fitWidth="154.0" layoutX="1513.0" layoutY="90.0">
+      <ImageView fx:id="wm2" fitHeight="192.0" fitWidth="154.0" layoutX="1508.0" layoutY="90.0">
          <image>
             <Image url="@Images/trial.png" />
          </image>
@@ -245,12 +245,12 @@
             <Image url="@Images/FloatingIsland4.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="176.0" fitWidth="131.0" layoutX="2299.0" layoutY="181.0">
+      <ImageView fx:id="island13" fitHeight="176.0" fitWidth="131.0" layoutX="2299.0" layoutY="181.0">
          <image>
             <Image url="@Images/FloatingIsland5.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="218.0" fitWidth="147.0" layoutX="2749.0" layoutY="178.0">
+      <ImageView fx:id="island15" fitHeight="218.0" fitWidth="147.0" layoutX="2749.0" layoutY="178.0">
          <image>
             <Image url="@Images/WindmillBase.png" />
          </image>
@@ -260,52 +260,52 @@
             <Image url="@Images/trial.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="154.0" fitWidth="190.0" layoutX="3174.0" layoutY="237.0">
+      <ImageView fx:id="island17" fitHeight="154.0" fitWidth="190.0" layoutX="3174.0" layoutY="237.0">
          <image>
             <Image url="@Images/FloatingIsland3.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="100.0" fitWidth="200.0" layoutX="3541.0" layoutY="280.0">
+      <ImageView fx:id="island19" fitHeight="100.0" fitWidth="200.0" layoutX="3541.0" layoutY="280.0">
          <image>
             <Image url="@Images/FloatingIsland2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="190.0" layoutX="2994.0" layoutY="239.0">
+      <ImageView fx:id="island16" fitHeight="150.0" fitWidth="190.0" layoutX="2994.0" layoutY="239.0">
          <image>
             <Image url="@Images/FloatingIsland3.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="191.0" fitWidth="116.0" layoutX="3438.0" layoutY="176.0">
+      <ImageView fx:id="island18" fitHeight="191.0" fitWidth="116.0" layoutX="3438.0" layoutY="176.0">
          <image>
             <Image url="@Images/FloatingIsland5.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="200.0" fitWidth="174.0" layoutX="4541.0" layoutY="204.0">
+      <ImageView fx:id="island24" fitHeight="200.0" fitWidth="174.0" layoutX="4541.0" layoutY="204.0">
          <image>
             <Image url="@Images/FloatingIsland4.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="90.0" fitWidth="200.0" layoutX="4377.0" layoutY="272.0">
+      <ImageView fx:id="island23" fitHeight="90.0" fitWidth="200.0" layoutX="4377.0" layoutY="272.0">
          <image>
             <Image url="@Images/FloatingIsland2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="131.0" fitWidth="211.0" layoutX="4757.0" layoutY="207.0">
+      <ImageView fx:id="island25" fitHeight="131.0" fitWidth="211.0" layoutX="4757.0" layoutY="207.0">
          <image>
             <Image url="@Images/FloatingIsland3.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="121.0" fitWidth="200.0" layoutX="3964.0" layoutY="220.0">
+      <ImageView fx:id="island21" fitHeight="121.0" fitWidth="200.0" layoutX="3964.0" layoutY="220.0">
          <image>
             <Image url="@Images/FloatingIsland1-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="176.0" fitWidth="125.0" layoutX="4211.0" layoutY="199.0">
+      <ImageView fx:id="island22" fitHeight="176.0" fitWidth="125.0" layoutX="4211.0" layoutY="199.0">
          <image>
             <Image url="@Images/FloatingIsland1.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="249.0" fitWidth="154.0" layoutX="3824.0" layoutY="126.0">
+      <ImageView fx:id="island20" fitHeight="249.0" fitWidth="154.0" layoutX="3824.0" layoutY="126.0">
          <image>
             <Image url="@Images/WindmillBase.png" />
          </image>
@@ -317,22 +317,22 @@
       </ImageView>
       <Rectangle fx:id="rec1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="109.0" layoutY="302.0" stroke="BLACK" strokeType="INSIDE" width="189.0" />
       <Rectangle fx:id="rec2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="360.0" layoutY="297.0" stroke="BLACK" strokeType="INSIDE" width="78.0" />
-      <Rectangle fx:id="rec3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="543.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="241.0" />
-      <Rectangle fx:id="rec4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="850.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
-      <Rectangle fx:id="rec5" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1036.0" layoutY="305.0" stroke="BLACK" strokeType="INSIDE" width="270.0" />
-      <Rectangle fx:id="rec6" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="1364.0" layoutY="281.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
-      <Rectangle fx:id="rec7" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1508.0" layoutY="292.0" stroke="BLACK" strokeType="INSIDE" width="301.0" />
-      <Rectangle fx:id="rec8" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1871.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="113.0" />
-      <Rectangle fx:id="rec9" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2043.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-      <Rectangle fx:id="rec10" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2309.0" layoutY="279.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
-      <Rectangle fx:id="rec11" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2475.0" layoutY="297.0" stroke="BLACK" strokeType="INSIDE" width="220.0" />
-      <Rectangle fx:id="rec12" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2749.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
-      <Rectangle fx:id="rec13" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2994.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="363.0" />
-      <Rectangle fx:id="rec14" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3446.0" layoutY="283.0" stroke="BLACK" strokeType="INSIDE" width="289.0" />
-      <Rectangle fx:id="rec15" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3828.0" layoutY="266.0" stroke="BLACK" strokeType="INSIDE" width="318.0" />
-      <Rectangle fx:id="rec17" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4382.0" layoutY="276.0" stroke="BLACK" strokeType="INSIDE" width="318.0" />
-      <Rectangle fx:id="rec16" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4211.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="rec18" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4757.0" layoutY="249.0" stroke="BLACK" strokeType="INSIDE" width="211.0" />
+      <Rectangle fx:id="rec3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="543.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
+      <Rectangle fx:id="rec5" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="850.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+      <Rectangle fx:id="rec6" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1036.0" layoutY="305.0" stroke="BLACK" strokeType="INSIDE" width="174.0" />
+      <Rectangle fx:id="rec8" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="1364.0" layoutY="281.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
+      <Rectangle fx:id="rec9" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1508.0" layoutY="292.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
+      <Rectangle fx:id="rec11" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1871.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="113.0" />
+      <Rectangle fx:id="rec12" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2043.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Rectangle fx:id="rec13" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2309.0" layoutY="279.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
+      <Rectangle fx:id="rec14" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2475.0" layoutY="297.0" stroke="BLACK" strokeType="INSIDE" width="220.0" />
+      <Rectangle fx:id="rec15" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2749.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
+      <Rectangle fx:id="rec16" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2994.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
+      <Rectangle fx:id="rec18" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3446.0" layoutY="283.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+      <Rectangle fx:id="rec20" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3828.0" layoutY="266.0" stroke="BLACK" strokeType="INSIDE" width="154.0" />
+      <Rectangle fx:id="rec23" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4382.0" layoutY="276.0" stroke="BLACK" strokeType="INSIDE" width="189.0" />
+      <Rectangle fx:id="rec22" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4211.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="rec25" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4757.0" layoutY="249.0" stroke="BLACK" strokeType="INSIDE" width="211.0" />
       <ImageView fx:id="ro10" fitHeight="36.0" fitWidth="41.0" layoutX="4523.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
@@ -678,6 +678,13 @@
             <Image url="@Images/WeaponChestClosed.png" />
          </image>
       </ImageView>
+      <Rectangle fx:id="rec4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="681.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="99.0" />
+      <Rectangle fx:id="rec7" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="1210.0" layoutY="307.0" stroke="BLACK" strokeType="INSIDE" width="99.0" />
+      <Rectangle fx:id="rec10" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1649.0" layoutY="294.0" stroke="BLACK" strokeType="INSIDE" width="163.0" />
+      <Rectangle fx:id="rec17" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3178.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
+      <Rectangle fx:id="rec19" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3554.0" layoutY="284.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
+      <Rectangle fx:id="rec21" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="3982.0" layoutY="265.0" stroke="BLACK" strokeType="INSIDE" width="174.0" />
+      <Rectangle fx:id="rec24" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4562.0" layoutY="275.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
       <AnchorPane fx:id="uiPane" layoutY="3.0" prefHeight="415.0" prefWidth="700.0">
          <children>
             <Label fx:id="location" layoutX="298.0" layoutY="10.0" prefHeight="74.0" prefWidth="87.0" text="0" textAlignment="CENTER" textFill="WHITE">

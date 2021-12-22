@@ -18,7 +18,7 @@ public class User implements Serializable{
     private boolean isResurrected;
     private ArrayList<Weapons> weaponsUnlocked;
     private Helmet helmetChosen;
-    private Weapons curWepaon;
+    private Weapons curWeapon;
     private ImageView playerHelmet;
 
 
@@ -85,18 +85,18 @@ public class User implements Serializable{
     }
 
     public void setCurWeapon(int ind){
-        if(curWepaon != null){
-            curWepaon.toggle();
+        if(curWeapon != null){
+            curWeapon.toggle();
         }
-        curWepaon = weaponsUnlocked.get(ind);
-        curWepaon.toggle();
+        curWeapon = weaponsUnlocked.get(ind);
+        curWeapon.toggle();
     }
 
     public void useCurWeapon(double pos){
-        if(curWepaon == null){
+        if(curWeapon == null){
             return;
         }
-        curWepaon.use();
+        curWeapon.use();
 
     }
 }

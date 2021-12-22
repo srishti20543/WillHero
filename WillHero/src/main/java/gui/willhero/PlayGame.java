@@ -38,16 +38,19 @@ public class PlayGame implements Initializable {
 
     @FXML
     private Rectangle rec1, rec2, rec3, rec4, rec5, rec6, rec7, rec8, rec9, rec10, rec11, rec12, rec13, rec14, rec15,
-            rec16, rec17, rec18;
+            rec16, rec17, rec18, rec19, rec20, rec21, rec22, rec23, rec24, rec25;
 
     @FXML
     private Rectangle deadByGravity;
 
 
-//rec19, rec20, rec21, rec22, rec23, rec24, rec25, rec26, rec27, rec28, rec29, rec30, rec31, rec32, rec33, rec34, rec35, rec36, rec37, rec38, rec39, rec40, rec41, rec42, rec43, rec44, rec45, rec46, rec47, rec48, rec49, rec50;
+//rec26, rec27, rec28, rec29, rec30, rec31, rec32, rec33, rec34, rec35, rec36, rec37, rec38, rec39, rec40,
+// rec41, rec42, rec43, rec44, rec45, rec46, rec47, rec48, rec49, rec50;
 
     @FXML
-    private ImageView island1, island2, island3, island4, island5, island6, island7, island8, island9, island10, island11, island12, island13, island14, island15, island16, island17, island18, island19, island20;
+    private ImageView island1, island2, island3, island4, island5, island6, island7, island8, island9, island10,
+            island11, island12, island13, island14, island15, island16, island17, island18, island19, island20,
+            island21, island22, island23, island24, island25;
 
     @FXML
     private ImageView swordUI, knifeUI, playerSword, playerKnife;
@@ -72,10 +75,6 @@ public class PlayGame implements Initializable {
     @FXML
     private ImageView wcc1, wco1, wcc2, wco2, wcc3, wco3;
 
-
-    @FXML
-    private ImageView WindmillFans;
-
     @FXML
     private ImageView bg;
 
@@ -85,14 +84,12 @@ public class PlayGame implements Initializable {
     @FXML
     private Label coinCount, location, knifeLevel, swordLevel;
 
-
     @FXML
     private Point2D playerVelocity = new Point2D(0, 0);
 
     private int position;
     private int coinCnt;
     private boolean isPauseDisabled, isSettingDisabled;
-//    private final TranslateTransition jump = new TranslateTransition();
 
     private final FloatingIsland floatingIsland = new FloatingIsland();
     private final Windmill windmill = new Windmill();
@@ -110,8 +107,6 @@ public class PlayGame implements Initializable {
     private ArrayList<User> savedGames = new ArrayList<>();
     private User curPlayer = new User(helmet);
     private int highscore = 0;
-
-
 
 
     @Override
@@ -145,7 +140,6 @@ public class PlayGame implements Initializable {
         timer.start();
     }
 
-
     private void addPlatform(){
         floatingIsland.addPlatform(island1, rec1);
         floatingIsland.addPlatform(island2, rec2);
@@ -157,6 +151,21 @@ public class PlayGame implements Initializable {
         floatingIsland.addPlatform(island8, rec8);
         floatingIsland.addPlatform(island9, rec9);
         floatingIsland.addPlatform(island10, rec10);
+        floatingIsland.addPlatform(island11, rec11);
+        floatingIsland.addPlatform(island12, rec12);
+        floatingIsland.addPlatform(island13, rec13);
+        floatingIsland.addPlatform(island14, rec14);
+        floatingIsland.addPlatform(island15, rec15);
+        floatingIsland.addPlatform(island16, rec16);
+        floatingIsland.addPlatform(island17, rec17);
+        floatingIsland.addPlatform(island18, rec18);
+        floatingIsland.addPlatform(island19, rec19);
+        floatingIsland.addPlatform(island20, rec20);
+        floatingIsland.addPlatform(island21, rec21);
+        floatingIsland.addPlatform(island22, rec22);
+        floatingIsland.addPlatform(island23, rec23);
+        floatingIsland.addPlatform(island24, rec24);
+        floatingIsland.addPlatform(island25, rec25);
     }
 
     private void addWindmill(){
