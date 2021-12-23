@@ -105,7 +105,7 @@
             <Image url="@Images/WeaponChestClosed.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wco1" fitHeight="35.0" fitWidth="54.0" layoutX="711.0" layoutY="266.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wco1" fitHeight="35.0" fitWidth="54.0" layoutX="711.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestOpen.png" />
          </image>
@@ -320,19 +320,19 @@
       <Rectangle fx:id="rec3" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="543.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
       <Rectangle fx:id="rec5" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="850.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
       <Rectangle fx:id="rec6" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1036.0" layoutY="305.0" stroke="BLACK" strokeType="INSIDE" width="174.0" />
-      <Rectangle fx:id="rec8" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="1364.0" layoutY="281.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
-      <Rectangle fx:id="rec9" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1508.0" layoutY="292.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
-      <Rectangle fx:id="rec11" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1871.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="113.0" />
-      <Rectangle fx:id="rec12" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2043.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Rectangle fx:id="rec8" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="1364.0" layoutY="279.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
+      <Rectangle fx:id="rec9" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1508.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
+      <Rectangle fx:id="rec11" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1871.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="113.0" />
+      <Rectangle fx:id="rec12" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2043.0" layoutY="290.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
       <Rectangle fx:id="rec13" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2309.0" layoutY="279.0" stroke="BLACK" strokeType="INSIDE" width="116.0" />
       <Rectangle fx:id="rec14" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2475.0" layoutY="297.0" stroke="BLACK" strokeType="INSIDE" width="220.0" />
-      <Rectangle fx:id="rec15" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2749.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
-      <Rectangle fx:id="rec16" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2994.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
+      <Rectangle fx:id="rec15" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2749.0" layoutY="299.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
+      <Rectangle fx:id="rec16" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="2994.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
       <Rectangle fx:id="rec18" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3446.0" layoutY="283.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
-      <Rectangle fx:id="rec20" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3828.0" layoutY="266.0" stroke="BLACK" strokeType="INSIDE" width="154.0" />
+      <Rectangle fx:id="rec20" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3828.0" layoutY="264.0" stroke="BLACK" strokeType="INSIDE" width="154.0" />
       <Rectangle fx:id="rec23" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4382.0" layoutY="276.0" stroke="BLACK" strokeType="INSIDE" width="189.0" />
-      <Rectangle fx:id="rec22" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4211.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="rec25" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4757.0" layoutY="249.0" stroke="BLACK" strokeType="INSIDE" width="211.0" />
+      <Rectangle fx:id="rec22" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4213.0" layoutY="287.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="rec25" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4757.0" layoutY="251.0" stroke="BLACK" strokeType="INSIDE" width="211.0" />
       <ImageView fx:id="ro10" fitHeight="36.0" fitWidth="41.0" layoutX="4523.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
@@ -658,17 +658,12 @@
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="wco2" disable="true" fitHeight="35.0" fitWidth="54.0" layoutX="1131.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/WeaponChestOpen.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="wcc2" fitHeight="35.0" fitWidth="54.0" layoutX="1131.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wcc2" fitHeight="35.0" fitWidth="54.0" layoutX="1125.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestClosed.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wco3" disable="true" fitHeight="35.0" fitWidth="54.0" layoutX="1378.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wco2" disable="true" fitHeight="35.0" fitWidth="54.0" layoutX="1125.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestOpen.png" />
          </image>
@@ -678,13 +673,18 @@
             <Image url="@Images/WeaponChestClosed.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="wco3" disable="true" fitHeight="35.0" fitWidth="54.0" layoutX="1378.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/WeaponChestOpen.png" />
+         </image>
+      </ImageView>
       <Rectangle fx:id="rec4" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="681.0" layoutY="301.0" stroke="BLACK" strokeType="INSIDE" width="99.0" />
-      <Rectangle fx:id="rec7" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="1210.0" layoutY="307.0" stroke="BLACK" strokeType="INSIDE" width="99.0" />
-      <Rectangle fx:id="rec10" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1649.0" layoutY="294.0" stroke="BLACK" strokeType="INSIDE" width="163.0" />
-      <Rectangle fx:id="rec17" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3178.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
+      <Rectangle fx:id="rec7" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="1210.0" layoutY="306.0" stroke="BLACK" strokeType="INSIDE" width="99.0" />
+      <Rectangle fx:id="rec10" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="1649.0" layoutY="292.0" stroke="BLACK" strokeType="INSIDE" width="163.0" />
+      <Rectangle fx:id="rec17" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3178.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
       <Rectangle fx:id="rec19" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3554.0" layoutY="284.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
       <Rectangle fx:id="rec21" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="3982.0" layoutY="265.0" stroke="BLACK" strokeType="INSIDE" width="174.0" />
-      <Rectangle fx:id="rec24" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4562.0" layoutY="275.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
+      <Rectangle fx:id="rec24" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4562.0" layoutY="274.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
       <AnchorPane fx:id="uiPane" layoutY="3.0" prefHeight="415.0" prefWidth="700.0">
          <children>
             <Label fx:id="location" layoutX="298.0" layoutY="10.0" prefHeight="74.0" prefWidth="87.0" text="0" textAlignment="CENTER" textFill="WHITE">

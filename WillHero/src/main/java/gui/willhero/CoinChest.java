@@ -36,4 +36,27 @@ public class CoinChest extends Chest{
         coinChestClosed.add(closed);
         coinChestOpen.add(open);
     }
+
+    @Override
+    public void stayOnIsland(FloatingIsland islands) {
+        for(int i = 0; i< coinChestClosed.size(); i++){
+            Node ccc = coinChestClosed.get(i);
+            if(islands.onCollision((ImageView) ccc) == -1){
+                ccc.setTranslateY(ccc.getTranslateY() + 1);
+            }
+            if(islands.onCollision((ImageView) ccc) == 1){
+                ccc.setTranslateY(ccc.getTranslateY() - 1);
+            }
+        }
+
+        for(int i = 0; i< coinChestOpen.size(); i++){
+            Node cco = coinChestOpen.get(i);
+            if(islands.onCollision((ImageView) cco) == -1){
+                cco.setTranslateY(cco.getTranslateY() + 1);
+            }
+            if(islands.onCollision((ImageView) cco) == 1){
+                cco.setTranslateY(cco.getTranslateY() - 1);
+            }
+        }
+    }
 }

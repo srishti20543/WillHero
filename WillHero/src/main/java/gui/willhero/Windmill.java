@@ -18,4 +18,5 @@ public class Windmill extends GameObject{
     public int onCollision(ImageView helmet) {
         return 0;
     }
+
 }

@@ -77,6 +77,7 @@ public class Animations {
         translate.setNode(knife);
         translate.setDuration(Duration.millis(750));
         translate.setByX(pos + 400);
+        translate.setByY(knife.getY() - 10);
         translate.setOnFinished(actionEvent -> knife.setTranslateX(pos));
         translate.play();
     }

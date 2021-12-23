@@ -17,4 +17,17 @@ public class ShieldedOrc extends RedOrc{
     public void addOrc(ImageView orc){
         redOrc.add(orc);
     }
+
+    @Override
+    public void stayOnIsland(FloatingIsland islands) {
+        for(int i = 0; i< redOrc.size(); i++){
+            Node orc = redOrc.get(i);
+            if(islands.onCollision((ImageView) orc) == -1){
+                orc.setTranslateY(orc.getTranslateY() + 1);
+            }
+            if(islands.onCollision((ImageView) orc) == 1){
+                orc.setTranslateY(orc.getTranslateY() - 1);
+            }
+        }
+    }
 }

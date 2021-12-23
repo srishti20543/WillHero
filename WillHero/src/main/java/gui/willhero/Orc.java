@@ -18,9 +18,10 @@ abstract class Orc extends GameObject{
         this.displacement = disp;
     }
 
-    abstract public void setHealth();
-    abstract public void setDead();
-    abstract public void getDead();
+    public abstract void setHealth();
+    public abstract void setDead();
+    public abstract void getDead();
     public abstract void addOrc(ImageView orc);
+    public abstract void stayOnIsland(FloatingIsland islands);
 }
 

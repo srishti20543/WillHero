@@ -1,5 +1,6 @@
 package gui.willhero;
 
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -21,9 +22,7 @@ public class User implements Serializable{
     private Weapons curWeapon;
     private ImageView playerHelmet;
 
-
-    User(ImageView player)
-    {
+    User(ImageView player) {
         this.ID++;
         this.health = 100;
         this.currentScore = 0;

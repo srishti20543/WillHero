@@ -20,4 +20,17 @@ public class MediumHatAxe extends GreenOrc{
     public void addOrc(ImageView orc){
         gOrc.add(orc);
     }
+
+    @Override
+    public void stayOnIsland(FloatingIsland islands) {
+        for(int i = 0; i< gOrc.size(); i++){
+            Node orc = gOrc.get(i);
+            if(islands.onCollision((ImageView) orc) == -1){
+                orc.setTranslateY(orc.getTranslateY() + 1);
+            }
+            if(islands.onCollision((ImageView) orc) == 1){
+                orc.setTranslateY(orc.getTranslateY() - 1);
+            }
+        }
+    }
 }

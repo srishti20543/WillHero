@@ -34,4 +34,9 @@ public class RedOrc extends Orc{
     public void addOrc(ImageView orc){
 
     }
+
+    @Override
+    public void stayOnIsland(FloatingIsland islands) {
+
+    }
 }

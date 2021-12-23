@@ -59,7 +59,10 @@ public class PlayGame implements Initializable {
     private ImageView cloud1, cloud2, cloud3, cloud4, cloud5, cloud6, cloud7, cloud8, cloud9, cloud10;
 
     @FXML
-    private ImageView coin1, coin2, coin3, coin4, coin5, coin6, coin7, coin8, coin9, coin10;
+    private ImageView coin1, coin2, coin3, coin4, coin5, coin6, coin7, coin8, coin9, coin10,
+            coin11, coin12, coin13, coin14, coin15, coin16, coin17, coin18, coin19, coin20,
+            coin21, coin22, coin23, coin24, coin25, coin26, coin27, coin28, coin29, coin30,
+            coin41, coin42, coin43, coin44, coin45, coin46, coin47, coin48, coin49, coin40;
 
     @FXML
     private ImageView ro1, ro2, ro3, ro4, ro5, ro6, ro7, ro8, ro9, ro10;
@@ -248,12 +251,14 @@ public class PlayGame implements Initializable {
     }
 
     public void update(){
-
         if (playerVelocity.getY() < 10) {
             playerVelocity = playerVelocity.add(0, 1);
         }
-
         movePlayerY((int)playerVelocity.getY());
+
+        weaponChest.stayOnIsland(floatingIsland);
+        gOrc.stayOnIsland(floatingIsland);
+        rOrc.stayOnIsland(floatingIsland);
     }
 
     public void movePlayerWeapons(){
@@ -390,7 +395,6 @@ public class PlayGame implements Initializable {
         }
         return -1;
     }
-
 
 
 
