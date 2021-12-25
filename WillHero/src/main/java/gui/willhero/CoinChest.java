@@ -10,22 +10,13 @@ public class CoinChest extends Chest{
 
     private int coinCount;
     private Coin coins;
-    private ArrayList<Node> coinChestClosed = new ArrayList<Node>();
-    private ArrayList<Node> coinChestOpen = new ArrayList<Node>();
+    private ImageView ccc;
+    private ImageView cco;
 
-//    @Override
-//    public int onCollision(ImageView helmet) {
-//        for(int i = 0; i< coinChestClosed.size(); i++){
-//            if (helmet.getBoundsInParent().intersects(coinChestClosed.get(i).getBoundsInParent())) {
-//                animations.toggleOpacity((ImageView) coinChestOpen.get(i));
-//                animations.toggleOpacity((ImageView) coinChestClosed.get(i));
-//                coinChestClosed.remove(coinChestClosed.get(i));
-//                generateCoinCount();
-//                return coinCount;
-//            }
-//        }
-//        return -1;
-//    }
+    CoinChest(Node ccc, Node cco){
+        this.ccc = (ImageView) ccc;
+        this.cco = (ImageView) cco;
+    }
 
     @Override
     public Node onCollision(ImageView helmet) {
@@ -36,32 +27,4 @@ public class CoinChest extends Chest{
         this.coinCount = (int) (Math.random() * (10 - 2 + 1) + 2);
     }
 
-    @Override
-    public void addChest(ImageView closed, ImageView open){
-        coinChestClosed.add(closed);
-        coinChestOpen.add(open);
-    }
-
-    @Override
-    public void stayOnIsland(FloatingIsland islands) {
-        for(int i = 0; i< coinChestClosed.size(); i++){
-            Node ccc = coinChestClosed.get(i);
-//            if(islands.onCollision((ImageView) ccc) == -1){
-//                ccc.setTranslateY(ccc.getTranslateY() + 1);
-//            }
-//            if(islands.onCollision((ImageView) ccc) == 1){
-//                ccc.setTranslateY(ccc.getTranslateY() - 1);
-//            }
-        }
-
-        for(int i = 0; i< coinChestOpen.size(); i++){
-            Node cco = coinChestOpen.get(i);
-//            if(islands.onCollision((ImageView) cco) == -1){
-//                cco.setTranslateY(cco.getTranslateY() + 1);
-//            }
-//            if(islands.onCollision((ImageView) cco) == 1){
-//                cco.setTranslateY(cco.getTranslateY() - 1);
-//            }
-        }
-    }
 }

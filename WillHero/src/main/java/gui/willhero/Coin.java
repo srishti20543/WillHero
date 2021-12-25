@@ -8,10 +8,9 @@ import java.util.ArrayList;
 public class Coin extends GameObject{
 
     private int value;
-    private ArrayList<Node> coins = new ArrayList<>();
     private Node coinImg;
 
-    Coin(Node img){
+    Coin(ImageView img){
         value = 1;
         coinImg = img;
     }
@@ -33,7 +32,7 @@ public class Coin extends GameObject{
         return null;
     }
 
-    public void addCoins(ImageView c){
-        coins.add(c);
+    public Node getNode(){
+        return this.coinImg;
     }
 }

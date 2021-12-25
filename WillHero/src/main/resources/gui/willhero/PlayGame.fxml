@@ -687,11 +687,6 @@
       <Rectangle fx:id="rec24" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4562.0" layoutY="274.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
       <AnchorPane fx:id="uiPane" layoutY="3.0" onMouseClicked="#movePlayerForward" prefHeight="415.0" prefWidth="700.0">
          <children>
-            <Label fx:id="location" layoutX="298.0" layoutY="10.0" prefHeight="74.0" prefWidth="87.0" text="0" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="50.0" />
-               </font>
-            </Label>
             <ImageView fitHeight="36.0" fitWidth="121.0" layoutX="22.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/WeaponSlot.png" />
@@ -712,7 +707,7 @@
                   <Image url="@Images/Coin.jpg" />
                </image>
             </ImageView>
-            <Label fx:id="coinCount" layoutX="603.0" layoutY="10.0" prefHeight="36.0" prefWidth="49.0" text="0" textFill="WHITE">
+            <Label fx:id="coinCount" layoutX="617.0" layoutY="10.0" prefHeight="36.0" prefWidth="36.0" text="0" textFill="WHITE">
                <font>
                   <Font size="25.0" />
                </font>
@@ -740,6 +735,11 @@
                   <Image url="@Images/ThrowingKnives.png" />
                </image>
             </ImageView>
+            <Label fx:id="score" layoutX="321.0" layoutY="12.0" prefHeight="100.0" prefWidth="125.0" text="0" textFill="WHITE">
+               <font>
+                  <Font size="55.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

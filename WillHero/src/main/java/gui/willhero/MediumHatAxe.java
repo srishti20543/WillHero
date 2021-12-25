@@ -3,12 +3,10 @@ package gui.willhero;
 import javafx.scene.Node;
 
 public class MediumHatAxe extends GreenOrc{
+    private Axe axe;
 
-    MediumHatAxe(Node orcImg, Game game) {
+    MediumHatAxe(Node orcImg,Axe axe, Game game) {
         super(10, 100, 25, orcImg, game);
-    }
-
-    public void attack(User user){
-
+        this.axe = axe;
     }
 }

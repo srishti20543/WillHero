@@ -16,12 +16,6 @@ public class Sword extends Weapons{
     }
 
     @Override
-    public void addWep(ImageView swd) {
-        img = swd;
-    }
-
-
-    @Override
     public Node onCollision(ImageView helmet) {
         return null;
     }

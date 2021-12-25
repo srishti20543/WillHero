@@ -24,6 +24,7 @@ public class User implements Serializable{
     private Helmet helmetChosen;
     private Weapons curWeapon;
     private ImageView playerHelmet;
+    private Animations animations = new Animations();
 
     private Game game;
 
@@ -53,6 +54,7 @@ public class User implements Serializable{
 
             Node plat = game.checkCollisionIsland(playerHelmet);
             Orc orc = game.checkColiisionOrc(playerHelmet);
+            Coin coin = game.checkCollsionCoin(playerHelmet);
 
             if(base == null){
                 base = game.getPlatforms().get(0);
@@ -67,6 +69,12 @@ public class User implements Serializable{
                 base = orc.getNode();
                 playerDy = -playerDy;
             }
+            if(coin != null){
+                animations.toggleOpacity((ImageView) coin.getNode());
+                game.getCoins().remove(coin);
+                this.coinsCollected++;
+                game.setCoinCountLabel(coinsCollected);
+            }
 
             if(playerHelmet.getLayoutY() <= base.getLayoutY() - 100){
                 playerDy = -playerDy;
@@ -78,12 +86,15 @@ public class User implements Serializable{
 
         KeyFrame playerHorizontal = new KeyFrame(Duration.millis(4), actionEvent -> {
 
+            Node bg = game.getBackground();
             Node plat = game.checkCollisionIsland(playerHelmet);
             Orc orc = game.checkColiisionOrc(playerHelmet);
+            Coin coin = game.checkCollsionCoin(playerHelmet);
 
             playerHelmet.setLayoutX(playerHelmet.getLayoutX() + playerDx);
             gamePane.setLayoutX(gamePane.getLayoutX() - playerDx);
             uiPane.setLayoutX(uiPane.getLayoutX() + playerDx);
+            bg.setLayoutX(bg.getLayoutX() + playerDx);
 
             if(plat != null){
                 playerHelmet.setLayoutX(playerHelmet.getLayoutX() - 5);
@@ -92,6 +103,12 @@ public class User implements Serializable{
             else if(orc != null){
                 orc.getNode().setLayoutX(orc.getNode().getLayoutX() + 10);
                 orc.getPushed();
+            }
+            if(coin != null){
+                animations.toggleOpacity((ImageView) coin.getNode());
+                game.getCoins().remove(coin);
+                this.coinsCollected++;
+                game.setCoinCountLabel(coinsCollected);
             }
 
         });
@@ -143,8 +160,8 @@ public class User implements Serializable{
     }
 
     public void setWeaponImage(ImageView knife, ImageView sword){
-        weaponsUnlocked.get(0).addWep(knife);
-        weaponsUnlocked.get(1).addWep(sword);
+//        weaponsUnlocked.get(0).addWep(knife);
+//        weaponsUnlocked.get(1).addWep(sword);
 
     }
 
@@ -176,7 +193,7 @@ public class User implements Serializable{
     private AnchorPane gamePane;
     private AnchorPane uiPane;
 
-    public void moveForward(AnchorPane gamePane, AnchorPane UIPane){
+    public int moveForward(AnchorPane gamePane, AnchorPane UIPane){
         if(playerDy < 0){
             playerDy = -playerDy;
         }
@@ -185,5 +202,7 @@ public class User implements Serializable{
         movePlayerVertical.pause();
         movePlayerHorizontal.play();
         movePlayerHorizontal.setOnFinished(actionEvent1 -> movePlayerVertical.play());
+        currentScore++;
+        return this.currentScore;
     }
 }

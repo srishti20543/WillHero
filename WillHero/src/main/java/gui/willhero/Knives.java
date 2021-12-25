@@ -15,11 +15,6 @@ public class Knives extends Weapons{
         super.update();
     }
 
-    @Override
-    public void addWep(ImageView knife) {
-        img = knife;
-    }
-
 
     @Override
     public Node onCollision(ImageView helmet) {

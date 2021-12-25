@@ -7,17 +7,13 @@ import java.util.ArrayList;
 
 public class Axe extends Weapons{
 
-    private ArrayList<Node> OrcAxe = new ArrayList<>();
+    private ImageView axe;
     private int level;
 
-    Axe(){
+    Axe(Node axe){
         super("Axe", 10);
         level = 1;
-    }
-
-    @Override
-    public void addWep(ImageView axe){
-        OrcAxe.add(axe);
+        this.axe = (ImageView) axe;
     }
 
     @Override

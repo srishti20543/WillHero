@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
@@ -18,7 +19,12 @@ import java.util.ResourceBundle;
 public class Game implements Initializable {
 
     @FXML
-    private ImageView penguin;
+    private ImageView penguin, bg;
+
+    @FXML
+    private Label coinCount;
+    @FXML
+    private Label score = new Label();
 
     @FXML
     private Rectangle rec1, rec2, rec3, rec4, rec5, rec6, rec7, rec8, rec9, rec10, rec11, rec12, rec13, rec14, rec15,
@@ -28,10 +34,10 @@ public class Game implements Initializable {
     private ImageView cloud1, cloud2, cloud3, cloud4, cloud5, cloud6, cloud7, cloud8, cloud9, cloud10;
 
     @FXML
-    private ImageView coin1, coin2, coin3, coin4, coin5, coin6, coin7, coin8, coin9, coin10,
-            coin11, coin12, coin13, coin14, coin15, coin16, coin17, coin18, coin19, coin20,
-            coin21, coin22, coin23, coin24, coin25, coin26, coin27, coin28, coin29, coin30,
-            coin41, coin42, coin43, coin44, coin45, coin46, coin47, coin48, coin49, coin40;
+    private ImageView coin1, coin2, coin3, coin4, coin5, coin6, coin7, coin8, coin9, coin10;
+//            coin11, coin12, coin13, coin14, coin15, coin16, coin17, coin18, coin19, coin20,
+//            coin21, coin22, coin23, coin24, coin25, coin26, coin27, coin28, coin29, coin30,
+//            coin41, coin42, coin43, coin44, coin45, coin46, coin47, coin48, coin49, coin40;
 
     @FXML
     private ImageView ro1, ro2, ro3, ro4, ro5, ro6, ro7, ro8, ro9, ro10;
@@ -48,6 +54,9 @@ public class Game implements Initializable {
     private ImageView wm1, wm2, wm3;
 
     @FXML
+    private ImageView wcc1, wco1, wcc2, wco2, wcc3, wco3;
+
+    @FXML
     private Button selectKnife, selectSword;
 
     @FXML
@@ -55,16 +64,18 @@ public class Game implements Initializable {
     @FXML
     private AnchorPane uiPane, gamePane;
 
+    private final Clouds cloud = new Clouds();
+    private final Windmill windmill = new Windmill();
     private final ArrayList<Node> platforms = new ArrayList<>();
     private final ArrayList<Orc> orcs = new ArrayList<>();
     private final ArrayList<Coin> coins = new ArrayList<>();
+    private final ArrayList<WeaponChest> weaponChests = new ArrayList<>();
+    private final ArrayList<CoinChest> coinChests = new ArrayList<>();
 
 
 
     private final ArrayList<User> savedGames = new ArrayList<>();
     private final User curPlayer = new User(this);
-    private Clouds cloud = new Clouds();
-    private final Windmill windmill = new Windmill();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -99,15 +110,17 @@ public class Game implements Initializable {
         platforms.add(rec20);
         platforms.add(rec21);
         platforms.add(rec22);
+        platforms.add(rec23);
         platforms.add(rec24);
+        platforms.add(rec25);
     }
 
     private void addOrcs(){
-        orcs.add(new MediumHatAxe(go1, this));
-        orcs.add(new MediumHatAxe(go2, this));
-        orcs.add(new MediumHatAxe(go3, this));
-        orcs.add(new MediumHatAxe(go4, this));
-        orcs.add(new MediumHatAxe(go5, this));
+        orcs.add(new MediumHatAxe(go1, new Axe(axe1), this));
+        orcs.add(new MediumHatAxe(go2, new Axe(axe2), this));
+        orcs.add(new MediumHatAxe(go3, new Axe(axe3), this));
+        orcs.add(new MediumHatAxe(go4, new Axe(axe4), this));
+        orcs.add(new MediumHatAxe(go5, new Axe(axe5), this));
 
         orcs.add(new ShieldedOrc(ro1, this));
         orcs.add(new ShieldedOrc(ro2, this));
@@ -151,19 +164,13 @@ public class Game implements Initializable {
         coins.add(new Coin(coin8));
         coins.add(new Coin(coin9));
         coins.add(new Coin(coin10));
-        coins.add(new Coin(coin11));
-        coins.add(new Coin(coin12));
-        coins.add(new Coin(coin13));
-        coins.add(new Coin(coin14));
-        coins.add(new Coin(coin15));
-        coins.add(new Coin(coin16));
-        coins.add(new Coin(coin17));
-        coins.add(new Coin(coin18));
-        coins.add(new Coin(coin19));
-        coins.add(new Coin(coin20));
-        coins.add(new Coin(coin21));
-        coins.add(new Coin(coin22));
 
+    }
+
+    private void addChest() {
+        weaponChests.add(new WeaponChest(wcc1, wco1));
+        weaponChests.add(new WeaponChest(wcc2, wco1));
+        weaponChests.add(new WeaponChest(wcc3, wco2));
     }
 
 
@@ -190,13 +197,34 @@ public class Game implements Initializable {
         return null;
     }
 
-    public void movePlayerForward(){
+    public Coin checkCollsionCoin(Node node){
+        for(Coin coin : coins){
+            if (node.getBoundsInParent().intersects(coin.getNode().getBoundsInParent())) {
+                return coin;
+            }
+        }
+        return null;
+    }
 
-        curPlayer.moveForward(gamePane, uiPane);
+    public void movePlayerForward(){
+        setLocationLabel(curPlayer.moveForward(gamePane, uiPane));
     }
 
     public ArrayList<Node> getPlatforms(){
         return this.platforms;
+    }
+    public ArrayList<Coin> getCoins(){
+        return this.coins;
+    }
+    public Node getBackground(){
+        return this.bg;
+    }
+
+    public void setCoinCountLabel(int val){
+        coinCount.setText(String.valueOf(val));
+    }
+    public void setLocationLabel(int val){
+        score.setText(String.valueOf(val));
     }
 
     public void choseKnife(){
