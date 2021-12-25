@@ -21,7 +21,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("PlayGame.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadingPage.fxml")));
         Scene scene = new Scene(root, 712, 422);
         stage.setTitle("Loading ... ");
         stage.setResizable(false);

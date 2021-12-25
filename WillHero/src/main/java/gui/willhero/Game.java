@@ -22,7 +22,7 @@ public class Game implements Initializable {
 
     @FXML
     private Rectangle rec1, rec2, rec3, rec4, rec5, rec6, rec7, rec8, rec9, rec10, rec11, rec12, rec13, rec14, rec15,
-                rec16, rec17, rec18, rec19, rec20, rec21, rec22, rec23, rec24, rec25;
+            rec16, rec17, rec18, rec19, rec20, rec21, rec22, rec23, rec24, rec25;
 
     @FXML
     private ImageView cloud1, cloud2, cloud3, cloud4, cloud5, cloud6, cloud7, cloud8, cloud9, cloud10;

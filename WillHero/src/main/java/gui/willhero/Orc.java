@@ -3,7 +3,6 @@ package gui.willhero;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Node;
-import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 abstract class Orc extends GameObject{
@@ -16,13 +15,13 @@ abstract class Orc extends GameObject{
     private Node img;
     private double Orcdy = 0.5;
 
-    private PlayGame game;
+    private Game game;
     private Node prev;
 
     Timeline orcGravity = new Timeline();
 
 
-    Orc(int d, int hp, int disp, Node orcImg, PlayGame game){
+    Orc(int d, int hp, int disp, Node orcImg, Game game){
         this.isDead = false;
         this.damage = d;
         this.health = hp;
@@ -63,6 +62,9 @@ abstract class Orc extends GameObject{
         Timeline pushed = new Timeline();
         KeyFrame push = new KeyFrame(Duration.millis(10), actionEvent -> {
             this.getNode().setLayoutX(this.getNode().getLayoutX() + 1);
+            if(game.checkCollisionIsland(this.getNode()) != null){
+                this.getNode().setLayoutX(this.getNode().getLayoutX() - 2);
+            }
         });
         pushed.getKeyFrames().add(push);
         pushed.setCycleCount(50);

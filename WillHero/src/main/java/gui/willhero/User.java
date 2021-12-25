@@ -25,7 +25,7 @@ public class User implements Serializable{
     private Weapons curWeapon;
     private ImageView playerHelmet;
 
-    private PlayGame game;
+    private Game game;
 
     Timeline movePlayerHorizontal = new Timeline();
     Timeline movePlayerVertical = new Timeline();
@@ -34,7 +34,7 @@ public class User implements Serializable{
     private final double playerDx = 0.5;
     private Node base;
 
-    User(PlayGame game) {
+    User(Game game) {
         ID++;
         this.health = 100;
         this.currentScore = 0;
@@ -86,7 +86,7 @@ public class User implements Serializable{
             uiPane.setLayoutX(uiPane.getLayoutX() + playerDx);
 
             if(plat != null){
-                playerHelmet.setLayoutX(playerHelmet.getLayoutX() - playerDx);
+                playerHelmet.setLayoutX(playerHelmet.getLayoutX() - 5);
                 movePlayerVertical.play();
             }
             else if(orc != null){
