@@ -28,13 +28,14 @@ abstract class Orc extends GameObject{
         this.displacement = disp;
         this.img = orcImg;
         this.game = game;
+
         KeyFrame orcG = new KeyFrame(Duration.millis(7), actionEvent -> {
             img.setLayoutY(img.getLayoutY() + Orcdy);
 
             Node n = game.checkCollisionIsland(img);
 
             if(prev == null){
-                prev = game.getPlatforms().get(0);
+                prev = game.getPlatforms().get(0).getNode();
             }
 
             if(n!= null){

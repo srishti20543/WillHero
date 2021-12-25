@@ -10,37 +10,31 @@ import java.util.Random;
 
 public class FloatingIsland extends GameObject{
 
-    private final ArrayList<Node> islands = new ArrayList<>();
-    private final ArrayList<Node> rectangles = new ArrayList<>();
+    private Node island;
+    private Node rectangle;
 
-    @Override
-    public Node onCollision(ImageView helmet) {
-        for (Node platform : rectangles) {
-            if (helmet.getBoundsInParent().intersects(platform.getBoundsInParent())) {
-                return platform;
-            }
-        }
-        return null;
-    }
-
-    public void addPlatform(ImageView island, Rectangle rec){
-        islands.add(island);
-        rec.setOpacity(0.0);
-        rectangles.add(rec);
-
+    FloatingIsland(Node island, Node rec){
+        this.island = island;
+        this.rectangle = rec;
         int x = new Random().nextInt(2);
 
         if(x == 0){
-            animations.floatingUp(rec);
-            animations.floatingUp(island);
+            animations.floatingUp((Rectangle) rec);
+            animations.floatingUp((ImageView) island);
         }
         else{
-            animations.floatingDown(rec);
-            animations.floatingDown(island);
+            animations.floatingDown((Rectangle) rec);
+            animations.floatingDown((ImageView) island);
         }
+
     }
 
-    public ArrayList<Node> getRectangles() {
-        return rectangles;
+    @Override
+    public Node onCollision(ImageView helmet) {
+        return null;
+    }
+
+    public Node getNode(){
+        return this.rectangle;
     }
 }

@@ -100,12 +100,12 @@
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="wcc1" fitHeight="35.0" fitWidth="54.0" layoutX="711.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wcc1" fitHeight="35.0" fitWidth="54.0" layoutX="711.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestClosed.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wco1" fitHeight="35.0" fitWidth="54.0" layoutX="711.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wco1" fitHeight="35.0" fitWidth="54.0" layoutX="711.0" layoutY="196.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestOpen.png" />
          </image>
@@ -663,7 +663,7 @@
             <Image url="@Images/WeaponChestClosed.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wco2" disable="true" fitHeight="35.0" fitWidth="54.0" layoutX="1125.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wco2" fitHeight="35.0" fitWidth="54.0" layoutX="1125.0" layoutY="161.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestOpen.png" />
          </image>
@@ -673,7 +673,7 @@
             <Image url="@Images/WeaponChestClosed.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wco3" disable="true" fitHeight="35.0" fitWidth="54.0" layoutX="1378.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wco3" fitHeight="35.0" fitWidth="54.0" layoutX="1378.0" layoutY="245.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestOpen.png" />
          </image>

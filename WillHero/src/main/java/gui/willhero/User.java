@@ -53,11 +53,13 @@ public class User implements Serializable{
             playerHelmet.setLayoutY(playerHelmet.getLayoutY() + playerDy);
 
             Node plat = game.checkCollisionIsland(playerHelmet);
-            Orc orc = game.checkColiisionOrc(playerHelmet);
+            Orc orc = game.checkColisionOrc(playerHelmet);
             Coin coin = game.checkCollsionCoin(playerHelmet);
+            Chest chest = game.checkCollisionChest(playerHelmet);
 
             if(base == null){
-                base = game.getPlatforms().get(0);
+//                base = game.getPlatforms().get(0).getNode();
+                base = game.rrec1();
             }
 
             else if(plat != null){
@@ -76,6 +78,11 @@ public class User implements Serializable{
                 game.setCoinCountLabel(coinsCollected);
             }
 
+            if(chest != null){
+                chest.openIt();
+//                game.getChests().remove(chest);
+            }
+
             if(playerHelmet.getLayoutY() <= base.getLayoutY() - 100){
                 playerDy = -playerDy;
             }
@@ -88,8 +95,9 @@ public class User implements Serializable{
 
             Node bg = game.getBackground();
             Node plat = game.checkCollisionIsland(playerHelmet);
-            Orc orc = game.checkColiisionOrc(playerHelmet);
+            Orc orc = game.checkColisionOrc(playerHelmet);
             Coin coin = game.checkCollsionCoin(playerHelmet);
+            Chest chest = game.checkCollisionChest(playerHelmet);
 
             playerHelmet.setLayoutX(playerHelmet.getLayoutX() + playerDx);
             gamePane.setLayoutX(gamePane.getLayoutX() - playerDx);
@@ -109,6 +117,10 @@ public class User implements Serializable{
                 game.getCoins().remove(coin);
                 this.coinsCollected++;
                 game.setCoinCountLabel(coinsCollected);
+            }
+            if(chest != null){
+                chest.openIt();
+//                game.getChests().remove(chest);
             }
 
         });

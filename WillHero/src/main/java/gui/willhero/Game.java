@@ -27,6 +27,11 @@ public class Game implements Initializable {
     private Label score = new Label();
 
     @FXML
+    private ImageView island1, island2, island3, island4, island5, island6, island7, island8, island9, island10,
+            island11, island12, island13, island14, island15, island16, island17, island18, island19, island20,
+            island21, island22, island23, island24, island25;
+
+    @FXML
     private Rectangle rec1, rec2, rec3, rec4, rec5, rec6, rec7, rec8, rec9, rec10, rec11, rec12, rec13, rec14, rec15,
             rec16, rec17, rec18, rec19, rec20, rec21, rec22, rec23, rec24, rec25;
 
@@ -66,11 +71,11 @@ public class Game implements Initializable {
 
     private final Clouds cloud = new Clouds();
     private final Windmill windmill = new Windmill();
-    private final ArrayList<Node> platforms = new ArrayList<>();
+    private final ArrayList<FloatingIsland> platforms = new ArrayList<>();
     private final ArrayList<Orc> orcs = new ArrayList<>();
     private final ArrayList<Coin> coins = new ArrayList<>();
-    private final ArrayList<WeaponChest> weaponChests = new ArrayList<>();
-    private final ArrayList<CoinChest> coinChests = new ArrayList<>();
+    private final ArrayList<Chest> chests = new ArrayList<>();
+
 
 
 
@@ -85,34 +90,35 @@ public class Game implements Initializable {
         addCloud();
         addCoins();
         addWindmill();
+        addChest();
     }
 
     private void addPlatforms(){
-        platforms.add(rec1);
-        platforms.add(rec2);
-        platforms.add(rec3);
-        platforms.add(rec4);
-        platforms.add(rec5);
-        platforms.add(rec6);
-        platforms.add(rec8);
-        platforms.add(rec9);
-        platforms.add(rec7);
-        platforms.add(rec10);
-        platforms.add(rec11);
-        platforms.add(rec12);
-        platforms.add(rec13);
-        platforms.add(rec14);
-        platforms.add(rec15);
-        platforms.add(rec16);
-        platforms.add(rec17);
-        platforms.add(rec18);
-        platforms.add(rec19);
-        platforms.add(rec20);
-        platforms.add(rec21);
-        platforms.add(rec22);
-        platforms.add(rec23);
-        platforms.add(rec24);
-        platforms.add(rec25);
+        platforms.add(new FloatingIsland(island1, rec1));
+        platforms.add(new FloatingIsland(island2, rec2));
+        platforms.add(new FloatingIsland(island3, rec3));
+        platforms.add(new FloatingIsland(island4, rec4));
+        platforms.add(new FloatingIsland(island5, rec5));
+        platforms.add(new FloatingIsland(island6, rec6));
+        platforms.add(new FloatingIsland(island7, rec7));
+        platforms.add(new FloatingIsland(island8, rec8));
+        platforms.add(new FloatingIsland(island9, rec9));
+        platforms.add(new FloatingIsland(island10, rec10));
+        platforms.add(new FloatingIsland(island11, rec11));
+        platforms.add(new FloatingIsland(island12, rec12));
+        platforms.add(new FloatingIsland(island13, rec13));
+        platforms.add(new FloatingIsland(island14, rec14));
+        platforms.add(new FloatingIsland(island15, rec15));
+        platforms.add(new FloatingIsland(island16, rec16));
+        platforms.add(new FloatingIsland(island17, rec17));
+        platforms.add(new FloatingIsland(island18, rec18));
+        platforms.add(new FloatingIsland(island19, rec19));
+        platforms.add(new FloatingIsland(island20, rec20));
+        platforms.add(new FloatingIsland(island21, rec21));
+        platforms.add(new FloatingIsland(island22, rec22));
+        platforms.add(new FloatingIsland(island23, rec23));
+        platforms.add(new FloatingIsland(island24, rec24));
+        platforms.add(new FloatingIsland(island25, rec25));
     }
 
     private void addOrcs(){
@@ -168,27 +174,29 @@ public class Game implements Initializable {
     }
 
     private void addChest() {
-        weaponChests.add(new WeaponChest(wcc1, wco1));
-        weaponChests.add(new WeaponChest(wcc2, wco1));
-        weaponChests.add(new WeaponChest(wcc3, wco2));
+        chests.add(new WeaponChest(wcc1, wco1, this));
+        chests.add(new WeaponChest(wcc2, wco2, this));
+        chests.add(new WeaponChest(wcc3, wco3, this));
     }
-
 
     public void setCurPlayer(){
         Helmet penguinHelmet = new Penguin(penguin);
         curPlayer.setHelmet(penguinHelmet);
     }
 
+
+
     public Node checkCollisionIsland(Node node){
-        for (Node platform : platforms) {
-            if (node.getBoundsInParent().intersects(platform.getBoundsInParent())) {
-                return platform;
+
+        for(int i = 0; i<platforms.size(); i++){
+            if (node.getBoundsInParent().intersects(platforms.get(i).getNode().getBoundsInParent())) {
+                return platforms.get(i).getNode();
             }
         }
         return null;
     }
 
-    public Orc checkColiisionOrc(Node node){
+    public Orc checkColisionOrc(Node node){
         for(Orc orc : orcs){
             if (node.getBoundsInParent().intersects(orc.getNode().getBoundsInParent())) {
                 return orc;
@@ -206,12 +214,28 @@ public class Game implements Initializable {
         return null;
     }
 
+    public Chest checkCollisionChest(Node node){
+        for(Chest chest : chests){
+            if(!chest.getIfopen()){
+                if (node.getBoundsInParent().intersects(chest.getNode().getBoundsInParent())) {
+                    return chest;
+                }
+            }
+        }
+        return null;
+    }
+
+
+
     public void movePlayerForward(){
         setLocationLabel(curPlayer.moveForward(gamePane, uiPane));
     }
 
-    public ArrayList<Node> getPlatforms(){
+    public ArrayList<FloatingIsland> getPlatforms(){
         return this.platforms;
+    }
+    public ArrayList<Chest> getChests(){
+        return this.chests;
     }
     public ArrayList<Coin> getCoins(){
         return this.coins;
@@ -230,9 +254,12 @@ public class Game implements Initializable {
     public void choseKnife(){
         curPlayer.setCurWeapon(0);
     }
-
     public void choseSword(){
         curPlayer.setCurWeapon(1);
+    }
+
+    public Node rrec1(){
+        return rec1;
     }
 
 }

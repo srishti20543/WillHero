@@ -13,9 +13,8 @@ public class CoinChest extends Chest{
     private ImageView ccc;
     private ImageView cco;
 
-    CoinChest(Node ccc, Node cco){
-        this.ccc = (ImageView) ccc;
-        this.cco = (ImageView) cco;
+    CoinChest(Node cco, Node ccc, Game game){
+        super(cco, ccc, game);
     }
 
     @Override
@@ -26,5 +25,7 @@ public class CoinChest extends Chest{
     public void generateCoinCount(){
         this.coinCount = (int) (Math.random() * (10 - 2 + 1) + 2);
     }
+
+
 
 }

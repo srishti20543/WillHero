@@ -12,9 +12,8 @@ public class WeaponChest extends Chest{
     private ImageView wco;
     private Weapons weapon;
 
-    WeaponChest(Node wcc, Node wco){
-        this.wcc = (ImageView) wcc;
-        this.wco = (ImageView) wco;
+    WeaponChest(Node wco, Node wcc, Game game){
+        super(wco, wcc, game);
     }
 
 
