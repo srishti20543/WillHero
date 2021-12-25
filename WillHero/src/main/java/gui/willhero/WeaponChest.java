@@ -13,38 +13,42 @@ public class WeaponChest extends Chest{
 
     private Weapons weapon;
 
+//    @Override
+//    public int onCollision(ImageView helmet) {
+//        for(int i = 0; i< weaponChestClosed.size(); i++){
+//            if (helmet.getBoundsInParent().intersects(weaponChestClosed.get(i).getBoundsInParent())) {
+//                animations.toggleOpacity((ImageView) weaponChestClosed.get(i));
+//                weaponChestClosed.remove(weaponChestClosed.get(i));
+//                animations.toggleOpacity((ImageView) weaponChestOpen.get(i));
+//                return generateWeapon();
+//            }
+//        }
+//        return -1;
+//    }
     @Override
-    public int onCollision(ImageView helmet) {
-        for(int i = 0; i< weaponChestClosed.size(); i++){
-            if (helmet.getBoundsInParent().intersects(weaponChestClosed.get(i).getBoundsInParent())) {
-                animations.toggleOpacity((ImageView) weaponChestClosed.get(i));
-                weaponChestClosed.remove(weaponChestClosed.get(i));
-                animations.toggleOpacity((ImageView) weaponChestOpen.get(i));
-                return generateWeapon();
-            }
-        }
-        return -1;
+    public Node onCollision(ImageView helmet) {
+        return null;
     }
 
     @Override
     public void stayOnIsland(FloatingIsland islands){
         for(int i = 0; i< weaponChestClosed.size(); i++){
             Node wcc = weaponChestClosed.get(i);
-            if(islands.onCollision((ImageView) wcc) == -1){
-                wcc.setTranslateY(wcc.getTranslateY() + 1);
-            }
-            if(islands.onCollision((ImageView) wcc) == 1){
-                wcc.setTranslateY(wcc.getTranslateY() - 1);
-            }
+//            if(islands.onCollision((ImageView) wcc) == -1){
+//                wcc.setTranslateY(wcc.getTranslateY() + 1);
+//            }
+//            if(islands.onCollision((ImageView) wcc) == 1){
+//                wcc.setTranslateY(wcc.getTranslateY() - 1);
+//            }
         }
         for(int i = 0; i< weaponChestOpen.size(); i++){
             Node wco = weaponChestOpen.get(i);
-            if(islands.onCollision((ImageView) wco) == -1){
-                wco.setTranslateY(wco.getTranslateY() + 1);
-            }
-            if(islands.onCollision((ImageView) wco) == 1){
-                wco.setTranslateY(wco.getTranslateY() - 1);
-            }
+//            if(islands.onCollision((ImageView) wco) == -1){
+//                wco.setTranslateY(wco.getTranslateY() + 1);
+//            }
+//            if(islands.onCollision((ImageView) wco) == 1){
+//                wco.setTranslateY(wco.getTranslateY() - 1);
+//            }
         }
     }
 

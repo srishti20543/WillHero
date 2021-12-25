@@ -14,13 +14,13 @@ public class FloatingIsland extends GameObject{
     private final ArrayList<Node> rectangles = new ArrayList<>();
 
     @Override
-    public int onCollision(ImageView helmet) {
+    public Node onCollision(ImageView helmet) {
         for (Node platform : rectangles) {
             if (helmet.getBoundsInParent().intersects(platform.getBoundsInParent())) {
-                return 1;
+                return platform;
             }
         }
-        return -1;
+        return null;
     }
 
     public void addPlatform(ImageView island, Rectangle rec){

@@ -310,7 +310,7 @@
             <Image url="@Images/WindmillBase.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="helmet" fitHeight="36.0" fitWidth="49.0" layoutX="215.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="helmet" fitHeight="36.0" fitWidth="49.0" layoutX="182.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/PenguinHelmet-removebg-preview.png" />
          </image>

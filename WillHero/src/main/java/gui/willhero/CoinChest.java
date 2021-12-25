@@ -13,18 +13,23 @@ public class CoinChest extends Chest{
     private ArrayList<Node> coinChestClosed = new ArrayList<Node>();
     private ArrayList<Node> coinChestOpen = new ArrayList<Node>();
 
+//    @Override
+//    public int onCollision(ImageView helmet) {
+//        for(int i = 0; i< coinChestClosed.size(); i++){
+//            if (helmet.getBoundsInParent().intersects(coinChestClosed.get(i).getBoundsInParent())) {
+//                animations.toggleOpacity((ImageView) coinChestOpen.get(i));
+//                animations.toggleOpacity((ImageView) coinChestClosed.get(i));
+//                coinChestClosed.remove(coinChestClosed.get(i));
+//                generateCoinCount();
+//                return coinCount;
+//            }
+//        }
+//        return -1;
+//    }
+
     @Override
-    public int onCollision(ImageView helmet) {
-        for(int i = 0; i< coinChestClosed.size(); i++){
-            if (helmet.getBoundsInParent().intersects(coinChestClosed.get(i).getBoundsInParent())) {
-                animations.toggleOpacity((ImageView) coinChestOpen.get(i));
-                animations.toggleOpacity((ImageView) coinChestClosed.get(i));
-                coinChestClosed.remove(coinChestClosed.get(i));
-                generateCoinCount();
-                return coinCount;
-            }
-        }
-        return -1;
+    public Node onCollision(ImageView helmet) {
+        return null;
     }
 
     public void generateCoinCount(){
@@ -41,22 +46,22 @@ public class CoinChest extends Chest{
     public void stayOnIsland(FloatingIsland islands) {
         for(int i = 0; i< coinChestClosed.size(); i++){
             Node ccc = coinChestClosed.get(i);
-            if(islands.onCollision((ImageView) ccc) == -1){
-                ccc.setTranslateY(ccc.getTranslateY() + 1);
-            }
-            if(islands.onCollision((ImageView) ccc) == 1){
-                ccc.setTranslateY(ccc.getTranslateY() - 1);
-            }
+//            if(islands.onCollision((ImageView) ccc) == -1){
+//                ccc.setTranslateY(ccc.getTranslateY() + 1);
+//            }
+//            if(islands.onCollision((ImageView) ccc) == 1){
+//                ccc.setTranslateY(ccc.getTranslateY() - 1);
+//            }
         }
 
         for(int i = 0; i< coinChestOpen.size(); i++){
             Node cco = coinChestOpen.get(i);
-            if(islands.onCollision((ImageView) cco) == -1){
-                cco.setTranslateY(cco.getTranslateY() + 1);
-            }
-            if(islands.onCollision((ImageView) cco) == 1){
-                cco.setTranslateY(cco.getTranslateY() - 1);
-            }
+//            if(islands.onCollision((ImageView) cco) == -1){
+//                cco.setTranslateY(cco.getTranslateY() + 1);
+//            }
+//            if(islands.onCollision((ImageView) cco) == 1){
+//                cco.setTranslateY(cco.getTranslateY() - 1);
+//            }
         }
     }
 }

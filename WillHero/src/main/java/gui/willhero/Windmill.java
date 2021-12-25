@@ -15,8 +15,8 @@ public class Windmill extends GameObject{
     }
 
     @Override
-    public int onCollision(ImageView helmet) {
-        return 0;
+    public Node onCollision(ImageView helmet) {
+        return null;
     }
 
 }

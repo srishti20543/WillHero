@@ -1,5 +1,6 @@
 package gui.willhero;
 
+import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 
 public class Knives extends Weapons{
@@ -21,8 +22,8 @@ public class Knives extends Weapons{
 
 
     @Override
-    public int onCollision(ImageView helmet) {
-        return 0;
+    public Node onCollision(ImageView helmet) {
+        return null;
     }
 
     @Override

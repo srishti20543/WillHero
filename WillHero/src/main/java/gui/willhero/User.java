@@ -1,8 +1,12 @@
 package gui.willhero;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,19 +26,81 @@ public class User implements Serializable{
     private Weapons curWeapon;
     private ImageView playerHelmet;
 
-    User(ImageView player) {
-        this.ID++;
+    private Game game;
+
+    Timeline movePlayerHorizontal = new Timeline();
+    Timeline movePlayerVertical = new Timeline();
+
+    private double playerDy = 0.5;
+    private final double playerDx = 0.5;
+    private Node base;
+
+    User(Game game) {
+        ID++;
         this.health = 100;
         this.currentScore = 0;
         this.coinsCollected = 0;
+        this.game = game;
         this.isDead = false;
         this.isWinner = false;
         this.isResurrected = false;
-        this.helmetChosen = new Penguin();
-        this.playerHelmet = player;
         this. weaponsUnlocked = new ArrayList<>();
         weaponsUnlocked.add(new Knives());
         weaponsUnlocked.add(new Sword());
+
+
+        KeyFrame playerVertical = new KeyFrame(Duration.millis(7), actionEvent -> {
+            playerHelmet.setLayoutY(playerHelmet.getLayoutY() + playerDy);
+
+            Node plat = game.checkCollisionIsland(playerHelmet);
+            Orc orc = game.checkColiisionOrc(playerHelmet);
+
+            if(base == null){
+                base = game.getPlatforms().get(0);
+            }
+
+            else if(plat != null){
+                base = plat;
+                playerDy = -playerDy;
+            }
+
+            else if(orc != null){
+                base = orc.getNode();
+                playerDy = -playerDy;
+            }
+
+            if(playerHelmet.getLayoutY() <= base.getLayoutY() - 100){
+                playerDy = -playerDy;
+            }
+        });
+
+        movePlayerVertical.getKeyFrames().add(playerVertical);
+        movePlayerVertical.setCycleCount(Timeline.INDEFINITE);
+
+        KeyFrame playerHorizontal = new KeyFrame(Duration.millis(4), actionEvent -> {
+
+            Node plat = game.checkCollisionIsland(playerHelmet);
+            Orc orc = game.checkColiisionOrc(playerHelmet);
+
+            playerHelmet.setLayoutX(playerHelmet.getLayoutX() + playerDx);
+            gamePane.setLayoutX(gamePane.getLayoutX() - playerDx);
+            uiPane.setLayoutX(uiPane.getLayoutX() + playerDx);
+
+            if(plat != null){
+                playerHelmet.setLayoutX(playerHelmet.getLayoutX() - playerDx);
+                movePlayerVertical.play();
+            }
+            else if(orc != null){
+                orc.getNode().setLayoutX(orc.getNode().getLayoutX() + 10);
+                orc.getPushed();
+            }
+
+        });
+
+        movePlayerHorizontal.getKeyFrames().add(playerHorizontal);
+        movePlayerHorizontal.setCycleCount(100);
+
+        movePlayerVertical.play();
     }
     public void setCurrentScore(int score) {
         this.currentScore = score;
@@ -97,5 +163,28 @@ public class User implements Serializable{
         }
         curWeapon.use();
 
+    }
+
+    public void setHelmet(Helmet helmet){
+        helmetChosen = helmet;
+        this.playerHelmet = helmet.getImg();
+    }
+
+    public Node getNode(){
+        return this.helmetChosen.getImg();
+    }
+
+    private AnchorPane gamePane;
+    private AnchorPane uiPane;
+
+    public void moveForward(AnchorPane gamePane, AnchorPane UIPane){
+        if(playerDy < 0){
+            playerDy = -playerDy;
+        }
+        this.gamePane = gamePane;
+        this.uiPane = UIPane;
+        movePlayerVertical.pause();
+        movePlayerHorizontal.play();
+        movePlayerHorizontal.setOnFinished(actionEvent1 -> movePlayerVertical.play());
     }
 }

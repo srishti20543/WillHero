@@ -17,7 +17,7 @@ public class Clouds extends GameObject {
     }
 
     @Override
-    public int onCollision(ImageView helmet) {
-        return -1;
+    public Node onCollision(ImageView helmet) {
+        return null;
     }
 }
