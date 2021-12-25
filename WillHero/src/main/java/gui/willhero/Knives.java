@@ -5,10 +5,11 @@ import javafx.scene.image.ImageView;
 
 public class Knives extends Weapons{
 
-    private ImageView img;
+    private Node img;
 
-    Knives(){
+    Knives(Node knife){
         super("Knives", 10);
+        this.img = knife;
     }
 
     public void update(){
@@ -23,15 +24,15 @@ public class Knives extends Weapons{
 
     @Override
     public void use(){
-        animations.throwKnife(img);
+        animations.throwKnife((ImageView) img);
     }
 
     @Override
     public void toggle(){
-        animations.toggleOpacity(img);
+        animations.toggleOpacity((ImageView) img);
     }
 
-    public ImageView getImg(){
+    public Node getImg(){
         return this.img;
     }
 

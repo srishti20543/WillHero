@@ -742,5 +742,15 @@
             </Label>
          </children>
       </AnchorPane>
+      <ImageView fitHeight="83.0" fitWidth="141.0" layoutX="1873.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/openCoinChest.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="87.0" layoutX="1884.0" layoutY="209.0">
+         <image>
+            <Image url="@Images/closedCoinchest.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

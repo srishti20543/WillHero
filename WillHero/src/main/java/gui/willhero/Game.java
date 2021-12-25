@@ -1,7 +1,5 @@
 package gui.willhero;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -10,8 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
-import javafx.util.Duration;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -40,20 +36,15 @@ public class Game implements Initializable {
 
     @FXML
     private ImageView coin1, coin2, coin3, coin4, coin5, coin6, coin7, coin8, coin9, coin10;
-//            coin11, coin12, coin13, coin14, coin15, coin16, coin17, coin18, coin19, coin20,
-//            coin21, coin22, coin23, coin24, coin25, coin26, coin27, coin28, coin29, coin30,
-//            coin41, coin42, coin43, coin44, coin45, coin46, coin47, coin48, coin49, coin40;
 
     @FXML
     private ImageView ro1, ro2, ro3, ro4, ro5, ro6, ro7, ro8, ro9, ro10;
 
     @FXML
     private ImageView go1, go2, go3, go4, go5;
-//    go6, go7,go8, go9, go10;
 
     @FXML
     private ImageView axe1, axe2, axe3, axe4, axe5;
-//    axe6, axe7, axe8, axe9, axe10;
 
     @FXML
     private ImageView wm1, wm2, wm3;
@@ -62,10 +53,11 @@ public class Game implements Initializable {
     private ImageView wcc1, wco1, wcc2, wco2, wcc3, wco3;
 
     @FXML
-    private Button selectKnife, selectSword;
+    private ImageView swordUI, knifeUI, playerSword, playerKnife;
 
     @FXML
-    private Rectangle orc1, orc2;
+    private Button selectKnife, selectSword;
+
     @FXML
     private AnchorPane uiPane, gamePane;
 
@@ -75,12 +67,10 @@ public class Game implements Initializable {
     private final ArrayList<Orc> orcs = new ArrayList<>();
     private final ArrayList<Coin> coins = new ArrayList<>();
     private final ArrayList<Chest> chests = new ArrayList<>();
-
-
-
-
     private final ArrayList<User> savedGames = new ArrayList<>();
-    private final User curPlayer = new User(this);
+    private final ArrayList<Weapons> weaponsForUser = new ArrayList<>();
+
+    private final User curPlayer = new User(this, playerKnife, playerSword);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -91,6 +81,7 @@ public class Game implements Initializable {
         addCoins();
         addWindmill();
         addChest();
+        addWeaponsForUser();
     }
 
     private void addPlatforms(){
@@ -140,6 +131,11 @@ public class Game implements Initializable {
         orcs.add(new ShieldedOrc(ro10, this));
     }
 
+    private void addWeaponsForUser(){
+        weaponsForUser.add(new Knives(knifeUI));
+        weaponsForUser.add(new Sword(swordUI));
+    }
+
     private void addWindmill(){
         windmill.addWindmills(wm1);
         windmill.addWindmills(wm2);
@@ -184,8 +180,6 @@ public class Game implements Initializable {
         curPlayer.setHelmet(penguinHelmet);
     }
 
-
-
     public Node checkCollisionIsland(Node node){
 
         for(int i = 0; i<platforms.size(); i++){
@@ -196,7 +190,7 @@ public class Game implements Initializable {
         return null;
     }
 
-    public Orc checkColisionOrc(Node node){
+    public Orc checkCollisionOrc(Node node){
         for(Orc orc : orcs){
             if (node.getBoundsInParent().intersects(orc.getNode().getBoundsInParent())) {
                 return orc;
@@ -205,7 +199,7 @@ public class Game implements Initializable {
         return null;
     }
 
-    public Coin checkCollsionCoin(Node node){
+    public Coin checkCollisionCoin(Node node){
         for(Coin coin : coins){
             if (node.getBoundsInParent().intersects(coin.getNode().getBoundsInParent())) {
                 return coin;
@@ -240,6 +234,9 @@ public class Game implements Initializable {
     public ArrayList<Coin> getCoins(){
         return this.coins;
     }
+    public ArrayList<Weapons> getWeaponsForUser(){
+        return this.weaponsForUser;
+    }
     public Node getBackground(){
         return this.bg;
     }
@@ -256,10 +253,6 @@ public class Game implements Initializable {
     }
     public void choseSword(){
         curPlayer.setCurWeapon(1);
-    }
-
-    public Node rrec1(){
-        return rec1;
     }
 
 }

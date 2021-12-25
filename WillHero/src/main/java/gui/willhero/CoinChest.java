@@ -22,8 +22,9 @@ public class CoinChest extends Chest{
         return null;
     }
 
-    public void generateCoinCount(){
+    public int generateCoinCount(){
         this.coinCount = (int) (Math.random() * (10 - 2 + 1) + 2);
+        return coinCount;
     }
 
 

@@ -18,6 +18,9 @@ public class WeaponChest extends Chest{
 
 
     public int generateWeapon(){
+
+//        int random =  new Random().nextInt(2) ;
+//        return game.getWeaponsForUser().get(random);
         return new Random().nextInt(2) ;
     }
 

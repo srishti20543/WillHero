@@ -5,10 +5,11 @@ import javafx.scene.image.ImageView;
 
 public class Sword extends Weapons{
 
-    private ImageView img;
+    private Node img;
 
-    Sword(){
+    Sword(Node sword){
         super("Sword", 20);
+        this.img = sword;
     }
 
     public void update(){
@@ -22,13 +23,16 @@ public class Sword extends Weapons{
 
     @Override
     public void use(){
-        animations.rotateWeapon(img, 360);
+        animations.rotateWeapon((ImageView) img, 360);
     }
 
     @Override
     public void toggle(){
-        animations.toggleOpacity(img);
+        animations.toggleOpacity((ImageView) img);
     }
 
+    public Node getImg(){
+        return this.img;
+    }
 }
 

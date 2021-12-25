@@ -20,12 +20,13 @@ public class User implements Serializable{
     private boolean isDead;
     private boolean isWinner;
     private boolean isResurrected;
-    private ArrayList<Weapons> weaponsUnlocked;
+    private ArrayList<Weapons> weapons;
     private Helmet helmetChosen;
     private Weapons curWeapon;
     private ImageView playerHelmet;
-    private Animations animations = new Animations();
-
+    private final Animations animations = new Animations();
+    private AnchorPane gamePane;
+    private AnchorPane uiPane;
     private Game game;
 
     Timeline movePlayerHorizontal = new Timeline();
@@ -35,7 +36,7 @@ public class User implements Serializable{
     private final double playerDx = 0.5;
     private Node base;
 
-    User(Game game) {
+    User(Game game, Node knife, Node sword) {
         ID++;
         this.health = 100;
         this.currentScore = 0;
@@ -44,22 +45,21 @@ public class User implements Serializable{
         this.isDead = false;
         this.isWinner = false;
         this.isResurrected = false;
-        this. weaponsUnlocked = new ArrayList<>();
-        weaponsUnlocked.add(new Knives());
-        weaponsUnlocked.add(new Sword());
+        this. weapons = new ArrayList<>();
+        weapons.add(new Knives(knife));
+        weapons.add(new Sword(sword));
 
 
         KeyFrame playerVertical = new KeyFrame(Duration.millis(7), actionEvent -> {
             playerHelmet.setLayoutY(playerHelmet.getLayoutY() + playerDy);
 
             Node plat = game.checkCollisionIsland(playerHelmet);
-            Orc orc = game.checkColisionOrc(playerHelmet);
-            Coin coin = game.checkCollsionCoin(playerHelmet);
+            Orc orc = game.checkCollisionOrc(playerHelmet);
+            Coin coin = game.checkCollisionCoin(playerHelmet);
             Chest chest = game.checkCollisionChest(playerHelmet);
 
             if(base == null){
-//                base = game.getPlatforms().get(0).getNode();
-                base = game.rrec1();
+                base = game.getPlatforms().get(0).getNode();
             }
 
             else if(plat != null){
@@ -79,8 +79,17 @@ public class User implements Serializable{
             }
 
             if(chest != null){
+                if(chest instanceof WeaponChest){
+                    int weaponNum = ((WeaponChest) chest).generateWeapon();
+                    updateWeapon(weaponNum);
+                    setCurWeapon(weaponNum);
+
+                }
+                if(chest instanceof CoinChest){
+                    setCoinsCollected(((CoinChest) chest).generateCoinCount());
+                }
                 chest.openIt();
-//                game.getChests().remove(chest);
+                game.getChests().remove(chest);
             }
 
             if(playerHelmet.getLayoutY() <= base.getLayoutY() - 100){
@@ -95,8 +104,8 @@ public class User implements Serializable{
 
             Node bg = game.getBackground();
             Node plat = game.checkCollisionIsland(playerHelmet);
-            Orc orc = game.checkColisionOrc(playerHelmet);
-            Coin coin = game.checkCollsionCoin(playerHelmet);
+            Orc orc = game.checkCollisionOrc(playerHelmet);
+            Coin coin = game.checkCollisionCoin(playerHelmet);
             Chest chest = game.checkCollisionChest(playerHelmet);
 
             playerHelmet.setLayoutX(playerHelmet.getLayoutX() + playerDx);
@@ -165,23 +174,16 @@ public class User implements Serializable{
         coinsCollected += val;
     }
 
-
     public int updateWeapon(int val){
-        weaponsUnlocked.get(val).update();
-        return weaponsUnlocked.get(val).getLevel();
-    }
-
-    public void setWeaponImage(ImageView knife, ImageView sword){
-//        weaponsUnlocked.get(0).addWep(knife);
-//        weaponsUnlocked.get(1).addWep(sword);
-
+        weapons.get(val).update();
+        return weapons.get(val).getLevel();
     }
 
     public void setCurWeapon(int ind){
         if(curWeapon != null){
             curWeapon.toggle();
         }
-        curWeapon = weaponsUnlocked.get(ind);
+        curWeapon = weapons.get(ind);
         curWeapon.toggle();
     }
 
@@ -201,9 +203,6 @@ public class User implements Serializable{
     public Node getNode(){
         return this.helmetChosen.getImg();
     }
-
-    private AnchorPane gamePane;
-    private AnchorPane uiPane;
 
     public int moveForward(AnchorPane gamePane, AnchorPane UIPane){
         if(playerDy < 0){
