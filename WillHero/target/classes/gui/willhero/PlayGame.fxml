@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="gamePane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.willhero.PlayGame">
+<AnchorPane fx:id="gamePane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.willhero.Game">
    <children>
       <ImageView fx:id="bg" fitHeight="422.0" fitWidth="712.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -110,7 +110,7 @@
             <Image url="@Images/WeaponChestOpen.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="ro1" fitHeight="36.0" fitWidth="41.0" layoutX="367.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ro1" fitHeight="36.0" fitWidth="41.0" layoutX="368.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
@@ -310,7 +310,7 @@
             <Image url="@Images/WindmillBase.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="helmet" fitHeight="36.0" fitWidth="49.0" layoutX="182.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="penguin" fitHeight="36.0" fitWidth="49.0" layoutX="182.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/PenguinHelmet-removebg-preview.png" />
          </image>
@@ -333,7 +333,7 @@
       <Rectangle fx:id="rec23" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4382.0" layoutY="276.0" stroke="BLACK" strokeType="INSIDE" width="189.0" />
       <Rectangle fx:id="rec22" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4213.0" layoutY="287.0" stroke="BLACK" strokeType="INSIDE" width="121.0" />
       <Rectangle fx:id="rec25" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4757.0" layoutY="251.0" stroke="BLACK" strokeType="INSIDE" width="211.0" />
-      <ImageView fx:id="ro10" fitHeight="36.0" fitWidth="41.0" layoutX="4523.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ro10" fitHeight="36.0" fitWidth="41.0" layoutX="4523.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
@@ -343,7 +343,7 @@
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="ro8" fitHeight="36.0" fitWidth="41.0" layoutX="3978.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ro8" fitHeight="36.0" fitWidth="41.0" layoutX="3982.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
@@ -353,7 +353,7 @@
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="ro5" fitHeight="36.0" fitWidth="41.0" layoutX="2515.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ro5" fitHeight="36.0" fitWidth="41.0" layoutX="2515.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
@@ -363,7 +363,7 @@
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="ro6" fitHeight="36.0" fitWidth="41.0" layoutX="2608.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ro6" fitHeight="36.0" fitWidth="41.0" layoutX="2608.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
@@ -373,7 +373,7 @@
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="ro2" fitHeight="36.0" fitWidth="41.0" layoutX="1089.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ro2" fitHeight="36.0" fitWidth="41.0" layoutX="1094.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
@@ -685,7 +685,7 @@
       <Rectangle fx:id="rec19" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3554.0" layoutY="284.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
       <Rectangle fx:id="rec21" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="3982.0" layoutY="265.0" stroke="BLACK" strokeType="INSIDE" width="174.0" />
       <Rectangle fx:id="rec24" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4562.0" layoutY="274.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
-      <AnchorPane fx:id="uiPane" layoutY="3.0" prefHeight="415.0" prefWidth="700.0">
+      <AnchorPane fx:id="uiPane" layoutY="3.0" onMouseClicked="#movePlayerForward" prefHeight="415.0" prefWidth="700.0">
          <children>
             <Label fx:id="location" layoutX="298.0" layoutY="10.0" prefHeight="74.0" prefWidth="87.0" text="0" textAlignment="CENTER" textFill="WHITE">
                <font>
@@ -717,7 +717,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <Button fx:id="pause" layoutX="2.0" mnemonicParsing="false" onAction="#togglePause" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: transparent;">
+            <Button fx:id="pause" layoutX="2.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="54.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -725,7 +725,6 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="moveForward" layoutX="14.0" layoutY="81.0" mnemonicParsing="false" onAction="#setMoveForward" opacity="0.0" prefHeight="318.0" prefWidth="679.0" text="moveForward" />
             <Rectangle fx:id="deadByGravity" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="0.1" layoutX="2.0" layoutY="407.0" stroke="BLACK" strokeType="INSIDE" width="690.0" />
             <Label fx:id="knifeLevel" layoutX="25.0" layoutY="383.0" prefHeight="26.0" prefWidth="33.0" />
             <Label fx:id="swordLevel" layoutX="65.0" layoutY="383.0" prefHeight="26.0" prefWidth="33.0" />

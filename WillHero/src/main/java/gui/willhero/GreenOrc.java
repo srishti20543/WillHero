@@ -28,15 +28,6 @@ public class GreenOrc extends Orc{
     }
 
     @Override
-    public void addOrc(ImageView orc) {
-    }
-
-    @Override
-    public void stayOnIsland(FloatingIsland islands) {
-
-    }
-
-    @Override
     public Node onCollision(ImageView helmet) {
         return null;
     }

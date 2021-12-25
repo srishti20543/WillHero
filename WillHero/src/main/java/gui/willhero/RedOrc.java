@@ -32,13 +32,4 @@ public class RedOrc extends Orc{
         return null;
     }
 
-    @Override
-    public void addOrc(ImageView orc){
-
-    }
-
-    @Override
-    public void stayOnIsland(FloatingIsland islands) {
-
-    }
 }

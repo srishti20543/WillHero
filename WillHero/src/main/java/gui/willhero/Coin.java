@@ -9,9 +9,11 @@ public class Coin extends GameObject{
 
     private int value;
     private ArrayList<Node> coins = new ArrayList<>();
+    private Node coinImg;
 
-    Coin(){
+    Coin(Node img){
         value = 1;
+        coinImg = img;
     }
 
 //    @Override

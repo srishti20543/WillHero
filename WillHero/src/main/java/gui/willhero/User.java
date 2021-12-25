@@ -3,7 +3,6 @@ package gui.willhero;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Node;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
@@ -26,7 +25,7 @@ public class User implements Serializable{
     private Weapons curWeapon;
     private ImageView playerHelmet;
 
-    private Game game;
+    private PlayGame game;
 
     Timeline movePlayerHorizontal = new Timeline();
     Timeline movePlayerVertical = new Timeline();
@@ -35,7 +34,7 @@ public class User implements Serializable{
     private final double playerDx = 0.5;
     private Node base;
 
-    User(Game game) {
+    User(PlayGame game) {
         ID++;
         this.health = 100;
         this.currentScore = 0;

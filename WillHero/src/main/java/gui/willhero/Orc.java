@@ -16,13 +16,13 @@ abstract class Orc extends GameObject{
     private Node img;
     private double Orcdy = 0.5;
 
-    private Game game;
+    private PlayGame game;
     private Node prev;
 
     Timeline orcGravity = new Timeline();
 
 
-    Orc(int d, int hp, int disp, Node orcImg, Game game){
+    Orc(int d, int hp, int disp, Node orcImg, PlayGame game){
         this.isDead = false;
         this.damage = d;
         this.health = hp;
@@ -56,8 +56,6 @@ abstract class Orc extends GameObject{
     public abstract void setHealth();
     public abstract void setDead();
     public abstract void getDead();
-    public abstract void addOrc(ImageView orc);
-    public abstract void stayOnIsland(FloatingIsland islands);
     public Node getNode(){
         return this.img;
     }
