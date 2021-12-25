@@ -18,7 +18,7 @@ public class Game implements Initializable {
     private ImageView penguin, bg;
 
     @FXML
-    private Label coinCount;
+    private Label coinCount, knifeLevel, swordLevel;
     @FXML
     private Label score = new Label();
 
@@ -70,10 +70,12 @@ public class Game implements Initializable {
     private final ArrayList<User> savedGames = new ArrayList<>();
     private final ArrayList<Weapons> weaponsForUser = new ArrayList<>();
 
-    private final User curPlayer = new User(this, playerKnife, playerSword);
+    private User curPlayer;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        curPlayer = new User(this, playerKnife, playerSword);
         setCurPlayer();
         addPlatforms();
         addOrcs();
@@ -247,12 +249,33 @@ public class Game implements Initializable {
     public void setLocationLabel(int val){
         score.setText(String.valueOf(val));
     }
+    public void updateWeaponUI(int ind, int level){
+        Weapons temp = weaponsForUser.get(ind);
+        if(level == 1){
+            temp.toggle();
+
+        }
+        if(temp instanceof Knives){
+            knifeLevel.setText(String.valueOf(level));
+            ((Knives) temp).showSelected();
+            selectKnife.setDisable(false);
+        }
+        else if(temp instanceof Sword){
+            swordLevel.setText(String.valueOf(level));
+            ((Sword) temp).showSelected();
+            selectSword.setDisable(false);
+        }
+    }
 
     public void choseKnife(){
+        System.out.println("0");
         curPlayer.setCurWeapon(0);
+        ((Knives)weaponsForUser.get(0)).showSelected();
     }
     public void choseSword(){
+        System.out.println(1);
         curPlayer.setCurWeapon(1);
+        ((Sword)weaponsForUser.get(1)).showSelected();
     }
 
 }

@@ -15,7 +15,7 @@ public class Animations {
     public void floatingDown(ImageView island){
         TranslateTransition floating = new TranslateTransition();
         floating.setDuration(Duration.seconds(10));
-        floating.setToY(island.getY() + 10);
+        floating.setToY(island.getY() + 8);
         floating.setAutoReverse(true);
         floating.setCycleCount(Animation.INDEFINITE);
         floating.setNode(island);
@@ -24,7 +24,7 @@ public class Animations {
     public void floatingDown(Rectangle rec){
         TranslateTransition floating = new TranslateTransition();
         floating.setDuration(Duration.seconds(10));
-        floating.setToY(rec.getY() + 10);
+        floating.setToY(rec.getY() + 8);
         floating.setAutoReverse(true);
         floating.setCycleCount(Animation.INDEFINITE);
         floating.setNode(rec);
@@ -34,7 +34,7 @@ public class Animations {
     public void floatingUp(ImageView island){
         TranslateTransition floating = new TranslateTransition();
         floating.setDuration(Duration.seconds(10));
-        floating.setToY(island.getY() - 10);
+        floating.setToY(island.getY() - 8);
         floating.setAutoReverse(true);
         floating.setCycleCount(Animation.INDEFINITE);
         floating.setNode(island);
@@ -44,7 +44,7 @@ public class Animations {
     public void floatingUp(Rectangle rec){
         TranslateTransition floating = new TranslateTransition();
         floating.setDuration(Duration.seconds(10));
-        floating.setToY(rec.getY() - 10);
+        floating.setToY(rec.getY() - 8);
         floating.setAutoReverse(true);
         floating.setCycleCount(Animation.INDEFINITE);
         floating.setNode(rec);

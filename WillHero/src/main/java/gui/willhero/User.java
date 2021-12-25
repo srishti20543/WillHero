@@ -75,8 +75,7 @@ public class User implements Serializable{
             if(coin != null){
                 animations.toggleOpacity((ImageView) coin.getNode());
                 game.getCoins().remove(coin);
-                this.coinsCollected++;
-                game.setCoinCountLabel(coinsCollected);
+                setCoinsCollected(1);
             }
 
             if(chest != null){
@@ -85,7 +84,7 @@ public class User implements Serializable{
                     int weaponNum = ((WeaponChest) chest).generateWeapon();
                     updateWeapon(weaponNum);
                     setCurWeapon(weaponNum);
-
+                    game.updateWeaponUI(weaponNum, curWeapon.getLevel());
                 }
                 if(chest instanceof CoinChest){
                     setCoinsCollected(((CoinChest) chest).generateCoinCount());
@@ -125,12 +124,20 @@ public class User implements Serializable{
             if(coin != null){
                 animations.toggleOpacity((ImageView) coin.getNode());
                 game.getCoins().remove(coin);
-                this.coinsCollected++;
-                game.setCoinCountLabel(coinsCollected);
+                setCoinsCollected(1);
             }
             if(chest != null){
                 chest.openIt();
-//                game.getChests().remove(chest);
+                if(chest instanceof WeaponChest){
+                    int weaponNum = ((WeaponChest) chest).generateWeapon();
+                    updateWeapon(weaponNum);
+                    setCurWeapon(weaponNum);
+                    game.updateWeaponUI(weaponNum, curWeapon.getLevel());
+                }
+                if(chest instanceof CoinChest){
+                    setCoinsCollected(((CoinChest) chest).generateCoinCount());
+                }
+                game.getChests().remove(chest);
             }
 
         });
@@ -173,6 +180,7 @@ public class User implements Serializable{
 
     public void setCoinsCollected(int val){
         coinsCollected += val;
+        game.setCoinCountLabel(coinsCollected);
     }
 
     public int updateWeapon(int val){

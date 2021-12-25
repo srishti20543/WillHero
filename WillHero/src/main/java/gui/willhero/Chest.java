@@ -14,10 +14,11 @@ abstract class Chest extends GameObject{
 
     private boolean isOpen = false;
 
-    private double openDy;
-    private double closeDy;
-    private Node prevo;
-    private Node prevc;
+    private double openDy = 0.05;
+    private double closeDy = 0.05;
+    private Node no;
+    private Node nc;
+
     private Timeline chestGravity = new Timeline();
 
     Chest(Node open, Node close, Game game){
@@ -25,40 +26,38 @@ abstract class Chest extends GameObject{
         this.close = close;
         this.game = game;
 
-        KeyFrame chestG = new KeyFrame(Duration.millis(5), actionEvent -> {
+        no = game.getPlatforms().get(0).getNode();
+        nc = game.getPlatforms().get(0).getNode();
 
-            openDy = 1;
-            closeDy = 1;
-
-            Node no = game.checkCollisionIsland(open);
-            Node nc = game.checkCollisionIsland(close);
-
-
-            if(prevo == null){
-                prevo = game.getPlatforms().get(0).getNode();
-            }
-            if(prevc == null){
-                prevc = game.getPlatforms().get(0).getNode();
-            }
-
-            if(no!= null){
-                prevo = no;
-                openDy = -openDy;
-            }
-
-            if(nc != null){
-                prevc = nc;
-                closeDy = -closeDy;
-            }
-
+        KeyFrame chestG = new KeyFrame(Duration.millis(10), actionEvent -> {
             open.setLayoutY(open.getLayoutY() + openDy);
             close.setLayoutY(close.getLayoutY() + closeDy);
 
+            no = game.checkCollisionIsland(open);
+            nc = game.checkCollisionIsland(close);
+
+            if(no != null || nc != null){
+                chestGravity.stop();
+            }
         });
 
         chestGravity.getKeyFrames().add(chestG);
         chestGravity.setCycleCount(Timeline.INDEFINITE);
         chestGravity.play();
+
+        String id = no.getId();
+        System.out.println(id);
+        int ind = Integer.parseInt(String.valueOf(id.charAt(id.length() - 1)));
+        int type = game.getPlatforms().get(ind - 1).getAnimationType();
+
+        if(type == 0){
+            animations.floatingUp((ImageView) open);
+            animations.floatingUp((ImageView) close);
+        }
+        else{
+            animations.floatingDown((ImageView) open);
+            animations.floatingDown((ImageView) close);
+        }
     }
 
     public Node getNode(){

@@ -100,12 +100,12 @@
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="wcc1" fitHeight="35.0" fitWidth="54.0" layoutX="711.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wcc1" fitHeight="35.0" fitWidth="54.0" layoutX="704.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestClosed.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wco1" fitHeight="35.0" fitWidth="54.0" layoutX="711.0" layoutY="196.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wco1" fitHeight="35.0" fitWidth="54.0" layoutX="704.0" layoutY="230.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestOpen.png" />
          </image>
@@ -658,22 +658,22 @@
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="wcc2" fitHeight="35.0" fitWidth="54.0" layoutX="1125.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wcc2" fitHeight="35.0" fitWidth="54.0" layoutX="1231.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestClosed.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wco2" fitHeight="35.0" fitWidth="54.0" layoutX="1125.0" layoutY="161.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wco2" fitHeight="35.0" fitWidth="54.0" layoutX="1231.0" layoutY="266.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestOpen.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wcc3" fitHeight="35.0" fitWidth="54.0" layoutX="1378.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wcc3" fitHeight="35.0" fitWidth="54.0" layoutX="1378.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestClosed.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wco3" fitHeight="35.0" fitWidth="54.0" layoutX="1378.0" layoutY="245.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wco3" fitHeight="35.0" fitWidth="54.0" layoutX="1378.0" layoutY="243.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestOpen.png" />
          </image>
@@ -685,7 +685,17 @@
       <Rectangle fx:id="rec19" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3554.0" layoutY="284.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
       <Rectangle fx:id="rec21" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="3982.0" layoutY="265.0" stroke="BLACK" strokeType="INSIDE" width="174.0" />
       <Rectangle fx:id="rec24" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4562.0" layoutY="274.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
-      <AnchorPane fx:id="uiPane" layoutY="3.0" onMouseClicked="#movePlayerForward" prefHeight="415.0" prefWidth="700.0">
+      <ImageView fitHeight="83.0" fitWidth="141.0" layoutX="1873.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/openCoinChest.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="87.0" layoutX="1884.0" layoutY="209.0">
+         <image>
+            <Image url="@Images/closedCoinchest.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="uiPane" layoutY="3.0" prefHeight="415.0" prefWidth="700.0">
          <children>
             <ImageView fitHeight="36.0" fitWidth="121.0" layoutX="22.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -740,17 +750,8 @@
                   <Font size="55.0" />
                </font>
             </Label>
+            <Button fx:id="move" layoutX="5.0" layoutY="64.0" mnemonicParsing="false" onAction="#movePlayerForward" opacity="0.0" prefHeight="297.0" prefWidth="690.0" text="move" />
          </children>
       </AnchorPane>
-      <ImageView fitHeight="83.0" fitWidth="141.0" layoutX="1873.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/openCoinChest.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="87.0" layoutX="1884.0" layoutY="209.0">
-         <image>
-            <Image url="@Images/closedCoinchest.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

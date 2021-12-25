@@ -13,12 +13,14 @@ public class FloatingIsland extends GameObject{
     private Node island;
     private Node rectangle;
 
+    private int animationType;
+
     FloatingIsland(Node island, Node rec){
         this.island = island;
         this.rectangle = rec;
-        int x = new Random().nextInt(2);
+        animationType = new Random().nextInt(2);
 
-        if(x == 0){
+        if(animationType == 0){
             animations.floatingUp((Rectangle) rec);
             animations.floatingUp((ImageView) island);
         }
@@ -27,6 +29,10 @@ public class FloatingIsland extends GameObject{
             animations.floatingDown((ImageView) island);
         }
 
+    }
+
+    public int getAnimationType(){
+        return animationType;
     }
 
     @Override
