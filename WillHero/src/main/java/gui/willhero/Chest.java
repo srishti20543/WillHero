@@ -14,8 +14,8 @@ abstract class Chest extends GameObject{
 
     private boolean isOpen = false;
 
-    private double openDy = 0.5;
-    private double closeDy = 0.5;
+    private double openDy;
+    private double closeDy;
     private Node prevo;
     private Node prevc;
     private Timeline chestGravity = new Timeline();
@@ -25,9 +25,10 @@ abstract class Chest extends GameObject{
         this.close = close;
         this.game = game;
 
-        KeyFrame chestG = new KeyFrame(Duration.millis(1), actionEvent -> {
+        KeyFrame chestG = new KeyFrame(Duration.millis(5), actionEvent -> {
 
             openDy = 1;
+            closeDy = 1;
 
             Node no = game.checkCollisionIsland(open);
             Node nc = game.checkCollisionIsland(close);
@@ -42,12 +43,12 @@ abstract class Chest extends GameObject{
 
             if(no!= null){
                 prevo = no;
-                openDy = -1;
+                openDy = -openDy;
             }
 
             if(nc != null){
                 prevc = nc;
-                closeDy = -1;
+                closeDy = -closeDy;
             }
 
             open.setLayoutY(open.getLayoutY() + openDy);

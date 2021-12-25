@@ -71,6 +71,7 @@ public class User implements Serializable{
                 base = orc.getNode();
                 playerDy = -playerDy;
             }
+
             if(coin != null){
                 animations.toggleOpacity((ImageView) coin.getNode());
                 game.getCoins().remove(coin);
@@ -79,6 +80,7 @@ public class User implements Serializable{
             }
 
             if(chest != null){
+                chest.openIt();
                 if(chest instanceof WeaponChest){
                     int weaponNum = ((WeaponChest) chest).generateWeapon();
                     updateWeapon(weaponNum);
@@ -88,7 +90,6 @@ public class User implements Serializable{
                 if(chest instanceof CoinChest){
                     setCoinsCollected(((CoinChest) chest).generateCoinCount());
                 }
-                chest.openIt();
                 game.getChests().remove(chest);
             }
 
