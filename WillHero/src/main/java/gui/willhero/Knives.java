@@ -44,6 +44,7 @@ public class Knives extends Weapons{
         st.play();
     }
 
+    @Override
     public Node getImg(){
         return this.img;
     }

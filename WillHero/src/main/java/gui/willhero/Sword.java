@@ -45,6 +45,7 @@ public class Sword extends Weapons{
         st.play();
     }
 
+    @Override
     public Node getImg(){
         return this.img;
     }

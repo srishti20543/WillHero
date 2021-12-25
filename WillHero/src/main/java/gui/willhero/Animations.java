@@ -11,6 +11,7 @@ import javafx.util.Duration;
 public class Animations {
 
     private boolean isRotating = false;
+    private boolean isThrowing;
 
     public void floatingDown(ImageView island){
         TranslateTransition floating = new TranslateTransition();
@@ -72,13 +73,10 @@ public class Animations {
     }
 
     public void throwKnife(ImageView knife){
-        double pos = knife.getX();
         TranslateTransition translate = new TranslateTransition();
         translate.setNode(knife);
         translate.setDuration(Duration.millis(750));
-        translate.setByX(pos + 400);
-        translate.setByY(knife.getY() - 10);
-        translate.setOnFinished(actionEvent -> knife.setTranslateX(pos));
+        translate.setByX(knife.getLayoutX() + 400);
         translate.play();
     }
 
@@ -119,4 +117,13 @@ public class Animations {
             img.setOpacity(0.0);
         }
     }
+
+    public boolean isThrowing(){
+        return isThrowing;
+    }
+
+    public boolean isRotating() {
+        return isRotating;
+    }
 }
+

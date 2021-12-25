@@ -28,9 +28,13 @@ public class User implements Serializable{
     private AnchorPane gamePane;
     private AnchorPane uiPane;
     private Game game;
+    private boolean isUsingWeaponK = false;
+    private boolean isUsingWeaponS = false;
 
     Timeline movePlayerHorizontal = new Timeline();
     Timeline movePlayerVertical = new Timeline();
+    Timeline weaponPosition = new Timeline();
+    Timeline attack = new Timeline();
 
     private double playerDy = 0.5;
     private final double playerDx = 0.5;
@@ -85,11 +89,15 @@ public class User implements Serializable{
                     updateWeapon(weaponNum);
                     setCurWeapon(weaponNum);
                     game.updateWeaponUI(weaponNum, curWeapon.getLevel());
+                    if(curWeapon != null){
+                        weaponPosition.play();
+                    }
                 }
                 if(chest instanceof CoinChest){
                     setCoinsCollected(((CoinChest) chest).generateCoinCount());
                 }
                 game.getChests().remove(chest);
+
             }
 
             if(playerHelmet.getLayoutY() <= base.getLayoutY() - 100){
@@ -113,6 +121,7 @@ public class User implements Serializable{
             uiPane.setLayoutX(uiPane.getLayoutX() + playerDx);
             bg.setLayoutX(bg.getLayoutX() + playerDx);
 
+
             if(plat != null){
                 playerHelmet.setLayoutX(playerHelmet.getLayoutX() - 5);
                 movePlayerVertical.play();
@@ -133,6 +142,9 @@ public class User implements Serializable{
                     updateWeapon(weaponNum);
                     setCurWeapon(weaponNum);
                     game.updateWeaponUI(weaponNum, curWeapon.getLevel());
+                    if(curWeapon != null){
+                        weaponPosition.play();
+                    }
                 }
                 if(chest instanceof CoinChest){
                     setCoinsCollected(((CoinChest) chest).generateCoinCount());
@@ -146,6 +158,26 @@ public class User implements Serializable{
         movePlayerHorizontal.setCycleCount(100);
 
         movePlayerVertical.play();
+
+        KeyFrame keep = new KeyFrame(Duration.millis(1), actionEvent -> {
+            if(curWeapon != null){
+                if(curWeapon instanceof Knives){
+                    curWeapon.getImg().setLayoutY(playerHelmet.getLayoutY() + 10);
+                }
+                else{
+                    curWeapon.getImg().setLayoutY(playerHelmet.getLayoutY() - 30);
+                }
+                curWeapon.getImg().setLayoutX(playerHelmet.getLayoutX());
+
+            }
+        });
+
+        weaponPosition.getKeyFrames().add(keep);
+        weaponPosition.setCycleCount(Timeline.INDEFINITE);
+        weaponPosition.play();
+
+
+
     }
     public void setCurrentScore(int score) {
         this.currentScore = score;
@@ -194,6 +226,7 @@ public class User implements Serializable{
         }
         curWeapon = weapons.get(ind);
         curWeapon.toggle();
+        curWeapon.getImg().setLayoutX(playerHelmet.getLayoutX());
     }
 
     public void useCurWeapon(double pos){
@@ -216,6 +249,15 @@ public class User implements Serializable{
     public int moveForward(AnchorPane gamePane, AnchorPane UIPane){
         if(playerDy < 0){
             playerDy = -playerDy;
+        }
+        if(curWeapon != null){
+            Timeline t = new Timeline(new KeyFrame(Duration.millis(1), actionEvent -> {
+                weaponPosition.stop();
+                curWeapon.use();
+            }));
+            t.setOnFinished(actionEvent -> weaponPosition.play());
+            t.play();
+
         }
         this.gamePane = gamePane;
         this.uiPane = UIPane;
