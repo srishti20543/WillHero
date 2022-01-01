@@ -220,11 +220,6 @@
             <Image url="@Images/FloatingIsland1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wm2" fitHeight="192.0" fitWidth="154.0" layoutX="1508.0" layoutY="90.0">
-         <image>
-            <Image url="@Images/trial.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="121.0" fitWidth="105.0" layoutX="1714.0" layoutY="18.0">
          <image>
             <Image url="@Images/FloatingIsland3.png" />
@@ -253,11 +248,6 @@
       <ImageView fx:id="island15" fitHeight="218.0" fitWidth="147.0" layoutX="2749.0" layoutY="178.0">
          <image>
             <Image url="@Images/WindmillBase.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="wm3" fitHeight="192.0" fitWidth="154.0" layoutX="2756.0" layoutY="90.0">
-         <image>
-            <Image url="@Images/trial.png" />
          </image>
       </ImageView>
       <ImageView fx:id="island17" fitHeight="154.0" fitWidth="190.0" layoutX="3174.0" layoutY="237.0">
@@ -685,12 +675,12 @@
       <Rectangle fx:id="rec19" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3554.0" layoutY="284.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
       <Rectangle fx:id="rec21" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="3982.0" layoutY="265.0" stroke="BLACK" strokeType="INSIDE" width="174.0" />
       <Rectangle fx:id="rec24" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4562.0" layoutY="274.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
-      <ImageView fx:id="cco1" fitHeight="83.0" fitWidth="141.0" layoutX="1875.0" layoutY="158.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="cco1" fitHeight="42.0" fitWidth="54.0" layoutX="1901.0" layoutY="187.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/openCoinChest.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="ccc1" fitHeight="74.0" fitWidth="87.0" layoutX="1884.0" layoutY="158.0">
+      <ImageView fx:id="ccc1" fitHeight="42.0" fitWidth="54.0" layoutX="1901.0" layoutY="239.0">
          <image>
             <Image url="@Images/closedCoinchest.png" />
          </image>
@@ -705,9 +695,24 @@
             <Image url="@Images/ThrowingKnives.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="uiPane" layoutY="3.0" prefHeight="415.0" prefWidth="700.0">
+      <ImageView fx:id="axe1b" fitHeight="54.0" fitWidth="54.0" layoutX="846.0" layoutY="248.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="wm3" fitHeight="192.0" fitWidth="154.0" layoutX="2754.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/trial.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="wm2" fitHeight="192.0" fitWidth="154.0" layoutX="1510.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/trial.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="uiPane" layoutY="3.0" prefHeight="415.0" prefWidth="631.0">
          <children>
-            <Button fx:id="move" layoutX="5.0" layoutY="64.0" mnemonicParsing="false" onAction="#movePlayerForward" opacity="0.0" prefHeight="297.0" prefWidth="690.0" text="move" />
+            <Button fx:id="move" layoutX="5.0" layoutY="64.0" mnemonicParsing="false" onAction="#movePlayerForward" opacity="0.0" prefHeight="298.0" prefWidth="675.0" text="move" />
             <ImageView fitHeight="36.0" fitWidth="121.0" layoutX="22.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/WeaponSlot.png" />
@@ -753,10 +758,5 @@
             </Label>
          </children>
       </AnchorPane>
-      <ImageView fx:id="axe1b" fitHeight="54.0" fitWidth="54.0" layoutX="846.0" layoutY="196.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/Coin.jpg" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>
