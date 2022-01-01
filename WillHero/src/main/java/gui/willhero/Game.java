@@ -35,7 +35,7 @@ public class Game implements Initializable {
     private ImageView cloud1, cloud2, cloud3, cloud4, cloud5, cloud6, cloud7, cloud8, cloud9, cloud10;
 
     @FXML
-    private ImageView coin1, coin2, coin3, coin4, coin5, coin6, coin7, coin8, coin9, coin10;
+    private ImageView coin1, coin2, coin3, coin4, coin5, coin6, coin7, coin8, coin9, coin10, bigCoin;
 
     @FXML
     private ImageView ro1, ro2, ro3, ro4, ro5, ro6, ro7, ro8, ro9, ro10;
@@ -263,6 +263,7 @@ public class Game implements Initializable {
     }
 
     public void setCoinCountLabel(int val){
+        animations.scaleCoin(bigCoin);
         coinCount.setText(String.valueOf(val));
     }
     public void setLocationLabel(int val){

@@ -733,7 +733,7 @@
                   <Image url="@Images/Swords.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="652.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bigCoin" fitHeight="35.0" fitWidth="34.0" layoutX="636.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/Coin.jpg" />
                </image>

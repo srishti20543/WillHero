@@ -37,25 +37,25 @@ abstract class Orc extends GameObject{
                 isDead = true;
             }
 
-            if(img.getLayoutY() < 300){
-                int c = 0;
-                if(img.getLayoutX() - getCurPlayer().getNode().getLayoutX() < 60){
-                    c = -1;
-                    img.setLayoutX(img.getLayoutX() + c*0.25);
-                }
-
-                if(getCurPlayer().getNode().getLayoutX() > img.getLayoutX() + 60){
-                    c = 1;
-                    img.setLayoutX(img.getLayoutX() + c*0.25);
-                }
-
-                Node n = game.checkCollisionIsland(img);
-
-                if(n != null){
-                    img.setLayoutX(img.getLayoutX() + -1*c);
-                }
-
-            }
+//            if(img.getLayoutY() < 300){
+//                int c = 0;
+//                if(img.getLayoutX() - getCurPlayer().getNode().getLayoutX() < 60){
+//                    c = -1;
+//                    img.setLayoutX(img.getLayoutX() + c*0.25);
+//                }
+//
+//                if(getCurPlayer().getNode().getLayoutX() > img.getLayoutX() + 60){
+//                    c = 1;
+//                    img.setLayoutX(img.getLayoutX() + c*0.25);
+//                }
+//
+//                Node n = game.checkCollisionIsland(img);
+//
+//                if(n != null){
+//                    img.setLayoutX(img.getLayoutX() + -1*c);
+//                }
+//
+//            }
 
 
             img.setLayoutY(img.getLayoutY() + Orcdy);

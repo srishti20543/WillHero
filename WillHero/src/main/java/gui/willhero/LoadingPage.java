@@ -1,8 +1,6 @@
 package gui.willhero;
 
-import javafx.animation.Animation;
-import javafx.animation.ScaleTransition;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,6 +22,7 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
+import java.security.Key;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
@@ -41,21 +40,28 @@ public class LoadingPage implements Initializable {
     @FXML
     private ImageView click;
 
+    @FXML
+    private Label progress;
+
+    private int l = 0;
+    private Timeline loading = new Timeline();
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
         isLoading = true;
+        bar.setLayoutX(-712);
 
-        bar.setLayoutX(306);
-        bar.setLayoutY(327);
-        bar.setHeight(10);
-        bar.setWidth(20);
-        bar.setFill(Color.DODGERBLUE);
+        KeyFrame load = new KeyFrame(Duration.millis(100), actionEvent -> {
+            l += 5;
+            progress.setText(String.valueOf(l) + " %");
+            bar.setLayoutX(bar.getLayoutX() + 36);
 
-        ScaleTransition load = new ScaleTransition(Duration.seconds(2), bar);
-        load.setToX(50);
-        load.setOnFinished(event -> set());
-        load.play();
+        });
+        loading.getKeyFrames().add(load);
+        loading.setCycleCount(20);
+        loading.setOnFinished(actionEvent -> set());
+        loading.play();
 
     }
 

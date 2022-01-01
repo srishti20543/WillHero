@@ -129,8 +129,8 @@ public class Animations {
             scale.setDuration(Duration.millis(1000));
             scale.setCycleCount(2);
             scale.setInterpolator(Interpolator.LINEAR);
-            scale.setByX(1.25);
-            scale.setByY(1.25);
+            scale.setByX(0.5);
+            scale.setByY(0.5);
             scale.setAutoReverse(true);
             scale.setOnFinished(actionEvent -> isScaling = false);
             scale.play();

@@ -171,8 +171,8 @@ public class User implements Serializable{
         KeyFrame keep = new KeyFrame(Duration.millis(1), actionEvent -> {
             if(curWeapon != null){
                 if(curWeapon instanceof Sword){
-                    curWeapon.getImg().setLayoutY(playerHelmet.getLayoutY() + 50);
-                    curWeapon.getImg().setLayoutX(playerHelmet.getLayoutX());
+                    curWeapon.getImg().setLayoutY(playerHelmet.getLayoutY() - 45);
+                    curWeapon.getImg().setLayoutX(playerHelmet.getLayoutX() + 10);
                 }
             }
         });
