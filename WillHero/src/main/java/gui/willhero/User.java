@@ -77,6 +77,9 @@ public class User implements Serializable{
             else if(orc != null){
                 base = orc.getNode();
                 playerDy = -playerDy;
+                if(curWeapon!=null){
+                    curWeapon.use();
+                }
             }
 
             if(coin != null){
@@ -97,7 +100,9 @@ public class User implements Serializable{
                     }
                 }
                 if(chest instanceof CoinChest){
-                    setCoinsCollected(((CoinChest) chest).generateCoinCount());
+                    int count = ((CoinChest) chest).generateCoinCount();
+                    setCoinsCollected(count);
+                    game.displayCoinsAdded(count);
                 }
                 game.getChests().remove(chest);
 
@@ -150,7 +155,9 @@ public class User implements Serializable{
                     }
                 }
                 if(chest instanceof CoinChest){
-                    setCoinsCollected(((CoinChest) chest).generateCoinCount());
+                    int count = ((CoinChest) chest).generateCoinCount();
+                    setCoinsCollected(count);
+                    game.displayCoinsAdded(count);
                 }
                 game.getChests().remove(chest);
             }
@@ -164,7 +171,7 @@ public class User implements Serializable{
         KeyFrame keep = new KeyFrame(Duration.millis(1), actionEvent -> {
             if(curWeapon != null){
                 if(curWeapon instanceof Sword){
-                    curWeapon.getImg().setLayoutY(playerHelmet.getLayoutY() - 30);
+                    curWeapon.getImg().setLayoutY(playerHelmet.getLayoutY() + 50);
                     curWeapon.getImg().setLayoutX(playerHelmet.getLayoutX());
                 }
             }

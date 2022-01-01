@@ -19,7 +19,7 @@ public class WeaponChest extends Chest{
 
     public int generateWeapon() {
 //        return new Random().nextInt(2) ;
-        return 0;
+        return 1;
     }
 
     public Weapons getWeapon(){

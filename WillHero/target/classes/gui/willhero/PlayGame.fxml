@@ -105,12 +105,12 @@
             <Image url="@Images/WeaponChestClosed.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wco1" fitHeight="35.0" fitWidth="54.0" layoutX="1595.0" layoutY="248.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wco1" fitHeight="35.0" fitWidth="54.0" layoutX="1595.0" layoutY="247.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestOpen.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="ro1" fitHeight="36.0" fitWidth="41.0" layoutX="368.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ro1" fitHeight="36.0" fitWidth="41.0" layoutX="613.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
          </image>
@@ -300,7 +300,7 @@
             <Image url="@Images/WindmillBase.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="penguin" fitHeight="36.0" fitWidth="49.0" layoutX="182.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="penguin" fitHeight="36.0" fitWidth="49.0" layoutX="182.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/PenguinHelmet-removebg-preview.png" />
          </image>
@@ -658,12 +658,12 @@
             <Image url="@Images/WeaponChestOpen.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wcc3" fitHeight="35.0" fitWidth="54.0" layoutX="1378.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wcc3" fitHeight="35.0" fitWidth="54.0" layoutX="738.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestClosed.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wco3" fitHeight="35.0" fitWidth="54.0" layoutX="1378.0" layoutY="243.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wco3" fitHeight="35.0" fitWidth="54.0" layoutX="738.0" layoutY="254.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestOpen.png" />
          </image>
@@ -685,7 +685,7 @@
             <Image url="@Images/closedCoinchest.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="playerSword" disable="true" fitHeight="61.0" fitWidth="18.0" layoutX="182.0" layoutY="226.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="playerSword" disable="true" fitHeight="78.0" fitWidth="36.0" layoutX="188.0" layoutY="205.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Swords.png" />
          </image>
@@ -712,6 +712,11 @@
       </ImageView>
       <AnchorPane fx:id="uiPane" layoutY="3.0" prefHeight="415.0" prefWidth="631.0">
          <children>
+            <Label fx:id="coinsAdded" layoutX="210.0" layoutY="120.0" prefHeight="142.0" prefWidth="241.0" textFill="#ffffffe5">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="50.0" />
+               </font>
+            </Label>
             <Button fx:id="move" layoutX="5.0" layoutY="64.0" mnemonicParsing="false" onAction="#movePlayerForward" opacity="0.0" prefHeight="298.0" prefWidth="675.0" text="move" />
             <ImageView fitHeight="36.0" fitWidth="121.0" layoutX="22.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -733,9 +738,9 @@
                   <Image url="@Images/Coin.jpg" />
                </image>
             </ImageView>
-            <Label fx:id="coinCount" layoutX="617.0" layoutY="10.0" prefHeight="36.0" prefWidth="36.0" text="0" textFill="WHITE">
+            <Label fx:id="coinCount" layoutX="602.0" layoutY="10.0" prefHeight="36.0" prefWidth="51.0" text="0" textAlignment="JUSTIFY" textFill="WHITE">
                <font>
-                  <Font size="25.0" />
+                  <Font name="Comic Sans MS Bold" size="25.0" />
                </font>
             </Label>
             <Button fx:id="pause" layoutX="2.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: transparent;">
@@ -746,14 +751,13 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Rectangle fx:id="deadByGravity" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="0.1" layoutX="2.0" layoutY="407.0" stroke="BLACK" strokeType="INSIDE" width="690.0" />
             <Label fx:id="knifeLevel" layoutX="25.0" layoutY="383.0" prefHeight="26.0" prefWidth="33.0" />
             <Label fx:id="swordLevel" layoutX="65.0" layoutY="383.0" prefHeight="26.0" prefWidth="33.0" />
             <Button fx:id="selectKnife" disable="true" layoutX="23.0" layoutY="371.0" mnemonicParsing="false" onAction="#choseKnife" opacity="0.0" prefHeight="35.0" prefWidth="34.0" text="K" />
             <Button fx:id="selectSword" disable="true" layoutX="64.0" layoutY="370.0" mnemonicParsing="false" onAction="#choseSword" opacity="0.0" prefHeight="35.0" prefWidth="34.0" text="S" />
             <Label fx:id="score" layoutX="321.0" layoutY="12.0" prefHeight="100.0" prefWidth="125.0" text="0" textFill="WHITE">
                <font>
-                  <Font size="55.0" />
+                  <Font name="Comic Sans MS" size="55.0" />
                </font>
             </Label>
          </children>

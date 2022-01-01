@@ -13,16 +13,6 @@ public class GreenOrc extends Orc{
     }
 
     @Override
-    public void setDead() {
-
-    }
-
-    @Override
-    public void getDead() {
-
-    }
-
-    @Override
     public Node onCollision(ImageView helmet) {
         return null;
     }

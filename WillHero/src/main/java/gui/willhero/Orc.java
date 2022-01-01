@@ -15,7 +15,7 @@ abstract class Orc extends GameObject{
     private String color;
     private int displacement;
     private Node img;
-    private double Orcdy = 0.5;
+    private double Orcdy = 0.3;
 
     private Game game;
     private Node prev;
@@ -33,17 +33,20 @@ abstract class Orc extends GameObject{
         this.game = game;
 
         KeyFrame orcG = new KeyFrame(Duration.millis(7), actionEvent -> {
+            if(img.getLayoutY() > 400){
+                isDead = true;
+            }
 
             if(img.getLayoutY() < 300){
                 int c = 0;
-                if(img.getLayoutX() - getCurPlayer().getNode().getLayoutX() < 80){
+                if(img.getLayoutX() - getCurPlayer().getNode().getLayoutX() < 60){
                     c = -1;
-                    img.setLayoutX(img.getLayoutX() + c*0.5);
+                    img.setLayoutX(img.getLayoutX() + c*0.25);
                 }
 
-                if(getCurPlayer().getNode().getLayoutX() > img.getLayoutX() + 80){
+                if(getCurPlayer().getNode().getLayoutX() > img.getLayoutX() + 60){
                     c = 1;
-                    img.setLayoutX(img.getLayoutX() + c*0.5);
+                    img.setLayoutX(img.getLayoutX() + c*0.25);
                 }
 
                 Node n = game.checkCollisionIsland(img);
@@ -68,7 +71,7 @@ abstract class Orc extends GameObject{
                 Orcdy = -Orcdy;
             }
 
-            if(img.getLayoutY() <= prev.getLayoutY() - 100){
+            if(img.getLayoutY() <= prev.getLayoutY() - 75){
                 Orcdy = -Orcdy;
             }
         });
@@ -99,6 +102,8 @@ abstract class Orc extends GameObject{
 
         KeyFrame ded = new KeyFrame(Duration.millis(1), actionEvent -> {
             if(isDead){
+                game.getCurPlayer().setCoinsCollected(10);
+                game.displayCoinsAdded(10);
                 getGame().getOrcs().remove(this);
                 getGame().getGamePane().getChildren().remove(this.getNode());
                 checkDead.stop();
@@ -114,10 +119,7 @@ abstract class Orc extends GameObject{
     public void setHealth(double val){
         health -= val;
     };
-    public void setDead(){
 
-    }
-    public abstract void getDead();
     public Node getNode(){
         return this.img;
     }

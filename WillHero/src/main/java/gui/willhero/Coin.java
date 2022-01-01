@@ -15,18 +15,6 @@ public class Coin extends GameObject{
         coinImg = img;
     }
 
-//    @Override
-//    public int onCollision(ImageView helmet) {
-//        for (Node coin : coins) {
-//            if (helmet.getBoundsInParent().intersects(coin.getBoundsInParent())) {
-//                animations.toggleOpacity((ImageView) coin);
-//                coins.remove(coin);
-//                return 1;
-//            }
-//        }
-//        return -1;
-//    }
-
     @Override
     public Node onCollision(ImageView helmet) {
         return null;

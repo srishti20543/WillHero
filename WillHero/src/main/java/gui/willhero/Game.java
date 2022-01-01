@@ -18,7 +18,7 @@ public class Game implements Initializable {
     private ImageView penguin, bg;
 
     @FXML
-    private Label coinCount, knifeLevel, swordLevel;
+    private Label coinCount, knifeLevel, swordLevel, coinsAdded;
     @FXML
     private Label score = new Label();
 
@@ -76,6 +76,7 @@ public class Game implements Initializable {
     private final ArrayList<Weapons> weaponsForUser = new ArrayList<>();
 
     private User curPlayer;
+    private Animations animations = new Animations();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -257,6 +258,9 @@ public class Game implements Initializable {
     public AnchorPane getGamePane(){
         return this.gamePane;
     }
+    public User getCurPlayer(){
+        return curPlayer;
+    }
 
     public void setCoinCountLabel(int val){
         coinCount.setText(String.valueOf(val));
@@ -281,6 +285,10 @@ public class Game implements Initializable {
             selectSword.setDisable(false);
         }
     }
+    public void displayCoinsAdded(int count){
+        coinsAdded.setText("+" + String.valueOf(count));
+        animations.fadeLabel(coinsAdded);
+    }
 
     public void choseKnife(){
         System.out.println("0");
@@ -292,5 +300,6 @@ public class Game implements Initializable {
         curPlayer.setCurWeapon(1);
         ((Sword)weaponsForUser.get(1)).showSelected();
     }
+
 
 }
