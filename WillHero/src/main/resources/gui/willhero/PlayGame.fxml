@@ -10,6 +10,54 @@
 
 <AnchorPane fx:id="gamePane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.willhero.Game">
    <children>
+      <AnchorPane fx:id="uiPane" layoutY="3.0" prefHeight="415.0" prefWidth="700.0">
+         <children>
+            <Button fx:id="move" layoutX="5.0" layoutY="64.0" mnemonicParsing="false" onAction="#movePlayerForward" opacity="0.0" prefHeight="297.0" prefWidth="690.0" text="move" />
+            <ImageView fitHeight="36.0" fitWidth="121.0" layoutX="22.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/WeaponSlot.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="knifeUI" fitHeight="11.0" fitWidth="22.0" layoutX="29.0" layoutY="386.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/ThrowingKnives.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="swordUI" fitHeight="26.0" fitWidth="9.0" layoutX="78.0" layoutY="376.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Swords.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="652.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/Coin.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="coinCount" layoutX="617.0" layoutY="10.0" prefHeight="36.0" prefWidth="36.0" text="0" textFill="WHITE">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Button fx:id="pause" layoutX="2.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="54.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/pause-icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Rectangle fx:id="deadByGravity" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="0.1" layoutX="2.0" layoutY="407.0" stroke="BLACK" strokeType="INSIDE" width="690.0" />
+            <Label fx:id="knifeLevel" layoutX="25.0" layoutY="383.0" prefHeight="26.0" prefWidth="33.0" />
+            <Label fx:id="swordLevel" layoutX="65.0" layoutY="383.0" prefHeight="26.0" prefWidth="33.0" />
+            <Button fx:id="selectKnife" disable="true" layoutX="23.0" layoutY="371.0" mnemonicParsing="false" onAction="#choseKnife" opacity="0.0" prefHeight="35.0" prefWidth="34.0" text="K" />
+            <Button fx:id="selectSword" disable="true" layoutX="64.0" layoutY="370.0" mnemonicParsing="false" onAction="#choseSword" opacity="0.0" prefHeight="35.0" prefWidth="34.0" text="S" />
+            <Label fx:id="score" layoutX="321.0" layoutY="12.0" prefHeight="100.0" prefWidth="125.0" text="0" textFill="WHITE">
+               <font>
+                  <Font size="55.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
       <ImageView fx:id="bg" fitHeight="422.0" fitWidth="712.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/GameBackground.jpg" />
@@ -220,11 +268,6 @@
             <Image url="@Images/FloatingIsland1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wm2" fitHeight="192.0" fitWidth="154.0" layoutX="1508.0" layoutY="90.0">
-         <image>
-            <Image url="@Images/trial.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="121.0" fitWidth="105.0" layoutX="1714.0" layoutY="18.0">
          <image>
             <Image url="@Images/FloatingIsland3.png" />
@@ -253,11 +296,6 @@
       <ImageView fx:id="island15" fitHeight="218.0" fitWidth="147.0" layoutX="2749.0" layoutY="178.0">
          <image>
             <Image url="@Images/WindmillBase.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="wm3" fitHeight="192.0" fitWidth="154.0" layoutX="2756.0" layoutY="90.0">
-         <image>
-            <Image url="@Images/trial.png" />
          </image>
       </ImageView>
       <ImageView fx:id="island17" fitHeight="154.0" fitWidth="190.0" layoutX="3174.0" layoutY="237.0">
@@ -705,57 +743,19 @@
             <Image url="@Images/ThrowingKnives.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="uiPane" layoutY="3.0" prefHeight="415.0" prefWidth="700.0">
-         <children>
-            <Button fx:id="move" layoutX="5.0" layoutY="64.0" mnemonicParsing="false" onAction="#movePlayerForward" opacity="0.0" prefHeight="297.0" prefWidth="690.0" text="move" />
-            <ImageView fitHeight="36.0" fitWidth="121.0" layoutX="22.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/WeaponSlot.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="knifeUI" fitHeight="11.0" fitWidth="22.0" layoutX="29.0" layoutY="386.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/ThrowingKnives.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="swordUI" fitHeight="26.0" fitWidth="9.0" layoutX="78.0" layoutY="376.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/Swords.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="652.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/Coin.jpg" />
-               </image>
-            </ImageView>
-            <Label fx:id="coinCount" layoutX="617.0" layoutY="10.0" prefHeight="36.0" prefWidth="36.0" text="0" textFill="WHITE">
-               <font>
-                  <Font size="25.0" />
-               </font>
-            </Label>
-            <Button fx:id="pause" layoutX="2.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: transparent;">
-               <graphic>
-                  <ImageView fitHeight="54.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Images/pause-icon.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
-            <Rectangle fx:id="deadByGravity" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="0.1" layoutX="2.0" layoutY="407.0" stroke="BLACK" strokeType="INSIDE" width="690.0" />
-            <Label fx:id="knifeLevel" layoutX="25.0" layoutY="383.0" prefHeight="26.0" prefWidth="33.0" />
-            <Label fx:id="swordLevel" layoutX="65.0" layoutY="383.0" prefHeight="26.0" prefWidth="33.0" />
-            <Button fx:id="selectKnife" disable="true" layoutX="23.0" layoutY="371.0" mnemonicParsing="false" onAction="#choseKnife" opacity="0.0" prefHeight="35.0" prefWidth="34.0" text="K" />
-            <Button fx:id="selectSword" disable="true" layoutX="64.0" layoutY="370.0" mnemonicParsing="false" onAction="#choseSword" opacity="0.0" prefHeight="35.0" prefWidth="34.0" text="S" />
-            <Label fx:id="score" layoutX="321.0" layoutY="12.0" prefHeight="100.0" prefWidth="125.0" text="0" textFill="WHITE">
-               <font>
-                  <Font size="55.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
       <ImageView fx:id="axe1b" fitHeight="54.0" fitWidth="54.0" layoutX="846.0" layoutY="196.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="wm3" fitHeight="192.0" fitWidth="154.0" layoutX="2754.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/trial.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="wm2" fitHeight="192.0" fitWidth="154.0" layoutX="1510.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/trial.png" />
          </image>
       </ImageView>
    </children>
