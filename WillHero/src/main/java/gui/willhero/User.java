@@ -38,8 +38,8 @@ public class User implements Serializable{
     Timeline attack = new Timeline();
     Timeline delay = new Timeline();
 
-    private double playerDy = 0.75;
-    private double playerDx = 0.75;
+    private double playerDy = 0.08;
+    private double playerDx = 0.25;
     private Node base;
 
     User(Game game, Node knife, Node sword) {
@@ -57,7 +57,7 @@ public class User implements Serializable{
         weapons.add(new Sword(sword));
 
 
-        KeyFrame playerVertical = new KeyFrame(Duration.millis(7), actionEvent -> {
+        KeyFrame playerVertical = new KeyFrame(Duration.millis(1), actionEvent -> {
             playerHelmet.setLayoutY(playerHelmet.getLayoutY() + playerDy);
 
             Node plat = game.checkCollisionIsland(playerHelmet);
@@ -81,6 +81,7 @@ public class User implements Serializable{
 
             else if(orc != null){
                 base = orc.getNode();
+                playerHelmet.setLayoutY(playerHelmet.getLayoutY() - 1);
                 playerDy = -playerDy;
                 if(curWeapon!=null){
                     curWeapon.use();
@@ -121,7 +122,7 @@ public class User implements Serializable{
         movePlayerVertical.getKeyFrames().add(playerVertical);
         movePlayerVertical.setCycleCount(Timeline.INDEFINITE);
 
-        KeyFrame playerHorizontal = new KeyFrame(Duration.millis(4), actionEvent -> {
+        KeyFrame playerHorizontal = new KeyFrame(Duration.millis(1), actionEvent -> {
 
             Node bg = game.getBackground();
             Node plat = game.checkCollisionIsland(playerHelmet);
@@ -140,7 +141,7 @@ public class User implements Serializable{
                 movePlayerVertical.play();
             }
             else if(orc != null){
-                orc.getNode().setLayoutX(orc.getNode().getLayoutX() + 10);
+                orc.getNode().setLayoutX(orc.getNode().getLayoutX() + 2);
                 orc.getPushed();
             }
             if(coin != null){
@@ -170,14 +171,14 @@ public class User implements Serializable{
         });
 
         movePlayerHorizontal.getKeyFrames().add(playerHorizontal);
-        movePlayerHorizontal.setCycleCount(100);
+        movePlayerHorizontal.setCycleCount(300);
         movePlayerVertical.play();
 
         KeyFrame keep = new KeyFrame(Duration.millis(1), actionEvent -> {
             if(curWeapon != null){
                 if(curWeapon instanceof Sword){
-                    curWeapon.getImg().setLayoutY(playerHelmet.getLayoutY() - 45);
-                    curWeapon.getImg().setLayoutX(playerHelmet.getLayoutX() + 10);
+                    curWeapon.getImg().setLayoutY(playerHelmet.getLayoutY() - 24);
+                    curWeapon.getImg().setLayoutX(playerHelmet.getLayoutX() - 40);
                 }
             }
         });
@@ -272,3 +273,4 @@ public class User implements Serializable{
         return this.curWeapon;
     }
 }
+

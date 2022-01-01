@@ -10,7 +10,7 @@ public class Sword extends Weapons{
     private Node img;
 
     Sword(Node sword){
-        super("Sword", 20);
+        super("Sword", 1);
         this.img = sword;
 
     }

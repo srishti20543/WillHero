@@ -13,7 +13,7 @@ public class Knives extends Weapons{
     private Node img;
 
     Knives(Node knife){
-        super("Knives", 10);
+        super("Knives", 1);
         this.img = knife;
     }
 

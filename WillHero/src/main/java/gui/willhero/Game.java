@@ -25,14 +25,19 @@ public class Game implements Initializable {
     @FXML
     private ImageView island1, island2, island3, island4, island5, island6, island7, island8, island9, island10,
             island11, island12, island13, island14, island15, island16, island17, island18, island19, island20,
-            island21, island22, island23, island24, island25;
+            island21, island22, island23, island24, island25, island26, island27, island28, island29, island30,
+            island31, island32, island33, island34, island35, island36, island37, island38, island39, island40,
+            island41, island42, island43, island44, island45, island46, island47, island48, island49, island50;
 
     @FXML
     private Rectangle rec1, rec2, rec3, rec4, rec5, rec6, rec7, rec8, rec9, rec10, rec11, rec12, rec13, rec14, rec15,
-            rec16, rec17, rec18, rec19, rec20, rec21, rec22, rec23, rec24, rec25;
+            rec16, rec17, rec18, rec19, rec20, rec21, rec22, rec23, rec24, rec25, rec26, rec27, rec28, rec29, rec30,
+            rec31, rec32, rec33, rec34, rec35, rec36, rec37, rec38, rec39, rec40, rec41, rec42, rec43, rec44, rec45,
+            rec46, rec47, rec48, rec49, rec50;
 
     @FXML
-    private ImageView cloud1, cloud2, cloud3, cloud4, cloud5, cloud6, cloud7, cloud8, cloud9, cloud10;
+    private ImageView cloud1, cloud2, cloud3, cloud4, cloud5, cloud6, cloud7, cloud8, cloud9, cloud10, cloud11, cloud12,
+            cloud13, cloud14, cloud15, cloud16, cloud17, cloud18, cloud19, cloud20, cloud21, cloud22;
 
     @FXML
     private ImageView coin1, coin2, coin3, coin4, coin5, coin6, coin7, coin8, coin9, coin10, bigCoin;
@@ -124,6 +129,35 @@ public class Game implements Initializable {
         platforms.add(new FloatingIsland(island23, rec23));
         platforms.add(new FloatingIsland(island24, rec24));
         platforms.add(new FloatingIsland(island25, rec25));
+        platforms.add(new FloatingIsland(island21, rec21));
+        platforms.add(new FloatingIsland(island22, rec22));
+        platforms.add(new FloatingIsland(island23, rec23));
+        platforms.add(new FloatingIsland(island24, rec24));
+        platforms.add(new FloatingIsland(island25, rec25));
+        platforms.add(new FloatingIsland(island26, rec26));
+        platforms.add(new FloatingIsland(island27, rec27));
+        platforms.add(new FloatingIsland(island28, rec28));
+        platforms.add(new FloatingIsland(island29, rec29));
+        platforms.add(new FloatingIsland(island30, rec30));
+        platforms.add(new FloatingIsland(island31, rec31));
+        platforms.add(new FloatingIsland(island32, rec32));
+        platforms.add(new FloatingIsland(island33, rec33));
+        platforms.add(new FloatingIsland(island34, rec34));
+        platforms.add(new FloatingIsland(island35, rec35));
+        platforms.add(new FloatingIsland(island36, rec36));
+        platforms.add(new FloatingIsland(island37, rec37));
+        platforms.add(new FloatingIsland(island38, rec38));
+        platforms.add(new FloatingIsland(island39, rec39));
+        platforms.add(new FloatingIsland(island40, rec40));
+        platforms.add(new FloatingIsland(island41, rec41));
+        platforms.add(new FloatingIsland(island42, rec42));
+        platforms.add(new FloatingIsland(island43, rec43));
+        platforms.add(new FloatingIsland(island44, rec44));
+        platforms.add(new FloatingIsland(island45, rec45));
+        platforms.add(new FloatingIsland(island46, rec46));
+        platforms.add(new FloatingIsland(island47, rec47));
+        platforms.add(new FloatingIsland(island48, rec48));
+
     }
 
     private void addFallingPlatform(){
@@ -164,7 +198,7 @@ public class Game implements Initializable {
         windmill.addWindmills(wm3);
     }
 
-    private void addCloud(){
+    private void addCloud() {
         cloud.addClouds(cloud1);
         cloud.addClouds(cloud2);
         cloud.addClouds(cloud3);
@@ -175,6 +209,18 @@ public class Game implements Initializable {
         cloud.addClouds(cloud8);
         cloud.addClouds(cloud9);
         cloud.addClouds(cloud10);
+        cloud.addClouds(cloud11);
+        cloud.addClouds(cloud12);
+        cloud.addClouds(cloud13);
+        cloud.addClouds(cloud14);
+        cloud.addClouds(cloud15);
+        cloud.addClouds(cloud16);
+        cloud.addClouds(cloud17);
+        cloud.addClouds(cloud18);
+        cloud.addClouds(cloud19);
+        cloud.addClouds(cloud20);
+        cloud.addClouds(cloud21);
+        cloud.addClouds(cloud22);
     }
 
     private void addCoins(){

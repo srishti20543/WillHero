@@ -15,7 +15,7 @@ abstract class Orc extends GameObject{
     private String color;
     private int displacement;
     private Node img;
-    private double Orcdy = 0.3;
+    private double Orcdy = 0.05;
 
     private Game game;
     private Node prev;
@@ -32,7 +32,7 @@ abstract class Orc extends GameObject{
         this.img = orcImg;
         this.game = game;
 
-        KeyFrame orcG = new KeyFrame(Duration.millis(7), actionEvent -> {
+        KeyFrame orcG = new KeyFrame(Duration.millis(1), actionEvent -> {
             if(img.getLayoutY() > 400){
                 isDead = true;
             }
@@ -68,6 +68,7 @@ abstract class Orc extends GameObject{
 
             if(n!= null){
                 prev = n;
+                img.setLayoutY(img.getLayoutY() - 1);
                 Orcdy = -Orcdy;
             }
 
@@ -84,7 +85,7 @@ abstract class Orc extends GameObject{
             if(getCurPlayer().getCurWeapon()!= null){
                 if(getCurPlayer().getCurWeapon().getImg().getBoundsInParent().intersects(this.getNode().getBoundsInParent())){
                     getCurPlayer().getCurWeapon().getImg().setDisable(true);
-                    health -= 5;
+                    health -= getCurPlayer().getCurWeapon().getDamage()*0.5;
                     if(health <= 0){
                         isDead = true;
                         checkAttack.stop();
@@ -140,4 +141,6 @@ abstract class Orc extends GameObject{
         return this.health;
     }
 }
+
+
 

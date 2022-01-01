@@ -24,8 +24,12 @@ abstract class Weapons extends GameObject{
         }
         level++;
         if(level > 1){
-            damage += 5;
+            damage += 2;
         }
+    }
+
+    public int getDamage(){
+        return this.damage;
     }
 
     public int getLevel(){
