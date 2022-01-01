@@ -61,6 +61,7 @@ public class User implements Serializable{
             playerHelmet.setLayoutY(playerHelmet.getLayoutY() + playerDy);
 
             Node plat = game.checkCollisionIsland(playerHelmet);
+            Node fallPlat = game.checkCollisionFallingPlatform(playerHelmet);
             Orc orc = game.checkCollisionOrc(playerHelmet);
             Coin coin = game.checkCollisionCoin(playerHelmet);
             Chest chest = game.checkCollisionChest(playerHelmet);
@@ -71,6 +72,10 @@ public class User implements Serializable{
 
             else if(plat != null){
                 base = plat;
+                playerDy = -playerDy;
+            }
+            else if(fallPlat != null){
+                base = fallPlat;
                 playerDy = -playerDy;
             }
 

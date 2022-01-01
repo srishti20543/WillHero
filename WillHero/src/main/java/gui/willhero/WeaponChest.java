@@ -8,22 +8,13 @@ import java.util.Random;
 
 public class WeaponChest extends Chest{
 
-    private ImageView wcc;
-    private ImageView wco;
-    private Weapons weapon;
-
     WeaponChest(Node wco, Node wcc, Game game){
         super(wco, wcc, game);
     }
 
 
     public int generateWeapon() {
-//        return new Random().nextInt(2) ;
-        return 1;
-    }
-
-    public Weapons getWeapon(){
-        return weapon;
+        return new Random().nextInt(2) ;
     }
 
     @Override

@@ -41,6 +41,9 @@ public class Game implements Initializable {
     private ImageView ro1, ro2, ro3, ro4, ro5, ro6, ro7, ro8, ro9, ro10;
 
     @FXML
+    private Rectangle fp1, fp2, fp3, fp4, fp5;
+
+    @FXML
     private ImageView go1, go2, go3, go4, go5;
 
     @FXML
@@ -74,6 +77,7 @@ public class Game implements Initializable {
     private final ArrayList<Chest> chests = new ArrayList<>();
     private final ArrayList<User> savedGames = new ArrayList<>();
     private final ArrayList<Weapons> weaponsForUser = new ArrayList<>();
+    private final ArrayList<FallingPlatform> fallingPlatforms = new ArrayList<>();
 
     private User curPlayer;
     private Animations animations = new Animations();
@@ -85,6 +89,7 @@ public class Game implements Initializable {
         GameObject.setGame(this);
         setCurPlayer();
         addPlatforms();
+        addFallingPlatform();
         addOrcs();
         addCloud();
         addCoins();
@@ -119,6 +124,14 @@ public class Game implements Initializable {
         platforms.add(new FloatingIsland(island23, rec23));
         platforms.add(new FloatingIsland(island24, rec24));
         platforms.add(new FloatingIsland(island25, rec25));
+    }
+
+    private void addFallingPlatform(){
+        fallingPlatforms.add(new FallingPlatform(fp1));
+        fallingPlatforms.add(new FallingPlatform(fp2));
+        fallingPlatforms.add(new FallingPlatform(fp3));
+        fallingPlatforms.add(new FallingPlatform(fp4));
+        fallingPlatforms.add(new FallingPlatform(fp5));
     }
 
     private void addOrcs(){
@@ -196,6 +209,15 @@ public class Game implements Initializable {
 
         for(int i = 0; i<platforms.size(); i++){
             if (node.getBoundsInParent().intersects(platforms.get(i).getNode().getBoundsInParent())) {
+                return platforms.get(i).getNode();
+            }
+        }
+        return null;
+    }
+
+    public Node checkCollisionFallingPlatform(Node node){
+        for(int i = 0; i<fallingPlatforms.size(); i++){
+            if (node.getBoundsInParent().intersects(fallingPlatforms.get(i).getNode().getBoundsInParent())) {
                 return platforms.get(i).getNode();
             }
         }

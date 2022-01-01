@@ -135,7 +135,22 @@ public class Animations {
             scale.setOnFinished(actionEvent -> isScaling = false);
             scale.play();
         }
+    }
 
+    public void delay(double duration, Node rec){
+        Timeline t = new Timeline(new KeyFrame(Duration.millis(duration), actionEvent -> {}));
+        t.setCycleCount(1);
+        t.setOnFinished(action -> fallPlat(rec));
+        t.play();
+    }
+    public void fallPlat(Node rec){
+        Timeline fall = new Timeline();
+        KeyFrame f = new KeyFrame(Duration.millis(1),actionEvent -> {
+            rec.setLayoutY(rec.getLayoutY() + 0.1);
+        });
+        fall.getKeyFrames().add(f);
+        fall.setCycleCount(2000);
+        fall.play();
     }
 }
 
