@@ -13,7 +13,7 @@ public class Animations {
     private boolean isRotating = false;
     private boolean isThrowing = false;
 
-    public void floatingDown(ImageView island){
+    public void floatingDown(ImageView island) {
         TranslateTransition floating = new TranslateTransition();
         floating.setDuration(Duration.seconds(10));
         floating.setToY(island.getY() + 8);
@@ -22,7 +22,8 @@ public class Animations {
         floating.setNode(island);
         floating.play();
     }
-    public void floatingDown(Rectangle rec){
+
+    public void floatingDown(Rectangle rec) {
         TranslateTransition floating = new TranslateTransition();
         floating.setDuration(Duration.seconds(10));
         floating.setToY(rec.getY() + 8);
@@ -32,7 +33,7 @@ public class Animations {
         floating.play();
     }
 
-    public void floatingUp(ImageView island){
+    public void floatingUp(ImageView island) {
         TranslateTransition floating = new TranslateTransition();
         floating.setDuration(Duration.seconds(10));
         floating.setToY(island.getY() - 8);
@@ -42,7 +43,7 @@ public class Animations {
         floating.play();
     }
 
-    public void floatingUp(Rectangle rec){
+    public void floatingUp(Rectangle rec) {
         TranslateTransition floating = new TranslateTransition();
         floating.setDuration(Duration.seconds(10));
         floating.setToY(rec.getY() - 8);
@@ -52,8 +53,7 @@ public class Animations {
         floating.play();
     }
 
-    public void fanRotate(ImageView wm){
-
+    public void fanRotate(ImageView wm) {
         RotateTransition rt = new RotateTransition();
         rt.setDuration(Duration.seconds(5));
         rt.setToAngle(360);
@@ -63,7 +63,7 @@ public class Animations {
         rt.play();
     }
 
-    public void moveCloud(ImageView cloud){
+    public void moveCloud(ImageView cloud) {
         TranslateTransition floating = new TranslateTransition();
         floating.setDuration(Duration.seconds(150));
         floating.setToX(cloud.getX() - 1000);
@@ -72,20 +72,17 @@ public class Animations {
         floating.play();
     }
 
-    public void throwKnife(ImageView knife){
-        isThrowing = true;
+    public void throwKnife(ImageView knife) {
         TranslateTransition translate = new TranslateTransition();
         translate.setNode(knife);
-        translate.setDuration(Duration.millis(750));
+        translate.setDuration(Duration.seconds(1));
         translate.setByX(knife.getLayoutX() + 400);
-        translate.setOnFinished(actionEvent -> isThrowing = false);
         translate.play();
     }
 
 
-    public void rotateWeapon(ImageView weapon, double angle){
-
-        if(!isRotating){
+    public void rotateWeapon(ImageView weapon, double angle) {
+        if (!isRotating) {
             isRotating = true;
             RotateTransition rotate = new RotateTransition();
             rotate.setNode(weapon);
@@ -100,33 +97,15 @@ public class Animations {
 
     }
 
-    public void OrcJump(ImageView orc){
-        TranslateTransition jmp = new TranslateTransition();
-        jmp.setDuration(Duration.seconds(1.5));
-        jmp.setToY(orc.getY() - 20);
-        jmp.setAutoReverse(true);
-        jmp.setCycleCount(Animation.INDEFINITE);
-        jmp.setNode(orc);
-        jmp.play();
-    }
-
-    public void toggleOpacity(ImageView img){
-        if(img.getOpacity() == 0.0){
+    public void toggleOpacity(ImageView img) {
+        if (img.getOpacity() == 0.0) {
             img.setDisable(false);
             img.setOpacity(1.0);
-        }
-        else{
+        } else {
             img.setDisable(true);
             img.setOpacity(0.0);
         }
     }
-
-    public boolean isThrowing(){
-        return isThrowing;
-    }
-
-    public boolean isRotating() {
-        return isRotating;
-    }
 }
+
 

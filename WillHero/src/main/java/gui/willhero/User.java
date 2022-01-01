@@ -14,7 +14,7 @@ public class User implements Serializable{
 
     private static int ID;
     private static int highScore = 0;
-    private int health;
+    private double health;
     private int currentScore;
     private int coinsCollected;
     private boolean isDead;
@@ -50,6 +50,7 @@ public class User implements Serializable{
         this.isWinner = false;
         this.isResurrected = false;
         this. weapons = new ArrayList<>();
+        knife.setOpacity(0.0);
         weapons.add(new Knives(knife));
         weapons.add(new Sword(sword));
 
@@ -161,18 +162,10 @@ public class User implements Serializable{
 
         KeyFrame keep = new KeyFrame(Duration.millis(1), actionEvent -> {
             if(curWeapon != null){
-                if(curWeapon instanceof Knives){
-                    curWeapon.getImg().setLayoutY(playerHelmet.getLayoutY() + 10);
-//                    if(!animations.isThrowing()){
-//                        curWeapon.getImg().setLayoutX(playerHelmet.getLayoutX() - curWeapon.getImg().getTranslateX());
-//                    }
-                }
-                else{
+                if(curWeapon instanceof Sword){
                     curWeapon.getImg().setLayoutY(playerHelmet.getLayoutY() - 30);
                     curWeapon.getImg().setLayoutX(playerHelmet.getLayoutX());
                 }
-
-
             }
         });
 
@@ -209,8 +202,9 @@ public class User implements Serializable{
         }
     }
 
-    public void setHealth(int hp){
-        this.health = hp;
+    public void setHealth(double hp){
+        this.health -= hp;
+//        System.out.println(health);
         setDead();
     }
 
@@ -237,7 +231,7 @@ public class User implements Serializable{
         if(curWeapon == null){
             return;
         }
-        curWeapon.use(this);
+        curWeapon.use();
 
     }
 
@@ -257,7 +251,7 @@ public class User implements Serializable{
         if(curWeapon != null){
             Timeline t = new Timeline(new KeyFrame(Duration.millis(1), actionEvent -> {
                 weaponPosition.stop();
-                curWeapon.use(this);
+                curWeapon.use();
             }));
             t.setOnFinished(actionEvent -> weaponPosition.play());
             t.play();
@@ -270,5 +264,9 @@ public class User implements Serializable{
         movePlayerHorizontal.setOnFinished(actionEvent1 -> movePlayerVertical.play());
         currentScore++;
         return this.currentScore;
+    }
+
+    public Weapons getCurWeapon(){
+        return this.curWeapon;
     }
 }

@@ -2,6 +2,7 @@ package gui.willhero;
 
 import javafx.animation.ScaleTransition;
 import javafx.scene.Node;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
@@ -26,10 +27,18 @@ public class Knives extends Weapons{
     }
 
     @Override
-    public void use(User u){
-        animations.throwKnife((ImageView) img);
-        img.setLayoutX(u.getNode().getLayoutX() - img.getTranslateX());
-        img.setLayoutY(u.getNode().getLayoutY());
+    public void use(){
+        img.setOpacity(0.0);
+        Image t1_img = new Image("ThrowingKnives.png");
+        ImageView t1= new ImageView();
+        t1.setImage(t1_img);
+        t1.setFitWidth(60);
+        t1.setFitHeight(7);
+        t1.setLayoutX(getCurPlayer().getNode().getLayoutX());
+        t1.setLayoutY(getCurPlayer().getNode().getLayoutY());
+        img = t1;
+        getGame().getGamePane().getChildren().add(t1);
+        animations.throwKnife(t1);
     }
 
 

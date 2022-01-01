@@ -45,6 +45,8 @@ public class Game implements Initializable {
 
     @FXML
     private ImageView axe1, axe2, axe3, axe4, axe5;
+    @FXML
+    private ImageView axe1b, axe2b;
 
     @FXML
     private ImageView wm1, wm2, wm3;
@@ -76,6 +78,7 @@ public class Game implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         curPlayer = new User(this, playerKnife, playerSword);
+        GameObject.setGame(this);
         setCurPlayer();
         addPlatforms();
         addOrcs();
@@ -115,11 +118,11 @@ public class Game implements Initializable {
     }
 
     private void addOrcs(){
-        orcs.add(new MediumHatAxe(go1, new Axe(axe1, go1), this));
-        orcs.add(new MediumHatAxe(go2, new Axe(axe2, go2), this));
-        orcs.add(new MediumHatAxe(go3, new Axe(axe3, go3), this));
-        orcs.add(new MediumHatAxe(go4, new Axe(axe4, go4), this));
-        orcs.add(new MediumHatAxe(go5, new Axe(axe5, go5), this));
+        orcs.add(new MediumHatAxe(go1, new Axe(axe1, go1, axe1b), this));
+        orcs.add(new MediumHatAxe(go2, new Axe(axe2, go2, axe1b), this));
+        orcs.add(new MediumHatAxe(go3, new Axe(axe3, go3, axe1b), this));
+        orcs.add(new MediumHatAxe(go4, new Axe(axe4, go4, axe1b), this));
+        orcs.add(new MediumHatAxe(go5, new Axe(axe5, go5, axe1b), this));
 
         orcs.add(new ShieldedOrc(ro1, this));
         orcs.add(new ShieldedOrc(ro2, this));
@@ -180,6 +183,7 @@ public class Game implements Initializable {
     public void setCurPlayer(){
         Helmet penguinHelmet = new Penguin(penguin);
         curPlayer.setHelmet(penguinHelmet);
+        GameObject.setUser(curPlayer);
     }
 
     public Node checkCollisionIsland(Node node){
@@ -241,6 +245,9 @@ public class Game implements Initializable {
     }
     public Node getBackground(){
         return this.bg;
+    }
+    public AnchorPane getGamePane(){
+        return this.gamePane;
     }
 
     public void setCoinCountLabel(int val){

@@ -13,11 +13,6 @@ public class GreenOrc extends Orc{
     }
 
     @Override
-    public void setHealth() {
-
-    }
-
-    @Override
     public void setDead() {
 
     }

@@ -14,7 +14,7 @@ abstract class Weapons extends GameObject{
         this.level = 0;
         this.unlocked = false;
     }
-    public abstract void use(User user);
+    public abstract void use();
     public abstract void toggle();
     public abstract Node getImg();
 

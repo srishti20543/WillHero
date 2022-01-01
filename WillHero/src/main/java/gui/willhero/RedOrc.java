@@ -11,12 +11,6 @@ public class RedOrc extends Orc{
         super(d, hp, disp, orcImg, game);
     }
 
-
-    @Override
-    public void setHealth() {
-
-    }
-
     @Override
     public void setDead() {
 

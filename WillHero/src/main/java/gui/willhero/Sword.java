@@ -25,7 +25,7 @@ public class Sword extends Weapons{
     }
 
     @Override
-    public void use(User u){
+    public void use(){
         animations.rotateWeapon((ImageView) img, 150);
     }
 
