@@ -30,14 +30,16 @@ public class User implements Serializable{
     private Game game;
     private boolean isUsingWeaponK = false;
     private boolean isUsingWeaponS = false;
+    private boolean canUse = true;
 
     Timeline movePlayerHorizontal = new Timeline();
     Timeline movePlayerVertical = new Timeline();
     Timeline weaponPosition = new Timeline();
     Timeline attack = new Timeline();
+    Timeline delay = new Timeline();
 
-    private double playerDy = 0.5;
-    private final double playerDx = 0.5;
+    private double playerDy = 0.75;
+    private double playerDx = 0.75;
     private Node base;
 
     User(Game game, Node knife, Node sword) {
@@ -157,7 +159,6 @@ public class User implements Serializable{
 
         movePlayerHorizontal.getKeyFrames().add(playerHorizontal);
         movePlayerHorizontal.setCycleCount(100);
-
         movePlayerVertical.play();
 
         KeyFrame keep = new KeyFrame(Duration.millis(1), actionEvent -> {
@@ -173,9 +174,11 @@ public class User implements Serializable{
         weaponPosition.setCycleCount(Timeline.INDEFINITE);
         weaponPosition.play();
 
-
-
+        KeyFrame del = new KeyFrame(Duration.seconds(0.4), actionEvent -> {canUse = true;});
+        delay.getKeyFrames().add(del);
+        delay.setCycleCount(1);
     }
+
     public void setCurrentScore(int score) {
         this.currentScore = score;
         highScore=Math.max(highScore,score);
@@ -204,7 +207,6 @@ public class User implements Serializable{
 
     public void setHealth(double hp){
         this.health -= hp;
-//        System.out.println(health);
         setDead();
     }
 
@@ -227,14 +229,6 @@ public class User implements Serializable{
         curWeapon.getImg().setLayoutX(playerHelmet.getLayoutX());
     }
 
-    public void useCurWeapon(double pos){
-        if(curWeapon == null){
-            return;
-        }
-        curWeapon.use();
-
-    }
-
     public void setHelmet(Helmet helmet){
         helmetChosen = helmet;
         this.playerHelmet = helmet.getImg();
@@ -248,20 +242,17 @@ public class User implements Serializable{
         if(playerDy < 0){
             playerDy = -playerDy;
         }
-        if(curWeapon != null){
-//            Timeline t = new Timeline(new KeyFrame(Duration.millis(1), actionEvent -> {
-//                weaponPosition.stop();
-//            }));
-//            t.setOnFinished(actionEvent -> weaponPosition.play());
-//            t.play();
+        if(curWeapon != null && canUse){
+            canUse = false;
             curWeapon.use();
+            delay.play();
         }
         this.gamePane = gamePane;
         this.uiPane = UIPane;
         movePlayerVertical.pause();
         movePlayerHorizontal.play();
         movePlayerHorizontal.setOnFinished(actionEvent1 -> movePlayerVertical.play());
-        currentScore++;
+        currentScore = (int)playerHelmet.getLayoutX()/75;
         return this.currentScore;
     }
 

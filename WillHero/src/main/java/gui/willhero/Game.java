@@ -55,6 +55,9 @@ public class Game implements Initializable {
     private ImageView wcc1, wco1, wcc2, wco2, wcc3, wco3;
 
     @FXML
+    private ImageView ccc1, cco1;
+
+    @FXML
     private ImageView swordUI, knifeUI, playerSword, playerKnife;
 
     @FXML
@@ -178,6 +181,8 @@ public class Game implements Initializable {
         chests.add(new WeaponChest(wcc1, wco1, this));
         chests.add(new WeaponChest(wcc2, wco2, this));
         chests.add(new WeaponChest(wcc3, wco3, this));
+        chests.add(new CoinChest(ccc1, cco1, this));
+
     }
 
     public void setCurPlayer(){

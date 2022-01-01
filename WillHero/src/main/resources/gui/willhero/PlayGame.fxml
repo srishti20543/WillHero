@@ -100,12 +100,12 @@
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="wcc1" fitHeight="35.0" fitWidth="54.0" layoutX="704.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wcc1" fitHeight="35.0" fitWidth="54.0" layoutX="1595.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestClosed.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wco1" fitHeight="35.0" fitWidth="54.0" layoutX="704.0" layoutY="230.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wco1" fitHeight="35.0" fitWidth="54.0" layoutX="1595.0" layoutY="248.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestOpen.png" />
          </image>
@@ -685,12 +685,12 @@
       <Rectangle fx:id="rec19" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="3554.0" layoutY="284.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
       <Rectangle fx:id="rec21" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="3982.0" layoutY="265.0" stroke="BLACK" strokeType="INSIDE" width="174.0" />
       <Rectangle fx:id="rec24" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="4562.0" layoutY="274.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
-      <ImageView fitHeight="83.0" fitWidth="141.0" layoutX="1873.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="cco1" fitHeight="83.0" fitWidth="141.0" layoutX="1875.0" layoutY="158.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/openCoinChest.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="74.0" fitWidth="87.0" layoutX="1884.0" layoutY="209.0">
+      <ImageView fx:id="ccc1" fitHeight="74.0" fitWidth="87.0" layoutX="1884.0" layoutY="158.0">
          <image>
             <Image url="@Images/closedCoinchest.png" />
          </image>

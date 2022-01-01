@@ -33,6 +33,28 @@ abstract class Orc extends GameObject{
         this.game = game;
 
         KeyFrame orcG = new KeyFrame(Duration.millis(7), actionEvent -> {
+
+            if(img.getLayoutY() < 300){
+                int c = 0;
+                if(img.getLayoutX() - getCurPlayer().getNode().getLayoutX() < 80){
+                    c = -1;
+                    img.setLayoutX(img.getLayoutX() + c*0.5);
+                }
+
+                if(getCurPlayer().getNode().getLayoutX() > img.getLayoutX() + 80){
+                    c = 1;
+                    img.setLayoutX(img.getLayoutX() + c*0.5);
+                }
+
+                Node n = game.checkCollisionIsland(img);
+
+                if(n != null){
+                    img.setLayoutX(img.getLayoutX() + -1*c);
+                }
+
+            }
+
+
             img.setLayoutY(img.getLayoutY() + Orcdy);
 
             Node n = game.checkCollisionIsland(img);

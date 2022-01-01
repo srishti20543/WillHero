@@ -8,7 +8,6 @@ import javafx.util.Duration;
 public class Animations {
 
     private boolean isRotating = false;
-    private boolean isThrowing = false;
 
     public void floatingDown(ImageView island) {
         TranslateTransition floating = new TranslateTransition();
@@ -70,8 +69,9 @@ public class Animations {
     }
 
     public void throwKnife(ImageView knife) {
+
         KeyFrame k = new KeyFrame(Duration.millis(1), actionEvent -> {
-            knife.setLayoutX(knife.getLayoutX() + 0.5);
+            knife.setLayoutX(knife.getLayoutX() + 0.7);
         });
         Timeline t = new Timeline();
         t.getKeyFrames().add(k);
@@ -81,6 +81,8 @@ public class Animations {
             knife.setDisable(true);
         });
         t.play();
+
+
     }
 
 
