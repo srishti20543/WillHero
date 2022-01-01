@@ -249,13 +249,12 @@ public class User implements Serializable{
             playerDy = -playerDy;
         }
         if(curWeapon != null){
-            Timeline t = new Timeline(new KeyFrame(Duration.millis(1), actionEvent -> {
-                weaponPosition.stop();
-                curWeapon.use();
-            }));
-            t.setOnFinished(actionEvent -> weaponPosition.play());
-            t.play();
-
+//            Timeline t = new Timeline(new KeyFrame(Duration.millis(1), actionEvent -> {
+//                weaponPosition.stop();
+//            }));
+//            t.setOnFinished(actionEvent -> weaponPosition.play());
+//            t.play();
+            curWeapon.use();
         }
         this.gamePane = gamePane;
         this.uiPane = UIPane;

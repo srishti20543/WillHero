@@ -16,8 +16,7 @@ public class MediumHatAxe extends GreenOrc{
 
         KeyFrame d = new KeyFrame(Duration.millis(1), actionEvent -> {
             if(this.getHealth() <= 0){
-                axe.getImg().setOpacity(0.0);
-                axe.getImg().setDisable(true);
+                axe.disable();
                 die.stop();
             }
         });

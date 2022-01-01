@@ -22,6 +22,7 @@ abstract class Orc extends GameObject{
 
     Timeline orcGravity = new Timeline();
     Timeline checkAttack = new Timeline();
+    Timeline checkDead = new Timeline();
 
     Orc(int d, int hp, int disp, Node orcImg, Game game){
         this.isDead = false;
@@ -55,18 +56,16 @@ abstract class Orc extends GameObject{
         orcGravity.play();
 
         KeyFrame check = new KeyFrame(Duration.millis(1), actionEvent -> {
-
             if(getCurPlayer().getCurWeapon()!= null){
                 if(getCurPlayer().getCurWeapon().getImg().getBoundsInParent().intersects(this.getNode().getBoundsInParent())){
-                    this.setHealth(0.1);
+                    getCurPlayer().getCurWeapon().getImg().setDisable(true);
+                    health -= 5;
+                    if(health <= 0){
+                        isDead = true;
+                        checkAttack.stop();
+                    }
                     System.out.println(img.getId());
                     System.out.println(this.health);
-                    if(health <= 0){
-                        this.img.setDisable(true);
-                        this.img.setOpacity(0.0);
-                    }
-                    GameObject.getCurPlayer().getCurWeapon().getImg().setOpacity(0.0);
-                    GameObject.getCurPlayer().getCurWeapon().getImg().setDisable(true);
 
                 }
             }
@@ -76,6 +75,17 @@ abstract class Orc extends GameObject{
         checkAttack.setCycleCount(Timeline.INDEFINITE);
         checkAttack.play();
 
+        KeyFrame ded = new KeyFrame(Duration.millis(1), actionEvent -> {
+            if(isDead){
+                getGame().getOrcs().remove(this);
+                getGame().getGamePane().getChildren().remove(this.getNode());
+                checkDead.stop();
+            }
+        });
+
+        checkDead.getKeyFrames().add(ded);
+        checkDead.setCycleCount(Timeline.INDEFINITE);
+        checkDead.play();
 
     }
 
@@ -83,7 +93,6 @@ abstract class Orc extends GameObject{
         health -= val;
     };
     public void setDead(){
-
 
     }
     public abstract void getDead();

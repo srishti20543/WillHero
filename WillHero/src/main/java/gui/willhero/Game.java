@@ -240,6 +240,9 @@ public class Game implements Initializable {
     public ArrayList<Coin> getCoins(){
         return this.coins;
     }
+    public ArrayList<Orc> getOrcs(){
+        return this.orcs;
+    }
     public ArrayList<Weapons> getWeaponsForUser(){
         return this.weaponsForUser;
     }

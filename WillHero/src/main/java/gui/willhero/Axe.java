@@ -50,17 +50,20 @@ public class Axe extends Weapons{
 
     @Override
     public void use() {
-        animations.rotateWeapon((ImageView) axe, -150);
-        Timeline attack = new Timeline();
-        KeyFrame kf = new KeyFrame(Duration.millis(1), actionEvent -> {
-            if(axe.getBoundsInParent().intersects(getCurPlayer().getNode().getBoundsInParent())){
-                getCurPlayer().setHealth(1);
-                attack.stop();
-            }
-        });
-        attack.getKeyFrames().add(kf);
-        attack.setCycleCount(Timeline.INDEFINITE);
-        attack.play();
+        if(axe.getOpacity() > 0.0){
+            animations.rotateWeapon((ImageView) axe, -150);
+            Timeline attack = new Timeline();
+            KeyFrame kf = new KeyFrame(Duration.millis(1), actionEvent -> {
+                if(axe.getBoundsInParent().intersects(getCurPlayer().getNode().getBoundsInParent())){
+                    getCurPlayer().setHealth(1);
+                    attack.stop();
+                }
+            });
+            attack.getKeyFrames().add(kf);
+            attack.setCycleCount(Timeline.INDEFINITE);
+            attack.play();
+        }
+
     }
 
     @Override
@@ -76,5 +79,12 @@ public class Axe extends Weapons{
     @Override
     public Node onCollision(ImageView helmet) {
         return null;
+    }
+
+    public void disable(){
+        axe.setOpacity(0.0);
+        axe.setDisable(true);
+        area.setDisable(true);
+        getGame().getGamePane().getChildren().remove(axe);
     }
 }

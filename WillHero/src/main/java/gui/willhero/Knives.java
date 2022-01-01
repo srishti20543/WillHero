@@ -13,11 +13,11 @@ public class Knives extends Weapons{
     Knives(Node knife){
         super("Knives", 10);
         this.img = knife;
-
     }
 
     public void update(){
         super.update();
+        img.setOpacity(0.0);
     }
 
 
@@ -32,7 +32,7 @@ public class Knives extends Weapons{
         Image t1_img = new Image("ThrowingKnives.png");
         ImageView t1= new ImageView();
         t1.setImage(t1_img);
-        t1.setFitWidth(60);
+        t1.setFitWidth(40);
         t1.setFitHeight(7);
         t1.setLayoutX(getCurPlayer().getNode().getLayoutX());
         t1.setLayoutY(getCurPlayer().getNode().getLayoutY());

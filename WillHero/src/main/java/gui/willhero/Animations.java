@@ -1,9 +1,6 @@
 package gui.willhero;
 
-import javafx.animation.Animation;
-import javafx.animation.Interpolator;
-import javafx.animation.RotateTransition;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
@@ -73,11 +70,17 @@ public class Animations {
     }
 
     public void throwKnife(ImageView knife) {
-        TranslateTransition translate = new TranslateTransition();
-        translate.setNode(knife);
-        translate.setDuration(Duration.seconds(1));
-        translate.setByX(knife.getLayoutX() + 400);
-        translate.play();
+        KeyFrame k = new KeyFrame(Duration.millis(1), actionEvent -> {
+            knife.setLayoutX(knife.getLayoutX() + 0.5);
+        });
+        Timeline t = new Timeline();
+        t.getKeyFrames().add(k);
+        t.setCycleCount(1000);
+        t.setOnFinished(actionEvent -> {
+            knife.setOpacity(0.0);
+            knife.setDisable(true);
+        });
+        t.play();
     }
 
 
