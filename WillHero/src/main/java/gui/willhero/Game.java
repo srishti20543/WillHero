@@ -115,11 +115,11 @@ public class Game implements Initializable {
     }
 
     private void addOrcs(){
-        orcs.add(new MediumHatAxe(go1, new Axe(axe1), this));
-        orcs.add(new MediumHatAxe(go2, new Axe(axe2), this));
-        orcs.add(new MediumHatAxe(go3, new Axe(axe3), this));
-        orcs.add(new MediumHatAxe(go4, new Axe(axe4), this));
-        orcs.add(new MediumHatAxe(go5, new Axe(axe5), this));
+        orcs.add(new MediumHatAxe(go1, new Axe(axe1, go1), this));
+        orcs.add(new MediumHatAxe(go2, new Axe(axe2, go2), this));
+        orcs.add(new MediumHatAxe(go3, new Axe(axe3, go3), this));
+        orcs.add(new MediumHatAxe(go4, new Axe(axe4, go4), this));
+        orcs.add(new MediumHatAxe(go5, new Axe(axe5, go5), this));
 
         orcs.add(new ShieldedOrc(ro1, this));
         orcs.add(new ShieldedOrc(ro2, this));

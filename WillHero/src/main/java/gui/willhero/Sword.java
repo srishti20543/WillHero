@@ -1,7 +1,6 @@
 package gui.willhero;
 
 import javafx.animation.ScaleTransition;
-import javafx.animation.Timeline;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
@@ -26,8 +25,8 @@ public class Sword extends Weapons{
     }
 
     @Override
-    public void use(){
-        animations.rotateWeapon((ImageView) img, 360);
+    public void use(User u){
+        animations.rotateWeapon((ImageView) img, 150);
     }
 
     @Override

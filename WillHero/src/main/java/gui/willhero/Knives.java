@@ -1,6 +1,5 @@
 package gui.willhero;
 
-import javafx.animation.Animation;
 import javafx.animation.ScaleTransition;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
@@ -27,9 +26,12 @@ public class Knives extends Weapons{
     }
 
     @Override
-    public void use(){
+    public void use(User u){
         animations.throwKnife((ImageView) img);
+        img.setLayoutX(u.getNode().getLayoutX() - img.getTranslateX());
+        img.setLayoutY(u.getNode().getLayoutY());
     }
+
 
     @Override
     public void toggle(){

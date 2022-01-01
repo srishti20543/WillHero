@@ -383,7 +383,7 @@
             <Image url="@Images/HelmetGreenOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="axe5" fitHeight="35.0" fitWidth="33.0" layoutX="4461.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="axe5" fitHeight="42.0" fitWidth="30.0" layoutX="4461.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Axe.png" />
          </image>
@@ -393,7 +393,7 @@
             <Image url="@Images/HelmetGreenOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="axe4" fitHeight="35.0" fitWidth="33.0" layoutX="3248.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="axe4" fitHeight="42.0" fitWidth="30.0" layoutX="3248.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Axe.png" />
          </image>
@@ -403,7 +403,7 @@
             <Image url="@Images/HelmetGreenOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="axe3" fitHeight="35.0" fitWidth="33.0" layoutX="3138.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="axe3" fitHeight="42.0" fitWidth="30.0" layoutX="3138.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Axe.png" />
          </image>
@@ -413,7 +413,7 @@
             <Image url="@Images/HelmetGreenOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="axe2" fitHeight="35.0" fitWidth="33.0" layoutX="2141.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="axe2" fitHeight="42.0" fitWidth="30.0" layoutX="2141.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Axe.png" />
          </image>
@@ -423,7 +423,7 @@
             <Image url="@Images/HelmetGreenOrc.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="axe1" fitHeight="35.0" fitWidth="33.0" layoutX="878.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="axe1" fitHeight="42.0" fitWidth="30.0" layoutX="872.0" layoutY="257.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Axe.png" />
          </image>

@@ -11,7 +11,7 @@ import javafx.util.Duration;
 public class Animations {
 
     private boolean isRotating = false;
-    private boolean isThrowing;
+    private boolean isThrowing = false;
 
     public void floatingDown(ImageView island){
         TranslateTransition floating = new TranslateTransition();
@@ -73,10 +73,12 @@ public class Animations {
     }
 
     public void throwKnife(ImageView knife){
+        isThrowing = true;
         TranslateTransition translate = new TranslateTransition();
         translate.setNode(knife);
         translate.setDuration(Duration.millis(750));
         translate.setByX(knife.getLayoutX() + 400);
+        translate.setOnFinished(actionEvent -> isThrowing = false);
         translate.play();
     }
 
@@ -87,8 +89,9 @@ public class Animations {
             isRotating = true;
             RotateTransition rotate = new RotateTransition();
             rotate.setNode(weapon);
-            rotate.setDuration(Duration.millis(500));
+            rotate.setDuration(Duration.millis(200));
             rotate.setInterpolator(Interpolator.LINEAR);
+            rotate.setCycleCount(2);
             rotate.setAutoReverse(true);
             rotate.setByAngle(angle);
             rotate.setOnFinished(actionEvent -> isRotating = false);

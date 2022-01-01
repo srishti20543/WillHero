@@ -163,11 +163,15 @@ public class User implements Serializable{
             if(curWeapon != null){
                 if(curWeapon instanceof Knives){
                     curWeapon.getImg().setLayoutY(playerHelmet.getLayoutY() + 10);
+//                    if(!animations.isThrowing()){
+//                        curWeapon.getImg().setLayoutX(playerHelmet.getLayoutX() - curWeapon.getImg().getTranslateX());
+//                    }
                 }
                 else{
                     curWeapon.getImg().setLayoutY(playerHelmet.getLayoutY() - 30);
+                    curWeapon.getImg().setLayoutX(playerHelmet.getLayoutX());
                 }
-                curWeapon.getImg().setLayoutX(playerHelmet.getLayoutX());
+
 
             }
         });
@@ -233,7 +237,7 @@ public class User implements Serializable{
         if(curWeapon == null){
             return;
         }
-        curWeapon.use();
+        curWeapon.use(this);
 
     }
 
@@ -253,7 +257,7 @@ public class User implements Serializable{
         if(curWeapon != null){
             Timeline t = new Timeline(new KeyFrame(Duration.millis(1), actionEvent -> {
                 weaponPosition.stop();
-                curWeapon.use();
+                curWeapon.use(this);
             }));
             t.setOnFinished(actionEvent -> weaponPosition.play());
             t.play();

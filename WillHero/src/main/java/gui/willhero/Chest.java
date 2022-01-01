@@ -13,13 +13,11 @@ abstract class Chest extends GameObject{
     private Game game;
 
     private boolean isOpen = false;
-
-    private double openDy = 0.05;
-    private double closeDy = 0.05;
     private Node no;
     private Node nc;
 
-    private Timeline chestGravity = new Timeline();
+    private final Timeline chestGravity = new Timeline();
+    private final Timeline stayIsland = new Timeline();
 
     Chest(Node open, Node close, Game game){
         this.open = open;
@@ -29,15 +27,16 @@ abstract class Chest extends GameObject{
         no = game.getPlatforms().get(0).getNode();
         nc = game.getPlatforms().get(0).getNode();
 
-        KeyFrame chestG = new KeyFrame(Duration.millis(10), actionEvent -> {
-            open.setLayoutY(open.getLayoutY() + openDy);
-            close.setLayoutY(close.getLayoutY() + closeDy);
+        KeyFrame chestG = new KeyFrame(Duration.millis(1), actionEvent -> {
+            open.setLayoutY(open.getLayoutY() + 1);
+            close.setLayoutY(close.getLayoutY() + 1);
 
             no = game.checkCollisionIsland(open);
             nc = game.checkCollisionIsland(close);
 
-            if(no != null || nc != null){
+            if(no != null && nc != null){
                 chestGravity.stop();
+                stayIsland.play();
             }
         });
 
@@ -45,19 +44,13 @@ abstract class Chest extends GameObject{
         chestGravity.setCycleCount(Timeline.INDEFINITE);
         chestGravity.play();
 
-        String id = no.getId();
-        System.out.println(id);
-        int ind = Integer.parseInt(String.valueOf(id.charAt(id.length() - 1)));
-        int type = game.getPlatforms().get(ind - 1).getAnimationType();
+        KeyFrame stay = new KeyFrame(Duration.millis(1), actionEvent -> {
+            open.setLayoutY(no.getLayoutY() - 36 + no.getTranslateY());
+            close.setLayoutY(nc.getLayoutY() - 36 + + nc.getTranslateY());
+        });
 
-        if(type == 0){
-            animations.floatingUp((ImageView) open);
-            animations.floatingUp((ImageView) close);
-        }
-        else{
-            animations.floatingDown((ImageView) open);
-            animations.floatingDown((ImageView) close);
-        }
+        stayIsland.getKeyFrames().add(stay);
+        stayIsland.setCycleCount(Timeline.INDEFINITE);
     }
 
     public Node getNode(){

@@ -1,9 +1,6 @@
 package gui.willhero;
 
 import javafx.scene.Node;
-import javafx.scene.image.ImageView;
-
-import java.util.ArrayList;
 
 abstract class Weapons extends GameObject{
     private String name;
@@ -17,7 +14,7 @@ abstract class Weapons extends GameObject{
         this.level = 0;
         this.unlocked = false;
     }
-    public abstract void use();
+    public abstract void use(User user);
     public abstract void toggle();
     public abstract Node getImg();
 

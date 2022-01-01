@@ -18,6 +18,7 @@ public class FloatingIsland extends GameObject{
     FloatingIsland(Node island, Node rec){
         this.island = island;
         this.rectangle = rec;
+        this.rectangle.setOpacity(0.0);
         animationType = new Random().nextInt(2);
 
         if(animationType == 0){
