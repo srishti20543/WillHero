@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.willhero.BonusRound">
+    <children>
+        <ImageView fitHeight="400.0" fitWidth="903.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/GameBackground.jpg" />
+            </image>
+        </ImageView>
+        <Group layoutX="505.0" layoutY="290.0">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="40.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="80.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="120.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="160.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+            </children>
+        </Group>
+        <Group layoutX="792.0" layoutY="222.0">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="40.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="80.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="120.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="160.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+            </children>
+        </Group>
+        <Group layoutX="1497.0" layoutY="232.0">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="40.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="80.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="120.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="160.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+            </children>
+        </Group>
+        <ImageView fitHeight="90.0" fitWidth="69.0" layoutX="409.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/FloatingIsland2.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="86.0" fitWidth="201.0" layoutX="1193.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/FloatingIsland1-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="20.0" layoutX="409.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="10.0" layoutX="1201.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" width="127.0" />
+        <ImageView fitHeight="155.0" fitWidth="93.0" layoutX="922.0" layoutY="21.0" opacity="0.47" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/WindmillBase.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="116.0" fitWidth="82.0" layoutX="1084.0" layoutY="231.0">
+            <image>
+                <Image url="@Images/FloatingIsland1.png" />
+            </image>
+        </ImageView>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="20.0" layoutX="1091.0" layoutY="290.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+        <ImageView fitHeight="86.0" fitWidth="201.0" layoutX="1328.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/FloatingIsland1-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="10.0" layoutX="1336.0" layoutY="130.0" stroke="BLACK" strokeType="INSIDE" width="127.0" />
+        <ImageView fitHeight="86.0" fitWidth="201.0" layoutX="1068.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/FloatingIsland1-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="10.0" layoutX="1076.0" layoutY="130.0" stroke="BLACK" strokeType="INSIDE" width="127.0" />
+        <ImageView fitHeight="44.0" fitWidth="41.0" layoutX="1210.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/HelmetGreenOrc.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="44.0" fitWidth="41.0" layoutX="1272.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/HelmetGreenOrc.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="44.0" fitWidth="41.0" layoutX="1336.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/HelmetGreenOrc.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="44.0" fitWidth="41.0" layoutX="1084.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/HelmetGreenOrc.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="1146.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/BossRedOrc.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="1388.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/BossRedOrc.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="90.0" fitWidth="69.0" layoutX="1770.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/FloatingIsland2.png" />
+            </image>
+        </ImageView>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="20.0" layoutX="1770.0" layoutY="295.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+        <Group layoutX="2139.0" layoutY="112.0">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="40.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="80.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="120.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="160.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+            </children>
+        </Group>
+        <ImageView fitHeight="86.0" fitWidth="201.0" layoutX="2393.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/FloatingIsland1-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="44.0" fitWidth="41.0" layoutX="2473.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/HelmetGreenOrc.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="2424.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/BossRedOrc.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="86.0" fitWidth="201.0" layoutX="2402.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/FloatingIsland1-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="44.0" fitWidth="41.0" layoutX="2410.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/HelmetGreenOrc.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="40.0" fitWidth="41.0" layoutX="2493.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/BossRedOrc.jpg" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="116.0" fitWidth="82.0" layoutX="2281.0" layoutY="271.0">
+            <image>
+                <Image url="@Images/FloatingIsland1.png" />
+            </image>
+        </ImageView>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="20.0" layoutX="2288.0" layoutY="330.0" stroke="BLACK" strokeType="INSIDE" width="69.0" />
+        <Group layoutX="2443.0" layoutY="345.0">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="40.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="80.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="120.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="160.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+            </children>
+        </Group>
+        <Group layoutX="2644.0" layoutY="345.0">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="40.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="80.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="120.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="160.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+            </children>
+        </Group>
+        <Group layoutX="2845.0" layoutY="345.0">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="40.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="80.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="120.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="160.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+            </children>
+        </Group>
+        <ImageView fitHeight="32.0" fitWidth="53.0" layoutX="418.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/PenguinHelmet-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="mainOrc" fitHeight="350.0" fitWidth="407.0" layoutX="-26.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+            <image>
+                <Image url="@Images/HelmetGreenOrc.jpg" />
+            </image>
+         <rotationAxis>
+            <Point3D y="1.0" />
+         </rotationAxis>
+        </ImageView>
+        <ImageView fitHeight="102.0" fitWidth="62.0" layoutX="1542.0" layoutY="267.0" opacity="0.47" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/WindmillBase.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="102.0" fitWidth="62.0" layoutX="1942.0" layoutY="45.0" opacity="0.47" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Images/WindmillBase.png" />
+            </image>
+        </ImageView>
+    </children>
+</AnchorPane>
