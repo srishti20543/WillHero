@@ -29,6 +29,7 @@ public class User implements Serializable{
     private transient AnchorPane gamePane;
     private transient AnchorPane pausePane;
     private transient AnchorPane uiPane;
+    private transient AnchorPane savedPane;
     private final transient Game game;
     private boolean canUse = true;
 
@@ -158,6 +159,7 @@ public class User implements Serializable{
             gamePane.setLayoutX(gamePane.getLayoutX() - playerDx);
             uiPane.setLayoutX(uiPane.getLayoutX() + playerDx);
             pausePane.setLayoutX(pausePane.getLayoutX() + playerDx);
+            savedPane.setLayoutX(savedPane.getLayoutX() + playerDx);
             bg.setLayoutX(bg.getLayoutX() + playerDx);
 
 
@@ -235,7 +237,7 @@ public class User implements Serializable{
 
     }
 
-    public int moveForward(AnchorPane gamePane, AnchorPane UIPane, AnchorPane pausePane){
+    public int moveForward(AnchorPane gamePane, AnchorPane UIPane, AnchorPane pausePane, AnchorPane saved){
         if(!isDead){
             if(playerDy < 0){
                 playerDy = -playerDy;
@@ -248,6 +250,7 @@ public class User implements Serializable{
             this.gamePane = gamePane;
             this.uiPane = UIPane;
             this.pausePane = pausePane;
+            this.savedPane = saved;
             movePlayerVertical.pause();
             movePlayerHorizontal.play();
             movePlayerHorizontal.setOnFinished(actionEvent1 -> movePlayerVertical.play());
@@ -312,7 +315,7 @@ public class User implements Serializable{
         return weapons.get(val).getLevel();
     }
     public String toString(){
-        return "" + this.coinsCollected + "  " + this.currentScore;
+        return "" + this.coinsCollected + "                           " + this.currentScore;
     }
 }
 

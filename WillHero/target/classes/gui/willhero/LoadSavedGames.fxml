@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane fx:id="storeGames" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.willhero.LoadSavedGames">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.willhero.LoadSavedGames">
    <children>
-      <ImageView fitHeight="460.0" fitWidth="417.0" layoutX="74.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="418.0" fitWidth="709.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Images/closedCoinchest.png" />
+            <Image url="@Images/loadsavedgame.png" />
          </image>
       </ImageView>
    </children>

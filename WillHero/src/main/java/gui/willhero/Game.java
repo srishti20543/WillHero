@@ -8,14 +8,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -89,7 +91,7 @@ public class Game implements Initializable {
     private Button selectKnife, selectSword, pauseButton, restart;
 
     @FXML
-    private AnchorPane uiPane, gamePane, pausePane;
+    private AnchorPane uiPane, gamePane, pausePane, savedGamePane, List;
 
     private final Clouds cloud = new Clouds();
     private final LoadSavedGames lsd = new LoadSavedGames();
@@ -105,6 +107,7 @@ public class Game implements Initializable {
     private User curPlayer;
     private Animations animations = new Animations();
     private boolean isPauseDisabled = true;
+    private boolean isSavedDisabled = true;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -120,6 +123,13 @@ public class Game implements Initializable {
         addWindmill();
         addChest();
         addWeaponsForUser();
+        try {
+            addPrevGames();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     private void addPlatforms(){
@@ -301,6 +311,39 @@ public class Game implements Initializable {
         chests.add(new CoinChest(ccc1, cco1, this));
 
     }
+    private void addPrevGames() throws IOException, ClassNotFoundException {
+        File savedGames = new File("SavedGames");
+        File[] savedFiles = savedGames.listFiles();
+        ObjectInputStream in = null;
+        User temp = null;
+        Image t1_img = new Image("bg.jpg");
+
+        if (savedFiles.length != 0) {
+            for (int i = 0; i < savedFiles.length; i++) {
+                String filename = "SavedGames\\" + savedFiles[i].getName();
+                in = new ObjectInputStream(new FileInputStream(filename));
+                temp = (User) in.readObject();
+                Label lbl = new Label("hello");
+                lbl.setLayoutX(20);
+                lbl.setLayoutY((i+1)*50);
+                lbl.setPrefWidth(450);
+                lbl.setPrefHeight(25);
+                ImageView t1= new ImageView();
+                t1.setImage(t1_img);
+                t1.setFitWidth(450);
+                t1.setFitHeight(25);
+                t1.setLayoutY((i+1)*50);
+                t1.setLayoutX(20);
+                List.getChildren().add(t1);
+                String text = temp.toString();
+                lbl.setText("" + (i+1) + "                           " + text);
+                lbl.setFont(new Font("Comic Sans MS", 20));
+                lbl.setTextFill(Color.WHITE);
+                lbl.addEventHandler(MouseEvent.MOUSE_CLICKED, this::selectImage);
+                List.getChildren().add(lbl);
+            }
+        }
+    }
 
     public Node checkCollisionIsland(Node node){
 
@@ -348,7 +391,7 @@ public class Game implements Initializable {
     }
 
     public void movePlayerForward(){
-        setLocationLabel(curPlayer.moveForward(gamePane, uiPane, pausePane));
+        setLocationLabel(curPlayer.moveForward(gamePane, uiPane, pausePane, savedGamePane));
     }
 
     public ArrayList<FloatingIsland> getPlatforms(){
@@ -425,17 +468,54 @@ public class Game implements Initializable {
         window.setScene(new Scene(root, 712, 422));
     }
     public void saveGame() throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadSavedGames.fxml")));
-        Stage window = (Stage) restart.getScene().getWindow();
-        window.setTitle("Load Saved Game");
-        window.setScene(new Scene(root, 712, 422));
-        lsd.addGame(curPlayer);
+        File savedGames = new File("SavedGames");
+        File[] savedFiles = savedGames.listFiles();
+        String name = "SavedGames\\game";
+        name += savedFiles.length;
+        name += ".txt";
+        File newGameSaved = new File(name);
+        try {
+            System.out.println(newGameSaved.createNewFile());
+        }
+        catch (IOException e){
+            System.out.println("not possible");
+        }
+        ObjectOutputStream out = null;
+        try {
+            out = new ObjectOutputStream(new FileOutputStream(name));
+            out.writeObject(curPlayer);
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        finally {
+            if(out!= null){
+                out.close();
+            }
+        }
+
+        Label lbl = new Label("hello");
+        Image t1_img = new Image("bg.jpg");
+        lbl.setLayoutX(20);
+        lbl.setLayoutY((savedFiles.length+1)*50);
+        lbl.setPrefWidth(450);
+        lbl.setPrefHeight(25);
+        ImageView t1= new ImageView();
+        t1.setImage(t1_img);
+        t1.setFitWidth(450);
+        t1.setFitHeight(25);
+        t1.setLayoutY((savedFiles.length+1)*50);
+        t1.setLayoutX(20);
+        List.getChildren().add(t1);
+        String text = curPlayer.toString();
+        lbl.setText("" + (savedFiles.length+1) + "                           " + text);
+        lbl.setFont(new Font("Comic Sans MS", 20));
+        lbl.setTextFill(Color.WHITE);
+        lbl.addEventHandler(MouseEvent.MOUSE_CLICKED, this::selectImage);
+        List.getChildren().add(lbl);
     }
     public void loadSavedGames() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadSavedGames.fxml")));
-        Stage window = (Stage) restart.getScene().getWindow();
-        window.setTitle("Load Saved Game");
-        window.setScene(new Scene(root, 712, 422));
+        toggleSaved();
     }
 
     public void choseKnife(){
@@ -448,6 +528,7 @@ public class Game implements Initializable {
         curPlayer.setCurWeapon(1);
         ((Sword)weaponsForUser.get(1)).showSelected();
     }
+
     public void togglePause(){
         if(isPauseDisabled){
             pausePane.setDisable(false);
@@ -459,6 +540,30 @@ public class Game implements Initializable {
             pausePane.setOpacity(0.0);
             isPauseDisabled = true;
         }
+    }
+    public void toggleSaved(){
+        if(isSavedDisabled){
+            savedGamePane.setDisable(false);
+            savedGamePane.setOpacity(1.0);
+            isSavedDisabled = false;
+        }
+        else {
+            savedGamePane.setDisable(true);
+            savedGamePane.setOpacity(0.0);
+            isSavedDisabled = true;
+        }
+    }
+
+    @FXML
+    private void selectImage(MouseEvent event)
+    {
+        String source1 = event.getSource().toString(); //yields complete string
+        String source2 = event.getPickResult().getIntersectedNode().getId(); //returns JUST the id of the object that was clicked
+        System.out.println("Full String: " + source1);
+        System.out.println("Just the id: " + source2);
+        System.out.println(" " + source2);
+
+
     }
 
 

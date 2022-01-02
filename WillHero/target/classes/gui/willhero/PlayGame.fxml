@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -1108,6 +1109,36 @@
             <Button fx:id="LoadSavedSavedGamesButton" layoutX="515.0" layoutY="132.0" mnemonicParsing="false" onAction="#loadSavedGames" opacity="0.0" prefHeight="94.0" prefWidth="90.0" text="LoadGame" />
             <Button layoutX="210.0" layoutY="241.0" mnemonicParsing="false" onAction="#setReturnToMainMenu" opacity="0.0" prefHeight="94.0" prefWidth="90.0" text="ReturnMenu" />
             <Button layoutX="424.0" layoutY="245.0" mnemonicParsing="false" onAction="#setExit" opacity="0.0" prefHeight="86.0" prefWidth="82.0" text="Exit" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="savedGamePane" disable="true" layoutX="10.0" layoutY="10.0" opacity="0.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="418.0" fitWidth="709.0" layoutX="-13.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/loadsavedgame.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="608.0" layoutY="14.0" mnemonicParsing="false" onAction="#toggleSaved" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="52.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/CrossIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <ScrollPane hbarPolicy="NEVER" layoutX="80.0" layoutY="107.0" pannable="true" prefHeight="285.0" prefWidth="498.0" vbarPolicy="NEVER">
+              <content>
+                <AnchorPane fx:id="List" maxHeight="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="490.0">
+                     <children>
+                        <Label layoutX="19.0" layoutY="12.0" prefHeight="54.0" prefWidth="446.0" text="SNO.            LOCATION                COINS">
+                           <font>
+                              <Font name="Comic Sans MS" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
          </children>
       </AnchorPane>
    </children>
