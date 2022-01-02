@@ -12,7 +12,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -29,6 +28,7 @@ public class Game implements Initializable {
 
     @FXML
     private Label coinCount, knifeLevel, swordLevel, coinsAdded;
+
     @FXML
     private Label score = new Label();
 
@@ -450,14 +450,14 @@ public class Game implements Initializable {
                 out.close();
             }
         }
-//
-//        Label lbl = new Label();
-//        lbl.setLayoutX(50);
-//        lbl.setLayoutY((savedFiles.length +1)*50);
-//        lbl.setPrefWidth(40);
-//        lbl.setPrefHeight(30);
-//        String Text = curPlayer.toString();
-//        lbl.setText(Text);
+
+        Label lbl = new Label();
+        lbl.setLayoutX(50);
+        lbl.setLayoutY((savedFiles.length +1)*50);
+        lbl.setPrefWidth(40);
+        lbl.setPrefHeight(30);
+        String Text = curPlayer.toString();
+        lbl.setText(Text);
 //        savedgamepage.getChildren().add(lbl);
 
     }
