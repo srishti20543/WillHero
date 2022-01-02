@@ -44,7 +44,7 @@ abstract class Orc extends GameObject{
 //                    img.setLayoutX(img.getLayoutX() + c*0.25);
 //                }
 //
-//                if(getCurPlayer().getNode().getLayoutX() > img.getLayoutX() + 60){
+//                if(getCurPlayer().getNode().getLayoutX() > img.getLayoutX() + 80){
 //                    c = 1;
 //                    img.setLayoutX(img.getLayoutX() + c*0.25);
 //                }
@@ -61,6 +61,7 @@ abstract class Orc extends GameObject{
             img.setLayoutY(img.getLayoutY() + Orcdy);
 
             Node n = game.checkCollisionIsland(img);
+            Node fp = game.checkCollisionFallingPlatform(img);
 
             if(prev == null){
                 prev = game.getPlatforms().get(0).getNode();
@@ -72,7 +73,13 @@ abstract class Orc extends GameObject{
                 Orcdy = -Orcdy;
             }
 
-            if(img.getLayoutY() <= prev.getLayoutY() - 75){
+            if(fp != null){
+                prev = fp;
+                img.setLayoutY(img.getLayoutY() - 1);
+                Orcdy = -Orcdy;
+            }
+
+            if(img.getLayoutY() <= prev.getLayoutY() - 150){
                 Orcdy = -Orcdy;
             }
         });
@@ -120,21 +127,21 @@ abstract class Orc extends GameObject{
     public void setHealth(double val){
         health -= val;
     };
-
-    public Node getNode(){
-        return this.img;
-    }
     public void getPushed(){
         Timeline pushed = new Timeline();
-        KeyFrame push = new KeyFrame(Duration.millis(10), actionEvent -> {
-            this.getNode().setLayoutX(this.getNode().getLayoutX() + 1);
+        KeyFrame push = new KeyFrame(Duration.millis(1), actionEvent -> {
+            this.getNode().setLayoutX(this.getNode().getLayoutX() + 0.05);
             if(game.checkCollisionIsland(this.getNode()) != null){
                 this.getNode().setLayoutX(this.getNode().getLayoutX() - 2);
             }
         });
         pushed.getKeyFrames().add(push);
-        pushed.setCycleCount(50);
+        pushed.setCycleCount(100);
         pushed.play();
+    }
+
+    public Node getNode(){
+        return this.img;
     }
 
     public double getHealth(){

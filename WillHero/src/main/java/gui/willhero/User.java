@@ -37,10 +37,11 @@ public class User implements Serializable{
     Timeline weaponPosition = new Timeline();
     Timeline attack = new Timeline();
     Timeline delay = new Timeline();
-
+    Timeline dead = new Timeline();
     private double playerDy = 0.08;
     private double playerDx = 0.25;
     private Node base;
+    private double baseY;
 
     User(Game game, Node knife, Node sword) {
         ID++;
@@ -58,65 +59,88 @@ public class User implements Serializable{
 
 
         KeyFrame playerVertical = new KeyFrame(Duration.millis(1), actionEvent -> {
-            playerHelmet.setLayoutY(playerHelmet.getLayoutY() + playerDy);
+            if(isDead){
+                movePlayerVertical.stop();
+                dead.play();
 
-            Node plat = game.checkCollisionIsland(playerHelmet);
-            Node fallPlat = game.checkCollisionFallingPlatform(playerHelmet);
-            Orc orc = game.checkCollisionOrc(playerHelmet);
-            Coin coin = game.checkCollisionCoin(playerHelmet);
-            Chest chest = game.checkCollisionChest(playerHelmet);
-
-            if(base == null){
-                base = game.getPlatforms().get(0).getNode();
             }
+            if (!isDead){
+                playerHelmet.setLayoutY(playerHelmet.getLayoutY() + playerDy);
+                Node plat = game.checkCollisionIsland(playerHelmet);
+                Node fallPlat = game.checkCollisionFallingPlatform(playerHelmet);
+                Orc orc = game.checkCollisionOrc(playerHelmet);
+                Coin coin = game.checkCollisionCoin(playerHelmet);
+                Chest chest = game.checkCollisionChest(playerHelmet);
 
-            else if(plat != null){
-                base = plat;
-                playerDy = -playerDy;
-            }
-            else if(fallPlat != null){
-                base = fallPlat;
-                playerDy = -playerDy;
-            }
-
-            else if(orc != null){
-                base = orc.getNode();
-                playerHelmet.setLayoutY(playerHelmet.getLayoutY() - 1);
-                playerDy = -playerDy;
-                if(curWeapon!=null){
-                    curWeapon.use();
+                if(base == null){
+                    base = game.getPlatforms().get(0).getNode();
                 }
-            }
 
-            if(coin != null){
-                animations.toggleOpacity((ImageView) coin.getNode());
-                game.getCoins().remove(coin);
-                setCoinsCollected(1);
-            }
+                else if(plat != null){
+                    base = plat;
+                    baseY = plat.getLayoutY();
+                    playerHelmet.setLayoutY(playerHelmet.getLayoutY() - 1);
+                    playerDy = -playerDy;
+                }
+                else if(fallPlat != null){
+                    base = fallPlat;
+                    baseY = fallPlat.getLayoutY();
+                    playerHelmet.setLayoutY(playerHelmet.getLayoutY() - 1);
+                    playerDy = -playerDy;
+                }
 
-            if(chest != null){
-                chest.openIt();
-                if(chest instanceof WeaponChest){
-                    int weaponNum = ((WeaponChest) chest).generateWeapon();
-                    updateWeapon(weaponNum);
-                    setCurWeapon(weaponNum);
-                    game.updateWeaponUI(weaponNum, curWeapon.getLevel());
-                    if(curWeapon != null){
-                        weaponPosition.play();
+                else if(orc != null){
+                    if(orc.getNode().getLayoutY() > playerHelmet.getLayoutY()){
+                        playerHelmet.setLayoutY(playerHelmet.getLayoutY() + 1);
+                        playerDy = -playerDy;
+                        setHealth(1000);
                     }
-                }
-                if(chest instanceof CoinChest){
-                    int count = ((CoinChest) chest).generateCoinCount();
-                    setCoinsCollected(count);
-                    game.displayCoinsAdded(count);
-                }
-                game.getChests().remove(chest);
+                    else{
+                        base = orc.getNode();
+                        baseY = orc.getNode().getLayoutY();
+                        playerHelmet.setLayoutY(playerHelmet.getLayoutY() - 1);
+                        playerDy = -playerDy;
+                        if(curWeapon!=null){
+                            if(curWeapon instanceof Sword){
+                                curWeapon.use();
+                            }
+                        }
+                    }
 
+                }
+
+                if(coin != null){
+                    animations.toggleOpacity((ImageView) coin.getNode());
+                    game.getCoins().remove(coin);
+                    setCoinsCollected(1);
+                }
+
+                if(chest != null){
+                    chest.openIt();
+                    if(chest instanceof WeaponChest){
+                        int weaponNum = ((WeaponChest) chest).generateWeapon();
+                        updateWeapon(weaponNum);
+                        setCurWeapon(weaponNum);
+                        game.updateWeaponUI(weaponNum, curWeapon.getLevel());
+                        if(curWeapon != null){
+                            weaponPosition.play();
+                        }
+                    }
+                    if(chest instanceof CoinChest){
+                        int count = ((CoinChest) chest).generateCoinCount();
+                        setCoinsCollected(count);
+                        game.displayCoinsAdded(count);
+                    }
+                    game.getChests().remove(chest);
+
+                }
+
+                if(playerHelmet.getLayoutY() <= baseY - 100){
+                    playerDy = -playerDy;
+                }
             }
 
-            if(playerHelmet.getLayoutY() <= base.getLayoutY() - 100){
-                playerDy = -playerDy;
-            }
+
         });
 
         movePlayerVertical.getKeyFrames().add(playerVertical);
@@ -177,8 +201,8 @@ public class User implements Serializable{
         KeyFrame keep = new KeyFrame(Duration.millis(1), actionEvent -> {
             if(curWeapon != null){
                 if(curWeapon instanceof Sword){
-                    curWeapon.getImg().setLayoutY(playerHelmet.getLayoutY() - 24);
-                    curWeapon.getImg().setLayoutX(playerHelmet.getLayoutX() - 40);
+                    curWeapon.getImg().setLayoutY(playerHelmet.getLayoutY() - 38);
+                    curWeapon.getImg().setLayoutX(playerHelmet.getLayoutX() + 6);
                 }
             }
         });
@@ -190,6 +214,16 @@ public class User implements Serializable{
         KeyFrame del = new KeyFrame(Duration.seconds(0.4), actionEvent -> {canUse = true;});
         delay.getKeyFrames().add(del);
         delay.setCycleCount(1);
+
+        KeyFrame ded = new KeyFrame(Duration.millis(1), actionEvent -> {
+            if(playerHelmet.getLayoutY()>400){
+                System.out.println("Game Over");
+            }
+            playerHelmet.setLayoutY(playerHelmet.getLayoutY() + 0.15);
+        });
+        dead.getKeyFrames().add(ded);
+        dead.setCycleCount(Timeline.INDEFINITE);
+
     }
 
     public void setCurrentScore(int score) {
@@ -240,6 +274,9 @@ public class User implements Serializable{
         curWeapon = weapons.get(ind);
         curWeapon.toggle();
         curWeapon.getImg().setLayoutX(playerHelmet.getLayoutX());
+        if(curWeapon instanceof Knives){
+            curWeapon.toggle();
+        }
     }
 
     public void setHelmet(Helmet helmet){
@@ -252,20 +289,22 @@ public class User implements Serializable{
     }
 
     public int moveForward(AnchorPane gamePane, AnchorPane UIPane){
-        if(playerDy < 0){
-            playerDy = -playerDy;
+        if(!isDead){
+            if(playerDy < 0){
+                playerDy = -playerDy;
+            }
+            if(curWeapon != null && canUse){
+                canUse = false;
+                curWeapon.use();
+                delay.play();
+            }
+            this.gamePane = gamePane;
+            this.uiPane = UIPane;
+            movePlayerVertical.pause();
+            movePlayerHorizontal.play();
+            movePlayerHorizontal.setOnFinished(actionEvent1 -> movePlayerVertical.play());
+            currentScore = (int)playerHelmet.getLayoutX()/75;
         }
-        if(curWeapon != null && canUse){
-            canUse = false;
-            curWeapon.use();
-            delay.play();
-        }
-        this.gamePane = gamePane;
-        this.uiPane = UIPane;
-        movePlayerVertical.pause();
-        movePlayerHorizontal.play();
-        movePlayerHorizontal.setOnFinished(actionEvent1 -> movePlayerVertical.play());
-        currentScore = (int)playerHelmet.getLayoutX()/75;
         return this.currentScore;
     }
 

@@ -14,7 +14,8 @@ public class WeaponChest extends Chest{
 
 
     public int generateWeapon() {
-        return new Random().nextInt(2) ;
+//        return new Random().nextInt(2) ;
+        return 0;
     }
 
     @Override
