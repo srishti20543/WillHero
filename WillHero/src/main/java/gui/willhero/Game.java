@@ -435,14 +435,11 @@ public class Game implements Initializable {
     }
 
     public void setCurPlayer(User u) {
-        System.out.println(u.toString());
         curPlayer = u;
         curPlayer.playTimelines();
         GameObject.setUser(curPlayer);
-        System.out.println(u.toString());
         gamePane.setLayoutX(-curPlayer.getPosX() + 148);
         pausePane.setLayoutX(curPlayer.getPosX() - 148);
-        System.out.println(u.toString());
         uiPane.setLayoutX(curPlayer.getPosX() - 148);
         savedGamePane.setLayoutX(curPlayer.getPosX() - 148);
         bg.setLayoutX(curPlayer.getPosX() - 148);
@@ -623,9 +620,13 @@ public class Game implements Initializable {
         u.setCoinsCollected(temp.getCoinsCollected());
         u.setHealth(temp.getHealth());
         u.setScore(temp.getScore());
+        u.setPlayerDy(temp.getPlayerDy());
+//        u.setCurWeap(temp.getCurWeapon());
+        setCurPlayer(u);
         toggleSaved();
         togglePause();
-        setCurPlayer(u);
+//        u.pauseTimelines();
+
     }
 
 }

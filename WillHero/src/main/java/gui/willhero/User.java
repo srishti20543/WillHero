@@ -2,14 +2,20 @@ package gui.willhero;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class User implements Serializable{
 
@@ -43,7 +49,7 @@ public class User implements Serializable{
     private transient Timeline boundary = new Timeline();
 
     private double playerDy = 0.08;
-    private final double playerDx = 0.25;
+    private double playerDx = 0.25;
     private transient Node base;
     private double baseY;
 
@@ -68,12 +74,38 @@ public class User implements Serializable{
         weapons.add(new Knives(knife));
         weapons.add(new Sword(sword));
 
+        playerDy = 0.08;
+        playerDx = 0.25;
+
         posX = x;
         posY = y;
 
         playerHelmet.setLayoutX(posX);
         playerHelmet.setLayoutY(posY);
 
+        defineKeyFrames();
+
+    }
+
+    public int moveForward(){
+        if(!isDead){
+            if(playerDy < 0){
+                playerDy = -playerDy;
+            }
+            if(curWeapon != null && canUse){
+                canUse = false;
+                curWeapon.use();
+                delay.play();
+            }
+            movePlayerVertical.pause();
+            movePlayerHorizontal.play();
+            movePlayerHorizontal.setOnFinished(actionEvent1 -> movePlayerVertical.play());
+            currentScore = (int)playerHelmet.getLayoutX()/75;
+        }
+        return this.currentScore;
+    }
+
+    public void defineKeyFrames(){
 
         KeyFrame playerVertical = new KeyFrame(Duration.millis(1), actionEvent -> {
             posY = playerHelmet.getLayoutY();
@@ -112,7 +144,7 @@ public class User implements Serializable{
                 else if(orc != null){
                     if(orc.getNode().getLayoutY() > playerHelmet.getLayoutY()){
                         if(Math.abs(playerHelmet.getLayoutX() - orc.getNode().getLayoutX()) < 2)
-                        playerHelmet.setLayoutY(playerHelmet.getLayoutY() + 1);
+                            playerHelmet.setLayoutY(playerHelmet.getLayoutY() + 1);
                         playerDy = -playerDy;
                         setHealth(1000);
                     }
@@ -163,7 +195,6 @@ public class User implements Serializable{
 
 
         });
-
         movePlayerVertical.getKeyFrames().add(playerVertical);
         movePlayerVertical.setCycleCount(Timeline.INDEFINITE);
 
@@ -217,10 +248,8 @@ public class User implements Serializable{
             }
 
         });
-
         movePlayerHorizontal.getKeyFrames().add(playerHorizontal);
         movePlayerHorizontal.setCycleCount(300);
-        movePlayerVertical.play();
 
         KeyFrame keep = new KeyFrame(Duration.millis(1), actionEvent -> {
             if(curWeapon != null){
@@ -230,10 +259,8 @@ public class User implements Serializable{
                 }
             }
         });
-
         weaponPosition.getKeyFrames().add(keep);
         weaponPosition.setCycleCount(Timeline.INDEFINITE);
-        weaponPosition.play();
 
         KeyFrame del = new KeyFrame(Duration.seconds(0.4), actionEvent -> {canUse = true;});
         delay.getKeyFrames().add(del);
@@ -244,7 +271,6 @@ public class User implements Serializable{
         });
         dead.getKeyFrames().add(ded);
         dead.setCycleCount(Timeline.INDEFINITE);
-
         KeyFrame boun = new KeyFrame(Duration.millis(1), actionEvent -> {
             if(playerHelmet.getLayoutY()>400){
                 System.out.println("Game Over");
@@ -253,31 +279,14 @@ public class User implements Serializable{
         });
         boundary.getKeyFrames().add(boun);
         boundary.setCycleCount(Timeline.INDEFINITE);
-        boundary.play();
 
-    }
 
-    public int moveForward(){
-        if(!isDead){
-            if(playerDy < 0){
-                playerDy = -playerDy;
-            }
-            if(curWeapon != null && canUse){
-                canUse = false;
-                curWeapon.use();
-                delay.play();
-            }
-            movePlayerVertical.pause();
-            movePlayerHorizontal.play();
-            movePlayerHorizontal.setOnFinished(actionEvent1 -> movePlayerVertical.play());
-            currentScore = (int)playerHelmet.getLayoutX()/75;
-        }
-        return this.currentScore;
     }
 
     public Weapons getCurWeapon(){
         return this.curWeapon;
     }
+
     public Node getNode(){
         return this.helmetChosen.getImg();
     }
@@ -314,6 +323,15 @@ public class User implements Serializable{
     public void setDead(){
         if(health <= 0) {
             this.isDead = true;
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadSavedGames.fxml")));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Stage window = (Stage) game.getGamePane().getScene().getWindow();
+            window.setTitle("Saved Games");
+            window.setScene(new Scene(root, 712, 422));
             System.out.println("ded");
             if(isResurrected == false){
                 //show resurrection menu
@@ -328,11 +346,14 @@ public class User implements Serializable{
 
     public void pauseTimelines(){
         movePlayerVertical.pause();
+        weaponPosition.pause();
+        boundary.pause();
     }
 
     public void playTimelines(){
-//        playerHelmet.setLayoutY(playerHelmet.getLayoutY()-10);
         movePlayerVertical.play();
+        weaponPosition.play();
+        boundary.play();
     }
 
     public int updateWeapon(int val){
@@ -355,6 +376,13 @@ public class User implements Serializable{
         return health;
     }
 
+    public double getPlayerDy(){
+        return this.playerDy;
+    }
+
+    public void setPlayerDy(double dy){
+        playerDy = dy;
+    }
     public int getScore(){
         return currentScore;
     }
@@ -371,6 +399,11 @@ public class User implements Serializable{
     public void setScore(int l){
         currentScore = l;
     }
+    public void setCurWeap(Weapons wep){
+        this.curWeapon = wep;
+    }
+
+//    public void setarraAofWeapon
 
 
 }
