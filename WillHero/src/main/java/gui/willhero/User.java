@@ -7,53 +7,49 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class User implements Serializable{
 
+    @Serial
     private static final long serialVersionUID = 8;
-    private static int ID;
-    private static int highScore = 0;
+
     private double health;
     private int currentScore;
     private int coinsCollected;
     private boolean isDead;
-    private boolean isWinner;
     private boolean isResurrected;
-    private ArrayList<Weapons> weapons;
+    private final ArrayList<Weapons> weapons;
     private Helmet helmetChosen;
     private Weapons curWeapon;
     private transient ImageView playerHelmet;
-    private transient Animations animations = new Animations();
+    private final transient Animations animations = new Animations();
     private transient AnchorPane gamePane;
     private transient AnchorPane uiPane;
-    private transient Game game;
-    private boolean isUsingWeaponK = false;
-    private boolean isUsingWeaponS = false;
+    private final transient Game game;
     private boolean canUse = true;
 
-    private transient Timeline movePlayerHorizontal = new Timeline();
-    private transient Timeline movePlayerVertical = new Timeline();
-    private transient Timeline weaponPosition = new Timeline();
-    private transient Timeline attack = new Timeline();
-    private transient Timeline delay = new Timeline();
-    private transient Timeline dead = new Timeline();
+    private final transient Timeline movePlayerHorizontal = new Timeline();
+    private final transient Timeline movePlayerVertical = new Timeline();
+    private final transient Timeline weaponPosition = new Timeline();
+    private final transient Timeline attack = new Timeline();
+    private final transient Timeline delay = new Timeline();
+    private final transient Timeline dead = new Timeline();
     private transient Timeline boundary = new Timeline();
 
     private double playerDy = 0.08;
-    private double playerDx = 0.25;
+    private final double playerDx = 0.25;
     private transient Node base;
     private double baseY;
 
     User(Game game, Node knife, Node sword) {
-        ID++;
         this.health = 100;
         this.currentScore = 0;
         this.coinsCollected = 0;
         this.game = game;
         this.isDead = false;
-        this.isWinner = false;
         this.isResurrected = false;
         this. weapons = new ArrayList<>();
         weapons.add(new Knives(knife));
@@ -237,68 +233,6 @@ public class User implements Serializable{
 
     }
 
-    public void setCurrentScore(int score) {
-        this.currentScore = score;
-        highScore=Math.max(highScore,score);
-    }
-
-    public void setWinner(){
-        if(currentScore >= 122) {
-            this.isWinner = true;
-        }
-    }
-
-    public void setDead(){
-        if(health <= 0) {
-            this.isDead = true;
-            System.out.println("ded");
-            if(isResurrected == false){
-                //show resurrection menu
-                isResurrected = true;
-                //check conditions and set isDead = T/F
-            }
-            if (isResurrected == true){
-                //game over
-            }
-        }
-    }
-
-    public void setHealth(double hp){
-        this.health -= hp;
-        setDead();
-    }
-
-    public void setCoinsCollected(int val){
-        coinsCollected += val;
-        game.setCoinCountLabel(coinsCollected);
-    }
-
-    public int updateWeapon(int val){
-        weapons.get(val).update();
-        return weapons.get(val).getLevel();
-    }
-
-    public void setCurWeapon(int ind){
-        if(curWeapon != null){
-            curWeapon.toggle();
-        }
-        curWeapon = weapons.get(ind);
-        curWeapon.toggle();
-        curWeapon.getImg().setLayoutX(playerHelmet.getLayoutX());
-        if(curWeapon instanceof Knives){
-            curWeapon.toggle();
-        }
-    }
-
-    public void setHelmet(Helmet helmet){
-        helmetChosen = helmet;
-        this.playerHelmet = helmet.getImg();
-    }
-
-    public Node getNode(){
-        return this.helmetChosen.getImg();
-    }
-
     public int moveForward(AnchorPane gamePane, AnchorPane UIPane){
         if(!isDead){
             if(playerDy < 0){
@@ -321,6 +255,58 @@ public class User implements Serializable{
 
     public Weapons getCurWeapon(){
         return this.curWeapon;
+    }
+    public Node getNode(){
+        return this.helmetChosen.getImg();
+    }
+    public int getCurrentScore(){
+        return currentScore;
+    }
+    public int getCoinsCollected(){
+        return coinsCollected;
+    }
+
+    public void setHelmet(Helmet helmet){
+        helmetChosen = helmet;
+        this.playerHelmet = helmet.getImg();
+    }
+    public void setCurWeapon(int ind){
+        if(curWeapon != null){
+            curWeapon.toggle();
+        }
+        curWeapon = weapons.get(ind);
+        curWeapon.toggle();
+        curWeapon.getImg().setLayoutX(playerHelmet.getLayoutX());
+        if(curWeapon instanceof Knives){
+            curWeapon.toggle();
+        }
+    }
+    public void setCoinsCollected(int val){
+        coinsCollected += val;
+        game.setCoinCountLabel(coinsCollected);
+    }
+    public void setHealth(double hp){
+        this.health -= hp;
+        setDead();
+    }
+    public void setDead(){
+        if(health <= 0) {
+            this.isDead = true;
+            System.out.println("ded");
+            if(isResurrected == false){
+                //show resurrection menu
+                isResurrected = true;
+                //check conditions and set isDead = T/F
+            }
+            if (isResurrected == true){
+                //game over
+            }
+        }
+    }
+
+    public int updateWeapon(int val){
+        weapons.get(val).update();
+        return weapons.get(val).getLevel();
     }
 }
 
