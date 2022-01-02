@@ -40,7 +40,11 @@ public class Game implements Initializable {
             cloud13, cloud14, cloud15, cloud16, cloud17, cloud18, cloud19, cloud20, cloud21, cloud22;
 
     @FXML
-    private ImageView coin1, coin2, coin3, coin4, coin5, coin6, coin7, coin8, coin9, coin10, bigCoin;
+    private ImageView coin1, coin2, coin3, coin4, coin5, coin6, coin7, coin8, coin9, coin10, bigCoin, coin11, coin12,
+            coin13, coin14, coin15, coin16, coin17, coin18, coin19, coin20, coin21, coin22, coin23, coin24, coin25,
+            coin26, coin27, coin28, coin29, coin30, coin31, coin32, coin33, coin34, coin35, coin36, coin37, coin38,
+            coin39, coin40, coin41, coin42, coin43, coin44, coin45, coin46, coin47, coin48, coin49, coin50, coin51,
+            coin52, coin53, coin54, coin55, coin56, coin57, coin58, coin59, coin60;
 
     @FXML
     private ImageView ro1, ro2, ro3, ro4, ro5, ro6, ro7, ro8, ro9, ro10;
@@ -234,6 +238,56 @@ public class Game implements Initializable {
         coins.add(new Coin(coin8));
         coins.add(new Coin(coin9));
         coins.add(new Coin(coin10));
+        coins.add(new Coin(coin11));
+        coins.add(new Coin(coin12));
+        coins.add(new Coin(coin13));
+        coins.add(new Coin(coin14));
+        coins.add(new Coin(coin15));
+        coins.add(new Coin(coin16));
+        coins.add(new Coin(coin17));
+        coins.add(new Coin(coin18));
+        coins.add(new Coin(coin19));
+        coins.add(new Coin(coin20));
+        coins.add(new Coin(coin21));
+        coins.add(new Coin(coin22));
+        coins.add(new Coin(coin23));
+        coins.add(new Coin(coin24));
+        coins.add(new Coin(coin25));
+        coins.add(new Coin(coin26));
+        coins.add(new Coin(coin27));
+        coins.add(new Coin(coin28));
+        coins.add(new Coin(coin29));
+        coins.add(new Coin(coin30));
+        coins.add(new Coin(coin31));
+        coins.add(new Coin(coin32));
+        coins.add(new Coin(coin33));
+        coins.add(new Coin(coin34));
+        coins.add(new Coin(coin35));
+        coins.add(new Coin(coin36));
+        coins.add(new Coin(coin37));
+        coins.add(new Coin(coin38));
+        coins.add(new Coin(coin39));
+        coins.add(new Coin(coin40));
+        coins.add(new Coin(coin41));
+        coins.add(new Coin(coin42));
+        coins.add(new Coin(coin43));
+        coins.add(new Coin(coin44));
+        coins.add(new Coin(coin45));
+        coins.add(new Coin(coin46));
+        coins.add(new Coin(coin47));
+        coins.add(new Coin(coin48));
+        coins.add(new Coin(coin49));
+        coins.add(new Coin(coin50));
+        coins.add(new Coin(coin51));
+        coins.add(new Coin(coin52));
+        coins.add(new Coin(coin53));
+        coins.add(new Coin(coin54));
+        coins.add(new Coin(coin55));
+        coins.add(new Coin(coin56));
+        coins.add(new Coin(coin57));
+        coins.add(new Coin(coin58));
+//        coins.add(new Coin(coin59));
+//        coins.add(new Coin(coin60));
 
     }
 
