@@ -1,5 +1,6 @@
 package gui.willhero;
 
+import javafx.animation.Timeline;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -14,6 +15,7 @@ public class FloatingIsland extends GameObject{
     private transient Node rectangle;
     private static final long serialVersionUID = 51;
 
+    Timeline floating = new Timeline();
 
     FloatingIsland(Node island, Node rec){
         this.island = island;

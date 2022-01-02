@@ -327,15 +327,12 @@ public class User implements Serializable{
     }
 
     public void pauseTimelines(){
-        movePlayerHorizontal.stop();
-        movePlayerVertical.stop();
-        weaponPosition.stop();
-        attack.stop();
-        delay.stop();
-        dead.stop();
-        boundary.stop();
+        movePlayerVertical.pause();
+    }
 
-
+    public void playTimelines(){
+//        playerHelmet.setLayoutY(playerHelmet.getLayoutY()-10);
+        movePlayerVertical.play();
     }
 
     public int updateWeapon(int val){

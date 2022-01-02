@@ -437,6 +437,7 @@ public class Game implements Initializable {
     public void setCurPlayer(User u) {
         System.out.println(u.toString());
         curPlayer = u;
+        curPlayer.playTimelines();
         GameObject.setUser(curPlayer);
         System.out.println(u.toString());
         gamePane.setLayoutX(-curPlayer.getPosX() + 148);
@@ -566,12 +567,14 @@ public class Game implements Initializable {
     }
 
     public void togglePause() {
-        curPlayer.pauseTimelines();
+
         if (isPauseDisabled) {
+            curPlayer.pauseTimelines();
             pausePane.setDisable(false);
             pausePane.setOpacity(1.0);
             isPauseDisabled = false;
         } else {
+            curPlayer.playTimelines();
             pausePane.setDisable(true);
             pausePane.setOpacity(0.0);
             isPauseDisabled = true;

@@ -9,7 +9,7 @@ abstract class GameObject implements Serializable, Collidable {
     private static final long serialVersionUID = 0;
     private static User curPlayer;
     private transient static Game game;
-    transient Animations animations = new Animations();
+    transient static Animations animations = new Animations();
 
     public static Game getGame() {
         return game;
