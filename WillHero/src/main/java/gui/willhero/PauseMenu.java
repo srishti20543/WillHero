@@ -61,7 +61,7 @@ public class PauseMenu {
     }
 
     public void setLoadSavedSavedGamesButton() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadSavedGamesFromPause.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadSavedGames.fxml")));
         Stage window = (Stage) LoadSavedSavedGamesButton.getScene().getWindow();
         window.setTitle("Saved Games");
         window.setScene(new Scene(root, 712, 422));

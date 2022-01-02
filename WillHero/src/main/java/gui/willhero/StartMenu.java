@@ -92,7 +92,7 @@ public class StartMenu implements Initializable {
 
     public void setLoadSavedSavedGamesButton() throws IOException {
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadSavedGamesMenu.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadSavedGames.fxml")));
         Stage window = (Stage) LoadSavedSavedGamesButton.getScene().getWindow();
         window.setTitle("Saved Games");
         window.setScene(new Scene(root, 712, 422));

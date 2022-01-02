@@ -1105,7 +1105,7 @@
             <Button fx:id="cross" layoutX="663.0" layoutY="11.0" mnemonicParsing="false" onAction="#togglePause" opacity="0.0" prefHeight="44.0" prefWidth="42.0" text="resume" />
             <Button fx:id="restart" layoutX="107.0" layoutY="128.0" mnemonicParsing="false" onAction="#setRestart" opacity="0.0" prefHeight="94.0" prefWidth="90.0" text="Restart" />
             <Button layoutX="312.0" layoutY="139.0" mnemonicParsing="false" onAction="#saveGame" opacity="0.0" prefHeight="86.0" prefWidth="90.0" text="SaveGame" />
-            <Button fx:id="LoadSavedSavedGamesButton" layoutX="515.0" layoutY="132.0" mnemonicParsing="false" opacity="0.0" prefHeight="94.0" prefWidth="90.0" text="LoadGame" />
+            <Button fx:id="LoadSavedSavedGamesButton" layoutX="515.0" layoutY="132.0" mnemonicParsing="false" onAction="#loadSavedGames" opacity="0.0" prefHeight="94.0" prefWidth="90.0" text="LoadGame" />
             <Button layoutX="210.0" layoutY="241.0" mnemonicParsing="false" onAction="#setReturnToMainMenu" opacity="0.0" prefHeight="94.0" prefWidth="90.0" text="ReturnMenu" />
             <Button layoutX="424.0" layoutY="245.0" mnemonicParsing="false" onAction="#setExit" opacity="0.0" prefHeight="86.0" prefWidth="82.0" text="Exit" />
          </children>

@@ -311,5 +311,8 @@ public class User implements Serializable{
         weapons.get(val).update();
         return weapons.get(val).getLevel();
     }
+    public String toString(){
+        return "" + this.coinsCollected + "  " + this.currentScore;
+    }
 }
 

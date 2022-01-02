@@ -92,6 +92,7 @@ public class Game implements Initializable {
     private AnchorPane uiPane, gamePane, pausePane;
 
     private final Clouds cloud = new Clouds();
+    private final LoadSavedGames lsd = new LoadSavedGames();
     private final Windmill windmill = new Windmill();
     private final ArrayList<FloatingIsland> platforms = new ArrayList<>();
     private final ArrayList<Orc> orcs = new ArrayList<>();
@@ -424,42 +425,17 @@ public class Game implements Initializable {
         window.setScene(new Scene(root, 712, 422));
     }
     public void saveGame() throws Exception {
-
-        File savedGames = new File("SavedGames");
-        File[] savedFiles = savedGames.listFiles();
-        String name = "SavedGames\\game";
-        name += savedFiles.length;
-        name += ".txt";
-        File newGameSaved = new File(name);
-        try {
-            System.out.println(newGameSaved.createNewFile());
-        }
-        catch (IOException e){
-            System.out.println("not possible");
-        }
-        ObjectOutputStream out = null;
-        try {
-            out = new ObjectOutputStream(new FileOutputStream(name));
-            out.writeObject(curPlayer);
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-        finally {
-            if(out!= null){
-                out.close();
-            }
-        }
-
-        Label lbl = new Label();
-        lbl.setLayoutX(50);
-        lbl.setLayoutY((savedFiles.length +1)*50);
-        lbl.setPrefWidth(40);
-        lbl.setPrefHeight(30);
-        String Text = curPlayer.toString();
-        lbl.setText(Text);
-//        savedgamepage.getChildren().add(lbl);
-
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadSavedGames.fxml")));
+        Stage window = (Stage) restart.getScene().getWindow();
+        window.setTitle("Load Saved Game");
+        window.setScene(new Scene(root, 712, 422));
+        lsd.addGame(curPlayer);
+    }
+    public void loadSavedGames() throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadSavedGames.fxml")));
+        Stage window = (Stage) restart.getScene().getWindow();
+        window.setTitle("Load Saved Game");
+        window.setScene(new Scene(root, 712, 422));
     }
 
     public void choseKnife(){
