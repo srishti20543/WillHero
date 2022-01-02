@@ -44,8 +44,6 @@ public class Axe extends Weapons{
         collision.getKeyFrames().add(col);
         collision.setCycleCount(Timeline.INDEFINITE);
         collision.play();
-
-
     }
 
     @Override
@@ -55,7 +53,7 @@ public class Axe extends Weapons{
             Timeline attack = new Timeline();
             KeyFrame kf = new KeyFrame(Duration.millis(1), actionEvent -> {
                 if(axe.getBoundsInParent().intersects(getCurPlayer().getNode().getBoundsInParent())){
-                    getCurPlayer().setHealth(1);
+                    getCurPlayer().setHealth(0.01);
                     attack.stop();
                 }
             });

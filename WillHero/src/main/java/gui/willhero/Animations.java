@@ -6,10 +6,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
+import java.util.ArrayList;
+
 public class Animations {
 
     private boolean isRotating = false;
     private boolean isScaling = false;
+
+    private int fallnum = 0;
 
     public void floatingDown(ImageView island) {
         TranslateTransition floating = new TranslateTransition();
@@ -137,19 +141,28 @@ public class Animations {
         }
     }
 
-    public void delay(double duration, Node rec){
+    public void delay(double duration, ArrayList<Node> recs){
         Timeline t = new Timeline(new KeyFrame(Duration.millis(duration), actionEvent -> {}));
         t.setCycleCount(1);
-        t.setOnFinished(action -> fallPlat(rec));
+        t.setOnFinished(action -> fallPlat(recs));
         t.play();
     }
-    public void fallPlat(Node rec){
+    public void fallPlat(ArrayList<Node> recs){
         Timeline fall = new Timeline();
-        KeyFrame f = new KeyFrame(Duration.millis(1),actionEvent -> {
-            rec.setLayoutY(rec.getLayoutY() + 0.1);
+        KeyFrame f = new KeyFrame(Duration.millis(10),actionEvent -> {
+            if(recs.get(recs.size()-1).getLayoutY() > 400){
+                fall.stop();
+            }
+            if(fallnum > recs.size()){
+                fallnum = 0;
+            }
+            for(int i = 0; i<fallnum; i++){
+                recs.get(i).setLayoutY(recs.get(i).getLayoutY() + 1);
+            }
+            fallnum ++;
         });
         fall.getKeyFrames().add(f);
-        fall.setCycleCount(2000);
+        fall.setCycleCount(Timeline.INDEFINITE);
         fall.play();
     }
 }

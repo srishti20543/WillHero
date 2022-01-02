@@ -165,11 +165,7 @@ public class Game implements Initializable {
     }
 
     private void addFallingPlatform(){
-        fallingPlatforms.add(new FallingPlatform(fp1));
-        fallingPlatforms.add(new FallingPlatform(fp2));
-        fallingPlatforms.add(new FallingPlatform(fp3));
-        fallingPlatforms.add(new FallingPlatform(fp4));
-        fallingPlatforms.add(new FallingPlatform(fp5));
+        fallingPlatforms.add(new FallingPlatform(fp1, fp2, fp3, fp4, fp5));
     }
 
     private void addOrcs(){
@@ -316,9 +312,10 @@ public class Game implements Initializable {
     }
 
     public Node checkCollisionFallingPlatform(Node node){
-        for(int i = 0; i<fallingPlatforms.size(); i++){
-            if (node.getBoundsInParent().intersects(fallingPlatforms.get(i).getNode().getBoundsInParent())) {
-                return platforms.get(i).getNode();
+        Node temp;
+        for (FallingPlatform fallingPlatform : fallingPlatforms) {
+            if ((temp = fallingPlatform.checkCollision(node)) != null) {
+                return temp;
             }
         }
         return null;

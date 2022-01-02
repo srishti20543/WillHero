@@ -38,6 +38,8 @@ public class User implements Serializable{
     Timeline attack = new Timeline();
     Timeline delay = new Timeline();
     Timeline dead = new Timeline();
+    Timeline boundary = new Timeline();
+
     private double playerDy = 0.08;
     private double playerDx = 0.25;
     private Node base;
@@ -216,13 +218,19 @@ public class User implements Serializable{
         delay.setCycleCount(1);
 
         KeyFrame ded = new KeyFrame(Duration.millis(1), actionEvent -> {
-            if(playerHelmet.getLayoutY()>400){
-                System.out.println("Game Over");
-            }
             playerHelmet.setLayoutY(playerHelmet.getLayoutY() + 0.15);
         });
         dead.getKeyFrames().add(ded);
         dead.setCycleCount(Timeline.INDEFINITE);
+
+        KeyFrame boun = new KeyFrame(Duration.millis(1), actionEvent -> {
+            if(playerHelmet.getLayoutY()>400){
+                System.out.println("Game Over");
+            }
+        });
+        boundary.getKeyFrames().add(boun);
+        boundary.setCycleCount(Timeline.INDEFINITE);
+        boundary.play();
 
     }
 
