@@ -93,6 +93,7 @@ public class User implements Serializable{
 
                 else if(orc != null){
                     if(orc.getNode().getLayoutY() > playerHelmet.getLayoutY()){
+                        if(Math.abs(playerHelmet.getLayoutX() - orc.getNode().getLayoutX()) < 2)
                         playerHelmet.setLayoutY(playerHelmet.getLayoutY() + 1);
                         playerDy = -playerDy;
                         setHealth(1000);
@@ -169,6 +170,7 @@ public class User implements Serializable{
             else if(orc != null){
                 orc.getNode().setLayoutX(orc.getNode().getLayoutX() + 2);
                 orc.getPushed();
+                movePlayerVertical.play();
             }
             if(coin != null){
                 animations.toggleOpacity((ImageView) coin.getNode());

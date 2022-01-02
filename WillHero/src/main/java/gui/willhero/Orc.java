@@ -23,6 +23,7 @@ abstract class Orc extends GameObject{
     Timeline orcGravity = new Timeline();
     Timeline checkAttack = new Timeline();
     Timeline checkDead = new Timeline();
+    Timeline follow = new Timeline();
 
     Orc(int d, int hp, int disp, Node orcImg, Game game){
         this.isDead = false;
@@ -36,27 +37,6 @@ abstract class Orc extends GameObject{
             if(img.getLayoutY() > 400){
                 isDead = true;
             }
-
-//            if(img.getLayoutY() < 300){
-//                int c = 0;
-//                if(img.getLayoutX() - getCurPlayer().getNode().getLayoutX() < 60){
-//                    c = -1;
-//                    img.setLayoutX(img.getLayoutX() + c*0.25);
-//                }
-//
-//                if(getCurPlayer().getNode().getLayoutX() > img.getLayoutX() + 80){
-//                    c = 1;
-//                    img.setLayoutX(img.getLayoutX() + c*0.25);
-//                }
-//
-//                Node n = game.checkCollisionIsland(img);
-//
-//                if(n != null){
-//                    img.setLayoutX(img.getLayoutX() + -1*c);
-//                }
-//
-//            }
-
 
             img.setLayoutY(img.getLayoutY() + Orcdy);
 
@@ -89,16 +69,18 @@ abstract class Orc extends GameObject{
         orcGravity.play();
 
         KeyFrame check = new KeyFrame(Duration.millis(1), actionEvent -> {
-            if(getCurPlayer().getCurWeapon()!= null){
-                if(getCurPlayer().getCurWeapon().getImg().getBoundsInParent().intersects(this.getNode().getBoundsInParent())){
-                    getCurPlayer().getCurWeapon().getImg().setDisable(true);
-                    health -= getCurPlayer().getCurWeapon().getDamage()*0.5;
+            Weapons wep = getCurPlayer().getCurWeapon();
+            if(wep != null){
+                if(wep.getImg().getBoundsInParent().intersects(this.getNode().getBoundsInParent())){
+                    if(wep instanceof Sword){
+                        wep.use();
+                    }
+                    wep.getImg().setDisable(true);
+                    health -= wep.getDamage()*0.5;
                     if(health <= 0){
                         isDead = true;
                         checkAttack.stop();
                     }
-                    System.out.println(img.getId());
-                    System.out.println(this.health);
 
                 }
             }
@@ -121,6 +103,22 @@ abstract class Orc extends GameObject{
         checkDead.getKeyFrames().add(ded);
         checkDead.setCycleCount(Timeline.INDEFINITE);
         checkDead.play();
+
+        KeyFrame fol = new KeyFrame(Duration.millis(1), actionEvent -> {
+            if(getCurPlayer().getNode().getLayoutX() > img.getLayoutX() + 100){
+                follow.setCycleCount(2);
+                follow.play();
+            }
+            if(img.getLayoutX() >= getCurPlayer().getNode().getLayoutX() + 30){
+                follow.stop();
+            }
+            getPushed();
+
+        });
+
+        follow.getKeyFrames().add(fol);
+        follow.play();
+
 
     }
 
