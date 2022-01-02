@@ -146,7 +146,7 @@ public class User implements Serializable{
                         if(Math.abs(playerHelmet.getLayoutX() - orc.getNode().getLayoutX()) < 2)
                             playerHelmet.setLayoutY(playerHelmet.getLayoutY() + 1);
                         playerDy = -playerDy;
-                        setHealth(1000);
+                        setHealth(.0001);
                     }
                     else{
                         base = orc.getNode();
@@ -273,8 +273,9 @@ public class User implements Serializable{
         dead.setCycleCount(Timeline.INDEFINITE);
         KeyFrame boun = new KeyFrame(Duration.millis(1), actionEvent -> {
             if(playerHelmet.getLayoutY()>=400 && playerHelmet.getLayoutY()<=401){
+                dead.stop();
                 System.out.println("Game Over");
-                setHealth(1000);
+                setHealth(100);
                 boundary.stop();
             }
         });
@@ -324,12 +325,12 @@ public class User implements Serializable{
     public void setDead(){
         if(health <= 0) {
             this.isDead = true;
-            Parent root = null;
+
 
             System.out.println("ded");
-            if(isResurrected == false){
+            if(!isResurrected){
                 try {
-                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ResurrectMenu.fxml")));
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ResurrectMenu.fxml")));
                     Stage window = (Stage) game.getGamePane().getScene().getWindow();
                     window.setTitle("Resurrect");
                     window.setScene(new Scene(root, 712, 422));
@@ -339,15 +340,16 @@ public class User implements Serializable{
 
 
             }
-            if (isResurrected == true){
+            if (isResurrected){
                 try {
-                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("GameOverMenu.fxml")));
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("GameOverMenu.fxml")));
+                    Stage window = (Stage) game.getGamePane().getScene().getWindow();
+                    window.setTitle("Game Over");
+                    window.setScene(new Scene(root, 712, 422));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Stage window = (Stage) game.getGamePane().getScene().getWindow();
-                window.setTitle("Game Over");
-                window.setScene(new Scene(root, 712, 422));
+
             }
         }
     }

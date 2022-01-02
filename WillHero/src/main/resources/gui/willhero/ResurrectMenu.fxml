@@ -5,7 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.willhero.User">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.willhero.ResurrectMenu">
    <children>
       <ImageView fitHeight="422.0" fitWidth="712.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -13,6 +13,6 @@
          </image>
       </ImageView>
       <Button layoutX="253.0" layoutY="260.0" mnemonicParsing="false" onAction="#yes" opacity="0.0" prefHeight="86.0" prefWidth="86.0" text="yes" />
-      <Button layoutX="377.0" layoutY="260.0" mnemonicParsing="false" onAction="#no" opacity="0.0" prefHeight="86.0" prefWidth="86.0" text="no" />
+      <Button fx:id="n" layoutX="377.0" layoutY="260.0" mnemonicParsing="false" onAction="#no" opacity="0.0" prefHeight="86.0" prefWidth="86.0" text="no" />
    </children>
 </AnchorPane>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,9 +12,7 @@
             <Image url="@Images/GameOver.png" />
          </image>
       </ImageView>
-      <Label layoutX="174.0" layoutY="169.0" prefHeight="43.0" prefWidth="111.0" text="HighScore" textAlignment="JUSTIFY" />
-      <Label layoutX="446.0" layoutY="173.0" prefHeight="36.0" prefWidth="89.0" text="CurScore" textAlignment="JUSTIFY" />
-      <Button layoutX="230.0" layoutY="255.0" mnemonicParsing="false" opacity="0.0" prefHeight="78.0" prefWidth="74.0" text="ReturnToMain" />
-      <Button layoutX="446.0" layoutY="263.0" mnemonicParsing="false" opacity="0.0" prefHeight="70.0" prefWidth="74.0" text="Exit" />
+      <Button fx:id="mm" layoutX="222.0" layoutY="180.0" mnemonicParsing="false" onAction="#setReturnToMainMenu" opacity="0.0" prefHeight="78.0" prefWidth="74.0" text="ReturnToMain" />
+      <Button layoutX="439.0" layoutY="184.0" mnemonicParsing="false" onAction="#setExit" opacity="0.0" prefHeight="70.0" prefWidth="74.0" text="Exit" />
    </children>
 </AnchorPane>

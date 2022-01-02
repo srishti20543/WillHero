@@ -39,13 +39,12 @@ public class Game implements Initializable {
             island11, island12, island13, island14, island15, island16, island17, island18, island19, island20,
             island21, island22, island23, island24, island25, island26, island27, island28, island29, island30,
             island31, island32, island33, island34, island35, island36, island37, island38, island39, island40,
-            island41, island42, island43, island44, island45, island46, island47, island48, island49, island50;
+            island41;
 
     @FXML
     private Rectangle rec1, rec2, rec3, rec4, rec5, rec6, rec7, rec8, rec9, rec10, rec11, rec12, rec13, rec14, rec15,
             rec16, rec17, rec18, rec19, rec20, rec21, rec22, rec23, rec24, rec25, rec26, rec27, rec28, rec29, rec30,
-            rec31, rec32, rec33, rec34, rec35, rec36, rec37, rec38, rec39, rec40, rec41, rec42, rec43, rec44, rec45,
-            rec46, rec47, rec48, rec49, rec50;
+            rec31, rec32, rec33, rec34, rec35, rec36, rec37, rec38, rec39, rec40, rec41;
 
     @FXML
     private ImageView cloud1, cloud2, cloud3, cloud4, cloud5, cloud6, cloud7, cloud8, cloud9, cloud10, cloud11, cloud12,
@@ -62,7 +61,7 @@ public class Game implements Initializable {
     private ImageView ro1, ro2, ro3, ro4, ro5, ro6, ro7, ro8, ro9, ro10;
 
     @FXML
-    private Rectangle fp1, fp2, fp3, fp4, fp5;
+    private Rectangle fp1, fp2, fp3, fp4, fp5, fp11, fp21, fp31, fp41, fp51, fp111, fp211, fp311, fp411, fp511;
 
     @FXML
     private ImageView go1, go2, go3, go4, go5;
@@ -79,10 +78,10 @@ public class Game implements Initializable {
     private ImageView wm1, wm2, wm3;
 
     @FXML
-    private ImageView wcc1, wco1, wcc2, wco2, wcc3, wco3;
+    private ImageView wcc1, wco1, wcc2, wco2, wcc3, wco3, wcc4, wco4;
 
     @FXML
-    private ImageView ccc1, cco1;
+    private ImageView ccc1, cco1, ccc11, cco11, ccc111, cco111;
 
     @FXML
     private ImageView swordUI, knifeUI, playerSword, playerKnife;
@@ -114,7 +113,7 @@ public class Game implements Initializable {
 
         GameObject.setGame(this);
         setCurPlayer(new User(this, playerKnife, playerSword, gamePane, pausePane, uiPane, savedGamePane, bg, new Penguin(penguin), 148, 248));
-        gamePane.setLayoutX(0);
+//        gamePane.setLayoutX(0);
         addPlatforms();
         addFallingPlatform();
         addOrcs();
@@ -178,25 +177,23 @@ public class Game implements Initializable {
         platforms.add(new FloatingIsland(island38, rec38));
         platforms.add(new FloatingIsland(island39, rec39));
         platforms.add(new FloatingIsland(island40, rec40));
-        platforms.add(new FloatingIsland(island41, rec41));
-        platforms.add(new FloatingIsland(island42, rec42));
-        platforms.add(new FloatingIsland(island43, rec43));
-        platforms.add(new FloatingIsland(island44, rec44));
 
     }
 
     private void addFallingPlatform() {
         fallingPlatforms.add(new FallingPlatform(fp1, fp2, fp3, fp4, fp5));
+        fallingPlatforms.add(new FallingPlatform(fp11, fp21, fp31, fp41, fp51));
+        fallingPlatforms.add(new FallingPlatform(fp111, fp211, fp311, fp411, fp511));
     }
 
     private void addOrcs() {
-//        orcs.add(new MediumHatAxe(go1, new Axe(axe1, go1, axe1b), this));
+        orcs.add(new MediumHatAxe(go1, new Axe(axe1, go1, axe1b), this));
         orcs.add(new MediumHatAxe(go2, new Axe(axe2, go2, axe1b), this));
         orcs.add(new MediumHatAxe(go3, new Axe(axe3, go3, axe1b), this));
         orcs.add(new MediumHatAxe(go4, new Axe(axe4, go4, axe1b), this));
         orcs.add(new MediumHatAxe(go5, new Axe(axe5, go5, axe1b), this));
 
-        orcs.add(new BossOrc(go1, new Axe(axe1, go1, axe1b), this));
+        orcs.add(new BossOrc(bossOrc, this));
 
         orcs.add(new ShieldedOrc(ro1, this));
         orcs.add(new ShieldedOrc(ro2, this));
@@ -311,8 +308,10 @@ public class Game implements Initializable {
         chests.add(new WeaponChest(wcc1, wco1, this));
         chests.add(new WeaponChest(wcc2, wco2, this));
         chests.add(new WeaponChest(wcc3, wco3, this));
+        chests.add(new WeaponChest(wcc4, wco4, this));
         chests.add(new CoinChest(ccc1, cco1, this));
-
+        chests.add(new CoinChest(ccc11, cco11, this));
+        chests.add(new CoinChest(ccc111, cco111, this));
     }
 
     private void addPrevGames() throws IOException, ClassNotFoundException {
