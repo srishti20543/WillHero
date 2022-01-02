@@ -295,7 +295,7 @@
             <Image url="@Images/WindmillBase.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="penguin" fitHeight="36.0" fitWidth="49.0" layoutX="164.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="penguin" fitHeight="36.0" fitWidth="49.0" layoutX="148.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/PenguinHelmet-removebg-preview.png" />
          </image>
@@ -415,32 +415,32 @@
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="coin51" fitHeight="19.0" fitWidth="21.0" layoutX="1059.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="1059.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="coin61" fitHeight="19.0" fitWidth="21.0" layoutX="1087.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="1087.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="coin41" fitHeight="19.0" fitWidth="21.0" layoutX="1031.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="1031.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="coin11" fitHeight="19.0" fitWidth="21.0" layoutX="1031.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="1031.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="coin21" fitHeight="19.0" fitWidth="21.0" layoutX="1059.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="1059.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="coin31" fitHeight="19.0" fitWidth="21.0" layoutX="1087.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="1087.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Coin.jpg" />
          </image>
@@ -1076,7 +1076,7 @@
                   <Font name="Comic Sans MS Bold" size="25.0" />
                </font>
             </Label>
-            <Button fx:id="pause" layoutX="2.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: transparent;">
+            <Button fx:id="pauseButton" layoutX="2.0" mnemonicParsing="false" onAction="#togglePause" prefHeight="54.0" prefWidth="54.0" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="54.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -1093,6 +1093,21 @@
                   <Font name="Comic Sans MS" size="55.0" />
                </font>
             </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pausePane" disable="true" layoutY="-1.0" opacity="0.0" prefHeight="408.0" prefWidth="681.0">
+         <children>
+            <ImageView fitHeight="422.0" fitWidth="712.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/PAUSE_Menu.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="cross" layoutX="663.0" layoutY="11.0" mnemonicParsing="false" onAction="#togglePause" opacity="0.0" prefHeight="44.0" prefWidth="42.0" text="resume" />
+            <Button fx:id="restart" layoutX="107.0" layoutY="128.0" mnemonicParsing="false" onAction="#setRestart" opacity="0.0" prefHeight="94.0" prefWidth="90.0" text="Restart" />
+            <Button layoutX="312.0" layoutY="139.0" mnemonicParsing="false" onAction="#saveGame" opacity="0.0" prefHeight="86.0" prefWidth="90.0" text="SaveGame" />
+            <Button fx:id="LoadSavedSavedGamesButton" layoutX="515.0" layoutY="132.0" mnemonicParsing="false" opacity="0.0" prefHeight="94.0" prefWidth="90.0" text="LoadGame" />
+            <Button layoutX="210.0" layoutY="241.0" mnemonicParsing="false" onAction="#setReturnToMainMenu" opacity="0.0" prefHeight="94.0" prefWidth="90.0" text="ReturnMenu" />
+            <Button layoutX="424.0" layoutY="245.0" mnemonicParsing="false" onAction="#setExit" opacity="0.0" prefHeight="86.0" prefWidth="82.0" text="Exit" />
          </children>
       </AnchorPane>
    </children>

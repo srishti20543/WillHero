@@ -1,15 +1,25 @@
 package gui.willhero;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Game implements Initializable {
@@ -76,10 +86,10 @@ public class Game implements Initializable {
     private ImageView swordUI, knifeUI, playerSword, playerKnife;
 
     @FXML
-    private Button selectKnife, selectSword;
+    private Button selectKnife, selectSword, pauseButton, restart;
 
     @FXML
-    private AnchorPane uiPane, gamePane;
+    private AnchorPane uiPane, gamePane, pausePane;
 
     private final Clouds cloud = new Clouds();
     private final Windmill windmill = new Windmill();
@@ -93,6 +103,7 @@ public class Game implements Initializable {
 
     private User curPlayer;
     private Animations animations = new Animations();
+    private boolean isPauseDisabled = true;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -166,11 +177,9 @@ public class Game implements Initializable {
         platforms.add(new FloatingIsland(island48, rec48));
 
     }
-
     private void addFallingPlatform(){
         fallingPlatforms.add(new FallingPlatform(fp1, fp2, fp3, fp4, fp5));
     }
-
     private void addOrcs(){
 //        orcs.add(new MediumHatAxe(go1, new Axe(axe1, go1, axe1b), this));
         orcs.add(new MediumHatAxe(go2, new Axe(axe2, go2, axe1b), this));
@@ -191,18 +200,15 @@ public class Game implements Initializable {
         orcs.add(new ShieldedOrc(ro9, this));
         orcs.add(new ShieldedOrc(ro10, this));
     }
-
     private void addWeaponsForUser(){
         weaponsForUser.add(new Knives(knifeUI));
         weaponsForUser.add(new Sword(swordUI));
     }
-
     private void addWindmill(){
         windmill.addWindmills(wm1);
         windmill.addWindmills(wm2);
         windmill.addWindmills(wm3);
     }
-
     private void addCloud() {
         cloud.addClouds(cloud1);
         cloud.addClouds(cloud2);
@@ -227,7 +233,6 @@ public class Game implements Initializable {
         cloud.addClouds(cloud21);
         cloud.addClouds(cloud22);
     }
-
     private void addCoins(){
         coins.add(new Coin(coin1));
         coins.add(new Coin(coin2));
@@ -288,19 +293,12 @@ public class Game implements Initializable {
         coins.add(new Coin(coin57));
         coins.add(new Coin(coin58));
     }
-
     private void addChest() {
         chests.add(new WeaponChest(wcc1, wco1, this));
         chests.add(new WeaponChest(wcc2, wco2, this));
         chests.add(new WeaponChest(wcc3, wco3, this));
         chests.add(new CoinChest(ccc1, cco1, this));
 
-    }
-
-    public void setCurPlayer(){
-        Helmet penguinHelmet = new Penguin(penguin);
-        curPlayer.setHelmet(penguinHelmet);
-        GameObject.setUser(curPlayer);
     }
 
     public Node checkCollisionIsland(Node node){
@@ -312,7 +310,6 @@ public class Game implements Initializable {
         }
         return null;
     }
-
     public Node checkCollisionFallingPlatform(Node node){
         Node temp;
         for (FallingPlatform fallingPlatform : fallingPlatforms) {
@@ -322,7 +319,6 @@ public class Game implements Initializable {
         }
         return null;
     }
-
     public Orc checkCollisionOrc(Node node){
         for(Orc orc : orcs){
             if (node.getBoundsInParent().intersects(orc.getNode().getBoundsInParent())) {
@@ -331,7 +327,6 @@ public class Game implements Initializable {
         }
         return null;
     }
-
     public Coin checkCollisionCoin(Node node){
         for(Coin coin : coins){
             if (node.getBoundsInParent().intersects(coin.getNode().getBoundsInParent())) {
@@ -340,7 +335,6 @@ public class Game implements Initializable {
         }
         return null;
     }
-
     public Chest checkCollisionChest(Node node){
         for(Chest chest : chests){
             if(!chest.getIfopen()){
@@ -353,7 +347,7 @@ public class Game implements Initializable {
     }
 
     public void movePlayerForward(){
-        setLocationLabel(curPlayer.moveForward(gamePane, uiPane));
+        setLocationLabel(curPlayer.moveForward(gamePane, uiPane, pausePane));
     }
 
     public ArrayList<FloatingIsland> getPlatforms(){
@@ -381,6 +375,11 @@ public class Game implements Initializable {
         return curPlayer;
     }
 
+    public void setCurPlayer(){
+        Helmet penguinHelmet = new Penguin(penguin);
+        curPlayer.setHelmet(penguinHelmet);
+        GameObject.setUser(curPlayer);
+    }
     public void setCoinCountLabel(int val){
         animations.scaleCoin(bigCoin);
         coinCount.setText(String.valueOf(val));
@@ -409,6 +408,59 @@ public class Game implements Initializable {
         coinsAdded.setText("+" + String.valueOf(count));
         animations.fadeLabel(coinsAdded);
     }
+    public void setRestart() throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("PlayGame.fxml")));
+        Stage window = (Stage) restart.getScene().getWindow();
+        window.setTitle("Start Game");
+        window.setScene(new Scene(root, 712, 422));
+    }
+    public void setExit(){
+        System.exit(0);
+    }
+    public void setReturnToMainMenu() throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StartMenu.fxml")));
+        Stage window = (Stage) restart.getScene().getWindow();
+        window.setTitle("Start Game");
+        window.setScene(new Scene(root, 712, 422));
+    }
+    public void saveGame() throws Exception {
+
+        File savedGames = new File("SavedGames");
+        File[] savedFiles = savedGames.listFiles();
+        String name = "SavedGames\\game";
+        name += savedFiles.length;
+        name += ".txt";
+        File newGameSaved = new File(name);
+        try {
+            System.out.println(newGameSaved.createNewFile());
+        }
+        catch (IOException e){
+            System.out.println("not possible");
+        }
+        ObjectOutputStream out = null;
+        try {
+            out = new ObjectOutputStream(new FileOutputStream(name));
+            out.writeObject(curPlayer);
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        finally {
+            if(out!= null){
+                out.close();
+            }
+        }
+//
+//        Label lbl = new Label();
+//        lbl.setLayoutX(50);
+//        lbl.setLayoutY((savedFiles.length +1)*50);
+//        lbl.setPrefWidth(40);
+//        lbl.setPrefHeight(30);
+//        String Text = curPlayer.toString();
+//        lbl.setText(Text);
+//        savedgamepage.getChildren().add(lbl);
+
+    }
 
     public void choseKnife(){
         System.out.println("0");
@@ -419,6 +471,18 @@ public class Game implements Initializable {
         System.out.println(1);
         curPlayer.setCurWeapon(1);
         ((Sword)weaponsForUser.get(1)).showSelected();
+    }
+    public void togglePause(){
+        if(isPauseDisabled){
+            pausePane.setDisable(false);
+            pausePane.setOpacity(1.0);
+            isPauseDisabled = false;
+        }
+        else {
+            pausePane.setDisable(true);
+            pausePane.setOpacity(0.0);
+            isPauseDisabled = true;
+        }
     }
 
 

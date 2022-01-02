@@ -27,6 +27,7 @@ public class User implements Serializable{
     private transient ImageView playerHelmet;
     private final transient Animations animations = new Animations();
     private transient AnchorPane gamePane;
+    private transient AnchorPane pausePane;
     private transient AnchorPane uiPane;
     private final transient Game game;
     private boolean canUse = true;
@@ -156,6 +157,7 @@ public class User implements Serializable{
             playerHelmet.setLayoutX(playerHelmet.getLayoutX() + playerDx);
             gamePane.setLayoutX(gamePane.getLayoutX() - playerDx);
             uiPane.setLayoutX(uiPane.getLayoutX() + playerDx);
+            pausePane.setLayoutX(pausePane.getLayoutX() + playerDx);
             bg.setLayoutX(bg.getLayoutX() + playerDx);
 
 
@@ -233,7 +235,7 @@ public class User implements Serializable{
 
     }
 
-    public int moveForward(AnchorPane gamePane, AnchorPane UIPane){
+    public int moveForward(AnchorPane gamePane, AnchorPane UIPane, AnchorPane pausePane){
         if(!isDead){
             if(playerDy < 0){
                 playerDy = -playerDy;
@@ -245,6 +247,7 @@ public class User implements Serializable{
             }
             this.gamePane = gamePane;
             this.uiPane = UIPane;
+            this.pausePane = pausePane;
             movePlayerVertical.pause();
             movePlayerHorizontal.play();
             movePlayerHorizontal.setOnFinished(actionEvent1 -> movePlayerVertical.play());
