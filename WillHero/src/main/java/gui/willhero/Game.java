@@ -555,14 +555,12 @@ public class Game implements Initializable {
     }
 
     @FXML
-    private void selectImage(MouseEvent event)
-    {
+    private void selectImage(MouseEvent event) {
         String source1 = event.getSource().toString(); //yields complete string
         String source2 = event.getPickResult().getIntersectedNode().getId(); //returns JUST the id of the object that was clicked
         System.out.println("Full String: " + source1);
         System.out.println("Just the id: " + source2);
         System.out.println(" " + source2);
-
 
     }
 
