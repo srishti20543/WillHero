@@ -112,9 +112,8 @@ public class Game implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        curPlayer = new User(this, playerKnife, playerSword);
         GameObject.setGame(this);
-        setCurPlayer();
+        setCurPlayer(new User(this, playerKnife, playerSword, gamePane, pausePane, uiPane, savedGamePane, bg, new Penguin(penguin)));
         addPlatforms();
         addFallingPlatform();
         addOrcs();
@@ -132,7 +131,7 @@ public class Game implements Initializable {
         }
     }
 
-    private void addPlatforms(){
+    private void addPlatforms() {
         platforms.add(new FloatingIsland(island1, rec1));
         platforms.add(new FloatingIsland(island2, rec2));
         platforms.add(new FloatingIsland(island3, rec3));
@@ -188,10 +187,12 @@ public class Game implements Initializable {
         platforms.add(new FloatingIsland(island48, rec48));
 
     }
-    private void addFallingPlatform(){
+
+    private void addFallingPlatform() {
         fallingPlatforms.add(new FallingPlatform(fp1, fp2, fp3, fp4, fp5));
     }
-    private void addOrcs(){
+
+    private void addOrcs() {
 //        orcs.add(new MediumHatAxe(go1, new Axe(axe1, go1, axe1b), this));
         orcs.add(new MediumHatAxe(go2, new Axe(axe2, go2, axe1b), this));
         orcs.add(new MediumHatAxe(go3, new Axe(axe3, go3, axe1b), this));
@@ -211,15 +212,18 @@ public class Game implements Initializable {
         orcs.add(new ShieldedOrc(ro9, this));
         orcs.add(new ShieldedOrc(ro10, this));
     }
-    private void addWeaponsForUser(){
+
+    private void addWeaponsForUser() {
         weaponsForUser.add(new Knives(knifeUI));
         weaponsForUser.add(new Sword(swordUI));
     }
-    private void addWindmill(){
+
+    private void addWindmill() {
         windmill.addWindmills(wm1);
         windmill.addWindmills(wm2);
         windmill.addWindmills(wm3);
     }
+
     private void addCloud() {
         cloud.addClouds(cloud1);
         cloud.addClouds(cloud2);
@@ -244,7 +248,8 @@ public class Game implements Initializable {
         cloud.addClouds(cloud21);
         cloud.addClouds(cloud22);
     }
-    private void addCoins(){
+
+    private void addCoins() {
         coins.add(new Coin(coin1));
         coins.add(new Coin(coin2));
         coins.add(new Coin(coin3));
@@ -304,6 +309,7 @@ public class Game implements Initializable {
         coins.add(new Coin(coin57));
         coins.add(new Coin(coin58));
     }
+
     private void addChest() {
         chests.add(new WeaponChest(wcc1, wco1, this));
         chests.add(new WeaponChest(wcc2, wco2, this));
@@ -311,6 +317,7 @@ public class Game implements Initializable {
         chests.add(new CoinChest(ccc1, cco1, this));
 
     }
+
     private void addPrevGames() throws IOException, ClassNotFoundException {
         File savedGames = new File("SavedGames");
         File[] savedFiles = savedGames.listFiles();
@@ -325,36 +332,43 @@ public class Game implements Initializable {
                 temp = (User) in.readObject();
                 Label lbl = new Label("hello");
                 lbl.setLayoutX(20);
-                lbl.setLayoutY((i+1)*50);
+                lbl.setLayoutY((i + 1) * 50);
                 lbl.setPrefWidth(450);
                 lbl.setPrefHeight(25);
-                ImageView t1= new ImageView();
+                ImageView t1 = new ImageView();
                 t1.setImage(t1_img);
                 t1.setFitWidth(450);
                 t1.setFitHeight(25);
-                t1.setLayoutY((i+1)*50);
+                t1.setLayoutY((i + 1) * 50);
                 t1.setLayoutX(20);
                 List.getChildren().add(t1);
                 String text = temp.toString();
-                lbl.setText("" + (i+1) + "                           " + text);
+                lbl.setText("" + (i + 1) + "                           " + text);
                 lbl.setFont(new Font("Comic Sans MS", 20));
                 lbl.setTextFill(Color.WHITE);
                 lbl.addEventHandler(MouseEvent.MOUSE_CLICKED, this::selectImage);
+                if(i<10){
+                    lbl.setId("0" + String.valueOf(i));
+                }
+                else{
+                    lbl.setId(String.valueOf(i));
+                }
                 List.getChildren().add(lbl);
             }
         }
     }
 
-    public Node checkCollisionIsland(Node node){
+    public Node checkCollisionIsland(Node node) {
 
-        for(int i = 0; i<platforms.size(); i++){
+        for (int i = 0; i < platforms.size(); i++) {
             if (node.getBoundsInParent().intersects(platforms.get(i).getNode().getBoundsInParent())) {
                 return platforms.get(i).getNode();
             }
         }
         return null;
     }
-    public Node checkCollisionFallingPlatform(Node node){
+
+    public Node checkCollisionFallingPlatform(Node node) {
         Node temp;
         for (FallingPlatform fallingPlatform : fallingPlatforms) {
             if ((temp = fallingPlatform.checkCollision(node)) != null) {
@@ -363,8 +377,9 @@ public class Game implements Initializable {
         }
         return null;
     }
+
     public Orc checkCollisionOrc(Node node){
-        for(Orc orc : orcs){
+        for (Orc orc : orcs) {
             if (node.getBoundsInParent().intersects(orc.getNode().getBoundsInParent())) {
                 return orc;
             }
@@ -372,16 +387,16 @@ public class Game implements Initializable {
         return null;
     }
     public Coin checkCollisionCoin(Node node){
-        for(Coin coin : coins){
+        for (Coin coin : coins) {
             if (node.getBoundsInParent().intersects(coin.getNode().getBoundsInParent())) {
                 return coin;
             }
         }
         return null;
     }
-    public Chest checkCollisionChest(Node node){
-        for(Chest chest : chests){
-            if(!chest.getIfopen()){
+    public Chest checkCollisionChest(Node node) {
+        for (Chest chest : chests) {
+            if (!chest.getIfopen()) {
                 if (node.getBoundsInParent().intersects(chest.getNode().getBoundsInParent())) {
                     return chest;
                 }
@@ -389,84 +404,100 @@ public class Game implements Initializable {
         }
         return null;
     }
-
-    public void movePlayerForward(){
-        setLocationLabel(curPlayer.moveForward(gamePane, uiPane, pausePane, savedGamePane));
+    public void movePlayerForward() {
+        setLocationLabel(curPlayer.moveForward());
     }
 
-    public ArrayList<FloatingIsland> getPlatforms(){
+    public ArrayList<FloatingIsland> getPlatforms() {
         return this.platforms;
     }
-    public ArrayList<Chest> getChests(){
+    public ArrayList<Chest> getChests() {
         return this.chests;
     }
-    public ArrayList<Coin> getCoins(){
+    public ArrayList<Coin> getCoins() {
         return this.coins;
     }
-    public ArrayList<Orc> getOrcs(){
+    public ArrayList<Orc> getOrcs() {
         return this.orcs;
     }
-    public ArrayList<Weapons> getWeaponsForUser(){
+    public ArrayList<Weapons> getWeaponsForUser() {
         return this.weaponsForUser;
     }
-    public Node getBackground(){
+    public Node getBackground() {
         return this.bg;
     }
-    public AnchorPane getGamePane(){
+    public AnchorPane getGamePane() {
         return this.gamePane;
     }
-    public User getCurPlayer(){
+    public User getCurPlayer() {
         return curPlayer;
     }
 
-    public void setCurPlayer(){
-        Helmet penguinHelmet = new Penguin(penguin);
-        curPlayer.setHelmet(penguinHelmet);
+    public void setCurPlayer(User u) {
+        System.out.println(u.toString());
+        curPlayer = u;
         GameObject.setUser(curPlayer);
+        System.out.println(u.toString());
+        gamePane.setLayoutX(curPlayer.getPosX() - 148);
+        pausePane.setLayoutX(curPlayer.getPosX() - 148);
+        System.out.println(u.toString());
+        uiPane.setLayoutX(curPlayer.getPosX() - 148);
+        savedGamePane.setLayoutX(curPlayer.getPosX() - 148);
+        bg.setLayoutX(curPlayer.getPosX() - 148);
+        setCoinCountLabel(curPlayer.getCoinsCollected());
+        setLocationLabel(curPlayer.getCurrentScore());
+
     }
-    public void setCoinCountLabel(int val){
+
+    public void setCoinCountLabel(int val) {
         animations.scaleCoin(bigCoin);
         coinCount.setText(String.valueOf(val));
     }
-    public void setLocationLabel(int val){
+
+    public void setLocationLabel(int val) {
         score.setText(String.valueOf(val));
     }
-    public void updateWeaponUI(int ind, int level){
+
+    public void updateWeaponUI(int ind, int level) {
         Weapons temp = weaponsForUser.get(ind);
-        if(level == 1){
+        if (level == 1) {
             temp.toggle();
 
         }
-        if(temp instanceof Knives){
+        if (temp instanceof Knives) {
             knifeLevel.setText(String.valueOf(level));
             ((Knives) temp).showSelected();
             selectKnife.setDisable(false);
-        }
-        else if(temp instanceof Sword){
+        } else if (temp instanceof Sword) {
             swordLevel.setText(String.valueOf(level));
             ((Sword) temp).showSelected();
             selectSword.setDisable(false);
         }
     }
-    public void displayCoinsAdded(int count){
+
+    public void displayCoinsAdded(int count) {
         coinsAdded.setText("+" + String.valueOf(count));
         animations.fadeLabel(coinsAdded);
     }
+
     public void setRestart() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("PlayGame.fxml")));
         Stage window = (Stage) restart.getScene().getWindow();
         window.setTitle("Start Game");
         window.setScene(new Scene(root, 712, 422));
     }
-    public void setExit(){
+
+    public void setExit() {
         System.exit(0);
     }
+
     public void setReturnToMainMenu() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("StartMenu.fxml")));
         Stage window = (Stage) restart.getScene().getWindow();
         window.setTitle("Start Game");
         window.setScene(new Scene(root, 712, 422));
     }
+
     public void saveGame() throws Exception {
         File savedGames = new File("SavedGames");
         File[] savedFiles = savedGames.listFiles();
@@ -476,20 +507,17 @@ public class Game implements Initializable {
         File newGameSaved = new File(name);
         try {
             System.out.println(newGameSaved.createNewFile());
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             System.out.println("not possible");
         }
         ObjectOutputStream out = null;
         try {
             out = new ObjectOutputStream(new FileOutputStream(name));
             out.writeObject(curPlayer);
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
-        }
-        finally {
-            if(out!= null){
+        } finally {
+            if (out != null) {
                 out.close();
             }
         }
@@ -497,57 +525,61 @@ public class Game implements Initializable {
         Label lbl = new Label("hello");
         Image t1_img = new Image("bg.jpg");
         lbl.setLayoutX(20);
-        lbl.setLayoutY((savedFiles.length+1)*50);
+        lbl.setLayoutY((savedFiles.length + 1) * 50);
         lbl.setPrefWidth(450);
         lbl.setPrefHeight(25);
-        ImageView t1= new ImageView();
+        ImageView t1 = new ImageView();
         t1.setImage(t1_img);
         t1.setFitWidth(450);
         t1.setFitHeight(25);
-        t1.setLayoutY((savedFiles.length+1)*50);
+        t1.setLayoutY((savedFiles.length + 1) * 50);
         t1.setLayoutX(20);
         List.getChildren().add(t1);
         String text = curPlayer.toString();
-        lbl.setText("" + (savedFiles.length+1) + "                           " + text);
+        lbl.setText("" + (savedFiles.length + 1) + "                           " + text);
         lbl.setFont(new Font("Comic Sans MS", 20));
         lbl.setTextFill(Color.WHITE);
         lbl.addEventHandler(MouseEvent.MOUSE_CLICKED, this::selectImage);
+        if(savedFiles.length<10){
+            lbl.setId("0" + String.valueOf(savedFiles.length));
+        }
+        else{
+            lbl.setId(String.valueOf(savedFiles.length));
+        }
         List.getChildren().add(lbl);
     }
+
     public void loadSavedGames() throws IOException {
         toggleSaved();
     }
 
-    public void choseKnife(){
+    public void choseKnife() {
         System.out.println("0");
         curPlayer.setCurWeapon(0);
-        ((Knives)weaponsForUser.get(0)).showSelected();
+        ((Knives) weaponsForUser.get(0)).showSelected();
     }
-    public void choseSword(){
+    public void choseSword() {
         System.out.println(1);
         curPlayer.setCurWeapon(1);
-        ((Sword)weaponsForUser.get(1)).showSelected();
+        ((Sword) weaponsForUser.get(1)).showSelected();
     }
-
-    public void togglePause(){
-        if(isPauseDisabled){
+    public void togglePause() {
+        if (isPauseDisabled) {
             pausePane.setDisable(false);
             pausePane.setOpacity(1.0);
             isPauseDisabled = false;
-        }
-        else {
+        } else {
             pausePane.setDisable(true);
             pausePane.setOpacity(0.0);
             isPauseDisabled = true;
         }
     }
-    public void toggleSaved(){
-        if(isSavedDisabled){
+    public void toggleSaved() {
+        if (isSavedDisabled) {
             savedGamePane.setDisable(false);
             savedGamePane.setOpacity(1.0);
             isSavedDisabled = false;
-        }
-        else {
+        } else {
             savedGamePane.setDisable(true);
             savedGamePane.setOpacity(0.0);
             isSavedDisabled = true;
@@ -557,12 +589,35 @@ public class Game implements Initializable {
     @FXML
     private void selectImage(MouseEvent event) {
         String source1 = event.getSource().toString(); //yields complete string
-        String source2 = event.getPickResult().getIntersectedNode().getId(); //returns JUST the id of the object that was clicked
-        System.out.println("Full String: " + source1);
-        System.out.println("Just the id: " + source2);
-        System.out.println(" " + source2);
-
+        int s = Integer.parseInt(source1.substring(9,11));
+        String filename = "SavedGames\\game";
+        filename += s;
+        filename += ".txt";
+        System.out.println(filename);
+        try {
+            deserialize(filename);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
+    public void deserialize(String fname) throws IOException, ClassNotFoundException {
+        File savedGames = new File("SavedGames");
+        File[] savedFiles = savedGames.listFiles();
+        ObjectInputStream in = null;
+        User temp = null;
+        in = new ObjectInputStream(new FileInputStream(fname));
+        temp = (User) in.readObject();
+
+        User u = new User(this, playerKnife, playerSword, gamePane, pausePane, uiPane, savedGamePane, bg, new Penguin(penguin));
+        u.setPosX(temp.getPosX());
+        u.setPosY(temp.getPosY());
+        u.setCoinsCollected(temp.getCoinsCollected());
+        u.setHealth(temp.getHealth());
+        u.setScore(temp.getScore());
+        setCurPlayer(u);
+    }
 
 }

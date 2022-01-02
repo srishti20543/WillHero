@@ -30,6 +30,7 @@ public class User implements Serializable{
     private transient AnchorPane pausePane;
     private transient AnchorPane uiPane;
     private transient AnchorPane savedPane;
+    private transient Node bg;
     private final transient Game game;
     private boolean canUse = true;
 
@@ -46,19 +47,38 @@ public class User implements Serializable{
     private transient Node base;
     private double baseY;
 
-    User(Game game, Node knife, Node sword) {
+    private double posX;
+    private double posY;
+
+    User(Game game, Node knife, Node sword, AnchorPane gamePane, AnchorPane pausePane, AnchorPane uiPane, AnchorPane savedPane, Node bg, Helmet h) {
         this.health = 100;
         this.currentScore = 0;
         this.coinsCollected = 0;
         this.game = game;
         this.isDead = false;
         this.isResurrected = false;
+        this.gamePane = gamePane;
+        this.pausePane = pausePane;
+        this.uiPane = uiPane;
+        this.savedPane = savedPane;
+        this.bg = bg;
+        this.helmetChosen = h;
+        this.playerHelmet = h.getImg();
         this. weapons = new ArrayList<>();
         weapons.add(new Knives(knife));
         weapons.add(new Sword(sword));
 
+        posX = 148;
+        posY = 248;
+
+        playerHelmet.setLayoutX(posX);
+        playerHelmet.setLayoutY(posY);
+
 
         KeyFrame playerVertical = new KeyFrame(Duration.millis(1), actionEvent -> {
+            posY = playerHelmet.getLayoutY();
+            posX = playerHelmet.getLayoutX();
+
             if(isDead){
                 movePlayerVertical.stop();
                 dead.play();
@@ -149,7 +169,7 @@ public class User implements Serializable{
 
         KeyFrame playerHorizontal = new KeyFrame(Duration.millis(1), actionEvent -> {
 
-            Node bg = game.getBackground();
+
             Node plat = game.checkCollisionIsland(playerHelmet);
             Orc orc = game.checkCollisionOrc(playerHelmet);
             Coin coin = game.checkCollisionCoin(playerHelmet);
@@ -237,7 +257,7 @@ public class User implements Serializable{
 
     }
 
-    public int moveForward(AnchorPane gamePane, AnchorPane UIPane, AnchorPane pausePane, AnchorPane saved){
+    public int moveForward(){
         if(!isDead){
             if(playerDy < 0){
                 playerDy = -playerDy;
@@ -247,10 +267,6 @@ public class User implements Serializable{
                 curWeapon.use();
                 delay.play();
             }
-            this.gamePane = gamePane;
-            this.uiPane = UIPane;
-            this.pausePane = pausePane;
-            this.savedPane = saved;
             movePlayerVertical.pause();
             movePlayerHorizontal.play();
             movePlayerHorizontal.setOnFinished(actionEvent1 -> movePlayerVertical.play());
@@ -315,7 +331,36 @@ public class User implements Serializable{
         return weapons.get(val).getLevel();
     }
     public String toString(){
-        return "" + this.coinsCollected + "                           " + this.currentScore;
+        return "" + this.currentScore + "                           " + this.coinsCollected;
     }
+
+    public double getPosX(){
+        return posX;
+    }
+
+    public double getPosY(){
+        return posY;
+    }
+
+    public double getHealth(){
+        return health;
+    }
+
+    public int getScore(){
+        return currentScore;
+    }
+
+
+    public void setPosX(double x){
+        posX = x;
+    }
+    public void setPosY(double y){
+        posY = y;
+    }
+    public void setScore(int l){
+        currentScore = l;
+    }
+
+
 }
 
