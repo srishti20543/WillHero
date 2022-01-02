@@ -182,10 +182,6 @@ public class Game implements Initializable {
         platforms.add(new FloatingIsland(island42, rec42));
         platforms.add(new FloatingIsland(island43, rec43));
         platforms.add(new FloatingIsland(island44, rec44));
-        platforms.add(new FloatingIsland(island45, rec45));
-        platforms.add(new FloatingIsland(island46, rec46));
-        platforms.add(new FloatingIsland(island47, rec47));
-        platforms.add(new FloatingIsland(island48, rec48));
 
     }
 

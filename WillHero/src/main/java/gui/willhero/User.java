@@ -272,9 +272,10 @@ public class User implements Serializable{
         dead.getKeyFrames().add(ded);
         dead.setCycleCount(Timeline.INDEFINITE);
         KeyFrame boun = new KeyFrame(Duration.millis(1), actionEvent -> {
-            if(playerHelmet.getLayoutY()>400){
+            if(playerHelmet.getLayoutY()>=400 && playerHelmet.getLayoutY()<=401){
                 System.out.println("Game Over");
-                System.exit(0);
+                setHealth(1000);
+                boundary.stop();
             }
         });
         boundary.getKeyFrames().add(boun);
@@ -324,22 +325,29 @@ public class User implements Serializable{
         if(health <= 0) {
             this.isDead = true;
             Parent root = null;
-            try {
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoadSavedGames.fxml")));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Stage window = (Stage) game.getGamePane().getScene().getWindow();
-            window.setTitle("Saved Games");
-            window.setScene(new Scene(root, 712, 422));
+
             System.out.println("ded");
             if(isResurrected == false){
-                //show resurrection menu
-                isResurrected = true;
-                //check conditions and set isDead = T/F
+                try {
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ResurrectMenu.fxml")));
+                    Stage window = (Stage) game.getGamePane().getScene().getWindow();
+                    window.setTitle("Resurrect");
+                    window.setScene(new Scene(root, 712, 422));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
             }
             if (isResurrected == true){
-                //game over
+                try {
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("GameOverMenu.fxml")));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Stage window = (Stage) game.getGamePane().getScene().getWindow();
+                window.setTitle("Game Over");
+                window.setScene(new Scene(root, 712, 422));
             }
         }
     }
@@ -402,9 +410,27 @@ public class User implements Serializable{
     public void setCurWeap(Weapons wep){
         this.curWeapon = wep;
     }
+    
+    public void yes(){
+        isResurrected = true;
+        isDead = false;
+        playerHelmet.setLayoutX(148);
+        playerHelmet.setLayoutY(248);
+        setHealth(-1200);
+        boundary.play();
+    }
 
-//    public void setarraAofWeapon
-
+    public void no(){
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("GameOverMenu.fxml")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Stage window = (Stage) game.getGamePane().getScene().getWindow();
+        window.setTitle("Game Over");
+        window.setScene(new Scene(root, 712, 422));
+    }
 
 }
 

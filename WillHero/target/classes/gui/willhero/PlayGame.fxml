@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -626,12 +627,12 @@
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="wcc2" fitHeight="35.0" fitWidth="54.0" layoutX="1300.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wcc2" fitHeight="35.0" fitWidth="54.0" layoutX="3000.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestClosed.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="cco1" fitHeight="42.0" fitWidth="54.0" layoutX="1960.0" layoutY="190.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="cco1" fitHeight="42.0" fitWidth="54.0" layoutX="3000.0" layoutY="240.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/openCoinChest.png" />
          </image>
@@ -826,7 +827,7 @@
             <Image url="@Images/FloatingIsland2.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="wco2" fitHeight="35.0" fitWidth="54.0" layoutX="1300.0" layoutY="267.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="wco2" fitHeight="35.0" fitWidth="54.0" layoutX="1146.0" layoutY="264.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestOpen.png" />
          </image>
@@ -834,11 +835,6 @@
       <ImageView fx:id="wcc3" fitHeight="35.0" fitWidth="54.0" layoutX="738.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WeaponChestClosed.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="island45" fitHeight="154.0" fitWidth="190.0" layoutX="9170.0" layoutY="190.0">
-         <image>
-            <Image url="@Images/FloatingIsland3.png" />
          </image>
       </ImageView>
       <ImageView fx:id="island43" fitHeight="200.0" fitWidth="174.0" layoutX="8576.0" layoutY="165.0">
@@ -895,7 +891,6 @@
       <Rectangle fx:id="rec7" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="20.0" layoutX="8015.0" layoutY="258.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
       <Rectangle fx:id="rec42" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="20.0" layoutX="8385.0" layoutY="245.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
       <Rectangle fx:id="rec44" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="20.0" layoutX="8821.0" layoutY="269.0" stroke="BLACK" strokeType="INSIDE" width="220.0" />
-      <Rectangle fx:id="rec45" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="9178.0" layoutY="243.0" stroke="BLACK" strokeType="INSIDE" width="174.0" />
       <Rectangle fx:id="rec26" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="4907.0" layoutY="273.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
       <Rectangle fx:id="rec34" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="6352.0" layoutY="276.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
       <Rectangle fx:id="rec35" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="6536.0" layoutY="283.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
@@ -904,21 +899,6 @@
       <ImageView fx:id="cloud22" fitHeight="72.0" fitWidth="154.0" layoutX="9742.0" layoutY="108.0">
          <image>
             <Image url="@Images/Cloud1.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="island46" fitHeight="218.0" fitWidth="147.0" layoutX="9415.0" layoutY="152.0">
-         <image>
-            <Image url="@Images/WindmillBase.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="island48" fitHeight="154.0" fitWidth="190.0" layoutX="9840.0" layoutY="211.0">
-         <image>
-            <Image url="@Images/FloatingIsland3.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="island47" fitHeight="150.0" fitWidth="190.0" layoutX="9660.0" layoutY="213.0">
-         <image>
-            <Image url="@Images/FloatingIsland3.png" />
          </image>
       </ImageView>
       <ImageView fx:id="go41" fitHeight="35.0" fitWidth="33.0" layoutX="9908.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
@@ -971,9 +951,6 @@
             <Image url="@Images/FloatingIsland1.png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="rec48" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="9844.0" layoutY="262.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
-      <Rectangle fx:id="rec46" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="9415.0" layoutY="273.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
-      <Rectangle fx:id="rec47" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="9660.0" layoutY="262.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
       <ImageView fx:id="cloud11" fitHeight="72.0" fitWidth="154.0" layoutX="4414.0" layoutY="129.0">
          <image>
             <Image url="@Images/Cloud1.png" />
@@ -1141,5 +1118,24 @@
             </ScrollPane>
          </children>
       </AnchorPane>
+      <Rectangle fx:id="fp11" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="5816.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle fx:id="fp21" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="5851.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle fx:id="fp31" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="5887.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle fx:id="fp41" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="5923.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle fx:id="fp51" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="5959.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle fx:id="fp111" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="6034.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle fx:id="fp211" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="6069.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle fx:id="fp311" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="6105.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle fx:id="fp411" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="6141.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle fx:id="fp511" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="6177.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Group layoutX="1507.0" layoutY="242.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="40.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="80.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="120.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e4b744" height="10.0" layoutX="160.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+         </children>
+      </Group>
    </children>
 </AnchorPane>

@@ -27,7 +27,7 @@
             <Image url="@Images/Cloud1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="playImg" fitHeight="54.0" fitWidth="48.0" layoutX="323.0" layoutY="201.0" onMouseClicked="#setPlayButton" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="playImg" fitHeight="54.0" fitWidth="48.0" layoutX="254.0" layoutY="201.0" onMouseClicked="#setPlayButton" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/WhitePlayButton.png" />
          </image>
@@ -67,25 +67,19 @@
             <Image url="@Images/WillHeroText.png" />
          </image>
       </ImageView>
-      <Button fx:id="playButton" layoutX="315.0" layoutY="205.0" mnemonicParsing="false" onAction="#setPlayButton" opacity="0.0" prefHeight="54.0" prefWidth="62.0" text="Play" />
+      <Button fx:id="playButton" layoutX="247.0" layoutY="201.0" mnemonicParsing="false" onAction="#setPlayButton" opacity="0.0" prefHeight="54.0" prefWidth="62.0" text="Play" />
       <ImageView fitHeight="38.0" fitWidth="41.0" layoutX="13.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/SettingsIcon.png" />
          </image>
       </ImageView>
       <Button fx:id="settingsButton" layoutX="5.0" layoutY="15.0" mnemonicParsing="false" onAction="#setSettingsButton" opacity="0.0" prefHeight="32.0" prefWidth="52.0" text="Setting" />
-      <ImageView fitHeight="61.0" fitWidth="71.0" layoutX="409.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="61.0" fitWidth="71.0" layoutX="391.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Exit.png" />
          </image>
       </ImageView>
-      <Button fx:id="exitButton" layoutX="414.0" layoutY="203.0" mnemonicParsing="false" onAction="#setExitButton" opacity="0.0" prefHeight="50.0" prefWidth="52.0" text="Exit" />
-      <ImageView fitHeight="50.0" fitWidth="62.0" layoutX="222.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/Save.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="LoadSavedSavedGamesButton" layoutX="220.0" layoutY="207.0" mnemonicParsing="false" onAction="#setLoadSavedSavedGamesButton" opacity="0.0" prefHeight="50.0" prefWidth="52.0" text="Save" />
+      <Button fx:id="exitButton" layoutX="400.0" layoutY="205.0" mnemonicParsing="false" onAction="#setExitButton" opacity="0.0" prefHeight="50.0" prefWidth="52.0" text="Exit" />
       <ImageView fx:id="island3" fitHeight="150.0" fitWidth="200.0" layoutX="16.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/FloatingIsland5.png" />
