@@ -113,7 +113,8 @@ public class Game implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         GameObject.setGame(this);
-        setCurPlayer(new User(this, playerKnife, playerSword, gamePane, pausePane, uiPane, savedGamePane, bg, new Penguin(penguin)));
+        setCurPlayer(new User(this, playerKnife, playerSword, gamePane, pausePane, uiPane, savedGamePane, bg, new Penguin(penguin), 148, 248));
+        gamePane.setLayoutX(0);
         addPlatforms();
         addFallingPlatform();
         addOrcs();
@@ -438,7 +439,7 @@ public class Game implements Initializable {
         curPlayer = u;
         GameObject.setUser(curPlayer);
         System.out.println(u.toString());
-        gamePane.setLayoutX(curPlayer.getPosX() - 148);
+        gamePane.setLayoutX(-curPlayer.getPosX() + 148);
         pausePane.setLayoutX(curPlayer.getPosX() - 148);
         System.out.println(u.toString());
         uiPane.setLayoutX(curPlayer.getPosX() - 148);
@@ -563,7 +564,9 @@ public class Game implements Initializable {
         curPlayer.setCurWeapon(1);
         ((Sword) weaponsForUser.get(1)).showSelected();
     }
+
     public void togglePause() {
+        curPlayer.pauseTimelines();
         if (isPauseDisabled) {
             pausePane.setDisable(false);
             pausePane.setOpacity(1.0);
@@ -611,12 +614,14 @@ public class Game implements Initializable {
         in = new ObjectInputStream(new FileInputStream(fname));
         temp = (User) in.readObject();
 
-        User u = new User(this, playerKnife, playerSword, gamePane, pausePane, uiPane, savedGamePane, bg, new Penguin(penguin));
+        User u = new User(this, playerKnife, playerSword, gamePane, pausePane, uiPane, savedGamePane, bg, new Penguin(penguin), temp.getPosX(), temp.getPosY());
         u.setPosX(temp.getPosX());
         u.setPosY(temp.getPosY());
         u.setCoinsCollected(temp.getCoinsCollected());
         u.setHealth(temp.getHealth());
         u.setScore(temp.getScore());
+        toggleSaved();
+        togglePause();
         setCurPlayer(u);
     }
 

@@ -50,7 +50,7 @@ public class User implements Serializable{
     private double posX;
     private double posY;
 
-    User(Game game, Node knife, Node sword, AnchorPane gamePane, AnchorPane pausePane, AnchorPane uiPane, AnchorPane savedPane, Node bg, Helmet h) {
+    User(Game game, Node knife, Node sword, AnchorPane gamePane, AnchorPane pausePane, AnchorPane uiPane, AnchorPane savedPane, Node bg, Helmet h, double x, double y) {
         this.health = 100;
         this.currentScore = 0;
         this.coinsCollected = 0;
@@ -68,8 +68,8 @@ public class User implements Serializable{
         weapons.add(new Knives(knife));
         weapons.add(new Sword(sword));
 
-        posX = 148;
-        posY = 248;
+        posX = x;
+        posY = y;
 
         playerHelmet.setLayoutX(posX);
         playerHelmet.setLayoutY(posY);
@@ -326,6 +326,18 @@ public class User implements Serializable{
         }
     }
 
+    public void pauseTimelines(){
+        movePlayerHorizontal.stop();
+        movePlayerVertical.stop();
+        weaponPosition.stop();
+        attack.stop();
+        delay.stop();
+        dead.stop();
+        boundary.stop();
+
+
+    }
+
     public int updateWeapon(int val){
         weapons.get(val).update();
         return weapons.get(val).getLevel();
@@ -353,9 +365,11 @@ public class User implements Serializable{
 
     public void setPosX(double x){
         posX = x;
+        playerHelmet.setLayoutX(posX);
     }
     public void setPosY(double y){
         posY = y;
+        playerHelmet.setLayoutY(posY);
     }
     public void setScore(int l){
         currentScore = l;
