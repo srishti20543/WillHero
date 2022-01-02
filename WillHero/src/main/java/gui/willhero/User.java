@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class User implements Serializable{
 
+    private static final long serialVersionUID = 8;
     private static int ID;
     private static int highScore = 0;
     private double health;
@@ -23,26 +24,26 @@ public class User implements Serializable{
     private ArrayList<Weapons> weapons;
     private Helmet helmetChosen;
     private Weapons curWeapon;
-    private ImageView playerHelmet;
-    private final Animations animations = new Animations();
-    private AnchorPane gamePane;
-    private AnchorPane uiPane;
-    private Game game;
+    private transient ImageView playerHelmet;
+    private transient Animations animations = new Animations();
+    private transient AnchorPane gamePane;
+    private transient AnchorPane uiPane;
+    private transient Game game;
     private boolean isUsingWeaponK = false;
     private boolean isUsingWeaponS = false;
     private boolean canUse = true;
 
-    Timeline movePlayerHorizontal = new Timeline();
-    Timeline movePlayerVertical = new Timeline();
-    Timeline weaponPosition = new Timeline();
-    Timeline attack = new Timeline();
-    Timeline delay = new Timeline();
-    Timeline dead = new Timeline();
-    Timeline boundary = new Timeline();
+    private transient Timeline movePlayerHorizontal = new Timeline();
+    private transient Timeline movePlayerVertical = new Timeline();
+    private transient Timeline weaponPosition = new Timeline();
+    private transient Timeline attack = new Timeline();
+    private transient Timeline delay = new Timeline();
+    private transient Timeline dead = new Timeline();
+    private transient Timeline boundary = new Timeline();
 
     private double playerDy = 0.08;
     private double playerDx = 0.25;
-    private Node base;
+    private transient Node base;
     private double baseY;
 
     User(Game game, Node knife, Node sword) {
@@ -55,7 +56,6 @@ public class User implements Serializable{
         this.isWinner = false;
         this.isResurrected = false;
         this. weapons = new ArrayList<>();
-        knife.setOpacity(0.0);
         weapons.add(new Knives(knife));
         weapons.add(new Sword(sword));
 
@@ -228,6 +228,7 @@ public class User implements Serializable{
         KeyFrame boun = new KeyFrame(Duration.millis(1), actionEvent -> {
             if(playerHelmet.getLayoutY()>400){
                 System.out.println("Game Over");
+                System.exit(0);
             }
         });
         boundary.getKeyFrames().add(boun);

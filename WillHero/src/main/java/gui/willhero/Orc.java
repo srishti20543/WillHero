@@ -14,16 +14,18 @@ abstract class Orc extends GameObject{
     private boolean isDead;
     private String color;
     private int displacement;
-    private Node img;
+    private transient Node img;
     private double Orcdy = 0.05;
+    private static final long serialVersionUID = 4;
+    private transient Game game;
+    private transient Node prev;
 
-    private Game game;
-    private Node prev;
-
-    Timeline orcGravity = new Timeline();
-    Timeline checkAttack = new Timeline();
-    Timeline checkDead = new Timeline();
-    Timeline follow = new Timeline();
+    private transient Timeline orcGravity = new Timeline();
+    private transient Timeline checkAttack = new Timeline();
+    private transient Timeline checkDead = new Timeline();
+    private transient Timeline follow = new Timeline();
+    private transient Timeline followP = new Timeline();
+    private transient Timeline check = new Timeline();
 
     Orc(int d, int hp, int disp, Node orcImg, Game game){
         this.isDead = false;
@@ -32,6 +34,28 @@ abstract class Orc extends GameObject{
         this.displacement = disp;
         this.img = orcImg;
         this.game = game;
+
+
+        KeyFrame kf = new KeyFrame(Duration.millis(1), actionEvent -> {
+            if(getCurPlayer().getNode().getLayoutX() > this.getNode().getLayoutX()){
+                follow.play();
+                check.stop();
+            }
+        });
+        check.getKeyFrames().add(kf);
+        check.setCycleCount(Timeline.INDEFINITE);
+        check.play();
+
+        KeyFrame fol = new KeyFrame(Duration.millis(1), actionEvent -> {
+            this.getNode().setLayoutX(this.getNode().getLayoutX() + 0.2);
+            if(this.getNode().getLayoutX() >= getCurPlayer().getNode().getLayoutX() + 10){
+                followP.stop();
+                check.play();
+            }
+        });
+
+        followP.getKeyFrames().add(fol);
+        followP.setCycleCount(Timeline.INDEFINITE);
 
         KeyFrame orcG = new KeyFrame(Duration.millis(1), actionEvent -> {
             if(img.getLayoutY() > 400){
@@ -103,21 +127,6 @@ abstract class Orc extends GameObject{
         checkDead.getKeyFrames().add(ded);
         checkDead.setCycleCount(Timeline.INDEFINITE);
         checkDead.play();
-
-        KeyFrame fol = new KeyFrame(Duration.millis(1), actionEvent -> {
-            if(getCurPlayer().getNode().getLayoutX() > img.getLayoutX() + 100){
-                follow.setCycleCount(2);
-                follow.play();
-            }
-            if(img.getLayoutX() >= getCurPlayer().getNode().getLayoutX() + 30){
-                follow.stop();
-            }
-            getPushed();
-
-        });
-
-        follow.getKeyFrames().add(fol);
-        follow.play();
 
 
     }

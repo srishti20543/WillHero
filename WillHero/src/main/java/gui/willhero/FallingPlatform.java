@@ -10,7 +10,9 @@ import java.util.ArrayList;
 
 public class FallingPlatform extends Obstacle{
 
-    private ArrayList<Node> recs = new ArrayList<>();
+    private final transient ArrayList<Node> recs = new ArrayList<>();
+    private static final long serialVersionUID = 5;
+
 
     FallingPlatform(Node rec1, Node rec2,Node rec3, Node rec4, Node rec5){
         recs.add(rec1);

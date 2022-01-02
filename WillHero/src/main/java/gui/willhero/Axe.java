@@ -10,13 +10,14 @@ import java.security.Key;
 
 public class Axe extends Weapons{
 
-    private Node axe;
+    private transient Node axe;
     private int level;
-    private Node orcNode;
-    private  Node area;
+    private transient Node orcNode;
+    private transient Node area;
+    private static final long serialVersionUID = 13;
 
-    private Timeline staywOrc = new Timeline();
-    private Timeline collision = new Timeline();
+    private transient Timeline staywOrc = new Timeline();
+    private transient Timeline collision = new Timeline();
 
     Axe(Node axe, Node orc, Node area){
         super("Axe", 10);

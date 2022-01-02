@@ -8,7 +8,8 @@ import java.util.ArrayList;
 public class Coin extends GameObject{
 
     private int value;
-    private Node coinImg;
+    private transient Node coinImg;
+    private static final long serialVersionUID = 2;
 
     Coin(ImageView img){
         value = 1;

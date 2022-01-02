@@ -10,16 +10,16 @@ import java.util.Random;
 
 public class FloatingIsland extends GameObject{
 
-    private Node island;
-    private Node rectangle;
+    private transient Node island;
+    private transient Node rectangle;
+    private static final long serialVersionUID = 51;
 
-    private int animationType;
 
     FloatingIsland(Node island, Node rec){
         this.island = island;
         this.rectangle = rec;
         this.rectangle.setOpacity(0.0);
-        animationType = new Random().nextInt(2);
+        int animationType = new Random().nextInt(2);
 
         if(animationType == 0){
             animations.floatingUp((Rectangle) rec);
@@ -30,10 +30,6 @@ public class FloatingIsland extends GameObject{
             animations.floatingDown((ImageView) island);
         }
 
-    }
-
-    public int getAnimationType(){
-        return animationType;
     }
 
     @Override

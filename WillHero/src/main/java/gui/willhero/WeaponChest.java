@@ -8,6 +8,8 @@ import java.util.Random;
 
 public class WeaponChest extends Chest{
 
+    private static final long serialVersionUID = 32;
+
     WeaponChest(Node wco, Node wcc, Game game){
         super(wco, wcc, game);
     }

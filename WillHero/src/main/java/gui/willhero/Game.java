@@ -56,6 +56,9 @@ public class Game implements Initializable {
     private ImageView go1, go2, go3, go4, go5;
 
     @FXML
+    private ImageView bossOrc, bossOrcAxe, bossBoundary;
+
+    @FXML
     private ImageView axe1, axe2, axe3, axe4, axe5;
     @FXML
     private ImageView axe1b, axe2b;
@@ -169,11 +172,13 @@ public class Game implements Initializable {
     }
 
     private void addOrcs(){
-        orcs.add(new MediumHatAxe(go1, new Axe(axe1, go1, axe1b), this));
+//        orcs.add(new MediumHatAxe(go1, new Axe(axe1, go1, axe1b), this));
         orcs.add(new MediumHatAxe(go2, new Axe(axe2, go2, axe1b), this));
         orcs.add(new MediumHatAxe(go3, new Axe(axe3, go3, axe1b), this));
         orcs.add(new MediumHatAxe(go4, new Axe(axe4, go4, axe1b), this));
         orcs.add(new MediumHatAxe(go5, new Axe(axe5, go5, axe1b), this));
+
+        orcs.add(new BossOrc(go1, new Axe(axe1, go1, axe1b), this));
 
         orcs.add(new ShieldedOrc(ro1, this));
         orcs.add(new ShieldedOrc(ro2, this));
@@ -282,9 +287,6 @@ public class Game implements Initializable {
         coins.add(new Coin(coin56));
         coins.add(new Coin(coin57));
         coins.add(new Coin(coin58));
-//        coins.add(new Coin(coin59));
-//        coins.add(new Coin(coin60));
-
     }
 
     private void addChest() {
@@ -349,8 +351,6 @@ public class Game implements Initializable {
         }
         return null;
     }
-
-
 
     public void movePlayerForward(){
         setLocationLabel(curPlayer.moveForward(gamePane, uiPane));

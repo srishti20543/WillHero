@@ -8,10 +8,10 @@ import java.util.Random;
 
 public class CoinChest extends Chest{
 
-    private int coinCount;
     private Coin coins;
-    private ImageView ccc;
-    private ImageView cco;
+    private transient ImageView ccc;
+    private transient ImageView cco;
+    private static final long serialVersionUID = 31;
 
     CoinChest(Node cco, Node ccc, Game game){
         super(cco, ccc, game);
@@ -23,8 +23,7 @@ public class CoinChest extends Chest{
     }
 
     public int generateCoinCount(){
-        this.coinCount = (int) (Math.random() * (10 - 2 + 1) + 2);
-        return coinCount;
+        return (int) (Math.random() * (10 - 2 + 1) + 2);
     }
 
 

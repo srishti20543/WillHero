@@ -7,7 +7,8 @@ import java.util.ArrayList;
 
 public class Windmill extends GameObject{
 
-    private final ArrayList<Node> windmills = new ArrayList<>();
+    private final transient ArrayList<Node> windmills = new ArrayList<>();
+    private static final long serialVersionUID = 61;
 
     public void addWindmills(ImageView wm){
         windmills.add(wm);

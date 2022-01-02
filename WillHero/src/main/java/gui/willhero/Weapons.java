@@ -3,10 +3,12 @@ package gui.willhero;
 import javafx.scene.Node;
 
 abstract class Weapons extends GameObject{
+    private static final long serialVersionUID = 1;
     private String name;
     private int level;
     private boolean unlocked;
     private int damage;
+
 
     Weapons(String name, int damage){
         this.name = name;

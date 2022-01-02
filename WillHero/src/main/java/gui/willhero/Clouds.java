@@ -9,9 +9,9 @@ import java.util.Random;
 
 public class Clouds {
 
-    Animations animations = new Animations();
-
-    private final ArrayList<Node> clouds = new ArrayList<>();
+    transient Animations animations = new Animations();
+    private final transient ArrayList<Node> clouds = new ArrayList<>();
+    private static final long serialVersionUID = 10;
 
     public void addClouds(ImageView cloud){
         clouds.add(cloud);

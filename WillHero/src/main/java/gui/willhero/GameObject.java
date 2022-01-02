@@ -6,10 +6,10 @@ import java.io.Serializable;
 
 abstract class GameObject implements Serializable, Collidable {
 
-    private static long serialVersionUID;
+    private static final long serialVersionUID = 0;
     private static User curPlayer;
-    private static Game game;
-    Animations animations = new Animations();
+    private transient static Game game;
+    transient Animations animations = new Animations();
 
     public static Game getGame() {
         return game;

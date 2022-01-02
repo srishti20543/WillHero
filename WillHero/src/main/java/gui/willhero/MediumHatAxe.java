@@ -6,9 +6,12 @@ import javafx.scene.Node;
 import javafx.util.Duration;
 
 public class MediumHatAxe extends GreenOrc{
-    private Axe axe;
 
-    private Timeline die = new Timeline();
+    private Axe axe;
+    private transient Timeline die = new Timeline();
+    private static final long serialVersionUID = 421;
+
+
 
     MediumHatAxe(Node orcImg,Axe axe, Game game) {
         super(10, 100, 25, orcImg, game);

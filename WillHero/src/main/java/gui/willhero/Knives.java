@@ -10,7 +10,8 @@ import javafx.util.Duration;
 
 public class Knives extends Weapons{
 
-    private Node img;
+    private transient Node img;
+    private static final long serialVersionUID = 12;
 
     Knives(Node knife){
         super("Knives", 1);

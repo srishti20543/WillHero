@@ -8,16 +8,18 @@ import javafx.util.Duration;
 
 abstract class Chest extends GameObject{
 
-    private Node open;
-    private Node close;
-    private Game game;
+    private transient Node open;
+    private transient Node close;
+    private transient Game game;
+    private static final long serialVersionUID = 3;
 
     private boolean isOpen = false;
-    private Node no;
-    private Node nc;
+    private transient Node no;
+    private transient Node nc;
 
-    private final Timeline chestGravity = new Timeline();
-    private final Timeline stayIsland = new Timeline();
+    private final transient Timeline chestGravity = new Timeline();
+    private final transient Timeline stayIsland = new Timeline();
+
 
     Chest(Node open, Node close, Game game){
         this.open = open;
