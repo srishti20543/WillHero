@@ -295,7 +295,7 @@
             <Image url="@Images/WindmillBase.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="penguin" fitHeight="36.0" fitWidth="49.0" layoutX="164.0" layoutY="268.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="penguin" fitHeight="36.0" fitWidth="49.0" layoutX="164.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/PenguinHelmet-removebg-preview.png" />
          </image>
@@ -1011,6 +1011,36 @@
       <ImageView fx:id="cloud19" fitHeight="72.0" fitWidth="154.0" layoutX="8140.0" layoutY="27.0">
          <image>
             <Image url="@Images/Cloud1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin56" fitHeight="19.0" fitWidth="21.0" layoutX="5835.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin58" fitHeight="19.0" fitWidth="21.0" layoutX="5863.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin54" fitHeight="19.0" fitWidth="21.0" layoutX="5807.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin53" fitHeight="19.0" fitWidth="21.0" layoutX="5807.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin55" fitHeight="19.0" fitWidth="21.0" layoutX="5835.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coin57" fitHeight="19.0" fitWidth="21.0" layoutX="5863.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
       <AnchorPane fx:id="uiPane" layoutY="3.0" prefHeight="415.0" prefWidth="631.0">
