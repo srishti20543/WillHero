@@ -112,7 +112,7 @@ public class Game implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         GameObject.setGame(this);
-        setCurPlayer(new User(this, playerKnife, playerSword, gamePane, pausePane, uiPane, savedGamePane, bg, new Penguin(penguin), 7781, 248));
+        setCurPlayer(new User(this, playerKnife, playerSword, gamePane, pausePane, uiPane, savedGamePane, bg, new Penguin(penguin), 148, 248));
         addPlatforms();
         addFallingPlatform();
         addOrcs();
@@ -190,7 +190,7 @@ public class Game implements Initializable {
         orcs.add(new MediumHatAxe(go4, new Axe(axe4, go4, axe1b), this));
         orcs.add(new MediumHatAxe(go5, new Axe(axe5, go5, axe1b), this));
 
-        orcs.add(new ShieldedOrc(bossOrc, this));
+        orcs.add(new BossOrc(bossOrc, this));
         orcs.add(new ShieldedOrc(ro1, this));
         orcs.add(new ShieldedOrc(ro2, this));
         orcs.add(new ShieldedOrc(ro3, this));

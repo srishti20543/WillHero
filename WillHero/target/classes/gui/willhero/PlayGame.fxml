@@ -646,7 +646,7 @@
             <Image url="@Images/ThrowingKnives.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="axe1b" fitHeight="54.0" fitWidth="54.0" layoutX="846.0" layoutY="248.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="axe1b" fitHeight="54.0" fitWidth="54.0" layoutX="846.0" layoutY="248.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/Coin.jpg" />
          </image>
@@ -946,6 +946,41 @@
             <Image url="@Images/Coin.jpg" />
          </image>
       </ImageView>
+      <Rectangle fx:id="fp11" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="5816.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle fx:id="fp21" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="5851.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle fx:id="fp31" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="5887.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle fx:id="fp41" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="5923.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle fx:id="fp51" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="5959.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle fx:id="fp111" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="6034.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle fx:id="fp211" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="6069.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle fx:id="fp311" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="6105.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle fx:id="fp411" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="6141.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <Rectangle fx:id="fp511" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="6177.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
+      <ImageView fx:id="ccc11" fitHeight="42.0" fitWidth="54.0" layoutX="4245.0" layoutY="240.0">
+         <image>
+            <Image url="@Images/closedCoinchest.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cco11" fitHeight="191.0" fitWidth="52.0" layoutX="4245.0" layoutY="240.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/openCoinChest.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ccc111" fitHeight="42.0" fitWidth="54.0" layoutX="7600.0" layoutY="240.0">
+         <image>
+            <Image url="@Images/closedCoinchest.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cco111" fitHeight="191.0" fitWidth="52.0" layoutX="7600.0" layoutY="240.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/openCoinChest.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bossOrc" fitHeight="121.0" fitWidth="125.0" layoutX="8050.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/BossRedOrc.jpg" />
+         </image>
+      </ImageView>
       <AnchorPane fx:id="uiPane" prefHeight="415.0" prefWidth="631.0">
          <children>
             <Label fx:id="coinsAdded" layoutX="210.0" layoutY="120.0" prefHeight="142.0" prefWidth="241.0" textFill="#ffffffe5">
@@ -1043,40 +1078,5 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <Rectangle fx:id="fp11" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="5816.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
-      <Rectangle fx:id="fp21" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="5851.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
-      <Rectangle fx:id="fp31" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="5887.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
-      <Rectangle fx:id="fp41" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="5923.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
-      <Rectangle fx:id="fp51" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="5959.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
-      <Rectangle fx:id="fp111" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="6034.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
-      <Rectangle fx:id="fp211" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="6069.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
-      <Rectangle fx:id="fp311" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="6105.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
-      <Rectangle fx:id="fp411" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="6141.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
-      <Rectangle fx:id="fp511" arcHeight="5.0" arcWidth="5.0" fill="#df9619" height="7.0" layoutX="6177.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="36.0" />
-      <ImageView fx:id="ccc11" fitHeight="42.0" fitWidth="54.0" layoutX="4245.0" layoutY="240.0">
-         <image>
-            <Image url="@Images/closedCoinchest.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="cco11" fitHeight="191.0" fitWidth="52.0" layoutX="4245.0" layoutY="240.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/openCoinChest.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="ccc111" fitHeight="42.0" fitWidth="54.0" layoutX="7600.0" layoutY="240.0">
-         <image>
-            <Image url="@Images/closedCoinchest.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="cco111" fitHeight="191.0" fitWidth="52.0" layoutX="7600.0" layoutY="240.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/openCoinChest.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="bossOrc" fitHeight="121.0" fitWidth="125.0" layoutX="8050.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/BossRedOrc.jpg" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>
