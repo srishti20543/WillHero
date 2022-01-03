@@ -103,7 +103,8 @@ public class User implements Serializable{
             currentScore = (int)playerHelmet.getLayoutX()/75;
         }
 
-        if(this.currentScore >= 123){
+        if(this.currentScore >= 122){
+            pauseTimelines();
             try {
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("GameWonMenu.fxml")));
                 Stage window = (Stage) game.getGamePane().getScene().getWindow();
@@ -111,6 +112,7 @@ public class User implements Serializable{
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
         }
         return this.currentScore;
     }

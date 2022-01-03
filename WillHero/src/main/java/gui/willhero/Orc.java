@@ -83,7 +83,7 @@ abstract class Orc extends GameObject{
                 Orcdy = -Orcdy;
             }
 
-            if(img.getLayoutY() <= prev.getLayoutY() - 150){
+            if(img.getLayoutY() <= prev.getLayoutY() - 75){
                 Orcdy = -Orcdy;
             }
         });
