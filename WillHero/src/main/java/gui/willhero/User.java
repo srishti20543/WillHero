@@ -102,6 +102,16 @@ public class User implements Serializable{
             movePlayerHorizontal.setOnFinished(actionEvent1 -> movePlayerVertical.play());
             currentScore = (int)playerHelmet.getLayoutX()/75;
         }
+
+        if(this.currentScore >= 123){
+            try {
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("GameWonMenu.fxml")));
+                Stage window = (Stage) game.getGamePane().getScene().getWindow();
+                window.setScene(new Scene(root, 712, 422));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         return this.currentScore;
     }
 
@@ -146,7 +156,7 @@ public class User implements Serializable{
                         if(Math.abs(playerHelmet.getLayoutX() - orc.getNode().getLayoutX()) < 2)
                             playerHelmet.setLayoutY(playerHelmet.getLayoutY() + 1);
                         playerDy = -playerDy;
-                        setHealth(.0001);
+                        setHealth(1);
                     }
                     else{
                         base = orc.getNode();
@@ -412,7 +422,7 @@ public class User implements Serializable{
     public void setCurWeap(Weapons wep){
         this.curWeapon = wep;
     }
-    
+
     public void yes(){
         isResurrected = true;
         isDead = false;

@@ -44,21 +44,21 @@ public class Game implements Initializable {
     @FXML
     private Rectangle rec1, rec2, rec3, rec4, rec5, rec6, rec7, rec8, rec9, rec10, rec11, rec12, rec13, rec14, rec15,
             rec16, rec17, rec18, rec19, rec20, rec21, rec22, rec23, rec24, rec25, rec26, rec27, rec28, rec29, rec30,
-            rec31, rec32, rec33, rec34, rec35, rec36, rec37, rec38, rec39, rec40, rec41;
+            rec31, rec32, rec33, rec34, rec35, rec36, rec37, rec38, rec39, rec40;
 
     @FXML
     private ImageView cloud1, cloud2, cloud3, cloud4, cloud5, cloud6, cloud7, cloud8, cloud9, cloud10, cloud11, cloud12,
-            cloud13, cloud14, cloud15, cloud16, cloud17, cloud18, cloud19, cloud20, cloud21, cloud22;
+            cloud13, cloud14, cloud15, cloud16, cloud17, cloud18, cloud19, cloud20, cloud21;
 
     @FXML
     private ImageView coin1, coin2, coin3, coin4, coin5, coin6, coin7, coin8, coin9, coin10, bigCoin, coin11, coin12,
             coin13, coin14, coin15, coin16, coin17, coin18, coin19, coin20, coin21, coin22, coin23, coin24, coin25,
             coin26, coin27, coin28, coin29, coin30, coin31, coin32, coin33, coin34, coin35, coin36, coin37, coin38,
             coin39, coin40, coin41, coin42, coin43, coin44, coin45, coin46, coin47, coin48, coin49, coin50, coin51,
-            coin52, coin53, coin54, coin55, coin56, coin57, coin58, coin59, coin60;
+            coin52, coin53, coin54, coin55, coin56, coin57, coin58;
 
     @FXML
-    private ImageView ro1, ro2, ro3, ro4, ro5, ro6, ro7, ro8, ro9, ro10;
+    private ImageView ro1, ro2, ro3, ro4, ro5, ro6, ro7, ro8, ro9, ro10, ro11;
 
     @FXML
     private Rectangle fp1, fp2, fp3, fp4, fp5, fp11, fp21, fp31, fp41, fp51, fp111, fp211, fp311, fp411, fp511;
@@ -67,12 +67,12 @@ public class Game implements Initializable {
     private ImageView go1, go2, go3, go4, go5;
 
     @FXML
-    private ImageView bossOrc, bossOrcAxe, bossBoundary;
+    private ImageView bossOrc;
 
     @FXML
     private ImageView axe1, axe2, axe3, axe4, axe5;
     @FXML
-    private ImageView axe1b, axe2b;
+    private ImageView axe1b;
 
     @FXML
     private ImageView wm1, wm2, wm3;
@@ -112,8 +112,7 @@ public class Game implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         GameObject.setGame(this);
-        setCurPlayer(new User(this, playerKnife, playerSword, gamePane, pausePane, uiPane, savedGamePane, bg, new Penguin(penguin), 148, 248));
-//        gamePane.setLayoutX(0);
+        setCurPlayer(new User(this, playerKnife, playerSword, gamePane, pausePane, uiPane, savedGamePane, bg, new Penguin(penguin), 7781, 248));
         addPlatforms();
         addFallingPlatform();
         addOrcs();
@@ -179,13 +178,11 @@ public class Game implements Initializable {
         platforms.add(new FloatingIsland(island40, rec40));
 
     }
-
     private void addFallingPlatform() {
         fallingPlatforms.add(new FallingPlatform(fp1, fp2, fp3, fp4, fp5));
         fallingPlatforms.add(new FallingPlatform(fp11, fp21, fp31, fp41, fp51));
         fallingPlatforms.add(new FallingPlatform(fp111, fp211, fp311, fp411, fp511));
     }
-
     private void addOrcs() {
         orcs.add(new MediumHatAxe(go1, new Axe(axe1, go1, axe1b), this));
         orcs.add(new MediumHatAxe(go2, new Axe(axe2, go2, axe1b), this));
@@ -193,8 +190,7 @@ public class Game implements Initializable {
         orcs.add(new MediumHatAxe(go4, new Axe(axe4, go4, axe1b), this));
         orcs.add(new MediumHatAxe(go5, new Axe(axe5, go5, axe1b), this));
 
-        orcs.add(new BossOrc(bossOrc, this));
-
+        orcs.add(new ShieldedOrc(bossOrc, this));
         orcs.add(new ShieldedOrc(ro1, this));
         orcs.add(new ShieldedOrc(ro2, this));
         orcs.add(new ShieldedOrc(ro3, this));
@@ -205,19 +201,17 @@ public class Game implements Initializable {
         orcs.add(new ShieldedOrc(ro8, this));
         orcs.add(new ShieldedOrc(ro9, this));
         orcs.add(new ShieldedOrc(ro10, this));
+        orcs.add(new ShieldedOrc(ro11, this));
     }
-
     private void addWeaponsForUser() {
         weaponsForUser.add(new Knives(knifeUI));
         weaponsForUser.add(new Sword(swordUI));
     }
-
     private void addWindmill() {
         windmill.addWindmills(wm1);
         windmill.addWindmills(wm2);
         windmill.addWindmills(wm3);
     }
-
     private void addCloud() {
         cloud.addClouds(cloud1);
         cloud.addClouds(cloud2);
@@ -240,9 +234,7 @@ public class Game implements Initializable {
         cloud.addClouds(cloud19);
         cloud.addClouds(cloud20);
         cloud.addClouds(cloud21);
-        cloud.addClouds(cloud22);
     }
-
     private void addCoins() {
         coins.add(new Coin(coin1));
         coins.add(new Coin(coin2));
@@ -303,7 +295,6 @@ public class Game implements Initializable {
         coins.add(new Coin(coin57));
         coins.add(new Coin(coin58));
     }
-
     private void addChest() {
         chests.add(new WeaponChest(wcc1, wco1, this));
         chests.add(new WeaponChest(wcc2, wco2, this));
@@ -313,7 +304,6 @@ public class Game implements Initializable {
         chests.add(new CoinChest(ccc11, cco11, this));
         chests.add(new CoinChest(ccc111, cco111, this));
     }
-
     private void addPrevGames() throws IOException, ClassNotFoundException {
         File savedGames = new File("SavedGames");
         File[] savedFiles = savedGames.listFiles();

@@ -796,7 +796,7 @@
             <Image url="@Images/FloatingIsland1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="island7" fitHeight="154.0" fitWidth="190.0" layoutX="8011.0" layoutY="206.0">
+      <ImageView fx:id="island7" fitHeight="154.0" fitWidth="190.0" layoutX="8012.0" layoutY="244.0">
          <image>
             <Image url="@Images/FloatingIsland3.png" />
          </image>
@@ -865,63 +865,13 @@
       <Rectangle fx:id="rec39" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="7338.0" layoutY="256.0" stroke="BLACK" strokeType="INSIDE" width="113.0" />
       <Rectangle fx:id="rec40" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="7499.0" layoutY="286.0" stroke="BLACK" strokeType="INSIDE" width="220.0" />
       <Rectangle fx:id="rec8" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="20.0" layoutX="7781.0" layoutY="296.0" stroke="BLACK" strokeType="INSIDE" width="140.0" />
-      <Rectangle fx:id="rec7" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="20.0" layoutX="8015.0" layoutY="258.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
+      <Rectangle fx:id="rec7" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="20.0" layoutX="8016.0" layoutY="293.0" stroke="BLACK" strokeType="INSIDE" width="183.0" />
       <Rectangle fx:id="rec26" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="4907.0" layoutY="273.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
       <Rectangle fx:id="rec34" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="6352.0" layoutY="276.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
       <Rectangle fx:id="rec35" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="6536.0" layoutY="283.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
       <Rectangle fx:id="rec30" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="5700.0" layoutY="259.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
       <Rectangle fx:id="rec33" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="6267.0" layoutY="279.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
-      <ImageView fx:id="cloud22" fitHeight="72.0" fitWidth="154.0" layoutX="9742.0" layoutY="108.0">
-         <image>
-            <Image url="@Images/Cloud1.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="go41" fitHeight="35.0" fitWidth="33.0" layoutX="9908.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/HelmetGreenOrc.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="axe41" fitHeight="42.0" fitWidth="30.0" layoutX="9914.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/Axe.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="go31" fitHeight="35.0" fitWidth="33.0" layoutX="9782.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/HelmetGreenOrc.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="coin5113" fitHeight="19.0" fitWidth="21.0" layoutX="9990.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/Coin.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="coin6113" fitHeight="19.0" fitWidth="21.0" layoutX="10018.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/Coin.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="coin4113" fitHeight="19.0" fitWidth="21.0" layoutX="9962.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/Coin.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="coin1113" fitHeight="19.0" fitWidth="21.0" layoutX="9962.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/Coin.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="coin2113" fitHeight="19.0" fitWidth="21.0" layoutX="9990.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/Coin.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="coin3113" fitHeight="19.0" fitWidth="21.0" layoutX="10018.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/Coin.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="121.0" fitWidth="113.0" layoutX="9585.0" layoutY="67.0">
+      <ImageView fitHeight="121.0" fitWidth="113.0" layoutX="9148.0" layoutY="22.0">
          <image>
             <Image url="@Images/FloatingIsland1.png" />
          </image>
@@ -1123,7 +1073,7 @@
             <Image url="@Images/openCoinChest.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bossOrc" fitHeight="176.0" fitWidth="174.0" layoutX="8583.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bossOrc" fitHeight="121.0" fitWidth="125.0" layoutX="8050.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/BossRedOrc.jpg" />
          </image>

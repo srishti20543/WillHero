@@ -54,7 +54,7 @@ public class Axe extends Weapons{
             Timeline attack = new Timeline();
             KeyFrame kf = new KeyFrame(Duration.millis(1), actionEvent -> {
                 if(axe.getBoundsInParent().intersects(getCurPlayer().getNode().getBoundsInParent())){
-                    getCurPlayer().setHealth(0.01);
+                    getCurPlayer().setHealth(0.1);
                     attack.stop();
                 }
             });
