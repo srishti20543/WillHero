@@ -184,24 +184,24 @@ public class Game implements Initializable {
         fallingPlatforms.add(new FallingPlatform(fp111, fp211, fp311, fp411, fp511));
     }
     private void addOrcs() {
-        orcs.add(new MediumHatAxe(go1, new Axe(axe1, go1, axe1b), this));
-        orcs.add(new MediumHatAxe(go2, new Axe(axe2, go2, axe1b), this));
-        orcs.add(new MediumHatAxe(go3, new Axe(axe3, go3, axe1b), this));
-        orcs.add(new MediumHatAxe(go4, new Axe(axe4, go4, axe1b), this));
-        orcs.add(new MediumHatAxe(go5, new Axe(axe5, go5, axe1b), this));
-
-        orcs.add(new BossOrc(bossOrc, this));
-        orcs.add(new ShieldedOrc(ro1, this));
-        orcs.add(new ShieldedOrc(ro2, this));
-        orcs.add(new ShieldedOrc(ro3, this));
-        orcs.add(new ShieldedOrc(ro4, this));
-        orcs.add(new ShieldedOrc(ro5, this));
-        orcs.add(new ShieldedOrc(ro6, this));
-        orcs.add(new ShieldedOrc(ro7, this));
-        orcs.add(new ShieldedOrc(ro8, this));
-        orcs.add(new ShieldedOrc(ro9, this));
-        orcs.add(new ShieldedOrc(ro10, this));
-        orcs.add(new ShieldedOrc(ro11, this));
+//        orcs.add(new MediumHatAxe(go1, new Axe(axe1, go1, axe1b), this));
+//        orcs.add(new MediumHatAxe(go2, new Axe(axe2, go2, axe1b), this));
+//        orcs.add(new MediumHatAxe(go3, new Axe(axe3, go3, axe1b), this));
+//        orcs.add(new MediumHatAxe(go4, new Axe(axe4, go4, axe1b), this));
+//        orcs.add(new MediumHatAxe(go5, new Axe(axe5, go5, axe1b), this));
+//
+//        orcs.add(new BossOrc(bossOrc, this));
+//        orcs.add(new ShieldedOrc(ro1, this));
+//        orcs.add(new ShieldedOrc(ro2, this));
+//        orcs.add(new ShieldedOrc(ro3, this));
+//        orcs.add(new ShieldedOrc(ro4, this));
+//        orcs.add(new ShieldedOrc(ro5, this));
+//        orcs.add(new ShieldedOrc(ro6, this));
+//        orcs.add(new ShieldedOrc(ro7, this));
+//        orcs.add(new ShieldedOrc(ro8, this));
+//        orcs.add(new ShieldedOrc(ro9, this));
+//        orcs.add(new ShieldedOrc(ro10, this));
+//        orcs.add(new ShieldedOrc(ro11, this));
     }
     private void addWeaponsForUser() {
         weaponsForUser.add(new Knives(knifeUI));

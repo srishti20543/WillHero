@@ -210,6 +210,11 @@ public class User implements Serializable{
 
         KeyFrame playerHorizontal = new KeyFrame(Duration.millis(1), actionEvent -> {
 
+            if(isDead){
+                movePlayerHorizontal.stop();
+                dead.play();
+
+            }
 
             Node plat = game.checkCollisionIsland(playerHelmet);
             Orc orc = game.checkCollisionOrc(playerHelmet);
