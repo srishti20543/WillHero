@@ -726,12 +726,12 @@
             <Image url="@Images/trial.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="island31" fitHeight="142.0" fitWidth="121.0" layoutX="8316.0" layoutY="211.0">
+      <ImageView fx:id="island31" fitHeight="142.0" fitWidth="121.0" layoutX="8294.0" layoutY="244.0">
          <image>
             <Image url="@Images/FloatingIsland1-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="island32" fitHeight="121.0" fitWidth="200.0" layoutX="8570.0" layoutY="221.0">
+      <ImageView fx:id="island32" fitHeight="121.0" fitWidth="200.0" layoutX="8508.0" layoutY="258.0">
          <image>
             <Image url="@Images/FloatingIsland1-removebg-preview.png" />
          </image>
@@ -857,8 +857,8 @@
       <Rectangle fx:id="rec27" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="5135.0" layoutY="266.0" stroke="BLACK" strokeType="INSIDE" width="189.0" />
       <Rectangle fx:id="rec28" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="5320.0" layoutY="267.0" stroke="BLACK" strokeType="INSIDE" width="99.0" />
       <Rectangle fx:id="rec29" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="5559.0" layoutY="254.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
-      <Rectangle fx:id="rec31" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="8324.0" layoutY="265.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
-      <Rectangle fx:id="rec32" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="8583.0" layoutY="268.0" stroke="BLACK" strokeType="INSIDE" width="174.0" />
+      <Rectangle fx:id="rec31" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutX="8302.0" layoutY="298.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+      <Rectangle fx:id="rec32" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="8521.0" layoutY="305.0" stroke="BLACK" strokeType="INSIDE" width="174.0" />
       <Rectangle fx:id="rec36" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="6664.0" layoutY="282.0" stroke="BLACK" strokeType="INSIDE" width="165.0" />
       <Rectangle fx:id="rec37" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="26.0" layoutX="6892.0" layoutY="276.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
       <Rectangle fx:id="rec38" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="19.0" layoutX="7057.0" layoutY="261.0" stroke="BLACK" strokeType="INSIDE" width="211.0" />
